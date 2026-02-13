@@ -202,3 +202,13 @@ class PhysicsSimulator:
                 fill=p.color, outline='white', tags='particle'
             )
         
+        # Update info
+        status = "PAUSED" if self.paused else "RUNNING"
+        self.info_label.config(
+            text=f"{status} | Particles: {len(self.particles)} | Gravity: {self.gravity:.0f} | "
+                 f"Controls: CLICK+DRAG=Create | SPACE=Pause | R=Reset | C=Clear | +/- =Gravity | Q=Quit"
+        )
+        
+        # Schedule next frame
+        self.root.after(16, self.update)  # ~60 FPS
+
