@@ -89,3 +89,6 @@ class PhysicsSimulator:
         self.mouse_pressed = True
         self.drag_start_x = event.x
         self.drag_start_y = event.y
+        
+    def on_mouse_drag(self, event):
+        if self.mouse_pressed:
