@@ -135,3 +135,10 @@ class PhysicsSimulator:
     def clear_particles(self):
         self.particles.clear()
         
+    def change_gravity(self, delta):
+        self.gravity += delta
+        self.gravity = max(0, min(2000, self.gravity))  # Limit gravity
+    
+    def handle_collisions(self):
+        # Wall collisions
+        for p in self.particles:
