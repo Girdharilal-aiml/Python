@@ -85,3 +85,7 @@ class PhysicsSimulator:
             color = random.choice(colors)
             self.particles.append(Particle(x, y, vx, vy, radius=8, color=color))
     
+    def on_mouse_press(self, event):
+        self.mouse_pressed = True
+        self.drag_start_x = event.x
+        self.drag_start_y = event.y
