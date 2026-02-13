@@ -212,3 +212,10 @@ class PhysicsSimulator:
         # Schedule next frame
         self.root.after(16, self.update)  # ~60 FPS
 
+def main():
+    root = tk.Tk()
+    app = PhysicsSimulator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
