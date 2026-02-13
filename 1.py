@@ -64,3 +64,7 @@ class PhysicsSimulator:
         self.root.bind('+', lambda e: self.change_gravity(50))
         self.root.bind('=', lambda e: self.change_gravity(50))
         self.root.bind('-', lambda e: self.change_gravity(-50))
+        
+        # Info label
+        self.info_label = tk.Label(root, text="", bg='white', fg='black')
+        self.info_label.pack(fill=tk.X)
