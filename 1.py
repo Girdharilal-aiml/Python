@@ -153,3 +153,13 @@ class PhysicsSimulator:
                 p.y = p.radius
                 p.vy = abs(p.vy) * self.restitution
                 
+            # Left
+            if p.x - p.radius <= 0:
+                p.x = p.radius
+                p.vx = abs(p.vx) * self.restitution
+                
+            # Right
+            if p.x + p.radius >= self.width:
+                p.x = self.width - p.radius
+                p.vx = -abs(p.vx) * self.restitution
+        
