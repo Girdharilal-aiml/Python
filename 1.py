@@ -110,3 +110,10 @@ class PhysicsSimulator:
             colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta', 'orange', 'white']
             color = random.choice(colors)
             
+            self.particles.append(Particle(
+                self.drag_start_x, self.drag_start_y,
+                vx, vy,
+                radius=random.randint(5, 10),
+                color=color
+            ))
+            
