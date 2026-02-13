@@ -127,3 +127,11 @@ class PhysicsSimulator:
     def toggle_pause(self):
         self.paused = not self.paused
         
+    def reset(self):
+        self.particles.clear()
+        self.create_initial_particles()
+        self.gravity = 500
+        
+    def clear_particles(self):
+        self.particles.clear()
+        
