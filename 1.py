@@ -117,3 +117,13 @@ class PhysicsSimulator:
                 color=color
             ))
             
+            # Remove preview line
+            if self.preview_line:
+                self.canvas.delete(self.preview_line)
+                self.preview_line = None
+                
+        self.mouse_pressed = False
+    
+    def toggle_pause(self):
+        self.paused = not self.paused
+        
