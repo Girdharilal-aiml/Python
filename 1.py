@@ -42,3 +42,8 @@ class PhysicsSimulator:
         
         # Physics settings
         self.particles = []
+        self.gravity = 500  # pixels per second^2
+        self.restitution = 0.85  # bounciness
+        self.paused = False
+        self.dt = 0.016  # ~60 FPS
+        
