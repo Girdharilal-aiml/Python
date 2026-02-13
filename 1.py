@@ -163,3 +163,16 @@ class PhysicsSimulator:
                 p.x = self.width - p.radius
                 p.vx = -abs(p.vx) * self.restitution
         
+        # Particle-particle collisions
+        for i, p1 in enumerate(self.particles):
+            for p2 in self.particles[i+1:]:
+                dx = p2.x - p1.x
+                dy = p2.y - p1.y
+                dist = math.sqrt(dx*dx + dy*dy)
+                min_dist = p1.radius + p2.radius
+                
+                if dist < min_dist and dist > 0:
+                    # Separate particles
+                    overlap = min_dist - dist
+                    angle = math.atan2(dy, dx)
+                    
