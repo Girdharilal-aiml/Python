@@ -187,3 +187,9 @@ class PhysicsSimulator:
     
     def update(self):
         if not self.paused:
+            # Update physics
+            for p in self.particles:
+                p.update(self.dt, self.gravity)
+            
+            self.handle_collisions()
+        
