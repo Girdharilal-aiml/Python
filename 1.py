@@ -11,3 +11,9 @@ CONTROLS:
 - Q: Quit
 """
 
+import tkinter as tk
+import math
+import random
+
+class Particle:
+    def __init__(self, x, y, vx, vy, radius=5, color='blue'):
