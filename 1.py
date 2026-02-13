@@ -176,3 +176,8 @@ class PhysicsSimulator:
                     overlap = min_dist - dist
                     angle = math.atan2(dy, dx)
                     
+                    p1.x -= overlap * math.cos(angle) / 2
+                    p1.y -= overlap * math.sin(angle) / 2
+                    p2.x += overlap * math.cos(angle) / 2
+                    p2.y += overlap * math.sin(angle) / 2
+                    
