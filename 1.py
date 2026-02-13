@@ -52,3 +52,7 @@ class PhysicsSimulator:
         self.drag_start_x = 0
         self.drag_start_y = 0
         self.preview_line = None
+        
+        # Bind controls
+        self.canvas.bind('<ButtonPress-1>', self.on_mouse_press)
+        self.canvas.bind('<B1-Motion>', self.on_mouse_drag)
