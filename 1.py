@@ -27,3 +27,8 @@ class Particle:
     def update(self, dt, gravity):
         self.vy += gravity * dt
         self.x += self.vx * dt
+        self.y += self.vy * dt
+
+class PhysicsSimulator:
+    def __init__(self, root):
+        self.root = root
