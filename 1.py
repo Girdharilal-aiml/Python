@@ -193,3 +193,12 @@ class PhysicsSimulator:
             
             self.handle_collisions()
         
+        # Render
+        self.canvas.delete('particle')
+        for p in self.particles:
+            self.canvas.create_oval(
+                p.x - p.radius, p.y - p.radius,
+                p.x + p.radius, p.y + p.radius,
+                fill=p.color, outline='white', tags='particle'
+            )
+        
