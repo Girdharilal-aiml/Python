@@ -185,3 +185,5 @@ class PhysicsSimulator:
                     p1.vx, p2.vx = p2.vx * 0.9, p1.vx * 0.9
                     p1.vy, p2.vy = p2.vy * 0.9, p1.vy * 0.9
     
+    def update(self):
+        if not self.paused:
