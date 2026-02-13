@@ -60,3 +60,7 @@ class PhysicsSimulator:
         self.root.bind('<space>', lambda e: self.toggle_pause())
         self.root.bind('r', lambda e: self.reset())
         self.root.bind('c', lambda e: self.clear_particles())
+        self.root.bind('q', lambda e: self.root.quit())
+        self.root.bind('+', lambda e: self.change_gravity(50))
+        self.root.bind('=', lambda e: self.change_gravity(50))
+        self.root.bind('-', lambda e: self.change_gravity(-50))
