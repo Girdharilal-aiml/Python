@@ -76,3 +76,7 @@ class PhysicsSimulator:
         self.update()
         
     def create_initial_particles(self):
+        colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta', 'orange']
+        for _ in range(5):
+            x = random.randint(100, self.width - 100)
+            y = random.randint(50, 200)
