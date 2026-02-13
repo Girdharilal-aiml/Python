@@ -181,3 +181,7 @@ class PhysicsSimulator:
                     p2.x += overlap * math.cos(angle) / 2
                     p2.y += overlap * math.sin(angle) / 2
                     
+                    # Simple velocity exchange
+                    p1.vx, p2.vx = p2.vx * 0.9, p1.vx * 0.9
+                    p1.vy, p2.vy = p2.vy * 0.9, p1.vy * 0.9
+    
