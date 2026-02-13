@@ -36,3 +36,9 @@ class PhysicsSimulator:
         
         # Canvas
         self.width = 800
+        self.height = 600
+        self.canvas = tk.Canvas(root, width=self.width, height=self.height, bg='black')
+        self.canvas.pack()
+        
+        # Physics settings
+        self.particles = []
