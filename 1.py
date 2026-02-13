@@ -72,3 +72,7 @@ class PhysicsSimulator:
         # Start with some particles
         self.create_initial_particles()
         
+        # Start animation
+        self.update()
+        
+    def create_initial_particles(self):
