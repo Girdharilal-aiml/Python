@@ -32,3 +32,7 @@ class Particle:
 class PhysicsSimulator:
     def __init__(self, root):
         self.root = root
+        self.root.title("Physics Simulator - Click and Drag to Create Particles")
+        
+        # Canvas
+        self.width = 800
