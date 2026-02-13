@@ -68,3 +68,7 @@ class PhysicsSimulator:
         # Info label
         self.info_label = tk.Label(root, text="", bg='white', fg='black')
         self.info_label.pack(fill=tk.X)
+        
+        # Start with some particles
+        self.create_initial_particles()
+        
