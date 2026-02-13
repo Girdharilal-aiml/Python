@@ -148,3 +148,8 @@ class PhysicsSimulator:
                 p.vy = -abs(p.vy) * self.restitution
                 p.vx *= 0.98  # Friction
                 
+            # Top
+            if p.y - p.radius <= 0:
+                p.y = p.radius
+                p.vy = abs(p.vy) * self.restitution
+                
