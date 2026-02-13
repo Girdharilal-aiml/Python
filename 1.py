@@ -47,3 +47,8 @@ class PhysicsSimulator:
         self.paused = False
         self.dt = 0.016  # ~60 FPS
         
+        # Mouse tracking for particle creation
+        self.mouse_pressed = False
+        self.drag_start_x = 0
+        self.drag_start_y = 0
+        self.preview_line = None
