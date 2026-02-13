@@ -22,3 +22,8 @@ class Particle:
         self.vx = vx
         self.vy = vy
         self.radius = radius
+        self.color = color
+        
+    def update(self, dt, gravity):
+        self.vy += gravity * dt
+        self.x += self.vx * dt
