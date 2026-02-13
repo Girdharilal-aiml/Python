@@ -92,3 +92,14 @@ class PhysicsSimulator:
         
     def on_mouse_drag(self, event):
         if self.mouse_pressed:
+            # Draw preview line
+            if self.preview_line:
+                self.canvas.delete(self.preview_line)
+            self.preview_line = self.canvas.create_line(
+                self.drag_start_x, self.drag_start_y,
+                event.x, event.y,
+                fill='white', width=2, arrow=tk.LAST
+            )
+    
+    def on_mouse_release(self, event):
+        if self.mouse_pressed:
