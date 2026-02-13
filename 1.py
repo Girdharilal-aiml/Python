@@ -103,3 +103,10 @@ class PhysicsSimulator:
     
     def on_mouse_release(self, event):
         if self.mouse_pressed:
+            # Create particle with velocity based on drag
+            vx = (event.x - self.drag_start_x) * 2
+            vy = (event.y - self.drag_start_y) * 2
+            
+            colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta', 'orange', 'white']
+            color = random.choice(colors)
+            
