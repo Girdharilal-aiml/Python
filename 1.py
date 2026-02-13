@@ -142,3 +142,9 @@ class PhysicsSimulator:
     def handle_collisions(self):
         # Wall collisions
         for p in self.particles:
+            # Bottom
+            if p.y + p.radius >= self.height:
+                p.y = self.height - p.radius
+                p.vy = -abs(p.vy) * self.restitution
+                p.vx *= 0.98  # Friction
+                
