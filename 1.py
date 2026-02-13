@@ -80,3 +80,8 @@ class PhysicsSimulator:
         for _ in range(5):
             x = random.randint(100, self.width - 100)
             y = random.randint(50, 200)
+            vx = random.uniform(-150, 150)
+            vy = random.uniform(-100, 100)
+            color = random.choice(colors)
+            self.particles.append(Particle(x, y, vx, vy, radius=8, color=color))
+    
