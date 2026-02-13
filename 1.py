@@ -56,3 +56,7 @@ class PhysicsSimulator:
         # Bind controls
         self.canvas.bind('<ButtonPress-1>', self.on_mouse_press)
         self.canvas.bind('<B1-Motion>', self.on_mouse_drag)
+        self.canvas.bind('<ButtonRelease-1>', self.on_mouse_release)
+        self.root.bind('<space>', lambda e: self.toggle_pause())
+        self.root.bind('r', lambda e: self.reset())
+        self.root.bind('c', lambda e: self.clear_particles())
