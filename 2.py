@@ -233,4 +233,17 @@ class TodoApp:
         
         self.task_listbox.delete(0, tk.END)
         
+        for task in self.tasks:
+            if search_term in task['text'].lower():
+                self.add_task_to_listbox(task)
+        
+        self.update_stats()
+    
+    def clear_search(self):
+        self.search_entry.delete(0, tk.END)
+        self.display_tasks()
+    
+    def display_tasks(self):
+        self.task_listbox.delete(0, tk.END)
+        
     
