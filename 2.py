@@ -15,3 +15,12 @@ from tkinter import messagebox, simpledialog
 import json
 import os
 from datetime import datetime
+
+class TodoApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("To-Do List")
+        self.root.geometry("600x500")
+        self.root.configure(bg='#f0f0f0')
+        
+    
