@@ -179,4 +179,11 @@ class TodoApp:
             'created': datetime.now().strftime("%Y-%m-%d %H:%M")
         }
         
+        self.tasks.append(task)
+        self.save_tasks()
+        self.display_tasks()
+        
+        # Clear entry
+        self.task_entry.delete(0, tk.END)
+        self.task_entry.focus()
     
