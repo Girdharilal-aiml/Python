@@ -152,4 +152,17 @@ class TodoApp:
         )
         clear_all_btn.pack(side=tk.LEFT, padx=5)
         
+        # Stats label
+        self.stats_label = tk.Label(
+            root,
+            text="",
+            font=('Arial', 9),
+            bg='#f0f0f0',
+            fg='#666'
+        )
+        self.stats_label.pack(pady=5)
+        
+        # Initial display
+        self.display_tasks()
+        
     
