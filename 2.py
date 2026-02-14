@@ -140,4 +140,16 @@ class TodoApp:
         )
         delete_btn.pack(side=tk.LEFT, padx=5)
         
+        clear_all_btn = tk.Button(
+            button_frame,
+            text="Clear All",
+            command=self.clear_all,
+            bg='#FF9800',
+            fg='white',
+            font=('Arial', 10),
+            cursor='hand2',
+            width=15
+        )
+        clear_all_btn.pack(side=tk.LEFT, padx=5)
+        
     
