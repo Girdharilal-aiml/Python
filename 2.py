@@ -64,4 +64,15 @@ class TodoApp:
         priority_menu.config(width=8)
         priority_menu.pack(side=tk.LEFT, padx=5)
         
+        # Add button
+        add_btn = tk.Button(
+            input_frame,
+            text="➕ Add Task",
+            command=self.add_task,
+            bg='#4CAF50',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            cursor='hand2'
+        )
+        add_btn.pack(side=tk.LEFT, padx=5)
     
