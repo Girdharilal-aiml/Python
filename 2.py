@@ -82,4 +82,14 @@ class TodoApp:
         
         tk.Label(search_frame, text="🔍 Search:", bg='#f0f0f0').pack(side=tk.LEFT)
         
+        self.search_entry = tk.Entry(search_frame, font=('Arial', 10), width=20)
+        self.search_entry.pack(side=tk.LEFT, padx=5)
+        self.search_entry.bind('<KeyRelease>', lambda e: self.filter_tasks())
+        
+        clear_search_btn = tk.Button(
+            search_frame,
+            text="Clear",
+            command=self.clear_search,
+            font=('Arial', 8)
+        )
     
