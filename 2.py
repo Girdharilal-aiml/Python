@@ -284,3 +284,19 @@ class TodoApp:
         if task['completed']:
             self.task_listbox.itemconfig(index, fg='#888888')
     
+    def update_stats(self):
+        total = len(self.tasks)
+        completed = sum(1 for task in self.tasks if task['completed'])
+        pending = total - completed
+        
+        self.stats_label.config(
+            text=f"Total: {total} | Completed: {completed} | Pending: {pending}"
+        )
+    
+    def save_tasks(self):
+        try:
+            with open(self.data_file, 'w') as f:
+                json.dump(self.tasks, f, indent=2)
+        except Exception as e:
+            messagebox.showerror("Save Error", f"Could not save tasks: {e}")
+    
