@@ -75,4 +75,11 @@ class TodoApp:
             cursor='hand2'
         )
         add_btn.pack(side=tk.LEFT, padx=5)
+        
+        # Search frame
+        search_frame = tk.Frame(root, bg='#f0f0f0')
+        search_frame.pack(pady=5, padx=20, fill=tk.X)
+        
+        tk.Label(search_frame, text="🔍 Search:", bg='#f0f0f0').pack(side=tk.LEFT)
+        
     
