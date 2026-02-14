@@ -128,4 +128,16 @@ class TodoApp:
         )
         complete_btn.pack(side=tk.LEFT, padx=5)
         
+        delete_btn = tk.Button(
+            button_frame,
+            text="🗑 Delete",
+            command=self.delete_task,
+            bg='#f44336',
+            fg='white',
+            font=('Arial', 10),
+            cursor='hand2',
+            width=15
+        )
+        delete_btn.pack(side=tk.LEFT, padx=5)
+        
     
