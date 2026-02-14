@@ -246,4 +246,18 @@ class TodoApp:
     def display_tasks(self):
         self.task_listbox.delete(0, tk.END)
         
+        # Sort by priority and completion
+        priority_order = {'High': 0, 'Medium': 1, 'Low': 2}
+        sorted_tasks = sorted(
+            self.tasks,
+            key=lambda x: (x['completed'], priority_order[x['priority']])
+        )
+        
+        for task in sorted_tasks:
+            self.add_task_to_listbox(task)
+        
+        self.update_stats()
+    
+    def add_task_to_listbox(self, task):
+        # Color coding
     
