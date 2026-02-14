@@ -260,4 +260,17 @@ class TodoApp:
     
     def add_task_to_listbox(self, task):
         # Color coding
+        if task['completed']:
+            prefix = "✓ [DONE]"
+            color = '#888888'
+        elif task['priority'] == 'High':
+            prefix = "🔴 [HIGH]"
+            color = '#d32f2f'
+        elif task['priority'] == 'Medium':
+            prefix = "🟡 [MED]"
+            color = '#f57c00'
+        else:
+            prefix = "🟢 [LOW]"
+            color = '#388e3c'
+        
     
