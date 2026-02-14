@@ -165,4 +165,18 @@ class TodoApp:
         # Initial display
         self.display_tasks()
         
+    def add_task(self):
+        task_text = self.task_entry.get().strip()
+        
+        if not task_text:
+            messagebox.showwarning("Empty Task", "Please enter a task!")
+            return
+        
+        task = {
+            'text': task_text,
+            'priority': self.priority_var.get(),
+            'completed': False,
+            'created': datetime.now().strftime("%Y-%m-%d %H:%M")
+        }
+        
     
