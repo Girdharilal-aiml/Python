@@ -194,4 +194,20 @@ class TodoApp:
             # Get actual task index (accounting for filtering)
             display_text = self.task_listbox.get(selected_index)
             
+            # Find task in original list
+            for task in self.tasks:
+                if task['text'] in display_text and not task['completed']:
+                    task['completed'] = True
+                    self.save_tasks()
+                    self.display_tasks()
+                    break
+                    
+        except IndexError:
+            messagebox.showwarning("No Selection", "Please select a task to mark as complete!")
+    
+    def delete_task(self):
+        try:
+            selected_index = self.task_listbox.curselection()[0]
+            display_text = self.task_listbox.get(selected_index)
+            
     
