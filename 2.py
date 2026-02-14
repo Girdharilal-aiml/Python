@@ -92,4 +92,13 @@ class TodoApp:
             command=self.clear_search,
             font=('Arial', 8)
         )
+        clear_search_btn.pack(side=tk.LEFT, padx=5)
+        
+        # Task list frame with scrollbar
+        list_frame = tk.Frame(root, bg='white')
+        list_frame.pack(pady=10, padx=20, fill=tk.BOTH, expand=True)
+        
+        scrollbar = tk.Scrollbar(list_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
     
