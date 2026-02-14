@@ -44,4 +44,12 @@ class TodoApp:
         input_frame = tk.Frame(root, bg='#f0f0f0')
         input_frame.pack(pady=10, padx=20, fill=tk.X)
         
+        self.task_entry = tk.Entry(
+            input_frame,
+            font=('Arial', 12),
+            width=30
+        )
+        self.task_entry.pack(side=tk.LEFT, padx=5)
+        self.task_entry.bind('<Return>', lambda e: self.add_task())
+        
     
