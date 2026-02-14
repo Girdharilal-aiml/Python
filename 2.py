@@ -116,4 +116,16 @@ class TodoApp:
         button_frame = tk.Frame(root, bg='#f0f0f0')
         button_frame.pack(pady=10)
         
+        complete_btn = tk.Button(
+            button_frame,
+            text="✓ Mark Complete",
+            command=self.mark_complete,
+            bg='#2196F3',
+            fg='white',
+            font=('Arial', 10),
+            cursor='hand2',
+            width=15
+        )
+        complete_btn.pack(side=tk.LEFT, padx=5)
+        
     
