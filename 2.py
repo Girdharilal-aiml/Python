@@ -222,4 +222,15 @@ class TodoApp:
         except IndexError:
             messagebox.showwarning("No Selection", "Please select a task to delete!")
     
+    def clear_all(self):
+        if self.tasks and messagebox.askyesno("Clear All", "Delete all tasks?"):
+            self.tasks.clear()
+            self.save_tasks()
+            self.display_tasks()
+    
+    def filter_tasks(self):
+        search_term = self.search_entry.get().lower()
+        
+        self.task_listbox.delete(0, tk.END)
+        
     
