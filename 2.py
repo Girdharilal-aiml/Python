@@ -186,4 +186,12 @@ class TodoApp:
         # Clear entry
         self.task_entry.delete(0, tk.END)
         self.task_entry.focus()
+        
+    def mark_complete(self):
+        try:
+            selected_index = self.task_listbox.curselection()[0]
+            
+            # Get actual task index (accounting for filtering)
+            display_text = self.task_listbox.get(selected_index)
+            
     
