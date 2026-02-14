@@ -101,4 +101,19 @@ class TodoApp:
         scrollbar = tk.Scrollbar(list_frame)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
+        self.task_listbox = tk.Listbox(
+            list_frame,
+            font=('Arial', 11),
+            selectmode=tk.SINGLE,
+            yscrollcommand=scrollbar.set,
+            bg='white',
+            height=15
+        )
+        self.task_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.task_listbox.yview)
+        
+        # Buttons frame
+        button_frame = tk.Frame(root, bg='#f0f0f0')
+        button_frame.pack(pady=10)
+        
     
