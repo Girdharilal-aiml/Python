@@ -210,4 +210,16 @@ class TodoApp:
             selected_index = self.task_listbox.curselection()[0]
             display_text = self.task_listbox.get(selected_index)
             
+            # Find and remove task
+            for i, task in enumerate(self.tasks):
+                if task['text'] in display_text:
+                    if messagebox.askyesno("Delete Task", f"Delete: {task['text']}?"):
+                        self.tasks.pop(i)
+                        self.save_tasks()
+                        self.display_tasks()
+                    break
+                    
+        except IndexError:
+            messagebox.showwarning("No Selection", "Please select a task to delete!")
+    
     
