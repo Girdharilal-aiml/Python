@@ -300,3 +300,21 @@ class TodoApp:
         except Exception as e:
             messagebox.showerror("Save Error", f"Could not save tasks: {e}")
     
+    def load_tasks(self):
+        if os.path.exists(self.data_file):
+            try:
+                with open(self.data_file, 'r') as f:
+                    self.tasks = json.load(f)
+            except Exception as e:
+                messagebox.showerror("Load Error", f"Could not load tasks: {e}")
+                self.tasks = []
+        else:
+            self.tasks = []
+
+def main():
+    root = tk.Tk()
+    app = TodoApp(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
