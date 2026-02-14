@@ -52,4 +52,16 @@ class TodoApp:
         self.task_entry.pack(side=tk.LEFT, padx=5)
         self.task_entry.bind('<Return>', lambda e: self.add_task())
         
+        # Priority dropdown
+        self.priority_var = tk.StringVar(value="Medium")
+        priority_menu = tk.OptionMenu(
+            input_frame,
+            self.priority_var,
+            "High",
+            "Medium",
+            "Low"
+        )
+        priority_menu.config(width=8)
+        priority_menu.pack(side=tk.LEFT, padx=5)
+        
     
