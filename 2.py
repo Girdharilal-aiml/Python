@@ -23,4 +23,11 @@ class TodoApp:
         self.root.geometry("600x500")
         self.root.configure(bg='#f0f0f0')
         
+        # File to save tasks
+        self.data_file = "tasks.json"
+        self.tasks = []
+        
+        # Load existing tasks
+        self.load_tasks()
+        
     
