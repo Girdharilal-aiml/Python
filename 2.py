@@ -273,4 +273,14 @@ class TodoApp:
             prefix = "🟢 [LOW]"
             color = '#388e3c'
         
+        display_text = f"{prefix} {task['text']}"
+        
+        self.task_listbox.insert(tk.END, display_text)
+        
+        # Set color
+        index = self.task_listbox.size() - 1
+        self.task_listbox.itemconfig(index, fg=color)
+        
+        if task['completed']:
+            self.task_listbox.itemconfig(index, fg='#888888')
     
