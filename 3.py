@@ -9,3 +9,7 @@ FEATURES:
 - Best of 5 rounds mode
 """
 
+import tkinter as tk
+from tkinter import messagebox
+import random
+
