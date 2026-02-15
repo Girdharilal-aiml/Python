@@ -47,3 +47,18 @@ class RockPaperScissors:
         )
         title.pack(pady=20)
         
+        # Score display
+        score_frame = tk.Frame(self.root, bg='#2c3e50')
+        score_frame.pack(pady=10)
+        
+        self.player_score_label = tk.Label(
+            score_frame,
+            text=f"You: {self.player_score}",
+            font=('Arial', 18, 'bold'),
+            bg='#27ae60',
+            fg='white',
+            width=10,
+            relief=tk.RAISED,
+            padx=10,
+            pady=5
+        )
