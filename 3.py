@@ -26,3 +26,13 @@ class RockPaperScissors:
         self.rounds_played = 0
         self.game_mode = "endless"  # or "best_of_5"
         
+        # Choices
+        self.choices = ["Rock", "Paper", "Scissors"]
+        self.emojis = {
+            "Rock": "🪨",
+            "Paper": "📄",
+            "Scissors": "✂️"
+        }
+        
+        self.setup_ui()
+        
