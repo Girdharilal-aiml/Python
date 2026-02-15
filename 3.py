@@ -164,3 +164,15 @@ class RockPaperScissors:
         bottom_frame = tk.Frame(self.root, bg='#2c3e50')
         bottom_frame.pack(pady=20)
         
+        reset_btn = tk.Button(
+            bottom_frame,
+            text="🔄 Reset Score",
+            command=self.reset_game,
+            font=('Arial', 11),
+            bg='#95a5a6',
+            fg='white',
+            cursor='hand2',
+            width=15
+        )
+        reset_btn.pack(side=tk.LEFT, padx=5)
+        
