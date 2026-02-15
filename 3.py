@@ -128,3 +128,15 @@ class RockPaperScissors:
             fg='white'
         ).pack(pady=(20, 0))
         
+        self.computer_choice_label = tk.Label(
+            choice_frame,
+            text="❓",
+            font=('Arial', 48),
+            bg='#34495e',
+            fg='white',
+            width=3,
+            height=1,
+            relief=tk.RAISED
+        )
+        self.computer_choice_label.pack(pady=5)
+        
