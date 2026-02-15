@@ -194,3 +194,7 @@ class RockPaperScissors:
         # Computer makes random choice
         computer_choice = random.choice(self.choices)
         
+        # Update displays
+        self.player_choice_label.config(text=self.emojis[player_choice])
+        self.computer_choice_label.config(text=self.emojis[computer_choice])
+        
