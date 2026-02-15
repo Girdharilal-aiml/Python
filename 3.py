@@ -220,3 +220,7 @@ class RockPaperScissors:
                 fg='#f39c12'
             )
         
+        # Update score labels
+        self.player_score_label.config(text=f"You: {self.player_score}")
+        self.computer_score_label.config(text=f"Computer: {self.computer_score}")
+        
