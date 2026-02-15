@@ -259,3 +259,13 @@ class RockPaperScissors:
         self.player_choice_label.config(text="❓")
         self.computer_choice_label.config(text="❓")
     
+    def toggle_mode(self):
+        if self.game_mode == "endless":
+            self.game_mode = "best_of_5"
+            self.mode_btn.config(text="♾️ Endless")
+            messagebox.showinfo("Mode Changed", "Best of 5 mode! First to 3 wins!")
+        else:
+            self.game_mode = "endless"
+            self.mode_btn.config(text="🎯 Best of 5")
+            messagebox.showinfo("Mode Changed", "Endless mode! Play as long as you want!")
+        self.reset_game()
