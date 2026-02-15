@@ -160,3 +160,7 @@ class RockPaperScissors:
             )
             btn.pack(side=tk.LEFT, padx=10)
         
+        # Bottom buttons
+        bottom_frame = tk.Frame(self.root, bg='#2c3e50')
+        bottom_frame.pack(pady=20)
+        
