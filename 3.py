@@ -84,3 +84,15 @@ class RockPaperScissors:
             pady=5
         )
         self.computer_score_label.pack(side=tk.LEFT, padx=10)
+        
+        # Result display
+        self.result_label = tk.Label(
+            self.root,
+            text="Choose your move!",
+            font=('Arial', 16),
+            bg='#2c3e50',
+            fg='#ecf0f1',
+            wraplength=400
+        )
+        self.result_label.pack(pady=20)
+        
