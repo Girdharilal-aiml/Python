@@ -62,3 +62,13 @@ class RockPaperScissors:
             padx=10,
             pady=5
         )
+        self.player_score_label.pack(side=tk.LEFT, padx=10)
+        
+        tk.Label(
+            score_frame,
+            text="VS",
+            font=('Arial', 18, 'bold'),
+            bg='#2c3e50',
+            fg='white'
+        ).pack(side=tk.LEFT, padx=5)
+        
