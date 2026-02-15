@@ -249,3 +249,13 @@ class RockPaperScissors:
         else:
             return "lose"
     
+    def reset_game(self):
+        self.player_score = 0
+        self.computer_score = 0
+        self.rounds_played = 0
+        self.player_score_label.config(text=f"You: {self.player_score}")
+        self.computer_score_label.config(text=f"Computer: {self.computer_score}")
+        self.result_label.config(text="Choose your move!", fg='#ecf0f1')
+        self.player_choice_label.config(text="❓")
+        self.computer_choice_label.config(text="❓")
+    
