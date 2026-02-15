@@ -234,3 +234,18 @@ class RockPaperScissors:
                 messagebox.showinfo("😔 Defeat", "Computer won Best of 5!")
                 self.reset_game()
     
+    def determine_winner(self, player, computer):
+        if player == computer:
+            return "tie"
+        
+        win_conditions = {
+            "Rock": "Scissors",
+            "Paper": "Rock",
+            "Scissors": "Paper"
+        }
+        
+        if win_conditions[player] == computer:
+            return "win"
+        else:
+            return "lose"
+    
