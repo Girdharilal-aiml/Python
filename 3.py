@@ -198,3 +198,6 @@ class RockPaperScissors:
         self.player_choice_label.config(text=self.emojis[player_choice])
         self.computer_choice_label.config(text=self.emojis[computer_choice])
         
+        # Determine winner
+        result = self.determine_winner(player_choice, computer_choice)
+        
