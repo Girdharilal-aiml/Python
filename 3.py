@@ -176,3 +176,21 @@ class RockPaperScissors:
         )
         reset_btn.pack(side=tk.LEFT, padx=5)
         
+        mode_btn = tk.Button(
+            bottom_frame,
+            text="🎯 Best of 5",
+            command=self.toggle_mode,
+            font=('Arial', 11),
+            bg='#9b59b6',
+            fg='white',
+            cursor='hand2',
+            width=15
+        )
+        mode_btn.pack(side=tk.LEFT, padx=5)
+        
+        self.mode_btn = mode_btn  # Save reference for updating text
+        
+    def play(self, player_choice):
+        # Computer makes random choice
+        computer_choice = random.choice(self.choices)
+        
