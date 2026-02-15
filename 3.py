@@ -201,3 +201,22 @@ class RockPaperScissors:
         # Determine winner
         result = self.determine_winner(player_choice, computer_choice)
         
+        # Update scores
+        if result == "win":
+            self.player_score += 1
+            self.result_label.config(
+                text=f"🎉 You Win! {player_choice} beats {computer_choice}!",
+                fg='#2ecc71'
+            )
+        elif result == "lose":
+            self.computer_score += 1
+            self.result_label.config(
+                text=f"😢 You Lose! {computer_choice} beats {player_choice}!",
+                fg='#e74c3c'
+            )
+        else:
+            self.result_label.config(
+                text=f"🤝 It's a Tie! Both chose {player_choice}!",
+                fg='#f39c12'
+            )
+        
