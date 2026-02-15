@@ -72,3 +72,15 @@ class RockPaperScissors:
             fg='white'
         ).pack(side=tk.LEFT, padx=5)
         
+        self.computer_score_label = tk.Label(
+            score_frame,
+            text=f"Computer: {self.computer_score}",
+            font=('Arial', 18, 'bold'),
+            bg='#e74c3c',
+            fg='white',
+            width=10,
+            relief=tk.RAISED,
+            padx=10,
+            pady=5
+        )
+        self.computer_score_label.pack(side=tk.LEFT, padx=10)
