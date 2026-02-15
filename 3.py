@@ -140,3 +140,23 @@ class RockPaperScissors:
         )
         self.computer_choice_label.pack(pady=5)
         
+        # Buttons frame
+        button_frame = tk.Frame(self.root, bg='#2c3e50')
+        button_frame.pack(pady=30)
+        
+        for choice in self.choices:
+            btn = tk.Button(
+                button_frame,
+                text=f"{self.emojis[choice]}\n{choice}",
+                command=lambda c=choice: self.play(c),
+                font=('Arial', 14, 'bold'),
+                bg='#3498db',
+                fg='white',
+                width=10,
+                height=3,
+                cursor='hand2',
+                relief=tk.RAISED,
+                bd=3
+            )
+            btn.pack(side=tk.LEFT, padx=10)
+        
