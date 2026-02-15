@@ -36,3 +36,14 @@ class RockPaperScissors:
         
         self.setup_ui()
         
+    def setup_ui(self):
+        # Title
+        title = tk.Label(
+            self.root,
+            text="🎮 Rock Paper Scissors",
+            font=('Arial', 24, 'bold'),
+            bg='#2c3e50',
+            fg='white'
+        )
+        title.pack(pady=20)
+        
