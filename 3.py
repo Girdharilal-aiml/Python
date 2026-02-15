@@ -224,3 +224,13 @@ class RockPaperScissors:
         self.player_score_label.config(text=f"You: {self.player_score}")
         self.computer_score_label.config(text=f"Computer: {self.computer_score}")
         
+        # Check for game end in best of 5 mode
+        if self.game_mode == "best_of_5":
+            self.rounds_played += 1
+            if self.player_score == 3:
+                messagebox.showinfo("🏆 Victory!", "You won Best of 5!")
+                self.reset_game()
+            elif self.computer_score == 3:
+                messagebox.showinfo("😔 Defeat", "Computer won Best of 5!")
+                self.reset_game()
+    
