@@ -20,3 +20,9 @@ class RockPaperScissors:
         self.root.geometry("500x600")
         self.root.configure(bg='#2c3e50')
         
+        # Game state
+        self.player_score = 0
+        self.computer_score = 0
+        self.rounds_played = 0
+        self.game_mode = "endless"  # or "best_of_5"
+        
