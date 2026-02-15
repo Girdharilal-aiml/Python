@@ -96,3 +96,15 @@ class RockPaperScissors:
         )
         self.result_label.pack(pady=20)
         
+        # Choice display
+        choice_frame = tk.Frame(self.root, bg='#2c3e50')
+        choice_frame.pack(pady=20)
+        
+        tk.Label(
+            choice_frame,
+            text="Your Choice:",
+            font=('Arial', 12),
+            bg='#2c3e50',
+            fg='white'
+        ).pack()
+        
