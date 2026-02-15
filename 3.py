@@ -269,3 +269,11 @@ class RockPaperScissors:
             self.mode_btn.config(text="🎯 Best of 5")
             messagebox.showinfo("Mode Changed", "Endless mode! Play as long as you want!")
         self.reset_game()
+
+def main():
+    root = tk.Tk()
+    app = RockPaperScissors(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
