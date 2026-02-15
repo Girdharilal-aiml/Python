@@ -118,3 +118,13 @@ class RockPaperScissors:
             height=1,
             relief=tk.RAISED
         )
+        self.player_choice_label.pack(pady=5)
+        
+        tk.Label(
+            choice_frame,
+            text="Computer's Choice:",
+            font=('Arial', 12),
+            bg='#2c3e50',
+            fg='white'
+        ).pack(pady=(20, 0))
+        
