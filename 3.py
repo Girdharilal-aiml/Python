@@ -108,3 +108,13 @@ class RockPaperScissors:
             fg='white'
         ).pack()
         
+        self.player_choice_label = tk.Label(
+            choice_frame,
+            text="❓",
+            font=('Arial', 48),
+            bg='#34495e',
+            fg='white',
+            width=3,
+            height=1,
+            relief=tk.RAISED
+        )
