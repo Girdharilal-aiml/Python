@@ -118,3 +118,10 @@ class Calculator:
             # Replace × and ÷ for display purposes
             display_text = self.current.replace('*', '×').replace('/', '÷')
             
+            # Calculate result
+            result = eval(self.current)
+            
+            # Format result (remove .0 for whole numbers)
+            if isinstance(result, float) and result.is_integer():
+                result = int(result)
+            
