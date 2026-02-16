@@ -125,3 +125,10 @@ class Calculator:
             if isinstance(result, float) and result.is_integer():
                 result = int(result)
             
+            # Update display
+            self.display.delete(0, tk.END)
+            self.display.insert(0, str(result))
+            
+            # Store result for next calculation
+            self.current = str(result)
+            
