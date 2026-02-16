@@ -96,3 +96,7 @@ class Calculator:
             char = '*'
         elif char == '÷':
             char = '/'
+        
+        self.current += str(char)
+        self.display.delete(0, tk.END)
+        self.display.insert(0, self.current)
