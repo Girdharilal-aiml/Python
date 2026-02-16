@@ -74,3 +74,9 @@ class Calculator:
         for i in range(4):
             root.grid_columnconfigure(i, weight=1)
         
+        # Keyboard bindings
+        root.bind('<Key>', self.on_key_press)
+        
+        # Focus on display
+        self.display.focus_set()
+        
