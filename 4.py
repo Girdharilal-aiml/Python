@@ -110,3 +110,11 @@ class Calculator:
         self.display.delete(0, tk.END)
         self.display.insert(0, self.current)
     
+    def calculate(self):
+        if not self.current:
+            return
+        
+        try:
+            # Replace × and ÷ for display purposes
+            display_text = self.current.replace('*', '×').replace('/', '÷')
+            
