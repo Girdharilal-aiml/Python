@@ -45,3 +45,20 @@ class Calculator:
             ('0', 5, 0, '#34495e'), ('.', 5, 1, '#34495e'), ('00', 5, 2, '#34495e'), ('', 5, 3, '')
         ]
         
+        # Create buttons
+        for (text, row, col, color) in buttons:
+            if text:  # Skip empty cells
+                btn = tk.Button(
+                    root,
+                    text=text,
+                    font=('Arial', 18, 'bold'),
+                    bg=color,
+                    fg='white',
+                    activebackground=color,
+                    activeforeground='white',
+                    bd=3,
+                    relief=tk.RAISED,
+                    cursor='hand2',
+                    command=lambda t=text: self.on_button_click(t)
+                )
+                
