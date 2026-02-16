@@ -132,3 +132,10 @@ class Calculator:
             # Store result for next calculation
             self.current = str(result)
             
+        except ZeroDivisionError:
+            messagebox.showerror("Error", "Cannot divide by zero!")
+            self.clear()
+        except Exception as e:
+            messagebox.showerror("Error", "Invalid expression!")
+            self.clear()
+    
