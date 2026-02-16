@@ -8,3 +8,8 @@ FEATURES:
 - Keyboard support
 - Clean design
 """
+
+import tkinter as tk
+from tkinter import messagebox
+
+class Calculator:
