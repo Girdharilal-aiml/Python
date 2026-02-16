@@ -80,3 +80,13 @@ class Calculator:
         # Focus on display
         self.display.focus_set()
         
+    def on_button_click(self, char):
+        if char == 'C':
+            self.clear()
+        elif char == '⌫':
+            self.backspace()
+        elif char == '=':
+            self.calculate()
+        else:
+            self.append_char(char)
+    
