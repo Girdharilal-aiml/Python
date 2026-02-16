@@ -20,3 +20,7 @@ class Calculator:
         self.root.configure(bg='#2c3e50')
         self.root.resizable(False, False)
         
+        # Current calculation
+        self.current = ""
+        self.total = 0
+        
