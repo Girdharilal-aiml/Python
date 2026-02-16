@@ -146,3 +146,7 @@ class Calculator:
         if key in '0123456789+-*/.':
             self.append_char(key)
         
+        # Enter key for equals
+        elif event.keysym == 'Return':
+            self.calculate()
+        
