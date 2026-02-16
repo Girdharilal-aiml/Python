@@ -90,3 +90,9 @@ class Calculator:
         else:
             self.append_char(char)
     
+    def append_char(self, char):
+        # Replace × and ÷ with * and /
+        if char == '×':
+            char = '*'
+        elif char == '÷':
+            char = '/'
