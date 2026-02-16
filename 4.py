@@ -62,3 +62,9 @@ class Calculator:
                     command=lambda t=text: self.on_button_click(t)
                 )
                 
+                # Make = button span 2 columns
+                if text == '=':
+                    btn.grid(row=row, column=col, rowspan=2, padx=5, pady=5, sticky='nsew')
+                else:
+                    btn.grid(row=row, column=col, padx=5, pady=5, sticky='nsew')
+        
