@@ -139,3 +139,10 @@ class Calculator:
             messagebox.showerror("Error", "Invalid expression!")
             self.clear()
     
+    def on_key_press(self, event):
+        key = event.char
+        
+        # Numbers and operators
+        if key in '0123456789+-*/.':
+            self.append_char(key)
+        
