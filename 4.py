@@ -105,3 +105,8 @@ class Calculator:
         self.current = ""
         self.display.delete(0, tk.END)
     
+    def backspace(self):
+        self.current = self.current[:-1]
+        self.display.delete(0, tk.END)
+        self.display.insert(0, self.current)
+    
