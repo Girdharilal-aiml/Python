@@ -154,3 +154,7 @@ class Calculator:
         elif event.keysym == 'BackSpace':
             self.backspace()
         
+        # Escape or 'c' for clear
+        elif event.keysym == 'Escape' or key.lower() == 'c':
+            self.clear()
+
