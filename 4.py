@@ -100,3 +100,8 @@ class Calculator:
         self.current += str(char)
         self.display.delete(0, tk.END)
         self.display.insert(0, self.current)
+    
+    def clear(self):
+        self.current = ""
+        self.display.delete(0, tk.END)
+    
