@@ -150,3 +150,7 @@ class Calculator:
         elif event.keysym == 'Return':
             self.calculate()
         
+        # Backspace
+        elif event.keysym == 'BackSpace':
+            self.backspace()
+        
