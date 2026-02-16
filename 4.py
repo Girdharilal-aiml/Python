@@ -68,3 +68,9 @@ class Calculator:
                 else:
                     btn.grid(row=row, column=col, padx=5, pady=5, sticky='nsew')
         
+        # Configure grid weights for responsive sizing
+        for i in range(6):
+            root.grid_rowconfigure(i, weight=1)
+        for i in range(4):
+            root.grid_columnconfigure(i, weight=1)
+        
