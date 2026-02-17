@@ -15,3 +15,8 @@ class CoinFlip:
         self.root.configure(bg='#1a1a2e')
         self.root.resizable(False, False)
 
+        self.heads = 0
+        self.tails = 0
+        self.flipping = False
+
+        # Coin frames for animation
