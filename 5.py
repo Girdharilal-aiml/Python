@@ -174,3 +174,8 @@ class CoinFlip:
     def reset(self):
         self.heads = 0
         self.tails = 0
+        self.heads_label.config(text="Heads: 0")
+        self.tails_label.config(text="Tails: 0")
+        self.coin_label.config(text="🪙")
+        self.result_label.config(text="Press flip!", fg='#f1c40f')
+
