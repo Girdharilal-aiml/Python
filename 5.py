@@ -24,3 +24,7 @@ class CoinFlip:
 
         # Title
         tk.Label(
+            root,
+            text="🪙 Coin Flip",
+            font=('Arial', 26, 'bold'),
+            bg='#1a1a2e',
