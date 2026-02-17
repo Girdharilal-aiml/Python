@@ -123,3 +123,8 @@ class CoinFlip:
 
     def flip(self):
         if self.flipping:
+            return
+        self.flipping = True
+        self.flip_btn.config(state='disabled')
+        self.multi_btn.config(state='disabled')
+        self.animate(0, random.choice(['Heads', 'Tails']))
