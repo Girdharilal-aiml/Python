@@ -79,3 +79,6 @@ class CoinFlip:
         )
         self.tails_label.pack(side=tk.LEFT, padx=10)
 
+        # Flip button
+        self.flip_btn = tk.Button(
+            root,
