@@ -20,3 +20,7 @@ class CoinFlip:
         self.flipping = False
 
         # Coin frames for animation
+        self.coin_frames = ["🪙", "⬜", "🟡", "⬜", "🪙"]
+
+        # Title
+        tk.Label(
