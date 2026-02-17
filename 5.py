@@ -169,3 +169,8 @@ class CoinFlip:
             self.result_label.config(text=f"10x: {h} Heads, {t} Tails", fg='#2ecc71')
         else:
             self.coin_label.config(text='🌟')
+            self.result_label.config(text=f"10x: {h} Heads, {t} Tails", fg='#e74c3c')
+
+    def reset(self):
+        self.heads = 0
+        self.tails = 0
