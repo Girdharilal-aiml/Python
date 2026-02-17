@@ -37,3 +37,7 @@ class CoinFlip:
             text="🪙",
             font=('Arial', 100),
             bg='#1a1a2e',
+            fg='white'
+        )
+        self.coin_label.pack(pady=10)
+
