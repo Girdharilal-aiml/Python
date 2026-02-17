@@ -128,3 +128,10 @@ class CoinFlip:
         self.flip_btn.config(state='disabled')
         self.multi_btn.config(state='disabled')
         self.animate(0, random.choice(['Heads', 'Tails']))
+
+    def animate(self, step, final_result):
+        frames = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒']
+        if step < 12:
+            self.coin_label.config(text=frames[step % len(frames)])
+            self.result_label.config(text="Flipping...", fg='#aaa')
+            self.root.after(80, lambda: self.animate(step + 1, final_result))
