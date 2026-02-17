@@ -63,3 +63,7 @@ class CoinFlip:
             fg='#2ecc71',
             width=12,
             pady=8,
+            relief=tk.RAISED
+        )
+        self.heads_label.pack(side=tk.LEFT, padx=10)
+
