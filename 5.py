@@ -159,3 +159,8 @@ class CoinFlip:
         h = results.count('Heads')
         t = results.count('Tails')
         self.heads += h
+        self.tails += t
+        self.heads_label.config(text=f"Heads: {self.heads}")
+        self.tails_label.config(text=f"Tails: {self.tails}")
+
+        last = results[-1]
