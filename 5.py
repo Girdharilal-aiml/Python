@@ -32,3 +32,8 @@ class CoinFlip:
         ).pack(pady=20)
 
         # Coin display
+        self.coin_label = tk.Label(
+            root,
+            text="🪙",
+            font=('Arial', 100),
+            bg='#1a1a2e',
