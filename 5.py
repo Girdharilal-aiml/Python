@@ -135,3 +135,10 @@ class CoinFlip:
             self.coin_label.config(text=frames[step % len(frames)])
             self.result_label.config(text="Flipping...", fg='#aaa')
             self.root.after(80, lambda: self.animate(step + 1, final_result))
+        else:
+            # Show result
+            if final_result == 'Heads':
+                self.coin_label.config(text='😊')
+                self.result_label.config(text="HEADS!", fg='#2ecc71')
+                self.heads += 1
+                self.heads_label.config(text=f"Heads: {self.heads}")
