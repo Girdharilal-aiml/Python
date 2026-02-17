@@ -46,3 +46,8 @@ class CoinFlip:
             root,
             text="Press flip!",
             font=('Arial', 22, 'bold'),
+            bg='#1a1a2e',
+            fg='#f1c40f'
+        )
+        self.result_label.pack(pady=10)
+
