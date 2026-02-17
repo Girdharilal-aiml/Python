@@ -28,3 +28,7 @@ class CoinFlip:
             text="🪙 Coin Flip",
             font=('Arial', 26, 'bold'),
             bg='#1a1a2e',
+            fg='white'
+        ).pack(pady=20)
+
+        # Coin display
