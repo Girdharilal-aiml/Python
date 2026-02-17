@@ -179,3 +179,7 @@ class CoinFlip:
         self.coin_label.config(text="🪙")
         self.result_label.config(text="Press flip!", fg='#f1c40f')
 
+def main():
+    root = tk.Tk()
+    CoinFlip(root)
+    root.mainloop()
