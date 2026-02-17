@@ -41,3 +41,8 @@ class CoinFlip:
         )
         self.coin_label.pack(pady=10)
 
+        # Result label
+        self.result_label = tk.Label(
+            root,
+            text="Press flip!",
+            font=('Arial', 22, 'bold'),
