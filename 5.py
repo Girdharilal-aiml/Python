@@ -116,3 +116,10 @@ class CoinFlip:
             bg='#555',
             fg='white',
             width=15,
+            cursor='hand2',
+            bd=0,
+            command=self.reset
+        ).pack(pady=5)
+
+    def flip(self):
+        if self.flipping:
