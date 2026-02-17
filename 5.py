@@ -55,3 +55,7 @@ class CoinFlip:
         score_frame = tk.Frame(root, bg='#1a1a2e')
         score_frame.pack(pady=15)
 
+        self.heads_label = tk.Label(
+            score_frame,
+            text="Heads: 0",
+            font=('Arial', 14, 'bold'),
