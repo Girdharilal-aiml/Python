@@ -59,3 +59,7 @@ class CoinFlip:
             score_frame,
             text="Heads: 0",
             font=('Arial', 14, 'bold'),
+            bg='#16213e',
+            fg='#2ecc71',
+            width=12,
+            pady=8,
