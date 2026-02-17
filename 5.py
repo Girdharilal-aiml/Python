@@ -109,3 +109,10 @@ class CoinFlip:
         self.multi_btn.pack(pady=5)
 
         # Reset button
+        tk.Button(
+            root,
+            text="Reset",
+            font=('Arial', 11),
+            bg='#555',
+            fg='white',
+            width=15,
