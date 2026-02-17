@@ -82,3 +82,7 @@ class CoinFlip:
         # Flip button
         self.flip_btn = tk.Button(
             root,
+            text="🪙 FLIP!",
+            font=('Arial', 18, 'bold'),
+            bg='#f39c12',
+            fg='white',
