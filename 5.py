@@ -93,3 +93,12 @@ class CoinFlip:
             command=self.flip
         )
         self.flip_btn.pack(pady=15)
+
+        # Flip 10 times button
+        self.multi_btn = tk.Button(
+            root,
+            text="Flip 10x",
+            font=('Arial', 12),
+            bg='#8e44ad',
+            fg='white',
+            width=15,
