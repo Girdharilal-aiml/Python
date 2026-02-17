@@ -90,3 +90,6 @@ class CoinFlip:
             height=2,
             cursor='hand2',
             bd=0,
+            command=self.flip
+        )
+        self.flip_btn.pack(pady=15)
