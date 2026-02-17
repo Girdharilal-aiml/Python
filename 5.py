@@ -150,3 +150,12 @@ class CoinFlip:
 
             self.flipping = False
             self.flip_btn.config(state='normal')
+            self.multi_btn.config(state='normal')
+
+    def flip_ten(self):
+        if self.flipping:
+            return
+        results = [random.choice(['Heads', 'Tails']) for _ in range(10)]
+        h = results.count('Heads')
+        t = results.count('Tails')
+        self.heads += h
