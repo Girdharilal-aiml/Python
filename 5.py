@@ -67,3 +67,7 @@ class CoinFlip:
         )
         self.heads_label.pack(side=tk.LEFT, padx=10)
 
+        self.tails_label = tk.Label(
+            score_frame,
+            text="Tails: 0",
+            font=('Arial', 14, 'bold'),
