@@ -142,3 +142,11 @@ class CoinFlip:
                 self.result_label.config(text="HEADS!", fg='#2ecc71')
                 self.heads += 1
                 self.heads_label.config(text=f"Heads: {self.heads}")
+            else:
+                self.coin_label.config(text='🌟')
+                self.result_label.config(text="TAILS!", fg='#e74c3c')
+                self.tails += 1
+                self.tails_label.config(text=f"Tails: {self.tails}")
+
+            self.flipping = False
+            self.flip_btn.config(state='normal')
