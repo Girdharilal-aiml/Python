@@ -102,3 +102,10 @@ class CoinFlip:
             bg='#8e44ad',
             fg='white',
             width=15,
+            cursor='hand2',
+            bd=0,
+            command=self.flip_ten
+        )
+        self.multi_btn.pack(pady=5)
+
+        # Reset button
