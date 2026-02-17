@@ -11,3 +11,7 @@ class CoinFlip:
     def __init__(self, root):
         self.root = root
         self.root.title("Coin Flip")
+        self.root.geometry("400x550")
+        self.root.configure(bg='#1a1a2e')
+        self.root.resizable(False, False)
+
