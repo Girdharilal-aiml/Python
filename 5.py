@@ -164,3 +164,8 @@ class CoinFlip:
         self.tails_label.config(text=f"Tails: {self.tails}")
 
         last = results[-1]
+        if last == 'Heads':
+            self.coin_label.config(text='😊')
+            self.result_label.config(text=f"10x: {h} Heads, {t} Tails", fg='#2ecc71')
+        else:
+            self.coin_label.config(text='🌟')
