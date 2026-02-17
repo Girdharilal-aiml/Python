@@ -51,3 +51,7 @@ class CoinFlip:
         )
         self.result_label.pack(pady=10)
 
+        # Score frame
+        score_frame = tk.Frame(root, bg='#1a1a2e')
+        score_frame.pack(pady=15)
+
