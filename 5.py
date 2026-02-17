@@ -86,3 +86,7 @@ class CoinFlip:
             font=('Arial', 18, 'bold'),
             bg='#f39c12',
             fg='white',
+            width=15,
+            height=2,
+            cursor='hand2',
+            bd=0,
