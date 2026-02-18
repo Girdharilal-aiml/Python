@@ -39,3 +39,8 @@ class CountdownTimer:
             bd=5
         )
         self.time_label.pack(pady=20, padx=30, fill=tk.X)
+
+        # Input frame
+        input_frame = tk.Frame(root, bg='#0f0f0f')
+        input_frame.pack(pady=20)
+
