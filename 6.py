@@ -125,3 +125,9 @@ class CountdownTimer:
         self.pause_btn.pack(side=tk.LEFT, padx=5)
 
         self.reset_btn = tk.Button(
+            btn_frame,
+            text="⟳ Reset",
+            command=self.reset,
+            bg='#e74c3c',
+            fg='white',
+            font=('Arial', 14, 'bold'),
