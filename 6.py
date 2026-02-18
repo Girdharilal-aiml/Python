@@ -13,3 +13,9 @@ class CountdownTimer:
         self.root.title("Countdown Timer")
         self.root.geometry("450x500")
         self.root.configure(bg='#0f0f0f')
+        self.root.resizable(False, False)
+
+        self.running = False
+        self.paused = False
+        self.time_left = 0  # in seconds
+
