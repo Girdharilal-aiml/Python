@@ -108,3 +108,9 @@ class CountdownTimer:
             bd=0
         )
         self.start_btn.pack(side=tk.LEFT, padx=5)
+
+        self.pause_btn = tk.Button(
+            btn_frame,
+            text="⏸ Pause",
+            command=self.pause,
+            bg='#f39c12',
