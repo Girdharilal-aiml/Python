@@ -101,3 +101,10 @@ class CountdownTimer:
             command=self.start,
             bg='#27ae60',
             fg='white',
+            font=('Arial', 14, 'bold'),
+            width=10,
+            height=2,
+            cursor='hand2',
+            bd=0
+        )
+        self.start_btn.pack(side=tk.LEFT, padx=5)
