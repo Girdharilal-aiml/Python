@@ -206,3 +206,38 @@ class CountdownTimer:
             # Update display
             time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
             self.time_label.config(text=time_str)
+
+            # Change color based on time left
+            if self.time_left <= 10:
+                self.time_label.config(fg='#ff0000')  # Red for last 10 seconds
+            elif self.time_left <= 60:
+                self.time_label.config(fg='#ff9900')  # Orange for last minute
+            else:
+                self.time_label.config(fg='#00ff00')  # Green
+
+            self.time_left -= 1
+            self.root.after(1000, self.countdown)
+        else:
+            # Timer finished
+            self.time_label.config(text="00:00:00", fg='#ff0000')
+            self.running = False
+            self.start_btn.config(state='normal')
+            self.pause_btn.config(state='disabled')
+            
+            # Alert
+            self.root.bell()  # System beep
+            messagebox.showinfo("⏰ Time's Up!", "Countdown finished!")
+
+    def update_display(self):
+        hours = self.time_left // 3600
+        minutes = (self.time_left % 3600) // 60
+        seconds = self.time_left % 60
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+def main():
+    root = tk.Tk()
+    timer = CountdownTimer(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
