@@ -33,3 +33,9 @@ class CountdownTimer:
             root,
             text="00:00:00",
             font=('Courier', 56, 'bold'),
+            bg='#1a1a1a',
+            fg='#00ff00',
+            relief=tk.SUNKEN,
+            bd=5
+        )
+        self.time_label.pack(pady=20, padx=30, fill=tk.X)
