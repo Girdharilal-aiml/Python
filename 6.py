@@ -78,3 +78,8 @@ class CountdownTimer:
             ("1 hour", 1, 0, 0)
         ]
 
+        for text, h, m, s in presets:
+            tk.Button(
+                presets_inner,
+                text=text,
+                command=lambda h=h, m=m, s=s: self.set_preset(h, m, s),
