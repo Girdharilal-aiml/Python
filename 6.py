@@ -131,3 +131,10 @@ class CountdownTimer:
             bg='#e74c3c',
             fg='white',
             font=('Arial', 14, 'bold'),
+            width=10,
+            height=2,
+            cursor='hand2',
+            bd=0
+        )
+        self.reset_btn.pack(side=tk.LEFT, padx=5)
+
