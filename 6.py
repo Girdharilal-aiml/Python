@@ -138,3 +138,7 @@ class CountdownTimer:
         )
         self.reset_btn.pack(side=tk.LEFT, padx=5)
 
+    def set_preset(self, h, m, s):
+        if not self.running:
+            self.hours_var.set(str(h))
+            self.minutes_var.set(str(m))
