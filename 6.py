@@ -177,3 +177,32 @@ class CountdownTimer:
                 self.paused = False
                 self.pause_btn.config(text="⏸ Pause")
                 self.countdown()
+            else:
+                # Pause
+                self.paused = True
+                self.pause_btn.config(text="▶ Resume")
+
+    def reset(self):
+        self.running = False
+        self.paused = False
+        self.time_left = 0
+        self.time_label.config(text="00:00:00", fg='#00ff00')
+        self.start_btn.config(state='normal')
+        self.pause_btn.config(state='disabled', text="⏸ Pause")
+        self.hours_var.set("0")
+        self.minutes_var.set("0")
+        self.seconds_var.set("0")
+
+    def countdown(self):
+        if not self.running or self.paused:
+            return
+
+        if self.time_left > 0:
+            # Calculate hours, minutes, seconds
+            hours = self.time_left // 3600
+            minutes = (self.time_left % 3600) // 60
+            seconds = self.time_left % 60
+
+            # Update display
+            time_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+            self.time_label.config(text=time_str)
