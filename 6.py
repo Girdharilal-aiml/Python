@@ -89,3 +89,9 @@ class CountdownTimer:
                 cursor='hand2',
                 bd=0,
                 width=8
+            ).pack(side=tk.LEFT, padx=3)
+
+        # Control buttons
+        btn_frame = tk.Frame(root, bg='#0f0f0f')
+        btn_frame.pack(pady=20)
+
