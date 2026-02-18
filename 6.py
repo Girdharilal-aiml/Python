@@ -70,3 +70,11 @@ class CountdownTimer:
         presets_inner = tk.Frame(preset_frame, bg='#0f0f0f')
         presets_inner.pack(pady=5)
 
+        presets = [
+            ("1 min", 0, 1, 0),
+            ("5 min", 0, 5, 0),
+            ("10 min", 0, 10, 0),
+            ("25 min", 0, 25, 0),
+            ("1 hour", 1, 0, 0)
+        ]
+
