@@ -156,3 +156,24 @@ class CountdownTimer:
                 seconds = int(self.seconds_var.get() or 0)
                 
                 self.time_left = hours * 3600 + minutes * 60 + seconds
+                
+                if self.time_left <= 0:
+                    messagebox.showwarning("Invalid Time", "Please set a time greater than 0!")
+                    return
+            except ValueError:
+                messagebox.showerror("Error", "Please enter valid numbers!")
+                return
+
+        self.running = True
+        self.paused = False
+        self.start_btn.config(state='disabled')
+        self.pause_btn.config(state='normal', text="⏸ Pause")
+        self.countdown()
+
+    def pause(self):
+        if self.running:
+            if self.paused:
+                # Resume
+                self.paused = False
+                self.pause_btn.config(text="⏸ Pause")
+                self.countdown()
