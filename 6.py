@@ -19,3 +19,11 @@ class CountdownTimer:
         self.paused = False
         self.time_left = 0  # in seconds
 
+        # Title
+        tk.Label(
+            root,
+            text="⏱️ Countdown Timer",
+            font=('Arial', 24, 'bold'),
+            bg='#0f0f0f',
+            fg='white'
+        ).pack(pady=20)
