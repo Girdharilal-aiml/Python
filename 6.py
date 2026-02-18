@@ -147,3 +147,8 @@ class CountdownTimer:
     def start(self):
         if self.running and not self.paused:
             return
+
+        if not self.paused:
+            # Get time from inputs
+            try:
+                hours = int(self.hours_var.get() or 0)
