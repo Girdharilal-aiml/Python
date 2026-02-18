@@ -142,3 +142,8 @@ class CountdownTimer:
         if not self.running:
             self.hours_var.set(str(h))
             self.minutes_var.set(str(m))
+            self.seconds_var.set(str(s))
+
+    def start(self):
+        if self.running and not self.paused:
+            return
