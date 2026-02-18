@@ -56,3 +56,10 @@ class CountdownTimer:
         hours_entry.grid(row=1, column=0, padx=5)
 
         minutes_entry = tk.Entry(input_frame, textvariable=self.minutes_var, width=8, font=('Arial', 18), justify='center')
+        minutes_entry.grid(row=1, column=1, padx=5)
+
+        seconds_entry = tk.Entry(input_frame, textvariable=self.seconds_var, width=8, font=('Arial', 18), justify='center')
+        seconds_entry.grid(row=1, column=2, padx=5)
+
+        # Quick preset buttons
+        preset_frame = tk.Frame(root, bg='#0f0f0f')
