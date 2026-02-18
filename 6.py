@@ -120,3 +120,8 @@ class CountdownTimer:
             height=2,
             cursor='hand2',
             bd=0,
+            state='disabled'
+        )
+        self.pause_btn.pack(side=tk.LEFT, padx=5)
+
+        self.reset_btn = tk.Button(
