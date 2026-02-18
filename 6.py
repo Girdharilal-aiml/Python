@@ -152,3 +152,7 @@ class CountdownTimer:
             # Get time from inputs
             try:
                 hours = int(self.hours_var.get() or 0)
+                minutes = int(self.minutes_var.get() or 0)
+                seconds = int(self.seconds_var.get() or 0)
+                
+                self.time_left = hours * 3600 + minutes * 60 + seconds
