@@ -95,3 +95,9 @@ class CountdownTimer:
         btn_frame = tk.Frame(root, bg='#0f0f0f')
         btn_frame.pack(pady=20)
 
+        self.start_btn = tk.Button(
+            btn_frame,
+            text="▶ Start",
+            command=self.start,
+            bg='#27ae60',
+            fg='white',
