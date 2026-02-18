@@ -44,3 +44,9 @@ class CountdownTimer:
         input_frame = tk.Frame(root, bg='#0f0f0f')
         input_frame.pack(pady=20)
 
+        tk.Label(input_frame, text="Hours:", bg='#0f0f0f', fg='white', font=('Arial', 11)).grid(row=0, column=0, padx=5)
+        tk.Label(input_frame, text="Minutes:", bg='#0f0f0f', fg='white', font=('Arial', 11)).grid(row=0, column=1, padx=5)
+        tk.Label(input_frame, text="Seconds:", bg='#0f0f0f', fg='white', font=('Arial', 11)).grid(row=0, column=2, padx=5)
+
+        self.hours_var = tk.StringVar(value="0")
+        self.minutes_var = tk.StringVar(value="0")
