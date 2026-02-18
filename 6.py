@@ -50,3 +50,9 @@ class CountdownTimer:
 
         self.hours_var = tk.StringVar(value="0")
         self.minutes_var = tk.StringVar(value="0")
+        self.seconds_var = tk.StringVar(value="0")
+
+        hours_entry = tk.Entry(input_frame, textvariable=self.hours_var, width=8, font=('Arial', 18), justify='center')
+        hours_entry.grid(row=1, column=0, padx=5)
+
+        minutes_entry = tk.Entry(input_frame, textvariable=self.minutes_var, width=8, font=('Arial', 18), justify='center')
