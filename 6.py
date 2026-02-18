@@ -83,3 +83,9 @@ class CountdownTimer:
                 presets_inner,
                 text=text,
                 command=lambda h=h, m=m, s=s: self.set_preset(h, m, s),
+                bg='#2c2c2c',
+                fg='white',
+                font=('Arial', 9),
+                cursor='hand2',
+                bd=0,
+                width=8
