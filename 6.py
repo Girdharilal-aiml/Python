@@ -63,3 +63,10 @@ class CountdownTimer:
 
         # Quick preset buttons
         preset_frame = tk.Frame(root, bg='#0f0f0f')
+        preset_frame.pack(pady=10)
+
+        tk.Label(preset_frame, text="Quick Set:", bg='#0f0f0f', fg='#aaa', font=('Arial', 10)).pack()
+
+        presets_inner = tk.Frame(preset_frame, bg='#0f0f0f')
+        presets_inner.pack(pady=5)
+
