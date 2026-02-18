@@ -27,3 +27,9 @@ class CountdownTimer:
             bg='#0f0f0f',
             fg='white'
         ).pack(pady=20)
+
+        # Time display
+        self.time_label = tk.Label(
+            root,
+            text="00:00:00",
+            font=('Courier', 56, 'bold'),
