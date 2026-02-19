@@ -13,3 +13,8 @@ class ColorGenerator:
         self.root.title("Color Code Generator")
         self.root.geometry("500x600")
         self.root.configure(bg='#1e1e1e')
+        self.root.resizable(False, False)
+
+        # Current color
+        self.current_color = "#3498db"
+
