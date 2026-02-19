@@ -9,3 +9,7 @@ import random
 
 class ColorGenerator:
     def __init__(self, root):
+        self.root = root
+        self.root.title("Color Code Generator")
+        self.root.geometry("500x600")
+        self.root.configure(bg='#1e1e1e')
