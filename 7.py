@@ -18,3 +18,7 @@ class ColorGenerator:
         # Current color
         self.current_color = "#3498db"
 
+        # Title
+        tk.Label(
+            root,
+            text="🎨 Color Code Generator",
