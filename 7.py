@@ -119,3 +119,10 @@ class ColorGenerator:
         self.b_label = tk.Label(slider_frame, text="219", bg='#1e1e1e', fg='white', font=('Courier', 11, 'bold'), width=4)
         self.b_label.grid(row=2, column=2)
 
+        # Buttons
+        btn_frame = tk.Frame(root, bg='#1e1e1e')
+        btn_frame.pack(pady=20)
+
+        tk.Button(
+            btn_frame,
+            text="🎲 Random Color",
