@@ -159,3 +159,24 @@ class ColorGenerator:
         self.g_label.config(text=str(g))
         self.b_label.config(text=str(b))
 
+        # Update color
+        hex_color = f'#{r:02x}{g:02x}{b:02x}'
+        self.current_color = hex_color
+        self.preview_frame.config(bg=hex_color)
+        self.hex_var.set(hex_color.upper())
+        self.update_rgb()
+
+    def update_rgb(self):
+        r = self.r_var.get()
+        g = self.g_var.get()
+        b = self.b_var.get()
+        self.rgb_var.set(f"rgb({r}, {g}, {b})")
+
+    def random_color(self):
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+
+        self.r_var.set(r)
+        self.g_var.set(g)
+        self.b_var.set(b)
