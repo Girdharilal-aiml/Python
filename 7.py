@@ -180,3 +180,18 @@ class ColorGenerator:
         self.r_var.set(r)
         self.g_var.set(g)
         self.b_var.set(b)
+
+        self.on_slider_change()
+
+    def copy_code(self, text):
+        self.root.clipboard_clear()
+        self.root.clipboard_append(text)
+        messagebox.showinfo("Copied!", f"Copied to clipboard:\n{text}")
+
+def main():
+    root = tk.Tk()
+    app = ColorGenerator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
