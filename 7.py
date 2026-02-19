@@ -53,3 +53,6 @@ class ColorGenerator:
         # RGB code
         tk.Label(codes_frame, text="RGB:", bg='#1e1e1e', fg='#aaa', font=('Arial', 11)).grid(row=1, column=0, sticky='e', padx=5, pady=5)
         self.rgb_var = tk.StringVar()
+        rgb_entry = tk.Entry(codes_frame, textvariable=self.rgb_var, font=('Courier', 14, 'bold'), width=15, justify='center', state='readonly')
+        rgb_entry.grid(row=1, column=1, padx=5, pady=5)
+        tk.Button(codes_frame, text="📋", command=lambda: self.copy_code(self.rgb_var.get()), bg='#555', fg='white', cursor='hand2', bd=0, width=3).grid(row=1, column=2, padx=5)
