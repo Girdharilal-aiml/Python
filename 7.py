@@ -99,3 +99,11 @@ class ColorGenerator:
             length=300,
             troughcolor='#55ff55'
         ).grid(row=1, column=1, pady=5, padx=10)
+        self.g_label = tk.Label(slider_frame, text="152", bg='#1e1e1e', fg='white', font=('Courier', 11, 'bold'), width=4)
+        self.g_label.grid(row=1, column=2)
+
+        # Blue slider
+        tk.Label(slider_frame, text="Blue:", bg='#1e1e1e', fg='#5555ff', font=('Arial', 11, 'bold')).grid(row=2, column=0, sticky='w', pady=5)
+        tk.Scale(
+            slider_frame,
+            from_=0, to=255,
