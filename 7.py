@@ -22,3 +22,8 @@ class ColorGenerator:
         tk.Label(
             root,
             text="🎨 Color Code Generator",
+            font=('Arial', 22, 'bold'),
+            bg='#1e1e1e',
+            fg='white'
+        ).pack(pady=15)
+
