@@ -50,3 +50,6 @@ class ColorGenerator:
         hex_entry.grid(row=0, column=1, padx=5, pady=5)
         tk.Button(codes_frame, text="📋", command=lambda: self.copy_code(self.hex_var.get()), bg='#555', fg='white', cursor='hand2', bd=0, width=3).grid(row=0, column=2, padx=5)
 
+        # RGB code
+        tk.Label(codes_frame, text="RGB:", bg='#1e1e1e', fg='#aaa', font=('Arial', 11)).grid(row=1, column=0, sticky='e', padx=5, pady=5)
+        self.rgb_var = tk.StringVar()
