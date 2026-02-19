@@ -126,3 +126,21 @@ class ColorGenerator:
         tk.Button(
             btn_frame,
             text="🎲 Random Color",
+            command=self.random_color,
+            bg='#9b59b6',
+            fg='white',
+            font=('Arial', 12, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=18,
+            height=2
+        ).pack(side=tk.LEFT, padx=5)
+
+        tk.Button(
+            btn_frame,
+            text="📋 Copy HEX",
+            command=lambda: self.copy_code(self.hex_var.get()),
+            bg='#3498db',
+            fg='white',
+            font=('Arial', 12, 'bold'),
+            cursor='hand2',
