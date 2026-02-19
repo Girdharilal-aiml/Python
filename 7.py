@@ -115,3 +115,7 @@ class ColorGenerator:
             command=self.on_slider_change,
             length=300,
             troughcolor='#5555ff'
+        ).grid(row=2, column=1, pady=5, padx=10)
+        self.b_label = tk.Label(slider_frame, text="219", bg='#1e1e1e', fg='white', font=('Courier', 11, 'bold'), width=4)
+        self.b_label.grid(row=2, column=2)
+
