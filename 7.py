@@ -85,3 +85,6 @@ class ColorGenerator:
         self.r_label = tk.Label(slider_frame, text="52", bg='#1e1e1e', fg='white', font=('Courier', 11, 'bold'), width=4)
         self.r_label.grid(row=0, column=2)
 
+        # Green slider
+        tk.Label(slider_frame, text="Green:", bg='#1e1e1e', fg='#55ff55', font=('Arial', 11, 'bold')).grid(row=1, column=0, sticky='w', pady=5)
+        tk.Scale(
