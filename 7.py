@@ -88,3 +88,7 @@ class ColorGenerator:
         # Green slider
         tk.Label(slider_frame, text="Green:", bg='#1e1e1e', fg='#55ff55', font=('Arial', 11, 'bold')).grid(row=1, column=0, sticky='w', pady=5)
         tk.Scale(
+            slider_frame,
+            from_=0, to=255,
+            orient=tk.HORIZONTAL,
+            variable=self.g_var,
