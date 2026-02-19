@@ -96,3 +96,6 @@ class ColorGenerator:
             fg='#55ff55',
             highlightthickness=0,
             command=self.on_slider_change,
+            length=300,
+            troughcolor='#55ff55'
+        ).grid(row=1, column=1, pady=5, padx=10)
