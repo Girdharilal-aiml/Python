@@ -27,3 +27,11 @@ class ColorGenerator:
             fg='white'
         ).pack(pady=15)
 
+        # Color preview (big square)
+        self.preview_frame = tk.Frame(
+            root,
+            bg=self.current_color,
+            width=300,
+            height=200,
+            relief=tk.RAISED,
+            bd=5
