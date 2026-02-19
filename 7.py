@@ -43,3 +43,10 @@ class ColorGenerator:
         codes_frame = tk.Frame(root, bg='#1e1e1e')
         codes_frame.pack(pady=15)
 
+        # HEX code
+        tk.Label(codes_frame, text="HEX:", bg='#1e1e1e', fg='#aaa', font=('Arial', 11)).grid(row=0, column=0, sticky='e', padx=5, pady=5)
+        self.hex_var = tk.StringVar(value=self.current_color)
+        hex_entry = tk.Entry(codes_frame, textvariable=self.hex_var, font=('Courier', 14, 'bold'), width=15, justify='center')
+        hex_entry.grid(row=0, column=1, padx=5, pady=5)
+        tk.Button(codes_frame, text="📋", command=lambda: self.copy_code(self.hex_var.get()), bg='#555', fg='white', cursor='hand2', bd=0, width=3).grid(row=0, column=2, padx=5)
+
