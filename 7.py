@@ -35,3 +35,11 @@ class ColorGenerator:
             height=200,
             relief=tk.RAISED,
             bd=5
+        )
+        self.preview_frame.pack(pady=20)
+        self.preview_frame.pack_propagate(False)
+
+        # Color codes frame
+        codes_frame = tk.Frame(root, bg='#1e1e1e')
+        codes_frame.pack(pady=15)
+
