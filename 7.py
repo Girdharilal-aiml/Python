@@ -144,3 +144,18 @@ class ColorGenerator:
             fg='white',
             font=('Arial', 12, 'bold'),
             cursor='hand2',
+            bd=0,
+            width=18,
+            height=2
+        ).pack(side=tk.LEFT, padx=5)
+
+    def on_slider_change(self, event=None):
+        r = self.r_var.get()
+        g = self.g_var.get()
+        b = self.b_var.get()
+
+        # Update labels
+        self.r_label.config(text=str(r))
+        self.g_label.config(text=str(g))
+        self.b_label.config(text=str(b))
+
