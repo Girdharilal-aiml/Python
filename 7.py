@@ -107,3 +107,11 @@ class ColorGenerator:
         tk.Scale(
             slider_frame,
             from_=0, to=255,
+            orient=tk.HORIZONTAL,
+            variable=self.b_var,
+            bg='#2c2c2c',
+            fg='#5555ff',
+            highlightthickness=0,
+            command=self.on_slider_change,
+            length=300,
+            troughcolor='#5555ff'
