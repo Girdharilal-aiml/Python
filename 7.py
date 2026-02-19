@@ -61,3 +61,8 @@ class ColorGenerator:
         self.update_rgb()
 
         # RGB Sliders
+        slider_frame = tk.Frame(root, bg='#1e1e1e')
+        slider_frame.pack(pady=15, padx=30, fill=tk.X)
+
+        self.r_var = tk.IntVar(value=52)
+        self.g_var = tk.IntVar(value=152)
