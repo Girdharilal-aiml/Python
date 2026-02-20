@@ -86,3 +86,7 @@ class DiceRoller:
 
         # Roll button
         self.roll_btn = tk.Button(
+            root,
+            text="🎲 ROLL DICE!",
+            command=self.roll_dice,
+            bg='#e74c3c',
