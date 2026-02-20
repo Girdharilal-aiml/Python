@@ -181,3 +181,27 @@ class DiceRoller:
             self.add_to_history()
             self.rolling = False
             self.roll_btn.config(state='normal', bg='#e74c3c')
+
+    def update_total(self):
+        total = sum(self.dice_values)
+        self.total_label.config(text=f"Total: {total}")
+
+    def add_to_history(self):
+        total = sum(self.dice_values)
+        dice_str = " + ".join(map(str, self.dice_values))
+        result = f"{dice_str} = {total}"
+        
+        self.history.insert(0, result)
+        if len(self.history) > 5:
+            self.history.pop()
+        
+        history_text = "\n".join(self.history)
+        self.history_label.config(text=history_text if history_text else "No rolls yet")
+
+def main():
+    root = tk.Tk()
+    app = DiceRoller(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
