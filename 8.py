@@ -39,3 +39,8 @@ class DiceRoller:
 
         # Dice display frame
         self.dice_frame = tk.Frame(root, bg='#2c3e50')
+        self.dice_frame.pack(pady=20)
+
+        self.dice_labels = []
+        self.create_dice_labels()
+
