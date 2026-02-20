@@ -58,3 +58,7 @@ class DiceRoller:
         )
         self.total_label.pack(pady=15)
 
+        # Number of dice selector
+        selector_frame = tk.Frame(root, bg='#2c3e50')
+        selector_frame.pack(pady=15)
+
