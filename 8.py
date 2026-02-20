@@ -18,3 +18,7 @@ class DiceRoller:
         self.num_dice = 1
         self.dice_values = [1]
 
+        # Dice faces using Unicode
+        self.dice_faces = {
+            1: "⚀",
+            2: "⚁",
