@@ -66,3 +66,8 @@ class DiceRoller:
             selector_frame,
             text="Number of Dice:",
             font=('Arial', 13, 'bold'),
+            bg='#2c3e50',
+            fg='white'
+        ).pack(side=tk.LEFT, padx=10)
+
+        for i in range(1, 7):
