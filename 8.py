@@ -71,3 +71,6 @@ class DiceRoller:
         ).pack(side=tk.LEFT, padx=10)
 
         for i in range(1, 7):
+            tk.Button(
+                selector_frame,
+                text=str(i),
