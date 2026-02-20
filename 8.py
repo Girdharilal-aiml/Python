@@ -44,3 +44,7 @@ class DiceRoller:
         self.dice_labels = []
         self.create_dice_labels()
 
+        # Total display
+        self.total_label = tk.Label(
+            root,
+            text="Total: 1",
