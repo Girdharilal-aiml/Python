@@ -26,3 +26,7 @@ class DiceRoller:
             4: "⚃",
             5: "⚄",
             6: "⚅"
+        }
+
+        # Title
+        tk.Label(
