@@ -90,3 +90,13 @@ class DiceRoller:
             text="🎲 ROLL DICE!",
             command=self.roll_dice,
             bg='#e74c3c',
+            fg='white',
+            font=('Arial', 18, 'bold'),
+            width=20,
+            height=2,
+            cursor='hand2',
+            bd=0,
+            activebackground='#c0392b'
+        )
+        self.roll_btn.pack(pady=20)
+
