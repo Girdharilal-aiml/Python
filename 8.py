@@ -100,3 +100,11 @@ class DiceRoller:
         )
         self.roll_btn.pack(pady=20)
 
+        # History frame
+        history_frame = tk.Frame(root, bg='#2c3e50')
+        history_frame.pack(pady=10)
+
+        tk.Label(
+            history_frame,
+            text="Last 5 Rolls:",
+            font=('Arial', 11, 'bold'),
