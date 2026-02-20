@@ -108,3 +108,12 @@ class DiceRoller:
             history_frame,
             text="Last 5 Rolls:",
             font=('Arial', 11, 'bold'),
+            bg='#2c3e50',
+            fg='#bdc3c7'
+        ).pack()
+
+        self.history_label = tk.Label(
+            history_frame,
+            text="No rolls yet",
+            font=('Courier', 10),
+            bg='#34495e',
