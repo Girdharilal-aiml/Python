@@ -57,16 +57,16 @@ class ColorGenerator:
         rgb_entry.grid(row=1, column=1, padx=5, pady=5)
         tk.Button(codes_frame, text="📋", command=lambda: self.copy_code(self.rgb_var.get()), bg='#555', fg='white', cursor='hand2', bd=0, width=3).grid(row=1, column=2, padx=5)
 
-        # Update RGB display
-        self.update_rgb()
-
-        # RGB Sliders
-        slider_frame = tk.Frame(root, bg='#1e1e1e')
-        slider_frame.pack(pady=15, padx=30, fill=tk.X)
-
+        # RGB Sliders - Create variables first
         self.r_var = tk.IntVar(value=52)
         self.g_var = tk.IntVar(value=152)
         self.b_var = tk.IntVar(value=219)
+
+        # Update RGB display now that variables exist
+        self.update_rgb()
+
+        slider_frame = tk.Frame(root, bg='#1e1e1e')
+        slider_frame.pack(pady=15, padx=30, fill=tk.X)
 
         # Red slider
         tk.Label(slider_frame, text="Red:", bg='#1e1e1e', fg='#ff5555', font=('Arial', 11, 'bold')).grid(row=0, column=0, sticky='w', pady=5)
