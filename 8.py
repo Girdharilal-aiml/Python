@@ -82,3 +82,7 @@ class DiceRoller:
                 height=1,
                 cursor='hand2',
                 bd=0
+            ).pack(side=tk.LEFT, padx=3)
+
+        # Roll button
+        self.roll_btn = tk.Button(
