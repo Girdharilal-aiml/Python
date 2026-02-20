@@ -154,3 +154,11 @@ class DiceRoller:
             self.dice_values = [1] * num
             self.create_dice_labels()
             self.update_total()
+
+    def roll_dice(self):
+        if self.rolling:
+            return
+        
+        self.rolling = True
+        self.roll_btn.config(state='disabled', bg='#95a5a6')
+        self.animate_roll(0)
