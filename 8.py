@@ -74,3 +74,11 @@ class DiceRoller:
             tk.Button(
                 selector_frame,
                 text=str(i),
+                command=lambda x=i: self.set_num_dice(x),
+                bg='#95a5a6',
+                fg='white',
+                font=('Arial', 12, 'bold'),
+                width=3,
+                height=1,
+                cursor='hand2',
+                bd=0
