@@ -143,3 +143,14 @@ class DiceRoller:
                 width=2,
                 height=1,
                 relief=tk.RAISED,
+                bd=5
+            )
+            label.pack(side=tk.LEFT, padx=10)
+            self.dice_labels.append(label)
+
+    def set_num_dice(self, num):
+        if not self.rolling:
+            self.num_dice = num
+            self.dice_values = [1] * num
+            self.create_dice_labels()
+            self.update_total()
