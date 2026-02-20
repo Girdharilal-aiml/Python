@@ -48,3 +48,8 @@ class DiceRoller:
         self.total_label = tk.Label(
             root,
             text="Total: 1",
+            font=('Arial', 24, 'bold'),
+            bg='#34495e',
+            fg='#f39c12',
+            relief=tk.RAISED,
+            bd=5,
