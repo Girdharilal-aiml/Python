@@ -117,3 +117,12 @@ class DiceRoller:
             text="No rolls yet",
             font=('Courier', 10),
             bg='#34495e',
+            fg='#ecf0f1',
+            padx=15,
+            pady=8,
+            relief=tk.SUNKEN
+        )
+        self.history_label.pack(pady=5)
+
+        self.history = []
+
