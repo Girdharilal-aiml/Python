@@ -53,3 +53,8 @@ class DiceRoller:
             fg='#f39c12',
             relief=tk.RAISED,
             bd=5,
+            padx=20,
+            pady=10
+        )
+        self.total_label.pack(pady=15)
+
