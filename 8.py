@@ -34,3 +34,8 @@ class DiceRoller:
             text="🎲 Dice Roller",
             font=('Arial', 26, 'bold'),
             bg='#2c3e50',
+            fg='white'
+        ).pack(pady=20)
+
+        # Dice display frame
+        self.dice_frame = tk.Frame(root, bg='#2c3e50')
