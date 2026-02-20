@@ -162,3 +162,22 @@ class DiceRoller:
         self.rolling = True
         self.roll_btn.config(state='disabled', bg='#95a5a6')
         self.animate_roll(0)
+
+    def animate_roll(self, step):
+        if step < 15:
+            # Random animation
+            for i in range(self.num_dice):
+                random_value = random.randint(1, 6)
+                self.dice_labels[i].config(text=self.dice_faces[random_value])
+            
+            self.root.after(50, lambda: self.animate_roll(step + 1))
+        else:
+            # Final roll
+            self.dice_values = [random.randint(1, 6) for _ in range(self.num_dice)]
+            for i in range(self.num_dice):
+                self.dice_labels[i].config(text=self.dice_faces[self.dice_values[i]])
+            
+            self.update_total()
+            self.add_to_history()
+            self.rolling = False
+            self.roll_btn.config(state='normal', bg='#e74c3c')
