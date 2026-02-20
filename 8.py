@@ -126,3 +126,20 @@ class DiceRoller:
 
         self.history = []
 
+    def create_dice_labels(self):
+        # Clear existing labels
+        for label in self.dice_labels:
+            label.destroy()
+        self.dice_labels = []
+
+        # Create new labels based on num_dice
+        for i in range(self.num_dice):
+            label = tk.Label(
+                self.dice_frame,
+                text=self.dice_faces[self.dice_values[i]],
+                font=('Arial', 80),
+                bg='white',
+                fg='#2c3e50',
+                width=2,
+                height=1,
+                relief=tk.RAISED,
