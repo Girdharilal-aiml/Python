@@ -14,3 +14,7 @@ class DiceRoller:
         self.root.configure(bg='#2c3e50')
         self.root.resizable(False, False)
 
+        self.rolling = False
+        self.num_dice = 1
+        self.dice_values = [1]
+
