@@ -30,3 +30,7 @@ class DiceRoller:
 
         # Title
         tk.Label(
+            root,
+            text="🎲 Dice Roller",
+            font=('Arial', 26, 'bold'),
+            bg='#2c3e50',
