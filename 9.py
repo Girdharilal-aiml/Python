@@ -254,4 +254,8 @@ class PasswordGenerator:
             self.root.clipboard_append(password)
             messagebox.showinfo("Copied!", "Password copied to clipboard!")
         else:
-          
+            messagebox.showwarning("No Password", "Generate a password first!")
+
+def main():
+    root = tk.Tk()
+    
