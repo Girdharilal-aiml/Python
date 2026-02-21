@@ -44,3 +44,10 @@ class PasswordGenerator:
         tk.Button(
             root,
             text="📋 Copy to Clipboard",
+            command=self.copy_password,
+            bg='#3498db',
+            fg='white',
+            font=('Arial', 12, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=20,
