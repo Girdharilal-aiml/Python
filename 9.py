@@ -77,3 +77,14 @@ class PasswordGenerator:
             to=32,
             orient=tk.HORIZONTAL,
             variable=self.length_var,
+            bg='#16213e',
+            fg='white',
+            highlightthickness=0,
+            length=350,
+            troughcolor='#0e7c7b'
+        ).pack(side=tk.LEFT)
+
+        self.length_label = tk.Label(
+            length_frame,
+            text="12",
+            font=('Arial', 16, 'bold'),
