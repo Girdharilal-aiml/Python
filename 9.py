@@ -225,3 +225,33 @@ class PasswordGenerator:
         if any(c.isupper() for c in password):
             strength += 1
         if any(c.islower() for c in password):
+            strength += 1
+        if any(c.isdigit() for c in password):
+            strength += 1
+        if any(c in "!@#$%^&*()-_=+[]{}|;:,.<>?" for c in password):
+            strength += 1
+
+        # Determine strength level
+        if strength >= 6:
+            feedback = "Strength: 💪 Very Strong"
+            color = "#2ecc71"
+        elif strength >= 4:
+            feedback = "Strength: 👍 Strong"
+            color = "#27ae60"
+        elif strength >= 3:
+            feedback = "Strength: 😐 Medium"
+            color = "#f39c12"
+        else:
+            feedback = "Strength: ⚠️ Weak"
+            color = "#e74c3c"
+
+        self.strength_label.config(text=feedback, fg=color)
+
+    def copy_password(self):
+        password = self.password_var.get()
+        if password and password != "Click Generate!":
+            self.root.clipboard_clear()
+            self.root.clipboard_append(password)
+            messagebox.showinfo("Copied!", "Password copied to clipboard!")
+        else:
+          
