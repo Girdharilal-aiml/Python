@@ -58,3 +58,10 @@ class PasswordGenerator:
         settings_frame = tk.Frame(root, bg='#1a1a2e')
         settings_frame.pack(pady=20, padx=30, fill=tk.X)
 
+        # Password length
+        tk.Label(
+            settings_frame,
+            text="Password Length:",
+            font=('Arial', 12, 'bold'),
+            bg='#1a1a2e',
+            fg='white'
