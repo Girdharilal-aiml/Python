@@ -174,3 +174,15 @@ class PasswordGenerator:
             height=2
         ).pack(pady=30)
 
+        # Strength indicator
+        self.strength_label = tk.Label(
+            root,
+            text="Strength: -",
+            font=('Arial', 12, 'bold'),
+            bg='#1a1a2e',
+            fg='#95a5a6'
+        )
+        self.strength_label.pack(pady=10)
+
+    def update_length_label(self, *args):
+        self.length_label.config(text=str(self.length_var.get()))
