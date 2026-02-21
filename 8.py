@@ -131,13 +131,30 @@ class DiceRoller:
         for label in self.dice_labels:
             label.destroy()
         self.dice_labels = []
+        
+        # Clear frame
+        for widget in self.dice_frame.winfo_children():
+            widget.destroy()
 
-        # Create new labels based on num_dice
+        # Adjust size based on number of dice
+        if self.num_dice <= 3:
+            font_size = 70
+            dice_per_row = 3
+        else:
+            font_size = 60
+            dice_per_row = 3
+
+        # Create rows
+        current_row = None
         for i in range(self.num_dice):
+            if i % dice_per_row == 0:
+                current_row = tk.Frame(self.dice_frame, bg='#2c3e50')
+                current_row.pack(pady=5)
+            
             label = tk.Label(
-                self.dice_frame,
+                current_row,
                 text=self.dice_faces[self.dice_values[i]],
-                font=('Arial', 80),
+                font=('Arial', font_size),
                 bg='white',
                 fg='#2c3e50',
                 width=2,
@@ -145,7 +162,7 @@ class DiceRoller:
                 relief=tk.RAISED,
                 bd=5
             )
-            label.pack(side=tk.LEFT, padx=10)
+            label.pack(side=tk.LEFT, padx=8)
             self.dice_labels.append(label)
 
     def set_num_dice(self, num):
