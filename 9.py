@@ -65,3 +65,9 @@ class PasswordGenerator:
             font=('Arial', 12, 'bold'),
             bg='#1a1a2e',
             fg='white'
+        ).pack(anchor='w', pady=(10, 5))
+
+        length_frame = tk.Frame(settings_frame, bg='#1a1a2e')
+        length_frame.pack(fill=tk.X, pady=5)
+
+        self.length_var = tk.IntVar(value=12)
