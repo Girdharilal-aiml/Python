@@ -110,3 +110,8 @@ class PasswordGenerator:
 
         self.uppercase_var = tk.BooleanVar(value=True)
         tk.Checkbutton(
+            options_frame,
+            text="Uppercase (A-Z)",
+            variable=self.uppercase_var,
+            font=('Arial', 11),
+            bg='#1a1a2e',
