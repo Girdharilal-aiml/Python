@@ -120,3 +120,16 @@ class PasswordGenerator:
             activebackground='#1a1a2e',
             activeforeground='white'
         ).pack(anchor='w', pady=3)
+
+        self.lowercase_var = tk.BooleanVar(value=True)
+        tk.Checkbutton(
+            options_frame,
+            text="Lowercase (a-z)",
+            variable=self.lowercase_var,
+            font=('Arial', 11),
+            bg='#1a1a2e',
+            fg='white',
+            selectcolor='#16213e',
+            activebackground='#1a1a2e',
+            activeforeground='white'
+        ).pack(anchor='w', pady=3)
