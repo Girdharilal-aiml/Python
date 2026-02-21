@@ -35,3 +35,12 @@ class PasswordGenerator:
             fg='#00ff00',
             justify='center',
             state='readonly',
+            relief=tk.SUNKEN,
+            bd=5
+        )
+        password_display.pack(pady=15, padx=30, fill=tk.X, ipady=10)
+
+        # Copy button
+        tk.Button(
+            root,
+            text="📋 Copy to Clipboard",
