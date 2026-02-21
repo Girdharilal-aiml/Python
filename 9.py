@@ -160,3 +160,17 @@ class PasswordGenerator:
             activeforeground='white'
         ).pack(anchor='w', pady=3)
 
+        # Generate button
+        tk.Button(
+            root,
+            text="🔄 Generate Password",
+            command=self.generate_password,
+            bg='#e74c3c',
+            fg='white',
+            font=('Arial', 16, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=20,
+            height=2
+        ).pack(pady=30)
+
