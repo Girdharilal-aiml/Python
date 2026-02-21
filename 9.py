@@ -104,3 +104,9 @@ class PasswordGenerator:
             bg='#1a1a2e',
             fg='white'
         ).pack(anchor='w', pady=(20, 5))
+
+        options_frame = tk.Frame(settings_frame, bg='#1a1a2e')
+        options_frame.pack(fill=tk.X)
+
+        self.uppercase_var = tk.BooleanVar(value=True)
+        tk.Checkbutton(
