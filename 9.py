@@ -258,4 +258,8 @@ class PasswordGenerator:
 
 def main():
     root = tk.Tk()
-    
+    app = PasswordGenerator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
