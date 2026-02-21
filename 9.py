@@ -51,3 +51,10 @@ class PasswordGenerator:
             cursor='hand2',
             bd=0,
             width=20,
+            height=2
+        ).pack(pady=10)
+
+        # Settings frame
+        settings_frame = tk.Frame(root, bg='#1a1a2e')
+        settings_frame.pack(pady=20, padx=30, fill=tk.X)
+
