@@ -186,3 +186,21 @@ class PasswordGenerator:
 
     def update_length_label(self, *args):
         self.length_label.config(text=str(self.length_var.get()))
+
+    def generate_password(self):
+        # Build character set
+        chars = ""
+        if self.uppercase_var.get():
+            chars += string.ascii_uppercase
+        if self.lowercase_var.get():
+            chars += string.ascii_lowercase
+        if self.numbers_var.get():
+            chars += string.digits
+        if self.symbols_var.get():
+            chars += "!@#$%^&*()-_=+[]{}|;:,.<>?"
+
+        # Check if at least one option is selected
+        if not chars:
+            messagebox.showwarning("No Options", "Please select at least one character type!")
+            return
+
