@@ -88,3 +88,8 @@ class PasswordGenerator:
             length_frame,
             text="12",
             font=('Arial', 16, 'bold'),
+            bg='#1a1a2e',
+            fg='#f39c12',
+            width=3
+        )
+        self.length_label.pack(side=tk.LEFT, padx=10)
