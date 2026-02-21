@@ -99,3 +99,8 @@ class PasswordGenerator:
         # Character options
         tk.Label(
             settings_frame,
+            text="Include:",
+            font=('Arial', 12, 'bold'),
+            bg='#1a1a2e',
+            fg='white'
+        ).pack(anchor='w', pady=(20, 5))
