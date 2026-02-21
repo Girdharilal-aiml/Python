@@ -28,3 +28,10 @@ class PasswordGenerator:
         # Password display
         self.password_var = tk.StringVar(value="Click Generate!")
         password_display = tk.Entry(
+            root,
+            textvariable=self.password_var,
+            font=('Courier', 16, 'bold'),
+            bg='#16213e',
+            fg='#00ff00',
+            justify='center',
+            state='readonly',
