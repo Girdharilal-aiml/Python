@@ -21,3 +21,10 @@ class PasswordGenerator:
             root,
             text="🔐 Password Generator",
             font=('Arial', 24, 'bold'),
+            bg='#1a1a2e',
+            fg='white'
+        ).pack(pady=20)
+
+        # Password display
+        self.password_var = tk.StringVar(value="Click Generate!")
+        password_display = tk.Entry(
