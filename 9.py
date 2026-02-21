@@ -93,3 +93,9 @@ class PasswordGenerator:
             width=3
         )
         self.length_label.pack(side=tk.LEFT, padx=10)
+
+        self.length_var.trace('w', self.update_length_label)
+
+        # Character options
+        tk.Label(
+            settings_frame,
