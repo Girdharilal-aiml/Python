@@ -71,3 +71,9 @@ class PasswordGenerator:
         length_frame.pack(fill=tk.X, pady=5)
 
         self.length_var = tk.IntVar(value=12)
+        tk.Scale(
+            length_frame,
+            from_=4,
+            to=32,
+            orient=tk.HORIZONTAL,
+            variable=self.length_var,
