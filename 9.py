@@ -115,3 +115,8 @@ class PasswordGenerator:
             variable=self.uppercase_var,
             font=('Arial', 11),
             bg='#1a1a2e',
+            fg='white',
+            selectcolor='#16213e',
+            activebackground='#1a1a2e',
+            activeforeground='white'
+        ).pack(anchor='w', pady=3)
