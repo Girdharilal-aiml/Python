@@ -147,3 +147,16 @@ class PasswordGenerator:
             activeforeground='white'
         ).pack(anchor='w', pady=3)
 
+        self.symbols_var = tk.BooleanVar(value=True)
+        tk.Checkbutton(
+            options_frame,
+            text="Symbols (!@#$%^&*)",
+            variable=self.symbols_var,
+            font=('Arial', 11),
+            bg='#1a1a2e',
+            fg='white',
+            selectcolor='#16213e',
+            activebackground='#1a1a2e',
+            activeforeground='white'
+        ).pack(anchor='w', pady=3)
+
