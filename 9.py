@@ -204,3 +204,24 @@ class PasswordGenerator:
             messagebox.showwarning("No Options", "Please select at least one character type!")
             return
 
+        # Generate password
+        length = self.length_var.get()
+        password = ''.join(random.choice(chars) for _ in range(length))
+        
+        self.password_var.set(password)
+        self.check_strength(password)
+
+    def check_strength(self, password):
+        strength = 0
+        feedback = ""
+
+        # Length check
+        if len(password) >= 12:
+            strength += 2
+        elif len(password) >= 8:
+            strength += 1
+
+        # Character variety
+        if any(c.isupper() for c in password):
+            strength += 1
+        if any(c.islower() for c in password):
