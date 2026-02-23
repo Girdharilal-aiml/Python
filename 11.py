@@ -50,3 +50,19 @@ class QRCodeGenerator:
             height=4,
             relief=tk.SUNKEN,
             bd=3,
+            wrap=tk.WORD
+        )
+        self.text_input.pack(fill=tk.X, pady=5)
+
+        # Quick examples
+        examples_frame = tk.Frame(root, bg='#1a1a2e')
+        examples_frame.pack(pady=10)
+
+        tk.Label(
+            examples_frame,
+            text="Quick Examples:",
+            font=('Arial', 9),
+            bg='#1a1a2e',
+            fg='#95a5a6'
+        ).pack(side=tk.LEFT, padx=5)
+
