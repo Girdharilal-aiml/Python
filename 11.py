@@ -168,3 +168,12 @@ class QRCodeGenerator:
             self.qr_image = qr.make_image(fill_color="black", back_color="white")
 
             # Resize for display (300x300)
+            display_image = self.qr_image.resize((300, 300), Image.Resampling.LANCZOS)
+
+            # Convert to PhotoImage for tkinter
+            self.qr_photo = ImageTk.PhotoImage(display_image)
+
+            # Display
+            self.qr_label.config(image=self.qr_photo, text="")
+            self.save_btn.config(state='normal')
+
