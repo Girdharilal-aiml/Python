@@ -177,3 +177,20 @@ class QRCodeGenerator:
             self.qr_label.config(image=self.qr_photo, text="")
             self.save_btn.config(state='normal')
 
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to generate QR code:\n{str(e)}")
+
+    def save_qr(self):
+        if not self.qr_image:
+            messagebox.showwarning("No QR Code", "Generate a QR code first!")
+            return
+
+        # Ask user where to save
+        file_path = filedialog.asksaveasfilename(
+            defaultextension=".png",
+            filetypes=[
+                ("PNG files", "*.png"),
+                ("JPEG files", "*.jpg"),
+                ("All files", "*.*")
+            ]
+        )
