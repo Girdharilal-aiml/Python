@@ -24,3 +24,8 @@ class QRCodeGenerator:
         # Title
         tk.Label(
             root,
+            text="📱 QR Code Generator",
+            font=('Arial', 24, 'bold'),
+            bg='#1a1a2e',
+            fg='white'
+        ).pack(pady=20)
