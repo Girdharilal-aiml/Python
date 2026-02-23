@@ -99,3 +99,13 @@ class QRCodeGenerator:
             width=20,
             height=2
         ).pack(pady=20)
+
+        # QR code display
+        self.qr_frame = tk.Frame(root, bg='white', relief=tk.SUNKEN, bd=5)
+        self.qr_frame.pack(pady=10)
+
+        self.qr_label = tk.Label(
+            self.qr_frame,
+            text="QR code will appear here",
+            font=('Arial', 11),
+            bg='white',
