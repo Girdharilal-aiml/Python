@@ -148,3 +148,14 @@ class QRCodeGenerator:
     def generate_qr(self):
         # Get input text
         data = self.text_input.get('1.0', tk.END).strip()
+
+        if not data:
+            messagebox.showwarning("Empty Input", "Please enter some text or a URL!")
+            return
+
+        try:
+            # Create QR code
+            qr = qrcode.QRCode(
+                version=1,  # Size of QR code
+                error_correction=qrcode.constants.ERROR_CORRECT_H,
+                box_size=10,
