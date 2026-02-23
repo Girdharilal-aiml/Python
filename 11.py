@@ -134,3 +134,17 @@ class QRCodeGenerator:
         # Info label
         tk.Label(
             root,
+            text="Tip: QR codes work best with URLs, text, phone numbers, or WiFi info",
+            font=('Arial', 9, 'italic'),
+            bg='#1a1a2e',
+            fg='#7f8c8d',
+            wraplength=500
+        ).pack(pady=10)
+
+    def insert_example(self, text):
+        self.text_input.delete('1.0', tk.END)
+        self.text_input.insert('1.0', text)
+
+    def generate_qr(self):
+        # Get input text
+        data = self.text_input.get('1.0', tk.END).strip()
