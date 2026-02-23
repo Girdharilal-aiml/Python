@@ -92,3 +92,10 @@ class QRCodeGenerator:
             text="🔄 Generate QR Code",
             command=self.generate_qr,
             bg='#e74c3c',
+            fg='white',
+            font=('Arial', 14, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=20,
+            height=2
+        ).pack(pady=20)
