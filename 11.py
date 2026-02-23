@@ -42,3 +42,11 @@ class QRCodeGenerator:
             fg='white'
         ).pack(anchor='w', pady=(0, 5))
 
+        self.text_input = tk.Text(
+            input_frame,
+            font=('Arial', 11),
+            bg='#16213e',
+            fg='white',
+            height=4,
+            relief=tk.SUNKEN,
+            bd=3,
