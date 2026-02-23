@@ -194,3 +194,18 @@ class QRCodeGenerator:
                 ("All files", "*.*")
             ]
         )
+
+        if file_path:
+            try:
+                self.qr_image.save(file_path)
+                messagebox.showinfo("Success", f"QR code saved to:\n{file_path}")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save:\n{str(e)}")
+
+def main():
+    root = tk.Tk()
+    app = QRCodeGenerator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
