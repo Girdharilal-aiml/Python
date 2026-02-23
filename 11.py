@@ -118,3 +118,12 @@ class QRCodeGenerator:
         # Save button
         self.save_btn = tk.Button(
             root,
+            text="💾 Save QR Code",
+            command=self.save_qr,
+            bg='#27ae60',
+            fg='white',
+            font=('Arial', 12, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=20,
+            height=2,
