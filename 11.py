@@ -109,3 +109,12 @@ class QRCodeGenerator:
             text="QR code will appear here",
             font=('Arial', 11),
             bg='white',
+            fg='#7f8c8d',
+            width=30,
+            height=15
+        )
+        self.qr_label.pack(padx=10, pady=10)
+
+        # Save button
+        self.save_btn = tk.Button(
+            root,
