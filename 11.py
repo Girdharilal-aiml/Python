@@ -159,3 +159,12 @@ class QRCodeGenerator:
                 version=1,  # Size of QR code
                 error_correction=qrcode.constants.ERROR_CORRECT_H,
                 box_size=10,
+                border=4,
+            )
+            qr.add_data(data)
+            qr.make(fit=True)
+
+            # Create image
+            self.qr_image = qr.make_image(fill_color="black", back_color="white")
+
+            # Resize for display (300x300)
