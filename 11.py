@@ -17,3 +17,10 @@ class QRCodeGenerator:
         self.root.geometry("550x700")
         self.root.configure(bg='#1a1a2e')
         self.root.resizable(False, False)
+
+        self.qr_image = None
+        self.qr_photo = None
+
+        # Title
+        tk.Label(
+            root,
