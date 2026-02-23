@@ -35,3 +35,10 @@ class QRCodeGenerator:
         input_frame.pack(pady=15, padx=30, fill=tk.X)
 
         tk.Label(
+            input_frame,
+            text="Enter Text or URL:",
+            font=('Arial', 12, 'bold'),
+            bg='#1a1a2e',
+            fg='white'
+        ).pack(anchor='w', pady=(0, 5))
+
