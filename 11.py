@@ -127,3 +127,10 @@ class QRCodeGenerator:
             bd=0,
             width=20,
             height=2,
+            state='disabled'
+        )
+        self.save_btn.pack(pady=15)
+
+        # Info label
+        tk.Label(
+            root,
