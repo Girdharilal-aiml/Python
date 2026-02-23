@@ -29,3 +29,9 @@ class QRCodeGenerator:
             bg='#1a1a2e',
             fg='white'
         ).pack(pady=20)
+
+        # Input frame
+        input_frame = tk.Frame(root, bg='#1a1a2e')
+        input_frame.pack(pady=15, padx=30, fill=tk.X)
+
+        tk.Label(
