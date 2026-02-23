@@ -66,3 +66,9 @@ class QRCodeGenerator:
             fg='#95a5a6'
         ).pack(side=tk.LEFT, padx=5)
 
+        examples = [
+            ("Website", "https://www.example.com"),
+            ("Email", "mailto:hello@example.com"),
+            ("Phone", "tel:+1234567890"),
+            ("WiFi", "WIFI:T:WPA;S:NetworkName;P:Password;;")
+        ]
