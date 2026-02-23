@@ -72,3 +72,23 @@ class QRCodeGenerator:
             ("Phone", "tel:+1234567890"),
             ("WiFi", "WIFI:T:WPA;S:NetworkName;P:Password;;")
         ]
+
+        for name, text in examples:
+            tk.Button(
+                examples_frame,
+                text=name,
+                command=lambda t=text: self.insert_example(t),
+                bg='#34495e',
+                fg='white',
+                font=('Arial', 8),
+                cursor='hand2',
+                bd=0,
+                width=8
+            ).pack(side=tk.LEFT, padx=2)
+
+        # Generate button
+        tk.Button(
+            root,
+            text="🔄 Generate QR Code",
+            command=self.generate_qr,
+            bg='#e74c3c',
