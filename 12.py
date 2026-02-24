@@ -91,3 +91,16 @@ class Stopwatch:
             bd=0,
             relief=tk.FLAT,
             activebackground='#2ea043',
+            activeforeground='white'
+        )
+        self.start_btn.grid(row=0, column=0, padx=8)
+
+        # Lap button
+        self.lap_btn = tk.Button(
+            btn_frame,
+            text="Lap",
+            command=self.record_lap,
+            bg='#1f6feb',
+            fg='white',
+            font=self.btn_font,
+            width=12,
