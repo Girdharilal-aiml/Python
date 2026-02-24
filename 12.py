@@ -297,3 +297,10 @@ class Stopwatch:
         centiseconds = int((seconds * 100) % 100)
         return f"{hours:02d}:{minutes:02d}:{secs:02d}.{centiseconds:02d}"
 
+def main():
+    root = tk.Tk()
+    app = Stopwatch(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
