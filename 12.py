@@ -161,3 +161,16 @@ class Stopwatch:
         laps_container = tk.Frame(laps_card, bg='#161b22')
         laps_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 15))
 
+        # Canvas for scrolling
+        canvas = tk.Canvas(laps_container, bg='#161b22', highlightthickness=0, height=200)
+        scrollbar = tk.Scrollbar(laps_container, orient='vertical', command=canvas.yview)
+        self.laps_frame = tk.Frame(canvas, bg='#161b22')
+
+        self.laps_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+
+        canvas.create_window((0, 0), window=self.laps_frame, anchor='nw')
+        canvas.configure(yscrollcommand=scrollbar.set)
+
