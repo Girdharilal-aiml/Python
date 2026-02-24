@@ -174,3 +174,19 @@ class Stopwatch:
         canvas.create_window((0, 0), window=self.laps_frame, anchor='nw')
         canvas.configure(yscrollcommand=scrollbar.set)
 
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        # Empty state
+        self.empty_label = tk.Label(
+            self.laps_frame,
+            text="No laps recorded yet\nPress 'Lap' while running",
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e',
+            pady=40
+        )
+        self.empty_label.pack()
+
+    def start(self):
+        if not self.running:
