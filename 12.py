@@ -127,3 +127,14 @@ class Stopwatch:
             cursor='hand2',
             bd=0,
             relief=tk.FLAT,
+            activebackground='#30363d',
+            activeforeground='white'
+        )
+        self.reset_btn.grid(row=1, column=0, columnspan=2, pady=10)
+
+        # Laps section with modern card design
+        laps_card = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT)
+        laps_card.pack(pady=10, fill=tk.BOTH, expand=True)
+
+        # Laps header
+        header_frame = tk.Frame(laps_card, bg='#161b22')
