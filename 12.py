@@ -290,3 +290,10 @@ class Stopwatch:
             
             self.root.after(10, self.update_time)
 
+    def format_time(self, seconds):
+        hours = int(seconds // 3600)
+        minutes = int((seconds % 3600) // 60)
+        secs = int(seconds % 60)
+        centiseconds = int((seconds * 100) % 100)
+        return f"{hours:02d}:{minutes:02d}:{secs:02d}.{centiseconds:02d}"
+
