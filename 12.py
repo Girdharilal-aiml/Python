@@ -274,3 +274,19 @@ class Stopwatch:
 
             self.lap_count_label.config(text=f"{len(self.laps)} lap{'s' if len(self.laps) != 1 else ''}")
 
+    def update_time(self):
+        if self.running:
+            self.elapsed_time = time.time() - self.start_time
+            formatted_time = self.format_time(self.elapsed_time)
+            self.time_label.config(text=formatted_time)
+            
+            # Subtle color change
+            if self.elapsed_time >= 3600:
+                self.time_label.config(fg='#f85149')
+            elif self.elapsed_time >= 60:
+                self.time_label.config(fg='#d29922')
+            else:
+                self.time_label.config(fg='#58a6ff')
+            
+            self.root.after(10, self.update_time)
+
