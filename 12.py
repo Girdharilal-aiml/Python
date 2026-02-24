@@ -49,3 +49,14 @@ class Stopwatch:
             fg='#c9d1d9'
         ).pack(side=tk.LEFT, pady=15)
 
+        # Time display with modern card design
+        time_card = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT, bd=0)
+        time_card.pack(pady=10, fill=tk.X)
+
+        self.time_label = tk.Label(
+            time_card,
+            text="00:00:00.00",
+            font=self.time_font,
+            bg='#161b22',
+            fg='#58a6ff',
+            pady=30
