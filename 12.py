@@ -60,3 +60,14 @@ class Stopwatch:
             bg='#161b22',
             fg='#58a6ff',
             pady=30
+        )
+        self.time_label.pack()
+
+        # Milliseconds label
+        millisec_label = tk.Label(
+            time_card,
+            text="HH : MM : SS . CS",
+            font=('Arial', 10),
+            bg='#161b22',
+            fg='#8b949e'
+        )
