@@ -71,3 +71,13 @@ class Stopwatch:
             bg='#161b22',
             fg='#8b949e'
         )
+        millisec_label.pack(pady=(0, 20))
+
+        # Control buttons with modern design
+        btn_frame = tk.Frame(main_frame, bg='#0d1117')
+        btn_frame.pack(pady=25)
+
+        # Start button
+        self.start_btn = tk.Button(
+            btn_frame,
+            text="Start",
