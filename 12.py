@@ -190,3 +190,14 @@ class Stopwatch:
 
     def start(self):
         if not self.running:
+            self.running = True
+            self.start_time = time.time() - self.elapsed_time
+            self.start_btn.config(text='Pause', bg='#da3633', activebackground='#e5534b')
+            self.lap_btn.config(state='normal')
+            self.update_time()
+        else:
+            # Pause
+            self.running = False
+            self.start_btn.config(text='Resume', bg='#238636', activebackground='#2ea043')
+
+    def reset(self):
