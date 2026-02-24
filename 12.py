@@ -149,3 +149,15 @@ class Stopwatch:
         ).pack(side=tk.LEFT)
 
         self.lap_count_label = tk.Label(
+            header_frame,
+            text="0 laps",
+            font=('Arial', 10),
+            bg='#161b22',
+            fg='#8b949e'
+        )
+        self.lap_count_label.pack(side=tk.RIGHT)
+
+        # Laps container with scrollbar
+        laps_container = tk.Frame(laps_card, bg='#161b22')
+        laps_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 15))
+
