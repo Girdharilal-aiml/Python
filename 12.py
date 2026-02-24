@@ -250,3 +250,13 @@ class Stopwatch:
 
             tk.Label(
                 left_frame,
+                text=self.format_time(lap_time),
+                font=('Courier New', 13, 'bold'),
+                bg='#0d1117',
+                fg='#c9d1d9'
+            ).pack(side=tk.RIGHT)
+
+            # Split time (if not first lap)
+            if len(self.laps) > 1:
+                split = lap_time - self.laps[1]
+                split_color = '#3fb950' if split > 0 else '#f85149'
