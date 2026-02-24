@@ -239,3 +239,14 @@ class Stopwatch:
             # Lap number and time
             left_frame = tk.Frame(lap_card, bg='#0d1117')
             left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=15, pady=12)
+
+            tk.Label(
+                left_frame,
+                text=f"Lap {len(self.laps)}",
+                font=('Arial', 11, 'bold'),
+                bg='#0d1117',
+                fg='#58a6ff'
+            ).pack(side=tk.LEFT)
+
+            tk.Label(
+                left_frame,
