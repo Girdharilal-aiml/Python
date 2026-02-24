@@ -81,3 +81,13 @@ class Stopwatch:
         self.start_btn = tk.Button(
             btn_frame,
             text="Start",
+            command=self.start,
+            bg='#238636',
+            fg='white',
+            font=self.btn_font,
+            width=12,
+            height=2,
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            activebackground='#2ea043',
