@@ -260,3 +260,17 @@ class Stopwatch:
             if len(self.laps) > 1:
                 split = lap_time - self.laps[1]
                 split_color = '#3fb950' if split > 0 else '#f85149'
+                
+                split_frame = tk.Frame(lap_card, bg='#0d1117')
+                split_frame.pack(side=tk.RIGHT, padx=15)
+                
+                tk.Label(
+                    split_frame,
+                    text=f"Split: {self.format_time(abs(split))}",
+                    font=('Arial', 9),
+                    bg='#0d1117',
+                    fg='#8b949e'
+                ).pack()
+
+            self.lap_count_label.config(text=f"{len(self.laps)} lap{'s' if len(self.laps) != 1 else ''}")
+
