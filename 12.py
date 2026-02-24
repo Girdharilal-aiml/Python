@@ -25,3 +25,14 @@ class Stopwatch:
         self.time_font = tkfont.Font(family='Courier New', size=56, weight='bold')
         self.btn_font = tkfont.Font(family='Arial', size=13, weight='bold')
 
+        # Main container with gradient effect
+        main_frame = tk.Frame(root, bg='#0d1117')
+        main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Title with modern styling
+        title_frame = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT, bd=0)
+        title_frame.pack(fill=tk.X, pady=(0, 20))
+        
+        tk.Label(
+            title_frame,
+            text="⏱",
