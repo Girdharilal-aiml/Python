@@ -213,3 +213,15 @@ class Stopwatch:
         for widget in self.laps_frame.winfo_children():
             widget.destroy()
         
+        self.empty_label = tk.Label(
+            self.laps_frame,
+            text="No laps recorded yet\nPress 'Lap' while running",
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e',
+            pady=40
+        )
+        self.empty_label.pack()
+
+    def record_lap(self):
+        if self.running:
