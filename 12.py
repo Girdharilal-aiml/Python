@@ -104,3 +104,14 @@ class Stopwatch:
             fg='white',
             font=self.btn_font,
             width=12,
+            height=2,
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            state='disabled',
+            activebackground='#388bfd',
+            activeforeground='white'
+        )
+        self.lap_btn.grid(row=0, column=1, padx=8)
+
+        # Reset button
