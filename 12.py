@@ -201,3 +201,15 @@ class Stopwatch:
             self.start_btn.config(text='Resume', bg='#238636', activebackground='#2ea043')
 
     def reset(self):
+        self.running = False
+        self.elapsed_time = 0
+        self.laps = []
+        self.time_label.config(text="00:00:00.00", fg='#58a6ff')
+        self.start_btn.config(text='Start', bg='#238636', activebackground='#2ea043')
+        self.lap_btn.config(state='disabled')
+        self.lap_count_label.config(text='0 laps')
+        
+        # Clear laps
+        for widget in self.laps_frame.winfo_children():
+            widget.destroy()
+        
