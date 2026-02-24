@@ -225,3 +225,17 @@ class Stopwatch:
 
     def record_lap(self):
         if self.running:
+            if hasattr(self, 'empty_label'):
+                self.empty_label.destroy()
+                delattr(self, 'empty_label')
+
+            lap_time = self.elapsed_time
+            self.laps.insert(0, lap_time)
+            
+            # Create lap card
+            lap_card = tk.Frame(self.laps_frame, bg='#0d1117', relief=tk.FLAT)
+            lap_card.pack(fill=tk.X, pady=3, padx=5)
+
+            # Lap number and time
+            left_frame = tk.Frame(lap_card, bg='#0d1117')
+            left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=15, pady=12)
