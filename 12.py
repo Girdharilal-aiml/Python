@@ -138,3 +138,14 @@ class Stopwatch:
 
         # Laps header
         header_frame = tk.Frame(laps_card, bg='#161b22')
+        header_frame.pack(fill=tk.X, padx=20, pady=(15, 10))
+
+        tk.Label(
+            header_frame,
+            text="🏁 Lap Times",
+            font=('Arial', 14, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT)
+
+        self.lap_count_label = tk.Label(
