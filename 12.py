@@ -115,3 +115,15 @@ class Stopwatch:
         self.lap_btn.grid(row=0, column=1, padx=8)
 
         # Reset button
+        self.reset_btn = tk.Button(
+            btn_frame,
+            text="Reset",
+            command=self.reset,
+            bg='#21262d',
+            fg='#c9d1d9',
+            font=self.btn_font,
+            width=12,
+            height=2,
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
