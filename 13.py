@@ -86,3 +86,7 @@ class BMICalculator:
             activeforeground='#58a6ff'
         )
         imperial_btn.pack(side=tk.LEFT, padx=10)
+
+        # Input card
+        input_card = tk.Frame(main_frame, bg='#161b22')
+        input_card.pack(fill=tk.X, pady=10)
