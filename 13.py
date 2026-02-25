@@ -102,3 +102,10 @@ class BMICalculator:
             bg='#161b22',
             fg='#c9d1d9'
         )
+        self.weight_label.pack(anchor='w', pady=(0, 8))
+
+        self.weight_entry = tk.Entry(
+            weight_frame,
+            font=('Arial', 18),
+            bg='#0d1117',
+            fg='#c9d1d9',
