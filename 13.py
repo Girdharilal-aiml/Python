@@ -155,3 +155,9 @@ class BMICalculator:
         )
         calc_btn.pack(pady=25, ipadx=40, ipady=12)
 
+        # Result card
+        self.result_card = tk.Frame(main_frame, bg='#161b22')
+        self.result_card.pack(fill=tk.BOTH, expand=True, pady=10)
+
+        # BMI value
+        self.bmi_label = tk.Label(
