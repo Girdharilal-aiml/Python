@@ -147,3 +147,11 @@ class BMICalculator:
             bg='#238636',
             fg='white',
             font=('Arial', 14, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            activebackground='#2ea043',
+            activeforeground='white'
+        )
+        calc_btn.pack(pady=25, ipadx=40, ipady=12)
+
