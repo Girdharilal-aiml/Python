@@ -216,3 +216,33 @@ class BMICalculator:
                 self.show_error("Please enter positive values!")
                 return
 
+            # Calculate BMI
+            if self.unit_var.get() == "metric":
+                # kg and cm
+                height_m = height / 100
+                bmi = weight / (height_m ** 2)
+            else:
+                # lbs and inches
+                bmi = (weight / (height ** 2)) * 703
+
+            # Display result
+            self.bmi_label.config(text=f"{bmi:.1f}")
+
+            # Determine category
+            if bmi < 18.5:
+                category = "Underweight"
+                color = "#58a6ff"
+                desc = "You may need to gain weight. Consult with a healthcare provider."
+            elif 18.5 <= bmi < 25:
+                category = "Normal Weight"
+                color = "#3fb950"
+                desc = "You have a healthy body weight. Great job!"
+            elif 25 <= bmi < 30:
+                category = "Overweight"
+                color = "#d29922"
+                desc = "You may want to consider a healthier diet and exercise."
+            else:
+                category = "Obese"
+                color = "#f85149"
+                desc = "You should consult with a healthcare provider about your weight."
+
