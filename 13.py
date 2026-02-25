@@ -182,3 +182,10 @@ class BMICalculator:
             self.result_card,
             text="",
             font=('Arial', 16, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        )
+        self.category_label.pack(pady=(20, 10))
+
+        # Description
+        self.desc_label = tk.Label(
