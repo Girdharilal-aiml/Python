@@ -189,3 +189,14 @@ class BMICalculator:
 
         # Description
         self.desc_label = tk.Label(
+            self.result_card,
+            text="Enter your weight and height to calculate BMI",
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e',
+            wraplength=400,
+            justify='center'
+        )
+        self.desc_label.pack(pady=(5, 30))
+
+    def update_labels(self):
