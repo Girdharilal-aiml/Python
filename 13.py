@@ -133,3 +133,11 @@ class BMICalculator:
             font=('Arial', 18),
             bg='#0d1117',
             fg='#c9d1d9',
+            insertbackground='#58a6ff',
+            relief=tk.FLAT,
+            bd=0
+        )
+        self.height_entry.pack(fill=tk.X, ipady=10)
+
+        # Calculate button
+        calc_btn = tk.Button(
