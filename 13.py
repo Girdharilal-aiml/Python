@@ -57,3 +57,11 @@ class BMICalculator:
 
         self.unit_var = tk.StringVar(value="metric")
 
+        metric_btn = tk.Radiobutton(
+            unit_frame,
+            text="Metric (kg, cm)",
+            variable=self.unit_var,
+            value="metric",
+            command=self.update_labels,
+            font=('Arial', 11),
+            bg='#161b22',
