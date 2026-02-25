@@ -175,3 +175,10 @@ class BMICalculator:
             font=('Arial', 12),
             bg='#161b22',
             fg='#8b949e'
+        ).pack()
+
+        # Category
+        self.category_label = tk.Label(
+            self.result_card,
+            text="",
+            font=('Arial', 16, 'bold'),
