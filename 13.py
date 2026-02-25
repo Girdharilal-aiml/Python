@@ -246,3 +246,22 @@ class BMICalculator:
                 color = "#f85149"
                 desc = "You should consult with a healthcare provider about your weight."
 
+            self.bmi_label.config(fg=color)
+            self.category_label.config(text=category, fg=color)
+            self.desc_label.config(text=desc, fg='#8b949e')
+
+        except ValueError:
+            self.show_error("Please enter valid numbers!")
+
+    def show_error(self, message):
+        self.bmi_label.config(text="Error", fg='#f85149')
+        self.category_label.config(text="", fg='#8b949e')
+        self.desc_label.config(text=message, fg='#f85149')
+
+def main():
+    root = tk.Tk()
+    app = BMICalculator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
