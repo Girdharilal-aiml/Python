@@ -125,3 +125,11 @@ class BMICalculator:
             font=('Arial', 13, 'bold'),
             bg='#161b22',
             fg='#c9d1d9'
+        )
+        self.height_label.pack(anchor='w', pady=(0, 8))
+
+        self.height_entry = tk.Entry(
+            height_frame,
+            font=('Arial', 18),
+            bg='#0d1117',
+            fg='#c9d1d9',
