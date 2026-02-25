@@ -47,3 +47,13 @@ class BMICalculator:
         unit_frame = tk.Frame(main_frame, bg='#161b22')
         unit_frame.pack(fill=tk.X, pady=(0, 20))
 
+        tk.Label(
+            unit_frame,
+            text="Units:",
+            font=('Arial', 12, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT, padx=20, pady=15)
+
+        self.unit_var = tk.StringVar(value="metric")
+
