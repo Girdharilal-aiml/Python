@@ -109,3 +109,12 @@ class BMICalculator:
             font=('Arial', 18),
             bg='#0d1117',
             fg='#c9d1d9',
+            insertbackground='#58a6ff',
+            relief=tk.FLAT,
+            bd=0
+        )
+        self.weight_entry.pack(fill=tk.X, ipady=10)
+
+        # Height input
+        height_frame = tk.Frame(input_card, bg='#161b22')
+        height_frame.pack(fill=tk.X, padx=20, pady=15)
