@@ -80,3 +80,9 @@ class BMICalculator:
             command=self.update_labels,
             font=('Arial', 11),
             bg='#161b22',
+            fg='#c9d1d9',
+            selectcolor='#0d1117',
+            activebackground='#161b22',
+            activeforeground='#58a6ff'
+        )
+        imperial_btn.pack(side=tk.LEFT, padx=10)
