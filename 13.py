@@ -200,3 +200,19 @@ class BMICalculator:
         self.desc_label.pack(pady=(5, 30))
 
     def update_labels(self):
+        if self.unit_var.get() == "metric":
+            self.weight_label.config(text="Weight (kg):")
+            self.height_label.config(text="Height (cm):")
+        else:
+            self.weight_label.config(text="Weight (lbs):")
+            self.height_label.config(text="Height (inches):")
+
+    def calculate_bmi(self):
+        try:
+            weight = float(self.weight_entry.get())
+            height = float(self.height_entry.get())
+
+            if weight <= 0 or height <= 0:
+                self.show_error("Please enter positive values!")
+                return
+
