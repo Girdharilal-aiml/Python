@@ -35,3 +35,15 @@ class BMICalculator:
             fg='#58a6ff'
         ).pack(side=tk.LEFT, padx=(20, 10), pady=15)
         
+        tk.Label(
+            title_frame,
+            text="BMI Calculator",
+            font=self.title_font,
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT, pady=15)
+
+        # Unit selector
+        unit_frame = tk.Frame(main_frame, bg='#161b22')
+        unit_frame.pack(fill=tk.X, pady=(0, 20))
+
