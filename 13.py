@@ -118,3 +118,10 @@ class BMICalculator:
         # Height input
         height_frame = tk.Frame(input_card, bg='#161b22')
         height_frame.pack(fill=tk.X, padx=20, pady=15)
+
+        self.height_label = tk.Label(
+            height_frame,
+            text="Height (cm):",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
