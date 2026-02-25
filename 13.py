@@ -168,3 +168,10 @@ class BMICalculator:
             fg='#8b949e'
         )
         self.bmi_label.pack(pady=(30, 5))
+
+        tk.Label(
+            self.result_card,
+            text="Your BMI",
+            font=('Arial', 12),
+            bg='#161b22',
+            fg='#8b949e'
