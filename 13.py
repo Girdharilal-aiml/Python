@@ -141,3 +141,9 @@ class BMICalculator:
 
         # Calculate button
         calc_btn = tk.Button(
+            main_frame,
+            text="Calculate BMI",
+            command=self.calculate_bmi,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 14, 'bold'),
