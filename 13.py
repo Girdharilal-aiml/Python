@@ -90,3 +90,15 @@ class BMICalculator:
         # Input card
         input_card = tk.Frame(main_frame, bg='#161b22')
         input_card.pack(fill=tk.X, pady=10)
+
+        # Weight input
+        weight_frame = tk.Frame(input_card, bg='#161b22')
+        weight_frame.pack(fill=tk.X, padx=20, pady=15)
+
+        self.weight_label = tk.Label(
+            weight_frame,
+            text="Weight (kg):",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        )
