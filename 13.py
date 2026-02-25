@@ -73,3 +73,10 @@ class BMICalculator:
         metric_btn.pack(side=tk.LEFT, padx=10)
 
         imperial_btn = tk.Radiobutton(
+            unit_frame,
+            text="Imperial (lbs, inches)",
+            variable=self.unit_var,
+            value="imperial",
+            command=self.update_labels,
+            font=('Arial', 11),
+            bg='#161b22',
