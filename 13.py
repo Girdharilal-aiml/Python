@@ -27,3 +27,11 @@ class BMICalculator:
         title_frame = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT)
         title_frame.pack(fill=tk.X, pady=(0, 20))
         
+        tk.Label(
+            title_frame,
+            text="⚖️",
+            font=('Arial', 40),
+            bg='#161b22',
+            fg='#58a6ff'
+        ).pack(side=tk.LEFT, padx=(20, 10), pady=15)
+        
