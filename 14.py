@@ -38,3 +38,13 @@ class UnitConverter:
                     "Centimeters": 0.01
                 }
             },
+            "Weight": {
+                "units": ["Kilograms", "Grams", "Pounds", "Ounces", "Tons"],
+                "to_kg": {
+                    "Kilograms": 1,
+                    "Grams": 0.001,
+                    "Pounds": 0.453592,
+                    "Ounces": 0.0283495,
+                    "Tons": 1000
+                }
+            },
