@@ -333,3 +333,14 @@ class UnitConverter:
             "Temperature": "• 0°C = 32°F = 273.15K\n• Water freezes at 0°C\n• Water boils at 100°C",
             "Length": "• 1 km = 0.621 miles\n• 1 meter = 3.281 feet\n• 1 inch = 2.54 cm",
             "Weight": "• 1 kg = 2.205 pounds\n• 1 pound = 16 ounces\n• 1 ton = 1000 kg",
+            "Volume": "• 1 liter = 0.264 gallons\n• 1 gallon = 16 cups\n• 1 cup = 8 fl oz"
+        }
+        return info.get(self.current_category, "")
+
+def main():
+    root = tk.Tk()
+    app = UnitConverter(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
