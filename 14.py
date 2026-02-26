@@ -285,3 +285,16 @@ class UnitConverter:
     def swap_units(self):
         from_idx = self.from_unit.current()
         to_idx = self.to_unit.current()
+        
+        self.from_unit.current(to_idx)
+        self.to_unit.current(from_idx)
+        
+        self.convert()
+
+    def convert(self):
+        try:
+            value = float(self.from_entry.get())
+            from_unit = self.from_unit.get()
+            to_unit = self.to_unit.get()
+            
+            if from_unit == to_unit:
