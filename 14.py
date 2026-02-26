@@ -100,3 +100,28 @@ class UnitConverter:
             bg='#161b22',
             fg='#c9d1d9'
         ).pack(anchor='w', padx=20, pady=(15, 10))
+
+        btn_container = tk.Frame(category_frame, bg='#161b22')
+        btn_container.pack(padx=20, pady=(0, 15))
+
+        for category in self.conversions.keys():
+            btn = tk.Button(
+                btn_container,
+                text=category,
+                command=lambda c=category: self.change_category(c),
+                bg='#21262d',
+                fg='#c9d1d9',
+                font=('Arial', 11, 'bold'),
+                cursor='hand2',
+                bd=0,
+                relief=tk.FLAT,
+                width=12,
+                height=2,
+                activebackground='#30363d',
+                activeforeground='white'
+            )
+            btn.pack(side=tk.LEFT, padx=5)
+            
+            if category == self.current_category:
+                btn.config(bg='#1f6feb', activebackground='#388bfd')
+
