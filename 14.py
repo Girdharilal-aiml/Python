@@ -154,3 +154,13 @@ class UnitConverter:
             bd=0,
             width=15
         )
+        self.from_entry.pack(side=tk.LEFT, ipady=10, fill=tk.X, expand=True)
+        self.from_entry.bind('<KeyRelease>', lambda e: self.convert())
+
+        self.from_unit = ttk.Combobox(
+            from_input_frame,
+            values=self.conversions[self.current_category]["units"],
+            state='readonly',
+            font=('Arial', 12),
+            width=12
+        )
