@@ -192,3 +192,14 @@ class UnitConverter:
         to_frame = tk.Frame(input_card, bg='#161b22')
         to_frame.pack(fill=tk.X, padx=20, pady=15)
 
+        tk.Label(
+            to_frame,
+            text="To:",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(anchor='w', pady=(0, 8))
+
+        to_input_frame = tk.Frame(to_frame, bg='#161b22')
+        to_input_frame.pack(fill=tk.X)
+
