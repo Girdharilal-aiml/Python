@@ -27,3 +27,14 @@ class UnitConverter:
                     ("Kelvin", "Fahrenheit"): lambda x: (x - 273.15) * 9/5 + 32,
                 }
             },
+            "Length": {
+                "units": ["Meters", "Kilometers", "Miles", "Feet", "Inches", "Centimeters"],
+                "to_meters": {
+                    "Meters": 1,
+                    "Kilometers": 1000,
+                    "Miles": 1609.34,
+                    "Feet": 0.3048,
+                    "Inches": 0.0254,
+                    "Centimeters": 0.01
+                }
+            },
