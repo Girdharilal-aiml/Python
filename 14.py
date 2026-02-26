@@ -61,3 +61,7 @@ class UnitConverter:
         }
 
         self.current_category = "Temperature"
+
+        # Custom fonts
+        self.title_font = tkfont.Font(family='Arial', size=28, weight='bold')
+
