@@ -168,3 +168,7 @@ class UnitConverter:
         self.from_unit.current(0)
         self.from_unit.bind('<<ComboboxSelected>>', lambda e: self.convert())
 
+        # Swap button
+        swap_frame = tk.Frame(input_card, bg='#161b22')
+        swap_frame.pack(pady=10)
+
