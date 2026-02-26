@@ -298,3 +298,15 @@ class UnitConverter:
             to_unit = self.to_unit.get()
             
             if from_unit == to_unit:
+                result = value
+            elif self.current_category == "Temperature":
+                # Temperature conversion
+                if (from_unit, to_unit) in self.conversions["Temperature"]["formulas"]:
+                    result = self.conversions["Temperature"]["formulas"][(from_unit, to_unit)](value)
+                else:
+                    result = value
+            else:
+                # Other conversions (length, weight, volume)
+                if self.current_category == "Length":
+                    base_key = "to_meters"
+                elif self.current_category == "Weight":
