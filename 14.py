@@ -144,3 +144,13 @@ class UnitConverter:
         from_input_frame = tk.Frame(from_frame, bg='#161b22')
         from_input_frame.pack(fill=tk.X)
 
+        self.from_entry = tk.Entry(
+            from_input_frame,
+            font=('Arial', 18),
+            bg='#0d1117',
+            fg='#c9d1d9',
+            insertbackground='#58a6ff',
+            relief=tk.FLAT,
+            bd=0,
+            width=15
+        )
