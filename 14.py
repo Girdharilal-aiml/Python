@@ -125,3 +125,11 @@ class UnitConverter:
             if category == self.current_category:
                 btn.config(bg='#1f6feb', activebackground='#388bfd')
 
+        # Input card
+        input_card = tk.Frame(main_frame, bg='#161b22')
+        input_card.pack(fill=tk.X, pady=10)
+
+        # From section
+        from_frame = tk.Frame(input_card, bg='#161b22')
+        from_frame.pack(fill=tk.X, padx=20, pady=15)
+
