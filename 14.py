@@ -260,3 +260,28 @@ class UnitConverter:
         self.from_unit.current(0)
         self.to_unit.current(1)
         
+        # Clear entries
+        self.from_entry.delete(0, tk.END)
+        self.to_entry.config(state='normal')
+        self.to_entry.delete(0, tk.END)
+        self.to_entry.config(state='readonly')
+        
+        # Update info
+        self.info_label.config(text=self.get_info_text())
+        
+        # Update button colors
+        for widget in self.root.winfo_children():
+            self.update_category_buttons(widget, category)
+
+    def update_category_buttons(self, widget, current_cat):
+        for child in widget.winfo_children():
+            if isinstance(child, tk.Button) and child.cget('text') in self.conversions.keys():
+                if child.cget('text') == current_cat:
+                    child.config(bg='#1f6feb', activebackground='#388bfd')
+                else:
+                    child.config(bg='#21262d', activebackground='#30363d')
+            self.update_category_buttons(child, current_cat)
+
+    def swap_units(self):
+        from_idx = self.from_unit.current()
+        to_idx = self.to_unit.current()
