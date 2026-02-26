@@ -216,3 +216,18 @@ class UnitConverter:
         )
         self.to_entry.pack(side=tk.LEFT, ipady=10, fill=tk.X, expand=True)
 
+        self.to_unit = ttk.Combobox(
+            to_input_frame,
+            values=self.conversions[self.current_category]["units"],
+            state='readonly',
+            font=('Arial', 12),
+            width=12
+        )
+        self.to_unit.pack(side=tk.LEFT, padx=(10, 0), ipady=8)
+        self.to_unit.current(1)
+        self.to_unit.bind('<<ComboboxSelected>>', lambda e: self.convert())
+
+        # Result card
+        result_card = tk.Frame(main_frame, bg='#161b22')
+        result_card.pack(fill=tk.BOTH, expand=True, pady=10)
+
