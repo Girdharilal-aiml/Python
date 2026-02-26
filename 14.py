@@ -172,3 +172,18 @@ class UnitConverter:
         swap_frame = tk.Frame(input_card, bg='#161b22')
         swap_frame.pack(pady=10)
 
+        tk.Button(
+            swap_frame,
+            text="⇅",
+            command=self.swap_units,
+            bg='#21262d',
+            fg='#58a6ff',
+            font=('Arial', 20, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            width=3,
+            height=1,
+            activebackground='#30363d',
+            activeforeground='#58a6ff'
+        ).pack()
