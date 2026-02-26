@@ -48,3 +48,16 @@ class UnitConverter:
                     "Tons": 1000
                 }
             },
+            "Volume": {
+                "units": ["Liters", "Milliliters", "Gallons", "Cups", "Fluid Ounces"],
+                "to_liters": {
+                    "Liters": 1,
+                    "Milliliters": 0.001,
+                    "Gallons": 3.78541,
+                    "Cups": 0.236588,
+                    "Fluid Ounces": 0.0295735
+                }
+            }
+        }
+
+        self.current_category = "Temperature"
