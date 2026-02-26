@@ -231,3 +231,20 @@ class UnitConverter:
         result_card = tk.Frame(main_frame, bg='#161b22')
         result_card.pack(fill=tk.BOTH, expand=True, pady=10)
 
+        tk.Label(
+            result_card,
+            text="Quick Reference",
+            font=('Arial', 14, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(pady=(20, 10))
+
+        self.info_label = tk.Label(
+            result_card,
+            text=self.get_info_text(),
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e',
+            justify='left',
+            wraplength=450
+        )
