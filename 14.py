@@ -89,3 +89,14 @@ class UnitConverter:
             fg='#c9d1d9'
         ).pack(side=tk.LEFT, pady=15)
 
+        # Category selector
+        category_frame = tk.Frame(main_frame, bg='#161b22')
+        category_frame.pack(fill=tk.X, pady=(0, 20))
+
+        tk.Label(
+            category_frame,
+            text="Category:",
+            font=('Arial', 12, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(anchor='w', padx=20, pady=(15, 10))
