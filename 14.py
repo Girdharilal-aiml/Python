@@ -14,3 +14,16 @@ class UnitConverter:
         self.root.configure(bg='#0d1117')
         self.root.resizable(False, False)
 
+        # Conversion data
+        self.conversions = {
+            "Temperature": {
+                "units": ["Celsius", "Fahrenheit", "Kelvin"],
+                "formulas": {
+                    ("Celsius", "Fahrenheit"): lambda x: x * 9/5 + 32,
+                    ("Celsius", "Kelvin"): lambda x: x + 273.15,
+                    ("Fahrenheit", "Celsius"): lambda x: (x - 32) * 5/9,
+                    ("Fahrenheit", "Kelvin"): lambda x: (x - 32) * 5/9 + 273.15,
+                    ("Kelvin", "Celsius"): lambda x: x - 273.15,
+                    ("Kelvin", "Fahrenheit"): lambda x: (x - 273.15) * 9/5 + 32,
+                }
+            },
