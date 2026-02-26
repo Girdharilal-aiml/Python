@@ -164,3 +164,7 @@ class UnitConverter:
             font=('Arial', 12),
             width=12
         )
+        self.from_unit.pack(side=tk.LEFT, padx=(10, 0), ipady=8)
+        self.from_unit.current(0)
+        self.from_unit.bind('<<ComboboxSelected>>', lambda e: self.convert())
+
