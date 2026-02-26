@@ -81,3 +81,11 @@ class UnitConverter:
             fg='#58a6ff'
         ).pack(side=tk.LEFT, padx=(20, 10), pady=15)
         
+        tk.Label(
+            title_frame,
+            text="Unit Converter",
+            font=self.title_font,
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT, pady=15)
+
