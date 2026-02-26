@@ -248,3 +248,15 @@ class UnitConverter:
             justify='left',
             wraplength=450
         )
+        self.info_label.pack(padx=20, pady=10)
+
+    def change_category(self, category):
+        self.current_category = category
+        
+        # Update unit dropdowns
+        units = self.conversions[category]["units"]
+        self.from_unit['values'] = units
+        self.to_unit['values'] = units
+        self.from_unit.current(0)
+        self.to_unit.current(1)
+        
