@@ -310,3 +310,26 @@ class UnitConverter:
                 if self.current_category == "Length":
                     base_key = "to_meters"
                 elif self.current_category == "Weight":
+                    base_key = "to_kg"
+                else:  # Volume
+                    base_key = "to_liters"
+                
+                # Convert to base unit, then to target unit
+                base_value = value * self.conversions[self.current_category][base_key][from_unit]
+                result = base_value / self.conversions[self.current_category][base_key][to_unit]
+            
+            self.to_entry.config(state='normal')
+            self.to_entry.delete(0, tk.END)
+            self.to_entry.insert(0, f"{result:.4f}")
+            self.to_entry.config(state='readonly')
+            
+        except ValueError:
+            self.to_entry.config(state='normal')
+            self.to_entry.delete(0, tk.END)
+            self.to_entry.config(state='readonly')
+
+    def get_info_text(self):
+        info = {
+            "Temperature": "• 0°C = 32°F = 273.15K\n• Water freezes at 0°C\n• Water boils at 100°C",
+            "Length": "• 1 km = 0.621 miles\n• 1 meter = 3.281 feet\n• 1 inch = 2.54 cm",
+            "Weight": "• 1 kg = 2.205 pounds\n• 1 pound = 16 ounces\n• 1 ton = 1000 kg",
