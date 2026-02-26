@@ -187,3 +187,8 @@ class UnitConverter:
             activebackground='#30363d',
             activeforeground='#58a6ff'
         ).pack()
+
+        # To section
+        to_frame = tk.Frame(input_card, bg='#161b22')
+        to_frame.pack(fill=tk.X, padx=20, pady=15)
+
