@@ -203,3 +203,16 @@ class UnitConverter:
         to_input_frame = tk.Frame(to_frame, bg='#161b22')
         to_input_frame.pack(fill=tk.X)
 
+        self.to_entry = tk.Entry(
+            to_input_frame,
+            font=('Arial', 18),
+            bg='#0d1117',
+            fg='#3fb950',
+            insertbackground='#58a6ff',
+            relief=tk.FLAT,
+            bd=0,
+            width=15,
+            state='readonly'
+        )
+        self.to_entry.pack(side=tk.LEFT, ipady=10, fill=tk.X, expand=True)
+
