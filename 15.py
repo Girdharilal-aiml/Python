@@ -101,3 +101,10 @@ class AgeCalculator:
         month_combo.pack(fill=tk.X, ipady=6)
         month_combo.current(0)
 
+        # Year
+        year_frame = tk.Frame(date_inputs, bg='#161b22')
+        year_frame.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
+        
+        tk.Label(year_frame, text="Year", font=('Arial', 9), bg='#161b22', fg='#8b949e').pack(anchor='w')
+        self.year_var = tk.StringVar()
+        year_spin = tk.Spinbox(
