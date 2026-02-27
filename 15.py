@@ -83,3 +83,11 @@ class AgeCalculator:
         )
         day_spin.pack(fill=tk.X, ipady=8)
 
+        # Month
+        month_frame = tk.Frame(date_inputs, bg='#161b22')
+        month_frame.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
+        
+        tk.Label(month_frame, text="Month", font=('Arial', 9), bg='#161b22', fg='#8b949e').pack(anchor='w')
+        self.month_var = tk.StringVar()
+        month_combo = ttk.Combobox(
+            month_frame,
