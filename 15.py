@@ -62,3 +62,9 @@ class AgeCalculator:
         date_inputs = tk.Frame(birth_frame, bg='#161b22')
         date_inputs.pack(fill=tk.X)
 
+        # Day
+        day_frame = tk.Frame(date_inputs, bg='#161b22')
+        day_frame.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
+        
+        tk.Label(day_frame, text="Day", font=('Arial', 9), bg='#161b22', fg='#8b949e').pack(anchor='w')
+        self.day_var = tk.StringVar()
