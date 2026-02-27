@@ -115,3 +115,10 @@ class AgeCalculator:
             font=('Arial', 16),
             bg='#0d1117',
             fg='#c9d1d9',
+            buttonbackground='#21262d',
+            relief=tk.FLAT,
+            bd=0,
+            width=10
+        )
+        year_spin.pack(fill=tk.X, ipady=8)
+
