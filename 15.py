@@ -174,3 +174,11 @@ class AgeCalculator:
         )
         self.details_label.pack()
 
+        # Fun facts
+        self.facts_label = tk.Label(
+            result_card,
+            text="Enter your birth date to calculate age",
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e',
+            wraplength=450,
