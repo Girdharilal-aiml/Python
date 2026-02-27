@@ -182,3 +182,9 @@ class AgeCalculator:
             bg='#161b22',
             fg='#8b949e',
             wraplength=450,
+            justify='center'
+        )
+        self.facts_label.pack(pady=(10, 30))
+
+    def calculate_age(self):
+        try:
