@@ -142,3 +142,9 @@ class AgeCalculator:
         result_card = tk.Frame(main_frame, bg='#161b22')
         result_card.pack(fill=tk.BOTH, expand=True, pady=10)
 
+        # Main age display
+        self.age_label = tk.Label(
+            result_card,
+            text="--",
+            font=self.result_font,
+            bg='#161b22',
