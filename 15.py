@@ -68,3 +68,10 @@ class AgeCalculator:
         
         tk.Label(day_frame, text="Day", font=('Arial', 9), bg='#161b22', fg='#8b949e').pack(anchor='w')
         self.day_var = tk.StringVar()
+        day_spin = tk.Spinbox(
+            day_frame,
+            from_=1,
+            to=31,
+            textvariable=self.day_var,
+            font=('Arial', 16),
+            bg='#0d1117',
