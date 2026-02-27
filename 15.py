@@ -54,3 +54,11 @@ class AgeCalculator:
         tk.Label(
             birth_frame,
             text="Birth Date:",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(anchor='w', pady=(0, 10))
+
+        date_inputs = tk.Frame(birth_frame, bg='#161b22')
+        date_inputs.pack(fill=tk.X)
+
