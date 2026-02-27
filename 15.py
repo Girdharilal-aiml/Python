@@ -37,3 +37,13 @@ class AgeCalculator:
         
         tk.Label(
             title_frame,
+            text="Age Calculator",
+            font=self.title_font,
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT, pady=15)
+
+        # Input card
+        input_card = tk.Frame(main_frame, bg='#161b22')
+        input_card.pack(fill=tk.X, pady=10)
+
