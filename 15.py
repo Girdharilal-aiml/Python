@@ -47,3 +47,10 @@ class AgeCalculator:
         input_card = tk.Frame(main_frame, bg='#161b22')
         input_card.pack(fill=tk.X, pady=10)
 
+        # Birth date section
+        birth_frame = tk.Frame(input_card, bg='#161b22')
+        birth_frame.pack(fill=tk.X, padx=20, pady=15)
+
+        tk.Label(
+            birth_frame,
+            text="Birth Date:",
