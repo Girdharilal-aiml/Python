@@ -154,3 +154,10 @@ class AgeCalculator:
 
         tk.Label(
             result_card,
+            text="Years Old",
+            font=('Arial', 14),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack()
+
+        # Detailed breakdown
