@@ -272,3 +272,27 @@ class AgeCalculator:
                 facts += "You're a teenager! 🌟"
             elif age_years < 30:
                 facts += "You're in your twenties! 🚀"
+            elif age_years < 50:
+                facts += "You're in your prime! 💪"
+            elif age_years < 65:
+                facts += "You've got great experience! 🎯"
+            else:
+                facts += "Wisdom comes with age! 👑"
+
+            self.facts_label.config(text=facts, fg='#8b949e')
+
+        except ValueError:
+            self.show_error("Please enter a valid date!")
+
+    def show_error(self, message):
+        self.age_label.config(text="Error", fg='#f85149')
+        self.details_label.config(text="", fg='#8b949e')
+        self.facts_label.config(text=message, fg='#f85149')
+
+def main():
+    root = tk.Tk()
+    app = AgeCalculator(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
