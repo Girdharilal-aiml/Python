@@ -108,3 +108,10 @@ class AgeCalculator:
         tk.Label(year_frame, text="Year", font=('Arial', 9), bg='#161b22', fg='#8b949e').pack(anchor='w')
         self.year_var = tk.StringVar()
         year_spin = tk.Spinbox(
+            year_frame,
+            from_=1900,
+            to=datetime.now().year,
+            textvariable=self.year_var,
+            font=('Arial', 16),
+            bg='#0d1117',
+            fg='#c9d1d9',
