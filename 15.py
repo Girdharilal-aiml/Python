@@ -240,3 +240,35 @@ class AgeCalculator:
             # Calculate total time lived
             total_days = (today - birth_date).days
             total_weeks = total_days // 7
+            total_months = age_years * 12 + age_months
+            total_hours = total_days * 24
+            total_minutes = total_hours * 60
+
+            # Detailed breakdown
+            details = f"📅 {age_years} years, {age_months} months, {age_days} days\n\n"
+            details += f"📊 Total:\n"
+            details += f"   • {total_months:,} months\n"
+            details += f"   • {total_weeks:,} weeks\n"
+            details += f"   • {total_days:,} days\n"
+            details += f"   • {total_hours:,} hours\n"
+            details += f"   • {total_minutes:,} minutes"
+
+            self.details_label.config(text=details, fg='#c9d1d9')
+
+            # Calculate next birthday
+            next_birthday = date(today.year, birth_date.month, birth_date.day)
+            if next_birthday < today:
+                next_birthday = date(today.year + 1, birth_date.month, birth_date.day)
+            days_to_birthday = (next_birthday - today).days
+
+            # Fun facts
+            facts = f"🎉 Next birthday in {days_to_birthday} days!\n"
+            
+            if age_years < 1:
+                facts += "You're still a baby! 👶"
+            elif age_years < 13:
+                facts += "You're a kid! Enjoy your childhood! 🎈"
+            elif age_years < 20:
+                facts += "You're a teenager! 🌟"
+            elif age_years < 30:
+                facts += "You're in your twenties! 🚀"
