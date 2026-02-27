@@ -167,3 +167,10 @@ class AgeCalculator:
         self.details_label = tk.Label(
             detail_frame,
             text="",
+            font=('Arial', 12),
+            bg='#161b22',
+            fg='#8b949e',
+            justify='left'
+        )
+        self.details_label.pack()
+
