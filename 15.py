@@ -188,3 +188,35 @@ class AgeCalculator:
 
     def calculate_age(self):
         try:
+            # Get birth date
+            day = int(self.day_var.get())
+            month_name = self.month_var.get()
+            year = int(self.year_var.get())
+
+            # Convert month name to number
+            months = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November", "December"]
+            month = months.index(month_name) + 1
+
+            birth_date = date(year, month, day)
+            today = date.today()
+
+            # Check if birth date is in future
+            if birth_date > today:
+                self.show_error("Birth date cannot be in the future!")
+                return
+
+            # Calculate age
+            age_years = today.year - birth_date.year
+            age_months = today.month - birth_date.month
+            age_days = today.day - birth_date.day
+
+            # Adjust if current month/day is before birth month/day
+            if age_days < 0:
+                age_months -= 1
+                # Get days in previous month
+                if today.month == 1:
+                    prev_month_days = 31
+                else:
+                    prev_month = today.month - 1
+                    if prev_month in [1, 3, 5, 7, 8, 10, 12]:
