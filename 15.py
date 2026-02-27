@@ -161,3 +161,9 @@ class AgeCalculator:
         ).pack()
 
         # Detailed breakdown
+        detail_frame = tk.Frame(result_card, bg='#161b22')
+        detail_frame.pack(pady=20, padx=30)
+
+        self.details_label = tk.Label(
+            detail_frame,
+            text="",
