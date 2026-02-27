@@ -220,3 +220,23 @@ class AgeCalculator:
                 else:
                     prev_month = today.month - 1
                     if prev_month in [1, 3, 5, 7, 8, 10, 12]:
+                        prev_month_days = 31
+                    elif prev_month in [4, 6, 9, 11]:
+                        prev_month_days = 30
+                    else:  # February
+                        if today.year % 4 == 0 and (today.year % 100 != 0 or today.year % 400 == 0):
+                            prev_month_days = 29
+                        else:
+                            prev_month_days = 28
+                age_days += prev_month_days
+
+            if age_months < 0:
+                age_years -= 1
+                age_months += 12
+
+            # Display main age
+            self.age_label.config(text=str(age_years), fg='#58a6ff')
+
+            # Calculate total time lived
+            total_days = (today - birth_date).days
+            total_weeks = total_days // 7
