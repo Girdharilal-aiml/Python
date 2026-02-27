@@ -148,3 +148,9 @@ class AgeCalculator:
             text="--",
             font=self.result_font,
             bg='#161b22',
+            fg='#8b949e'
+        )
+        self.age_label.pack(pady=(30, 5))
+
+        tk.Label(
+            result_card,
