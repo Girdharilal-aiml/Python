@@ -133,3 +133,12 @@ class AgeCalculator:
             cursor='hand2',
             bd=0,
             relief=tk.FLAT,
+            activebackground='#2ea043',
+            activeforeground='white'
+        )
+        calc_btn.pack(pady=25, ipadx=40, ipady=12)
+
+        # Result card
+        result_card = tk.Frame(main_frame, bg='#161b22')
+        result_card.pack(fill=tk.BOTH, expand=True, pady=10)
+
