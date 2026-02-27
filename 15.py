@@ -91,3 +91,13 @@ class AgeCalculator:
         self.month_var = tk.StringVar()
         month_combo = ttk.Combobox(
             month_frame,
+            textvariable=self.month_var,
+            values=["January", "February", "March", "April", "May", "June",
+                   "July", "August", "September", "October", "November", "December"],
+            state='readonly',
+            font=('Arial', 12),
+            width=10
+        )
+        month_combo.pack(fill=tk.X, ipady=6)
+        month_combo.current(0)
+
