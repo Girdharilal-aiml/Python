@@ -122,3 +122,14 @@ class AgeCalculator:
         )
         year_spin.pack(fill=tk.X, ipady=8)
 
+        # Calculate button
+        calc_btn = tk.Button(
+            main_frame,
+            text="Calculate Age",
+            command=self.calculate_age,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 14, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
