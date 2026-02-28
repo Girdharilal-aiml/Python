@@ -290,4 +290,79 @@ class TypingSpeedTest:
         # Update button
         self.start_btn.config(state='disabled', bg='#21262d')
         
+        # Reset stats
+        self.timer_label.config(text="0.0s")
+        self.wpm_label.config(text="0")
+        self.accuracy_label.config(text="0%")
+        self.result_label.config(text="")
+        
+        # Start timer
+        self.update_timer()
+
+    def reset_test(self):
+        self.test_running = False
+        self.test_completed = False
+        self.start_time = None
+        
+        self.text_label.config(text="Click 'Start Test' to begin", fg='#58a6ff')
+        self.input_text.config(state='disabled')
+        self.input_text.delete('1.0', tk.END)
+        
+        self.start_btn.config(state='normal', bg='#238636')
+        
+        self.timer_label.config(text="0.0s")
+        self.wpm_label.config(text="0")
+        self.accuracy_label.config(text="0%")
+        self.result_label.config(text="")
+
+    def update_timer(self):
+        if self.test_running and not self.test_completed:
+            elapsed = time.time() - self.start_time
+            self.timer_label.config(text=f"{elapsed:.1f}s")
+            self.root.after(100, self.update_timer)
+
+    def on_type(self, event):
+        if not self.test_running or self.test_completed:
+            return
+
+        typed_text = self.input_text.get('1.0', 'end-1c')
+        
+        # Calculate WPM
+        elapsed_time = time.time() - self.start_time
+        if elapsed_time > 0:
+            words_typed = len(typed_text.split())
+            minutes = elapsed_time / 60
+            wpm = int(words_typed / minutes) if minutes > 0 else 0
+            self.wpm_label.config(text=str(wpm))
+
+        # Calculate accuracy
+        correct_chars = 0
+        total_chars = len(typed_text)
+        
+        for i in range(min(len(typed_text), len(self.current_text))):
+            if typed_text[i] == self.current_text[i]:
+                correct_chars += 1
+        
+        if total_chars > 0:
+            accuracy = int((correct_chars / total_chars) * 100)
+            self.accuracy_label.config(text=f"{accuracy}%")
+            
+            # Color code accuracy
+            if accuracy >= 95:
+                self.accuracy_label.config(fg='#3fb950')
+            elif accuracy >= 80:
+                self.accuracy_label.config(fg='#d29922')
+            else:
+                self.accuracy_label.config(fg='#f85149')
+
+        # Check if test is complete
+        if typed_text == self.current_text:
+            self.complete_test()
+
+    def complete_test(self):
+        self.test_completed = True
+        self.test_running = False
+        
+        # Disable input
+        self.input_text.config(state='disabled')
         
