@@ -31,3 +31,8 @@ class TypingSpeedTest:
             "Innovation distinguishes between a leader and a follower in any field.",
         ]
 
+        # Test state
+        self.current_text = ""
+        self.start_time = None
+        self.test_running = False
+        self.test_completed = False
