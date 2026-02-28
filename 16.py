@@ -254,3 +254,22 @@ class TypingSpeedTest:
         )
         self.result_label.pack(pady=10)
 
+    def on_resize(self, event):
+        # Update text wraplength based on window width
+        if event.widget == self.root:
+            new_width = self.root.winfo_width()
+            # Set wraplength to window width minus padding
+            wrap_width = max(300, new_width - 120)
+            self.text_label.config(wraplength=wrap_width)
+            
+            # Stack stats vertically on narrow screens
+            if new_width < 700:
+                # Reconfigure to vertical layout
+                for i, widget in enumerate(self.stats_container.winfo_children()):
+                    widget.grid(row=i, column=0, padx=10, pady=5, sticky='ew')
+            else:
+                # Reconfigure to horizontal layout
+                for i, widget in enumerate(self.stats_container.winfo_children()):
+                    widget.grid(row=0, column=i, padx=10, pady=5, sticky='ew')
+
+        
