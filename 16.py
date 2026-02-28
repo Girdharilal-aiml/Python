@@ -143,3 +143,11 @@ class TypingSpeedTest:
         timer_card = tk.Frame(self.stats_container, bg='#161b22')
         timer_card.grid(row=0, column=0, padx=10, pady=5, sticky='ew')
 
+        tk.Label(
+            timer_card,
+            text="⏱️ Time",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(pady=(10, 5))
+
