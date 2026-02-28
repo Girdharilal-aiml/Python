@@ -36,3 +36,9 @@ class TypingSpeedTest:
         self.start_time = None
         self.test_running = False
         self.test_completed = False
+
+        # Custom fonts
+        self.title_font = tkfont.Font(family='Arial', size=28, weight='bold')
+        self.text_font = tkfont.Font(family='Georgia', size=16)
+        self.input_font = tkfont.Font(family='Courier New', size=14)
+
