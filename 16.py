@@ -180,3 +180,25 @@ class TypingSpeedTest:
             fg='#3fb950'
         )
         self.wpm_label.pack(pady=(0, 10), padx=20)
+
+        # Accuracy
+        accuracy_card = tk.Frame(self.stats_container, bg='#161b22')
+        accuracy_card.grid(row=0, column=2, padx=10, pady=5, sticky='ew')
+
+        tk.Label(
+            accuracy_card,
+            text="🎯 Accuracy",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(pady=(10, 5))
+
+        self.accuracy_label = tk.Label(
+            accuracy_card,
+            text="0%",
+            font=('Arial', 20, 'bold'),
+            bg='#161b22',
+            fg='#d29922'
+        )
+        self.accuracy_label.pack(pady=(0, 10), padx=20)
+        
