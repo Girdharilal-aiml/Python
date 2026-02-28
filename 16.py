@@ -159,3 +159,8 @@ class TypingSpeedTest:
             fg='#58a6ff'
         )
         self.timer_label.pack(pady=(0, 10), padx=20)
+
+        # WPM
+        wpm_card = tk.Frame(self.stats_container, bg='#161b22')
+        wpm_card.grid(row=0, column=1, padx=10, pady=5, sticky='ew')
+
