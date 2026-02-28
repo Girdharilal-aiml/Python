@@ -272,4 +272,22 @@ class TypingSpeedTest:
                 for i, widget in enumerate(self.stats_container.winfo_children()):
                     widget.grid(row=0, column=i, padx=10, pady=5, sticky='ew')
 
+    def start_test(self):
+        # Reset state
+        self.test_running = True
+        self.test_completed = False
+        self.start_time = time.time()
+        
+        # Select random text
+        self.current_text = random.choice(self.paragraphs)
+        self.text_label.config(text=self.current_text, fg='#c9d1d9')
+        
+        # Enable input
+        self.input_text.config(state='normal')
+        self.input_text.delete('1.0', tk.END)
+        self.input_text.focus()
+        
+        # Update button
+        self.start_btn.config(state='disabled', bg='#21262d')
+        
         
