@@ -103,3 +103,16 @@ class TypingSpeedTest:
         
         # Bind resize event to update wraplength
         self.root.bind('<Configure>', self.on_resize)
+
+        # Input area
+        input_card = tk.Frame(main_frame, bg='#161b22')
+        input_card.pack(fill=tk.X, pady=10)
+
+        tk.Label(
+            input_card,
+            text="Your Typing:",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(anchor='w', padx=20, pady=(15, 10))
+
