@@ -65,3 +65,8 @@ class TypingSpeedTest:
             bg='#161b22',
             fg='#c9d1d9'
         ).pack(side=tk.LEFT, pady=15)
+
+        # Instructions
+        instructions_frame = tk.Frame(main_frame, bg='#161b22')
+        instructions_frame.pack(fill=tk.X, pady=(0, 15))
+
