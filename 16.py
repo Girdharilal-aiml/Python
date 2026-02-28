@@ -89,3 +89,8 @@ class TypingSpeedTest:
             bg='#161b22',
             fg='#c9d1d9'
         ).pack(anchor='w', padx=20, pady=(15, 10))
+
+        self.text_label = tk.Label(
+            text_card,
+            text="Click 'Start Test' to begin",
+            font=self.text_font,
