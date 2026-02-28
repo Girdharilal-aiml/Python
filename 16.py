@@ -164,3 +164,10 @@ class TypingSpeedTest:
         wpm_card = tk.Frame(self.stats_container, bg='#161b22')
         wpm_card.grid(row=0, column=1, padx=10, pady=5, sticky='ew')
 
+        tk.Label(
+            wpm_card,
+            text="⚡ WPM",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(pady=(10, 5))
