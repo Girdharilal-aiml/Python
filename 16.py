@@ -135,3 +135,7 @@ class TypingSpeedTest:
         self.stats_frame = tk.Frame(main_frame, bg='#0d1117')
         self.stats_frame.pack(pady=15, fill=tk.X)
 
+        # Create stats cards with grid for better responsiveness
+        self.stats_container = tk.Frame(self.stats_frame, bg='#0d1117')
+        self.stats_container.pack()
+
