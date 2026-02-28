@@ -171,3 +171,12 @@ class TypingSpeedTest:
             bg='#161b22',
             fg='#8b949e'
         ).pack(pady=(10, 5))
+
+        self.wpm_label = tk.Label(
+            wpm_card,
+            text="0",
+            font=('Arial', 20, 'bold'),
+            bg='#161b22',
+            fg='#3fb950'
+        )
+        self.wpm_label.pack(pady=(0, 10), padx=20)
