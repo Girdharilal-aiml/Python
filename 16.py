@@ -366,3 +366,33 @@ class TypingSpeedTest:
         # Disable input
         self.input_text.config(state='disabled')
         
+        # Calculate final stats
+        elapsed_time = time.time() - self.start_time
+        words = len(self.current_text.split())
+        minutes = elapsed_time / 60
+        wpm = int(words / minutes)
+        
+        # Show result message
+        if wpm >= 80:
+            message = "🏆 Excellent! You're a typing master!"
+            color = '#3fb950'
+        elif wpm >= 60:
+            message = "🎉 Great job! Very good typing speed!"
+            color = '#58a6ff'
+        elif wpm >= 40:
+            message = "👍 Good work! Keep practicing!"
+            color = '#d29922'
+        else:
+            message = "💪 Keep practicing to improve your speed!"
+            color = '#8b949e'
+        
+        self.result_label.config(text=message, fg=color)
+        self.start_btn.config(state='normal', bg='#238636')
+
+def main():
+    root = tk.Tk()
+    app = TypingSpeedTest(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
