@@ -139,3 +139,7 @@ class TypingSpeedTest:
         self.stats_container = tk.Frame(self.stats_frame, bg='#0d1117')
         self.stats_container.pack()
 
+        # Timer
+        timer_card = tk.Frame(self.stats_container, bg='#161b22')
+        timer_card.grid(row=0, column=0, padx=10, pady=5, sticky='ew')
+
