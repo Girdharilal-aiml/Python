@@ -42,3 +42,11 @@ class TypingSpeedTest:
         self.text_font = tkfont.Font(family='Georgia', size=16)
         self.input_font = tkfont.Font(family='Courier New', size=14)
 
+        # Main container
+        main_frame = tk.Frame(root, bg='#0d1117')
+        main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Title
+        title_frame = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT)
+        title_frame.pack(fill=tk.X, pady=(0, 20))
+        
