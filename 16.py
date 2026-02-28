@@ -70,3 +70,11 @@ class TypingSpeedTest:
         instructions_frame = tk.Frame(main_frame, bg='#161b22')
         instructions_frame.pack(fill=tk.X, pady=(0, 15))
 
+        tk.Label(
+            instructions_frame,
+            text="📝 Type the text below as fast and accurately as you can!",
+            font=('Arial', 12),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(pady=12)
+
