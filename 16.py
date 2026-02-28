@@ -202,3 +202,19 @@ class TypingSpeedTest:
         )
         self.accuracy_label.pack(pady=(0, 10), padx=20)
         
+        # Make columns expand equally
+        self.stats_container.grid_columnconfigure(0, weight=1)
+        self.stats_container.grid_columnconfigure(1, weight=1)
+        self.stats_container.grid_columnconfigure(2, weight=1)
+
+        # Buttons
+        btn_frame = tk.Frame(main_frame, bg='#0d1117')
+        btn_frame.pack(pady=20)
+
+        self.start_btn = tk.Button(
+            btn_frame,
+            text="Start Test",
+            command=self.start_test,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 14, 'bold'),
