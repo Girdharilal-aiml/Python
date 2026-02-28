@@ -116,3 +116,17 @@ class TypingSpeedTest:
             fg='#c9d1d9'
         ).pack(anchor='w', padx=20, pady=(15, 10))
 
+        self.input_text = tk.Text(
+            input_card,
+            font=self.input_font,
+            bg='#0d1117',
+            fg='#c9d1d9',
+            insertbackground='#58a6ff',
+            relief=tk.FLAT,
+            bd=0,
+            height=4,
+            wrap=tk.WORD,
+            state='disabled'
+        )
+        self.input_text.pack(padx=20, pady=(0, 15), fill=tk.X)
+        self.input_text.bind('<KeyRelease>', self.on_type)
