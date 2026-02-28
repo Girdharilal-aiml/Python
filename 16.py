@@ -130,3 +130,8 @@ class TypingSpeedTest:
         )
         self.input_text.pack(padx=20, pady=(0, 15), fill=tk.X)
         self.input_text.bind('<KeyRelease>', self.on_type)
+
+        # Timer and stats
+        self.stats_frame = tk.Frame(main_frame, bg='#0d1117')
+        self.stats_frame.pack(pady=15, fill=tk.X)
+
