@@ -151,3 +151,11 @@ class TypingSpeedTest:
             fg='#8b949e'
         ).pack(pady=(10, 5))
 
+        self.timer_label = tk.Label(
+            timer_card,
+            text="0.0s",
+            font=('Arial', 20, 'bold'),
+            bg='#161b22',
+            fg='#58a6ff'
+        )
+        self.timer_label.pack(pady=(0, 10), padx=20)
