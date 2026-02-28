@@ -78,3 +78,14 @@ class TypingSpeedTest:
             fg='#8b949e'
         ).pack(pady=12)
 
+        # Text to type card
+        text_card = tk.Frame(main_frame, bg='#161b22', relief=tk.FLAT)
+        text_card.pack(fill=tk.X, pady=10)
+
+        tk.Label(
+            text_card,
+            text="Text to Type:",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(anchor='w', padx=20, pady=(15, 10))
