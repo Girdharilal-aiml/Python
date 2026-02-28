@@ -94,3 +94,12 @@ class TypingSpeedTest:
             text_card,
             text="Click 'Start Test' to begin",
             font=self.text_font,
+            bg='#161b22',
+            fg='#58a6ff',
+            wraplength=700,
+            justify='left'
+        )
+        self.text_label.pack(padx=20, pady=(0, 20), anchor='w', fill=tk.X)
+        
+        # Bind resize event to update wraplength
+        self.root.bind('<Configure>', self.on_resize)
