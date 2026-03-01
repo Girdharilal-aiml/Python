@@ -255,3 +255,17 @@ class Game2048:
         self.previous_score = 0
         self.game_over_label.config(text="")
         
+        # Add two random tiles
+        self.add_random_tile()
+        self.add_random_tile()
+        
+        self.update_display()
+
+    def add_random_tile(self):
+        empty_cells = [(i, j) for i in range(self.grid_size) 
+                       for j in range(self.grid_size) if self.grid[i][j] == 0]
+        
+        if empty_cells:
+            i, j = random.choice(empty_cells)
+            self.grid[i][j] = 2 if random.random() < 0.9 else 4
+
