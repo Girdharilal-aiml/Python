@@ -300,3 +300,13 @@ class Game2048:
         # Save state for undo
         self.previous_grid = [row[:] for row in self.grid]
         self.previous_score = self.score
+
+        if key == 'Up':
+            moved = self.move_up()
+        elif key == 'Down':
+            moved = self.move_down()
+        elif key == 'Left':
+            moved = self.move_left()
+        elif key == 'Right':
+            moved = self.move_right()
+
