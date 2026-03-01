@@ -39,3 +39,12 @@ class Game2048:
             2048: '#edc22e',
         }
 
+        self.text_colors = {
+            0: '#c9d1d9',
+            2: '#776e65',
+            4: '#776e65',
+        }
+
+        # Custom fonts
+        self.title_font = tkfont.Font(family='Arial', size=28, weight='bold')
+        self.score_font = tkfont.Font(family='Arial', size=16, weight='bold')
