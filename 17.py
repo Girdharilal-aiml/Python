@@ -198,3 +198,26 @@ class Game2048:
             activeforeground='white'
         ).pack(side=tk.LEFT, padx=10)
 
+        # Game over label
+        self.game_over_label = tk.Label(
+            main_frame,
+            text="",
+            font=('Arial', 14, 'bold'),
+            bg='#0d1117',
+            fg='#f85149'
+        )
+        self.game_over_label.pack(pady=10)
+
+        # Bind keyboard
+        self.root.bind('<Key>', self.key_pressed)
+        
+        # Bind resize
+        self.root.bind('<Configure>', self.on_resize)
+        
+        # Store previous state for undo
+        self.previous_grid = None
+        self.previous_score = 0
+
+        # Start game
+        self.new_game()
+
