@@ -143,3 +143,41 @@ class Game2048:
         self.game_frame = tk.Frame(self.board_container, bg='#1a1a2e')
         self.game_frame.pack(expand=True)
 
+        # Create tile labels
+        self.tiles = []
+        for i in range(self.grid_size):
+            row = []
+            for j in range(self.grid_size):
+                tile = tk.Label(
+                    self.game_frame,
+                    text="",
+                    font=('Arial', 24, 'bold'),
+                    bg=self.tile_colors[0],
+                    fg='#c9d1d9',
+                    width=4,
+                    height=2,
+                    relief=tk.FLAT
+                )
+                tile.grid(row=i, column=j, padx=5, pady=5)
+                row.append(tile)
+            self.tiles.append(row)
+
+        # Buttons
+        btn_frame = tk.Frame(main_frame, bg='#0d1117')
+        btn_frame.pack(pady=20)
+
+        tk.Button(
+            btn_frame,
+            text="New Game",
+            command=self.new_game,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 13, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            width=15,
+            height=2,
+            activebackground='#2ea043',
+            activeforeground='white'
+        ).pack(side=tk.LEFT, padx=10)
