@@ -227,3 +227,14 @@ class Game2048:
             window_width = self.root.winfo_width()
             window_height = self.root.winfo_height()
             
+            # Calculate tile size (responsive)
+            available_width = window_width - 100
+            available_height = window_height - 400
+            
+            # Each tile should be square
+            tile_size = min(available_width // 4, available_height // 4, 120)
+            tile_size = max(tile_size, 60)  # Minimum size
+            
+            # Update font size based on tile size
+            font_size = max(12, tile_size // 4)
+            
