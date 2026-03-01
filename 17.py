@@ -319,3 +319,27 @@ class Game2048:
                 self.game_over_label.config(text="Game Over! No more moves available.")
             elif self.check_win():
                 self.game_over_label.config(text="🎉 You Win! You reached 2048!", fg='#3fb950')
+
+    def move_left(self):
+        moved = False
+        for i in range(self.grid_size):
+            # Compress
+            new_row = [x for x in self.grid[i] if x != 0]
+            
+            # Merge
+            j = 0
+            while j < len(new_row) - 1:
+                if new_row[j] == new_row[j + 1]:
+                    new_row[j] *= 2
+                    self.score += new_row[j]
+                    new_row.pop(j + 1)
+                j += 1
+            
+            # Pad with zeros
+            new_row += [0] * (self.grid_size - len(new_row))
+            
+            if self.grid[i] != new_row:
+                moved = True
+            self.grid[i] = new_row
+        
+        return moved
