@@ -77,3 +77,11 @@ class Game2048:
             fg='#c9d1d9'
         ).pack(side=tk.LEFT)
 
+        # Right side - Scores
+        scores_container = tk.Frame(header_frame, bg='#161b22')
+        scores_container.pack(side=tk.RIGHT, padx=20, pady=15)
+
+        # Score
+        score_frame = tk.Frame(scores_container, bg='#21262d')
+        score_frame.pack(side=tk.LEFT, padx=5)
+
