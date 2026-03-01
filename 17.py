@@ -310,3 +310,12 @@ class Game2048:
         elif key == 'Right':
             moved = self.move_right()
 
+        if moved:
+            self.add_random_tile()
+            self.update_display()
+            
+            if self.check_game_over():
+                self.game_over = True
+                self.game_over_label.config(text="Game Over! No more moves available.")
+            elif self.check_win():
+                self.game_over_label.config(text="🎉 You Win! You reached 2048!", fg='#3fb950')
