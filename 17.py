@@ -126,3 +126,12 @@ class Game2048:
         # Instructions
         instructions_frame = tk.Frame(main_frame, bg='#161b22')
         instructions_frame.pack(fill=tk.X, pady=(0, 15))
+
+        tk.Label(
+            instructions_frame,
+            text="Use arrow keys (↑ ↓ ← →) to move tiles. Combine tiles to reach 2048!",
+            font=('Arial', 11),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(pady=12)
+
