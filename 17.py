@@ -48,3 +48,16 @@ class Game2048:
         # Custom fonts
         self.title_font = tkfont.Font(family='Arial', size=28, weight='bold')
         self.score_font = tkfont.Font(family='Arial', size=16, weight='bold')
+
+        # Main container
+        main_frame = tk.Frame(root, bg='#0d1117')
+        main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Title and scores
+        header_frame = tk.Frame(main_frame, bg='#161b22')
+        header_frame.pack(fill=tk.X, pady=(0, 20))
+
+        # Left side - Title
+        left_header = tk.Frame(header_frame, bg='#161b22')
+        left_header.pack(side=tk.LEFT, padx=20, pady=15)
+
