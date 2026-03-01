@@ -15,3 +15,10 @@ class Game2048:
         self.root.configure(bg='#0d1117')
         self.root.resizable(True, True)
         self.root.minsize(400, 500)
+
+        # Game state
+        self.grid_size = 4
+        self.grid = [[0] * self.grid_size for _ in range(self.grid_size)]
+        self.score = 0
+        self.best_score = 0
+        self.game_over = False
