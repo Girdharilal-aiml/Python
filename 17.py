@@ -269,3 +269,9 @@ class Game2048:
             i, j = random.choice(empty_cells)
             self.grid[i][j] = 2 if random.random() < 0.9 else 4
 
+    def update_display(self):
+        for i in range(self.grid_size):
+            for j in range(self.grid_size):
+                value = self.grid[i][j]
+                tile = self.tiles[i][j]
+                
