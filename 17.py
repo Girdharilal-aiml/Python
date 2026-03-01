@@ -221,3 +221,9 @@ class Game2048:
         # Start game
         self.new_game()
 
+    def on_resize(self, event):
+        # Update tile sizes based on window size
+        if event.widget == self.root:
+            window_width = self.root.winfo_width()
+            window_height = self.root.winfo_height()
+            
