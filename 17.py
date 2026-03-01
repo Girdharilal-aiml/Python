@@ -61,3 +61,11 @@ class Game2048:
         left_header = tk.Frame(header_frame, bg='#161b22')
         left_header.pack(side=tk.LEFT, padx=20, pady=15)
 
+        tk.Label(
+            left_header,
+            text="🎮",
+            font=('Arial', 35),
+            bg='#161b22',
+            fg='#58a6ff'
+        ).pack(side=tk.LEFT, padx=(0, 10))
+
