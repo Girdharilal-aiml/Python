@@ -85,3 +85,23 @@ class Game2048:
         score_frame = tk.Frame(scores_container, bg='#21262d')
         score_frame.pack(side=tk.LEFT, padx=5)
 
+        tk.Label(
+            score_frame,
+            text="SCORE",
+            font=('Arial', 10, 'bold'),
+            bg='#21262d',
+            fg='#8b949e'
+        ).pack(pady=(8, 2), padx=15)
+
+        self.score_label = tk.Label(
+            score_frame,
+            text="0",
+            font=self.score_font,
+            bg='#21262d',
+            fg='#c9d1d9'
+        )
+        self.score_label.pack(pady=(0, 8), padx=15)
+
+        # Best score
+        best_frame = tk.Frame(scores_container, bg='#21262d')
+        best_frame.pack(side=tk.LEFT, padx=5)
