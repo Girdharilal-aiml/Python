@@ -377,3 +377,51 @@ class Game2048:
         self.grid = list(map(list, zip(*self.grid)))
         return moved
 
+    def move_down(self):
+        # Transpose
+        self.grid = list(map(list, zip(*self.grid)))
+        moved = self.move_right()
+        # Transpose back
+        self.grid = list(map(list, zip(*self.grid)))
+        return moved
+
+    def check_game_over(self):
+        # Check if any empty cells
+        for i in range(self.grid_size):
+            for j in range(self.grid_size):
+                if self.grid[i][j] == 0:
+                    return False
+        
+        # Check if any adjacent cells can merge
+        for i in range(self.grid_size):
+            for j in range(self.grid_size):
+                current = self.grid[i][j]
+                if j < self.grid_size - 1 and current == self.grid[i][j + 1]:
+                    return False
+                if i < self.grid_size - 1 and current == self.grid[i + 1][j]:
+                    return False
+        
+        return True
+
+    def check_win(self):
+        for i in range(self.grid_size):
+            for j in range(self.grid_size):
+                if self.grid[i][j] == 2048:
+                    return True
+        return False
+
+    def undo_move(self):
+        if self.previous_grid:
+            self.grid = [row[:] for row in self.previous_grid]
+            self.score = self.previous_score
+            self.update_display()
+            self.game_over = False
+            self.game_over_label.config(text="")
+
+def main():
+    root = tk.Tk()
+    app = Game2048(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
