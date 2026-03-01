@@ -275,3 +275,18 @@ class Game2048:
                 value = self.grid[i][j]
                 tile = self.tiles[i][j]
                 
+                if value == 0:
+                    tile.config(text="", bg=self.tile_colors[0])
+                else:
+                    tile.config(
+                        text=str(value),
+                        bg=self.tile_colors.get(value, '#3c3a32'),
+                        fg=self.text_colors.get(value, '#f9f6f2')
+                    )
+        
+        self.score_label.config(text=str(self.score))
+        
+        if self.score > self.best_score:
+            self.best_score = self.score
+            self.best_label.config(text=str(self.best_score))
+
