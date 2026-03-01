@@ -343,3 +343,37 @@ class Game2048:
             self.grid[i] = new_row
         
         return moved
+
+    def move_right(self):
+        moved = False
+        for i in range(self.grid_size):
+            # Compress
+            new_row = [x for x in self.grid[i] if x != 0]
+            
+            # Merge
+            j = len(new_row) - 1
+            while j > 0:
+                if new_row[j] == new_row[j - 1]:
+                    new_row[j] *= 2
+                    self.score += new_row[j]
+                    new_row.pop(j - 1)
+                    j -= 1
+                j -= 1
+            
+            # Pad with zeros at start
+            new_row = [0] * (self.grid_size - len(new_row)) + new_row
+            
+            if self.grid[i] != new_row:
+                moved = True
+            self.grid[i] = new_row
+        
+        return moved
+
+    def move_up(self):
+        # Transpose
+        self.grid = list(map(list, zip(*self.grid)))
+        moved = self.move_left()
+        # Transpose back
+        self.grid = list(map(list, zip(*self.grid)))
+        return moved
+
