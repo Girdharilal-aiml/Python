@@ -181,3 +181,20 @@ class Game2048:
             activebackground='#2ea043',
             activeforeground='white'
         ).pack(side=tk.LEFT, padx=10)
+
+        tk.Button(
+            btn_frame,
+            text="Undo",
+            command=self.undo_move,
+            bg='#21262d',
+            fg='#c9d1d9',
+            font=('Arial', 13, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            width=15,
+            height=2,
+            activebackground='#30363d',
+            activeforeground='white'
+        ).pack(side=tk.LEFT, padx=10)
+
