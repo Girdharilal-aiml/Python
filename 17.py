@@ -135,3 +135,11 @@ class Game2048:
             fg='#8b949e'
         ).pack(pady=12)
 
+        # Game board container (responsive)
+        self.board_container = tk.Frame(main_frame, bg='#161b22')
+        self.board_container.pack(fill=tk.BOTH, expand=True, pady=10)
+
+        # Game grid
+        self.game_frame = tk.Frame(self.board_container, bg='#1a1a2e')
+        self.game_frame.pack(expand=True)
+
