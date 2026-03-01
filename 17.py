@@ -238,3 +238,12 @@ class Game2048:
             # Update font size based on tile size
             font_size = max(12, tile_size // 4)
             
+            # Update all tiles
+            for i in range(self.grid_size):
+                for j in range(self.grid_size):
+                    self.tiles[i][j].config(
+                        width=max(3, tile_size // 15),
+                        height=max(1, tile_size // 30),
+                        font=('Arial', font_size, 'bold')
+                    )
+
