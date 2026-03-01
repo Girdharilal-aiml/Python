@@ -247,3 +247,11 @@ class Game2048:
                         font=('Arial', font_size, 'bold')
                     )
 
+    def new_game(self):
+        self.grid = [[0] * self.grid_size for _ in range(self.grid_size)]
+        self.score = 0
+        self.game_over = False
+        self.previous_grid = None
+        self.previous_score = 0
+        self.game_over_label.config(text="")
+        
