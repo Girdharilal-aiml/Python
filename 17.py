@@ -290,3 +290,13 @@ class Game2048:
             self.best_score = self.score
             self.best_label.config(text=str(self.best_score))
 
+    def key_pressed(self, event):
+        if self.game_over:
+            return
+
+        moved = False
+        key = event.keysym
+
+        # Save state for undo
+        self.previous_grid = [row[:] for row in self.grid]
+        self.previous_score = self.score
