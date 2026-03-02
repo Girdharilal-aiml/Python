@@ -393,3 +393,34 @@ class ImageEditor:
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to save image:\n{str(e)}")
 
+    def save_to_history(self):
+        if self.current_image:
+            self.history.append(self.current_image.copy())
+            if len(self.history) > self.max_history:
+                self.history.pop(0)
+
+    def undo(self):
+        if self.history:
+            self.current_image = self.history.pop()
+            self.brightness_scale.set(1.0)
+            self.contrast_scale.set(1.0)
+            self.update_canvas()
+        else:
+            messagebox.showinfo("Undo", "No more actions to undo!")
+
+    def reset_image(self):
+        if self.original_image:
+            self.current_image = self.original_image.copy()
+            self.history = []
+            self.brightness_scale.set(1.0)
+            self.contrast_scale.set(1.0)
+            self.update_canvas()
+
+    def rotate_image(self, angle):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = self.current_image.rotate(angle, expand=True)
+        self.update_canvas()
