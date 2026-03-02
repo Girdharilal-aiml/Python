@@ -489,3 +489,60 @@ class ImageEditor:
         # Apply contrast if not at default
         if self.contrast_scale.get() != 1.0:
             enhancer = ImageEnhance.Contrast(self.current_image)
+            self.current_image = enhancer.enhance(self.contrast_scale.get())
+        
+        self.update_canvas()
+
+    def adjust_contrast(self, value):
+        if not self.original_image:
+            return
+        
+        # Start with brightness-adjusted image
+        if self.brightness_scale.get() != 1.0:
+            enhancer = ImageEnhance.Brightness(self.original_image)
+            temp_image = enhancer.enhance(self.brightness_scale.get())
+        else:
+            temp_image = self.original_image
+        
+        enhancer = ImageEnhance.Contrast(temp_image)
+        self.current_image = enhancer.enhance(float(value))
+        self.update_canvas()
+
+    def update_canvas(self):
+        if not self.current_image:
+            return
+
+        # Get canvas size
+        canvas_width = self.canvas.winfo_width()
+        canvas_height = self.canvas.winfo_height()
+
+        if canvas_width <= 1 or canvas_height <= 1:
+            return
+
+        # Resize image to fit canvas while maintaining aspect ratio
+        img_copy = self.current_image.copy()
+        img_copy.thumbnail((canvas_width - 20, canvas_height - 20), Image.Resampling.LANCZOS)
+
+        self.display_image = img_copy
+        self.photo = ImageTk.PhotoImage(img_copy)
+
+        # Clear canvas and display image
+        self.canvas.delete("all")
+        
+        # Center image
+        x = (canvas_width - img_copy.width) // 2
+        y = (canvas_height - img_copy.height) // 2
+        
+        self.canvas.create_image(x, y, anchor=tk.NW, image=self.photo)
+
+    def on_resize(self, event):
+        if event.widget == self.root and self.current_image:
+            self.update_canvas()
+
+def main():
+    root = tk.Tk()
+    app = ImageEditor(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
