@@ -168,3 +168,14 @@ class ImageEditor:
             activebackground='#30363d'
         ).pack(fill=tk.X, padx=10, pady=3)
 
+        # Filters
+        filter_frame = tk.LabelFrame(
+            self.sidebar,
+            text="Filters",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9',
+            bd=0
+        )
+        filter_frame.pack(fill=tk.X, padx=10, pady=5)
+
