@@ -328,3 +328,31 @@ class ImageEditor:
             pady=10
         )
         self.info_label.pack(fill=tk.X)
+
+        # Canvas for image
+        self.canvas = tk.Canvas(
+            canvas_container,
+            bg='#161b22',
+            highlightthickness=0
+        )
+        self.canvas.pack(fill=tk.BOTH, expand=True)
+
+        # Bind resize
+        self.root.bind('<Configure>', self.on_resize)
+
+    def open_image(self):
+        filepath = filedialog.askopenfilename(
+            title="Open Image",
+            filetypes=[
+                ("Image files", "*.jpg *.jpeg *.png *.bmp *.gif"),
+                ("All files", "*.*")
+            ]
+        )
+
+        if filepath:
+            try:
+                self.filename = filepath
+                self.original_image = Image.open(filepath)
+                self.current_image = self.original_image.copy()
+                self.history = []
+                
