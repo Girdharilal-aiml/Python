@@ -53,3 +53,12 @@ class ImageEditor:
         
         sidebar_canvas.create_window((0, 0), window=self.sidebar, anchor='nw')
         sidebar_canvas.configure(yscrollcommand=scrollbar.set)
+        
+        sidebar_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        # Enable mousewheel scrolling
+        def on_mousewheel(event):
+            sidebar_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        
+        sidebar_canvas.bind_all("<MouseWheel>", on_mousewheel)
