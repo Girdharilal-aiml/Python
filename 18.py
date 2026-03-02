@@ -72,3 +72,27 @@ class ImageEditor:
             fg='#c9d1d9'
         ).pack(pady=20)
 
+        # File operations
+        file_frame = tk.LabelFrame(
+            self.sidebar,
+            text="File",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9',
+            bd=0
+        )
+        file_frame.pack(fill=tk.X, padx=10, pady=5)
+
+        tk.Button(
+            file_frame,
+            text="📁 Open Image",
+            command=self.open_image,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            activebackground='#2ea043'
+        ).pack(fill=tk.X, padx=8, pady=3)
+
