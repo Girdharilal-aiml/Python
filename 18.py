@@ -108,3 +108,27 @@ class ImageEditor:
             relief=tk.FLAT,
             activebackground='#388bfd'
         ).pack(fill=tk.X, padx=8, pady=3)
+
+        # Basic operations
+        basic_frame = tk.LabelFrame(
+            self.sidebar,
+            text="Basic",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9',
+            bd=0
+        )
+        basic_frame.pack(fill=tk.X, padx=10, pady=5)
+
+        tk.Button(
+            basic_frame,
+            text="↻ Rotate Left",
+            command=lambda: self.rotate_image(-90),
+            bg='#21262d',
+            fg='#c9d1d9',
+            font=('Arial', 10),
+            cursor='hand2',
+            bd=0,
+            activebackground='#30363d'
+        ).pack(fill=tk.X, padx=10, pady=3)
+
