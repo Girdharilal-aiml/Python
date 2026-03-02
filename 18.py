@@ -424,3 +424,12 @@ class ImageEditor:
         self.save_to_history()
         self.current_image = self.current_image.rotate(angle, expand=True)
         self.update_canvas()
+
+    def flip_vertical(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = ImageOps.flip(self.current_image)
+        self.update_canvas()
