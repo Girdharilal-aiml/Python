@@ -247,3 +247,18 @@ class ImageEditor:
             fg='#8b949e'
         ).pack(anchor='w', padx=10, pady=(5, 0))
 
+        self.brightness_scale = tk.Scale(
+            adjust_frame,
+            from_=0.5,
+            to=2.0,
+            resolution=0.1,
+            orient=tk.HORIZONTAL,
+            command=self.adjust_brightness,
+            bg='#161b22',
+            fg='#c9d1d9',
+            troughcolor='#0d1117',
+            highlightthickness=0
+        )
+        self.brightness_scale.set(1.0)
+        self.brightness_scale.pack(fill=tk.X, padx=10, pady=(0, 5))
+
