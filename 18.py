@@ -32,3 +32,14 @@ class ImageEditor:
         # Custom fonts
         self.title_font = tkfont.Font(family='Arial', size=24, weight='bold')
 
+        # Main container
+        main_frame = tk.Frame(root, bg='#0d1117')
+        main_frame.pack(fill=tk.BOTH, expand=True)
+
+        # Left sidebar - Tools (with scrollbar)
+        sidebar_container = tk.Frame(main_frame, bg='#0d1117')
+        sidebar_container.pack(side=tk.LEFT, fill=tk.Y, padx=(10, 5), pady=10)
+
+        # Canvas for scrolling
+        sidebar_canvas = tk.Canvas(sidebar_container, bg='#161b22', width=250, highlightthickness=0)
+        scrollbar = tk.Scrollbar(sidebar_container, orient='vertical', command=sidebar_canvas.yview)
