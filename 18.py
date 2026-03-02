@@ -238,3 +238,12 @@ class ImageEditor:
         )
         adjust_frame.pack(fill=tk.X, padx=10, pady=5)
 
+        # Brightness
+        tk.Label(
+            adjust_frame,
+            text="☀️ Brightness",
+            font=('Arial', 9),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(anchor='w', padx=10, pady=(5, 0))
+
