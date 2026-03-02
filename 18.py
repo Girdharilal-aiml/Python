@@ -262,3 +262,11 @@ class ImageEditor:
         self.brightness_scale.set(1.0)
         self.brightness_scale.pack(fill=tk.X, padx=10, pady=(0, 5))
 
+        # Contrast
+        tk.Label(
+            adjust_frame,
+            text="🎚️ Contrast",
+            font=('Arial', 9),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack(anchor='w', padx=10, pady=(5, 0))
