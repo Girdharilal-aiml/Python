@@ -43,3 +43,13 @@ class ImageEditor:
         # Canvas for scrolling
         sidebar_canvas = tk.Canvas(sidebar_container, bg='#161b22', width=250, highlightthickness=0)
         scrollbar = tk.Scrollbar(sidebar_container, orient='vertical', command=sidebar_canvas.yview)
+        
+        self.sidebar = tk.Frame(sidebar_canvas, bg='#161b22')
+        
+        self.sidebar.bind(
+            "<Configure>",
+            lambda e: sidebar_canvas.configure(scrollregion=sidebar_canvas.bbox("all"))
+        )
+        
+        sidebar_canvas.create_window((0, 0), window=self.sidebar, anchor='nw')
+        sidebar_canvas.configure(yscrollcommand=scrollbar.set)
