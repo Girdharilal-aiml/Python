@@ -62,3 +62,13 @@ class ImageEditor:
             sidebar_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         
         sidebar_canvas.bind_all("<MouseWheel>", on_mousewheel)
+
+        # Sidebar title
+        tk.Label(
+            self.sidebar,
+            text="🎨 Image Editor",
+            font=self.title_font,
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(pady=20)
+
