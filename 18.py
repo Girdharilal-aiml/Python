@@ -356,3 +356,40 @@ class ImageEditor:
                 self.current_image = self.original_image.copy()
                 self.history = []
                 
+                # Reset sliders
+                self.brightness_scale.set(1.0)
+                self.contrast_scale.set(1.0)
+                
+                self.update_canvas()
+                
+                # Update info
+                width, height = self.original_image.size
+                size_kb = os.path.getsize(filepath) / 1024
+                self.info_label.config(
+                    text=f"📷 {os.path.basename(filepath)} | {width}x{height} | {size_kb:.1f} KB"
+                )
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to open image:\n{str(e)}")
+
+    def save_image(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".png",
+            filetypes=[
+                ("PNG files", "*.png"),
+                ("JPEG files", "*.jpg"),
+                ("All files", "*.*")
+            ]
+        )
+
+        if filepath:
+            try:
+                self.current_image.save(filepath)
+                messagebox.showinfo("Success", "Image saved successfully!")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save image:\n{str(e)}")
+
