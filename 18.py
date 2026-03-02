@@ -433,3 +433,59 @@ class ImageEditor:
         self.save_to_history()
         self.current_image = ImageOps.flip(self.current_image)
         self.update_canvas()
+
+    def flip_horizontal(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = ImageOps.mirror(self.current_image)
+        self.update_canvas()
+
+    def apply_blur(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = self.current_image.filter(ImageFilter.BLUR)
+        self.update_canvas()
+
+    def apply_sharpen(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = self.current_image.filter(ImageFilter.SHARPEN)
+        self.update_canvas()
+
+    def apply_grayscale(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = ImageOps.grayscale(self.current_image).convert('RGB')
+        self.update_canvas()
+
+    def apply_contour(self):
+        if not self.current_image:
+            messagebox.showwarning("No Image", "Please open an image first!")
+            return
+        
+        self.save_to_history()
+        self.current_image = self.current_image.filter(ImageFilter.CONTOUR)
+        self.update_canvas()
+
+    def adjust_brightness(self, value):
+        if not self.original_image:
+            return
+        
+        enhancer = ImageEnhance.Brightness(self.original_image)
+        self.current_image = enhancer.enhance(float(value))
+        
+        # Apply contrast if not at default
+        if self.contrast_scale.get() != 1.0:
+            enhancer = ImageEnhance.Contrast(self.current_image)
