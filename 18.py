@@ -290,3 +290,41 @@ class ImageEditor:
         action_frame = tk.Frame(self.sidebar, bg='#161b22')
         action_frame.pack(fill=tk.X, padx=10, pady=20)
 
+        tk.Button(
+            action_frame,
+            text="↶ Undo",
+            command=self.undo,
+            bg='#d29922',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            cursor='hand2',
+            bd=0,
+            activebackground='#e5a323'
+        ).pack(fill=tk.X, pady=3)
+
+        tk.Button(
+            action_frame,
+            text="⟲ Reset",
+            command=self.reset_image,
+            bg='#da3633',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            cursor='hand2',
+            bd=0,
+            activebackground='#e5534b'
+        ).pack(fill=tk.X, pady=3)
+
+        # Right side - Canvas
+        canvas_container = tk.Frame(main_frame, bg='#0d1117')
+        canvas_container.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=(5, 10), pady=10)
+
+        # Info label
+        self.info_label = tk.Label(
+            canvas_container,
+            text="Open an image to start editing",
+            font=('Arial', 12),
+            bg='#161b22',
+            fg='#8b949e',
+            pady=10
+        )
+        self.info_label.pack(fill=tk.X)
