@@ -96,3 +96,15 @@ class ImageEditor:
             activebackground='#2ea043'
         ).pack(fill=tk.X, padx=8, pady=3)
 
+        tk.Button(
+            file_frame,
+            text="💾 Save Image",
+            command=self.save_image,
+            bg='#1f6feb',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            cursor='hand2',
+            bd=0,
+            relief=tk.FLAT,
+            activebackground='#388bfd'
+        ).pack(fill=tk.X, padx=8, pady=3)
