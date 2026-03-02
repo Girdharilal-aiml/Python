@@ -24,3 +24,11 @@ class ImageEditor:
         self.display_image = None
         self.photo = None
         self.filename = None
+        
+        # History for undo
+        self.history = []
+        self.max_history = 10
+
+        # Custom fonts
+        self.title_font = tkfont.Font(family='Arial', size=24, weight='bold')
+
