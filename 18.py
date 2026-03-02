@@ -191,3 +191,15 @@ class ImageEditor:
             activebackground='#30363d'
         ).pack(fill=tk.X, padx=10, pady=3)
 
+        tk.Button(
+            filter_frame,
+            text="✨ Sharpen",
+            command=self.apply_sharpen,
+            bg='#21262d',
+            fg='#c9d1d9',
+            font=('Arial', 10),
+            cursor='hand2',
+            bd=0,
+            activebackground='#30363d'
+        ).pack(fill=tk.X, padx=10, pady=3)
+
