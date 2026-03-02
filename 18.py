@@ -226,3 +226,15 @@ class ImageEditor:
             bd=0,
             activebackground='#30363d'
         ).pack(fill=tk.X, padx=10, pady=3)
+
+        # Adjustments
+        adjust_frame = tk.LabelFrame(
+            self.sidebar,
+            text="Adjust",
+            font=('Arial', 11, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9',
+            bd=0
+        )
+        adjust_frame.pack(fill=tk.X, padx=10, pady=5)
+
