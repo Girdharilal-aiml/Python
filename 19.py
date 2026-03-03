@@ -28,4 +28,11 @@ class TicTacToe:
                            bg="#2c3e50", fg="#95a5a6")
         subtitle.pack()
         
+        # Game board frame
+        board_frame = tk.Frame(root, bg="#34495e")
+        board_frame.pack(pady=20)
+        
+        # Create buttons
+        for i in range(3):
+            for j in range(3):
     
