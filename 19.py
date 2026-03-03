@@ -63,4 +63,8 @@ class TicTacToe:
             messagebox.showwarning("Invalid Move", "Position already taken!")
             return
         
+        # Player move
+        self.board[row][col] = "X"
+        self.update_button(row, col, "X", "#3498db")
+        
     
