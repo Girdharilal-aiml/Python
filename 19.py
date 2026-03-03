@@ -96,4 +96,8 @@ class TicTacToe:
         
         self.status_label.config(text="Your turn!", fg="#2ecc71")
     
+    def update_button(self, row, col, text, color):
+        """Update button appearance"""
+        btn = self.buttons[row][col]
+        btn.config(text=text, fg="white", bg=color, state="disabled")
     
