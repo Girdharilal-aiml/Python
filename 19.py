@@ -19,4 +19,9 @@ class TicTacToe:
         self.buttons = [[None for _ in range(3)] for _ in range(3)]
         self.game_over = False
         
+        # Title
+        title_label = tk.Label(root, text="TIC-TAC-TOE", font=("Arial", 24, "bold"),
+                               bg="#2c3e50", fg="#ecf0f1")
+        title_label.pack(pady=10)
+        
     
