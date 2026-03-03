@@ -103,4 +103,22 @@ class TicTacToe:
     
     def is_winner(self, player):
         """Check if player won"""
+        # Check rows
+        for i in range(3):
+            if all(self.board[i][j] == player for j in range(3)):
+                return True
+        
+        # Check columns
+        for j in range(3):
+            if all(self.board[i][j] == player for i in range(3)):
+                return True
+        
+        # Check diagonals
+        if all(self.board[i][i] == player for i in range(3)):
+            return True
+        if all(self.board[i][2-i] == player for i in range(3)):
+            return True
+        
+        return False
+    
     
