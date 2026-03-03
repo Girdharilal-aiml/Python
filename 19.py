@@ -101,3 +101,6 @@ class TicTacToe:
         btn = self.buttons[row][col]
         btn.config(text=text, fg="white", bg=color, state="disabled")
     
+    def is_winner(self, player):
+        """Check if player won"""
+    
