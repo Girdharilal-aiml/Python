@@ -155,3 +155,22 @@ class TicTacToe:
                 best_score = min(score, best_score)
             return best_score
     
+    def best_move(self):
+        """Find best AI move"""
+        best_score = -float('inf')
+        best_pos = (None, None)
+        
+        for row, col in self.get_empty_positions():
+            self.board[row][col] = "O"
+            score = self.minimax(0, False)
+            self.board[row][col] = " "
+            
+            if score > best_score:
+                best_score = score
+                best_pos = (row, col)
+        
+        return best_pos
+    
+    def end_game(self, message):
+        """End the game"""
+        self.game_over = True
