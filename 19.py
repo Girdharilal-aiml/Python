@@ -174,3 +174,23 @@ class TicTacToe:
     def end_game(self, message):
         """End the game"""
         self.game_over = True
+        self.status_label.config(text=message, fg="#f39c12", font=("Arial", 14, "bold"))
+        for i in range(3):
+            for j in range(3):
+                self.buttons[i][j].config(state="disabled")
+    
+    def reset_game(self):
+        """Reset for new game"""
+        self.board = [[" " for _ in range(3)] for _ in range(3)]
+        self.game_over = False
+        self.status_label.config(text="Your turn!", fg="#2ecc71")
+        
+        for i in range(3):
+            for j in range(3):
+                self.buttons[i][j].config(text=" ", bg="#3498db", state="normal")
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    game = TicTacToe(root)
+    root.mainloop()
