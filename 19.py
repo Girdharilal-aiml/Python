@@ -59,4 +59,8 @@ class TicTacToe:
             messagebox.showinfo("Game Over", "Start a new game!")
             return
         
+        if self.board[row][col] != " ":
+            messagebox.showwarning("Invalid Move", "Position already taken!")
+            return
+        
     
