@@ -24,4 +24,8 @@ class TicTacToe:
                                bg="#2c3e50", fg="#ecf0f1")
         title_label.pack(pady=10)
         
+        subtitle = tk.Label(root, text="You: X  |  AI: O", font=("Arial", 12),
+                           bg="#2c3e50", fg="#95a5a6")
+        subtitle.pack()
+        
     
