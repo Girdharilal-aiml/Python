@@ -35,4 +35,11 @@ class TicTacToe:
         # Create buttons
         for i in range(3):
             for j in range(3):
+                btn = tk.Button(board_frame, text=" ", font=("Arial", 20, "bold"),
+                               width=5, height=2, bg="#3498db", fg="white",
+                               command=lambda row=i, col=j: self.on_button_click(row, col),
+                               activebackground="#2980b9", relief="raised", bd=2)
+                btn.grid(row=i, column=j, padx=2, pady=2)
+                self.buttons[i][j] = btn
+        
     
