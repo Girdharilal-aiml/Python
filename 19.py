@@ -129,3 +129,12 @@ class TicTacToe:
         """Get empty positions"""
         return [(i, j) for i in range(3) for j in range(3) if self.board[i][j] == " "]
     
+    def minimax(self, depth, is_maximizing):
+        """Minimax algorithm"""
+        if self.is_winner("O"):
+            return 10 - depth
+        if self.is_winner("X"):
+            return depth - 10
+        if self.is_board_full():
+            return 0
+        
