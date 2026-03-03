@@ -147,3 +147,11 @@ class TicTacToe:
                 best_score = max(score, best_score)
             return best_score
         else:
+            best_score = float('inf')
+            for row, col in self.get_empty_positions():
+                self.board[row][col] = "X"
+                score = self.minimax(depth + 1, True)
+                self.board[row][col] = " "
+                best_score = min(score, best_score)
+            return best_score
+    
