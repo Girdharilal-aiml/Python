@@ -15,4 +15,8 @@ class TicTacToe:
         self.root.geometry("400x500")
         self.root.configure(bg="#2c3e50")
         
+        self.board = [[" " for _ in range(3)] for _ in range(3)]
+        self.buttons = [[None for _ in range(3)] for _ in range(3)]
+        self.game_over = False
+        
     
