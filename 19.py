@@ -47,4 +47,10 @@ class TicTacToe:
                                      bg="#2c3e50", fg="#2ecc71")
         self.status_label.pack(pady=10)
         
+        # Reset button
+        reset_btn = tk.Button(root, text="New Game", font=("Arial", 11, "bold"),
+                             bg="#e74c3c", fg="white", command=self.reset_game,
+                             activebackground="#c0392b", padx=20)
+        reset_btn.pack(pady=10)
+    
     
