@@ -75,4 +75,10 @@ class TicTacToe:
             self.end_game("🤝 Draw!")
             return
         
+        # AI move
+        self.status_label.config(text="AI thinking...", fg="#f39c12")
+        self.root.after(500, self.ai_move)
+    
+    def ai_move(self):
+        """Execute AI move"""
     
