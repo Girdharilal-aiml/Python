@@ -138,3 +138,12 @@ class TicTacToe:
         if self.is_board_full():
             return 0
         
+        if is_maximizing:
+            best_score = -float('inf')
+            for row, col in self.get_empty_positions():
+                self.board[row][col] = "O"
+                score = self.minimax(depth + 1, False)
+                self.board[row][col] = " "
+                best_score = max(score, best_score)
+            return best_score
+        else:
