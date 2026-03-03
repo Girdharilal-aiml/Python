@@ -53,4 +53,10 @@ class TicTacToe:
                              activebackground="#c0392b", padx=20)
         reset_btn.pack(pady=10)
     
+    def on_button_click(self, row, col):
+        """Handle player move"""
+        if self.game_over:
+            messagebox.showinfo("Game Over", "Start a new game!")
+            return
+        
     
