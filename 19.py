@@ -81,4 +81,8 @@ class TicTacToe:
     
     def ai_move(self):
         """Execute AI move"""
+        ai_row, ai_col = self.best_move()
+        if ai_row is not None:
+            self.board[ai_row][ai_col] = "O"
+            self.update_button(ai_row, ai_col, "O", "#e74c3c")
     
