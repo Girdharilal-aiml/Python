@@ -67,4 +67,8 @@ class TicTacToe:
         self.board[row][col] = "X"
         self.update_button(row, col, "X", "#3498db")
         
+        if self.is_winner("X"):
+            self.end_game("🎉 You Won!")
+            return
+        
     
