@@ -71,4 +71,8 @@ class TicTacToe:
             self.end_game("🎉 You Won!")
             return
         
+        if self.is_board_full():
+            self.end_game("🤝 Draw!")
+            return
+        
     
