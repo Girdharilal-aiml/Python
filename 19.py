@@ -89,4 +89,11 @@ class TicTacToe:
             if self.is_winner("O"):
                 self.end_game("🤖 AI Won!")
                 return
+            
+            if self.is_board_full():
+                self.end_game("🤝 Draw!")
+                return
+        
+        self.status_label.config(text="Your turn!", fg="#2ecc71")
+    
     
