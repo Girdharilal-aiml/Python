@@ -121,4 +121,8 @@ class TicTacToe:
         
         return False
     
+    def is_board_full(self):
+        """Check if board is full"""
+        return all(self.board[i][j] != " " for i in range(3) for j in range(3))
     
+ 
