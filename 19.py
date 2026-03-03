@@ -42,4 +42,9 @@ class TicTacToe:
                 btn.grid(row=i, column=j, padx=2, pady=2)
                 self.buttons[i][j] = btn
         
+        # Status label
+        self.status_label = tk.Label(root, text="Your turn!", font=("Arial", 12),
+                                     bg="#2c3e50", fg="#2ecc71")
+        self.status_label.pack(pady=10)
+        
     
