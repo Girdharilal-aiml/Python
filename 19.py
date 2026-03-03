@@ -85,4 +85,8 @@ class TicTacToe:
         if ai_row is not None:
             self.board[ai_row][ai_col] = "O"
             self.update_button(ai_row, ai_col, "O", "#e74c3c")
+            
+            if self.is_winner("O"):
+                self.end_game("🤖 AI Won!")
+                return
     
