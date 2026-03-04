@@ -139,3 +139,25 @@ class BudgetApp:
         btn_frame = tk.Frame(list_frame, bg="white")
         btn_frame.pack(pady=5)
         
+        tk.Button(btn_frame, text="Delete Selected", font=("Arial", 9), bg="#f44336",
+                 fg="white", padx=12, pady=4, command=self.delete_expense).pack(side=tk.LEFT, padx=5)
+        
+        tk.Button(btn_frame, text="Clear All", font=("Arial", 9), bg="#9e9e9e",
+                 fg="white", padx=12, pady=4, command=self.clear_all).pack(side=tk.LEFT, padx=5)
+        
+        self.load_expenses()
+    
+    def save_income(self):
+        """Save income amount"""
+        try:
+            income = float(self.income_entry.get())
+            if income < 0:
+                raise ValueError
+            self.data["income"] = income
+            self.save_data()
+            self.update_summary()
+            messagebox.showinfo("Success", "Income saved!")
+        except:
+            messagebox.showerror("Error", "Enter valid income amount")
+    
+            
