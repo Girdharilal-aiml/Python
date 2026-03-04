@@ -72,3 +72,8 @@ class BudgetApp:
         row1 = tk.Frame(expense_frame, bg="#fff3e0")
         row1.pack(pady=5)
         
+        tk.Label(row1, text="Category:", font=("Arial", 10), bg="#fff3e0").pack(side=tk.LEFT, padx=5)
+        self.category_var = tk.StringVar(value=self.categories[0])
+        category_menu = tk.OptionMenu(row1, self.category_var, *self.categories)
+        category_menu.config(font=("Arial", 10), bg="white", width=12)
+        category_menu.pack(side=tk.LEFT, padx=5)
