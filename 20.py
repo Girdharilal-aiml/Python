@@ -89,3 +89,11 @@ class BudgetApp:
         self.desc_entry = tk.Entry(row2, font=("Arial", 10), width=30)
         self.desc_entry.pack(side=tk.LEFT, padx=5)
         
+        tk.Button(expense_frame, text="Add Expense", font=("Arial", 10), bg="#ff9800",
+                 fg="white", padx=20, pady=5, command=self.add_expense).pack(pady=10)
+        
+        # Summary section
+        summary_frame = tk.LabelFrame(self.root, text="Summary", font=("Arial", 12, "bold"),
+                                      bg="#e3f2fd", fg="#1565c0", padx=20, pady=15)
+        summary_frame.pack(fill=tk.X, padx=20, pady=10)
+        
