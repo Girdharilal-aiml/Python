@@ -69,3 +69,6 @@ class BudgetApp:
                                       bg="#fff3e0", fg="#e65100", padx=20, pady=15)
         expense_frame.pack(fill=tk.X, padx=20, pady=10)
         
+        row1 = tk.Frame(expense_frame, bg="#fff3e0")
+        row1.pack(pady=5)
+        
