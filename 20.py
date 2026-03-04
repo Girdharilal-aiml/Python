@@ -57,3 +57,7 @@ class BudgetApp:
         tk.Label(entry_frame, text="Enter Income: $", font=("Arial", 11),
                 bg="#e8f5e9").pack(side=tk.LEFT, padx=5)
         
+        self.income_entry = tk.Entry(entry_frame, font=("Arial", 11), width=15)
+        self.income_entry.pack(side=tk.LEFT, padx=5)
+        self.income_entry.insert(0, str(self.data.get("income", 0)))
+        
