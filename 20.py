@@ -20,3 +20,8 @@ class BudgetApp:
         self.data_file = "budget.json"
         self.data = self.load_data()
         
+        self.categories = ["Food", "Transport", "Bills", "Entertainment", "Shopping", "Other"]
+        
+        self.setup_ui()
+        self.update_summary()
+    
