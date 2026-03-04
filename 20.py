@@ -160,4 +160,22 @@ class BudgetApp:
         except:
             messagebox.showerror("Error", "Enter valid income amount")
     
+    def add_expense(self):
+        """Add new expense"""
+        try:
+            amount = float(self.amount_entry.get())
+            if amount <= 0:
+                raise ValueError
+            
+            category = self.category_var.get()
+            desc = self.desc_entry.get().strip() or "No description"
+            date = datetime.now().strftime("%Y-%m-%d %H:%M")
+            
+            expense = {
+                "date": date,
+                "category": category,
+                "amount": amount,
+                "description": desc
+            }
+            
             
