@@ -97,3 +97,12 @@ class BudgetApp:
                                       bg="#e3f2fd", fg="#1565c0", padx=20, pady=15)
         summary_frame.pack(fill=tk.X, padx=20, pady=10)
         
+        sum_grid = tk.Frame(summary_frame, bg="#e3f2fd")
+        sum_grid.pack()
+        
+        tk.Label(sum_grid, text="Income:", font=("Arial", 11), bg="#e3f2fd",
+                width=12, anchor="e").grid(row=0, column=0, padx=5, pady=3)
+        self.income_label = tk.Label(sum_grid, text="$0.00", font=("Arial", 11, "bold"),
+                                     bg="#e3f2fd", fg="#2e7d32", width=12, anchor="w")
+        self.income_label.grid(row=0, column=1, padx=5, pady=3)
+        
