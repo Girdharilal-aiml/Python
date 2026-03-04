@@ -25,3 +25,7 @@ class BudgetApp:
         self.setup_ui()
         self.update_summary()
     
+    def load_data(self):
+        """Load saved data"""
+        if os.path.exists(self.data_file):
+            try:
