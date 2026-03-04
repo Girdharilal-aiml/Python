@@ -244,3 +244,7 @@ class BudgetApp:
             self.remaining_label.config(fg="#2e7d32")  # Green
 
 
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = BudgetApp(root)
+    root.mainloop()
