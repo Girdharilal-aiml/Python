@@ -29,3 +29,9 @@ class BudgetApp:
         """Load saved data"""
         if os.path.exists(self.data_file):
             try:
+                with open(self.data_file, 'r') as f:
+                    return json.load(f)
+            except:
+                return {"income": 0, "expenses": []}
+        return {"income": 0, "expenses": []}
+    
