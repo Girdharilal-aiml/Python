@@ -178,4 +178,19 @@ class BudgetApp:
                 "description": desc
             }
             
+            if "expenses" not in self.data:
+                self.data["expenses"] = []
             
+            self.data["expenses"].append(expense)
+            self.save_data()
+            
+            # Clear inputs
+            self.amount_entry.delete(0, tk.END)
+            self.desc_entry.delete(0, tk.END)
+            
+            self.load_expenses()
+            self.update_summary()
+            messagebox.showinfo("Success", f"Added ${amount:.2f} to {category}")
+        except:
+            messagebox.showerror("Error", "Enter valid amount")
+    
