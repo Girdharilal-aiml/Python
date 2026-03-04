@@ -16,3 +16,7 @@ class BudgetApp:
         self.root.title("Budget Calculator")
         self.root.geometry("700x550")
         self.root.configure(bg="#f0f0f0")
+        
+        self.data_file = "budget.json"
+        self.data = self.load_data()
+        
