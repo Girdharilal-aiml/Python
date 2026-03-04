@@ -61,3 +61,11 @@ class BudgetApp:
         self.income_entry.pack(side=tk.LEFT, padx=5)
         self.income_entry.insert(0, str(self.data.get("income", 0)))
         
+        tk.Button(entry_frame, text="Save Income", font=("Arial", 10), bg="#4caf50",
+                 fg="white", padx=15, pady=5, command=self.save_income).pack(side=tk.LEFT, padx=10)
+        
+        # Add expense section
+        expense_frame = tk.LabelFrame(self.root, text="Add Expense", font=("Arial", 12, "bold"),
+                                      bg="#fff3e0", fg="#e65100", padx=20, pady=15)
+        expense_frame.pack(fill=tk.X, padx=20, pady=10)
+        
