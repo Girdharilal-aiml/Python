@@ -130,3 +130,12 @@ class BudgetApp:
         scrollbar = tk.Scrollbar(scroll_frame)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
+        self.expense_listbox = tk.Listbox(scroll_frame, font=("Courier", 9),
+                                          yscrollcommand=scrollbar.set, height=8)
+        self.expense_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.expense_listbox.yview)
+        
+        # Buttons
+        btn_frame = tk.Frame(list_frame, bg="white")
+        btn_frame.pack(pady=5)
+        
