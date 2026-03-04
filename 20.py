@@ -51,3 +51,6 @@ class BudgetApp:
                                      bg="#e8f5e9", fg="#2e7d32", padx=20, pady=15)
         income_frame.pack(fill=tk.X, padx=20, pady=10)
         
+        entry_frame = tk.Frame(income_frame, bg="#e8f5e9")
+        entry_frame.pack()
+        
