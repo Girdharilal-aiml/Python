@@ -194,3 +194,25 @@ class BudgetApp:
         except:
             messagebox.showerror("Error", "Enter valid amount")
     
+    def load_expenses(self):
+        """Load expenses into listbox"""
+        self.expense_listbox.delete(0, tk.END)
+        
+        if "expenses" in self.data and self.data["expenses"]:
+            for i, exp in enumerate(reversed(self.data["expenses"])):
+                line = f"{exp['date']} | {exp['category']:12} | ${exp['amount']:7.2f} | {exp['description']}"
+                self.expense_listbox.insert(tk.END, line)
+    
+    def delete_expense(self):
+        """Delete selected expense"""
+        selection = self.expense_listbox.curselection()
+        if not selection:
+            messagebox.showwarning("No Selection", "Select an expense to delete")
+            return
+        
+        if messagebox.askyesno("Confirm", "Delete this expense?"):
+            index = len(self.data["expenses"]) - 1 - selection[0]
+            del self.data["expenses"][index]
+            self.save_data()
+            self.load_expenses()
+            self.update_summary()
