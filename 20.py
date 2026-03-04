@@ -46,3 +46,8 @@ class BudgetApp:
         tk.Label(self.root, text="💰 Budget Calculator", font=("Arial", 20, "bold"),
                 bg="#f0f0f0", fg="#333").pack(pady=15)
         
+        # Income section
+        income_frame = tk.LabelFrame(self.root, text="Monthly Income", font=("Arial", 12, "bold"),
+                                     bg="#e8f5e9", fg="#2e7d32", padx=20, pady=15)
+        income_frame.pack(fill=tk.X, padx=20, pady=10)
+        
