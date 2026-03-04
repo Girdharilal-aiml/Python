@@ -39,3 +39,10 @@ class BudgetApp:
         """Save data to file"""
         with open(self.data_file, 'w') as f:
             json.dump(self.data, f, indent=2)
+    
+    def setup_ui(self):
+        """Create the interface"""
+        # Title
+        tk.Label(self.root, text="💰 Budget Calculator", font=("Arial", 20, "bold"),
+                bg="#f0f0f0", fg="#333").pack(pady=15)
+        
