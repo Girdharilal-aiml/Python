@@ -81,3 +81,11 @@ class BudgetApp:
         tk.Label(row1, text="Amount: $", font=("Arial", 10), bg="#fff3e0").pack(side=tk.LEFT, padx=10)
         self.amount_entry = tk.Entry(row1, font=("Arial", 10), width=12)
         self.amount_entry.pack(side=tk.LEFT, padx=5)
+        
+        row2 = tk.Frame(expense_frame, bg="#fff3e0")
+        row2.pack(pady=5)
+        
+        tk.Label(row2, text="Description:", font=("Arial", 10), bg="#fff3e0").pack(side=tk.LEFT, padx=5)
+        self.desc_entry = tk.Entry(row2, font=("Arial", 10), width=30)
+        self.desc_entry.pack(side=tk.LEFT, padx=5)
+        
