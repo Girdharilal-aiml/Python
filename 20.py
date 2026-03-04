@@ -10,3 +10,9 @@ import os
 from datetime import datetime
 
 
+class BudgetApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Budget Calculator")
+        self.root.geometry("700x550")
+        self.root.configure(bg="#f0f0f0")
