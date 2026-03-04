@@ -216,3 +216,31 @@ class BudgetApp:
             self.save_data()
             self.load_expenses()
             self.update_summary()
+    
+    def clear_all(self):
+        """Clear all expenses"""
+        if messagebox.askyesno("Confirm", "Clear all expenses?"):
+            self.data["expenses"] = []
+            self.save_data()
+            self.load_expenses()
+            self.update_summary()
+    
+    def update_summary(self):
+        """Update summary labels"""
+        income = self.data.get("income", 0)
+        total_spent = sum(exp["amount"] for exp in self.data.get("expenses", []))
+        remaining = income - total_spent
+        
+        self.income_label.config(text=f"${income:.2f}")
+        self.spent_label.config(text=f"${total_spent:.2f}")
+        self.remaining_label.config(text=f"${remaining:.2f}")
+        
+        # Change color based on remaining
+        if remaining < 0:
+            self.remaining_label.config(fg="#d32f2f")  # Red
+        elif remaining < income * 0.3:
+            self.remaining_label.config(fg="#ff6f00")  # Orange
+        else:
+            self.remaining_label.config(fg="#2e7d32")  # Green
+
+
