@@ -77,3 +77,7 @@ class BudgetApp:
         category_menu = tk.OptionMenu(row1, self.category_var, *self.categories)
         category_menu.config(font=("Arial", 10), bg="white", width=12)
         category_menu.pack(side=tk.LEFT, padx=5)
+        
+        tk.Label(row1, text="Amount: $", font=("Arial", 10), bg="#fff3e0").pack(side=tk.LEFT, padx=10)
+        self.amount_entry = tk.Entry(row1, font=("Arial", 10), width=12)
+        self.amount_entry.pack(side=tk.LEFT, padx=5)
