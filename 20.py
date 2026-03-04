@@ -118,3 +118,15 @@ class BudgetApp:
                                        bg="#e3f2fd", fg="#1976d2", width=12, anchor="w")
         self.remaining_label.grid(row=2, column=1, padx=5, pady=3)
         
+        # Expense list section
+        list_frame = tk.LabelFrame(self.root, text="Recent Expenses", font=("Arial", 11, "bold"),
+                                   bg="white", padx=10, pady=10)
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        
+        # Scrollbar and listbox
+        scroll_frame = tk.Frame(list_frame, bg="white")
+        scroll_frame.pack(fill=tk.BOTH, expand=True)
+        
+        scrollbar = tk.Scrollbar(scroll_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
