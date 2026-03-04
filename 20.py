@@ -106,3 +106,9 @@ class BudgetApp:
                                      bg="#e3f2fd", fg="#2e7d32", width=12, anchor="w")
         self.income_label.grid(row=0, column=1, padx=5, pady=3)
         
+        tk.Label(sum_grid, text="Total Spent:", font=("Arial", 11), bg="#e3f2fd",
+                width=12, anchor="e").grid(row=1, column=0, padx=5, pady=3)
+        self.spent_label = tk.Label(sum_grid, text="$0.00", font=("Arial", 11, "bold"),
+                                    bg="#e3f2fd", fg="#d32f2f", width=12, anchor="w")
+        self.spent_label.grid(row=1, column=1, padx=5, pady=3)
+        
