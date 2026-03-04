@@ -54,3 +54,6 @@ class BudgetApp:
         entry_frame = tk.Frame(income_frame, bg="#e8f5e9")
         entry_frame.pack()
         
+        tk.Label(entry_frame, text="Enter Income: $", font=("Arial", 11),
+                bg="#e8f5e9").pack(side=tk.LEFT, padx=5)
+        
