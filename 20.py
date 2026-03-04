@@ -35,3 +35,7 @@ class BudgetApp:
                 return {"income": 0, "expenses": []}
         return {"income": 0, "expenses": []}
     
+    def save_data(self):
+        """Save data to file"""
+        with open(self.data_file, 'w') as f:
+            json.dump(self.data, f, indent=2)
