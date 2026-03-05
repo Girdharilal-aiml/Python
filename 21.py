@@ -62,4 +62,28 @@ class LanguageQuiz:
                 ("Sun", "Soleil"),
                 ("Moon", "Lune"),
             ],
+            "German": [
+                ("Hello", "Hallo"),
+                ("Goodbye", "Auf Wiedersehen"),
+                ("Please", "Bitte"),
+                ("Thank you", "Danke"),
+                ("Yes", "Ja"),
+                ("No", "Nein"),
+                ("Good morning", "Guten Morgen"),
+                ("Good night", "Gute Nacht"),
+                ("Water", "Wasser"),
+                ("Food", "Essen"),
+                ("Friend", "Freund"),
+                ("Family", "Familie"),
+                ("Love", "Liebe"),
+                ("House", "Haus"),
+                ("Book", "Buch"),
+                ("Time", "Zeit"),
+                ("Day", "Tag"),
+                ("Night", "Nacht"),
+                ("Sun", "Sonne"),
+                ("Moon", "Mond"),
+            ],
+        }
+
 
