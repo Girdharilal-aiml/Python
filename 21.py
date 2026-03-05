@@ -272,3 +272,18 @@ class LanguageQuiz:
         btn_frame = tk.Frame(main_frame, bg='#0d1117')
         btn_frame.pack(pady=20)
 
+        self.start_btn = tk.Button(
+            btn_frame,
+            text="Start Quiz",
+            command=self.start_quiz,
+            bg='#238636',
+            fg='white',
+            font=('Arial', 14, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=15,
+            height=2,
+            activebackground='#2ea043'
+        )
+        self.start_btn.pack(side=tk.LEFT, padx=10)
+
