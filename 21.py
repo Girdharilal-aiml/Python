@@ -121,4 +121,12 @@ class LanguageQuiz:
             fg='#58a6ff'
         ).pack(side=tk.LEFT, padx=(0, 10))
 
+        tk.Label(
+            title_container,
+            text="Language Quiz",
+            font=self.title_font,
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT)
+
 
