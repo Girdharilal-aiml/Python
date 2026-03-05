@@ -180,3 +180,8 @@ class LanguageQuiz:
             )
             btn.pack(side=tk.LEFT, padx=5)
 
+        # Question card (scrollable container)
+        self.question_container = tk.Frame(main_frame, bg='#0d1117')
+        self.question_container.pack(fill=tk.BOTH, expand=True, pady=10)
+
+
