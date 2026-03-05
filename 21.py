@@ -129,4 +129,16 @@ class LanguageQuiz:
             fg='#c9d1d9'
         ).pack(side=tk.LEFT)
 
+        # Score display
+        score_container = tk.Frame(header_frame, bg='#161b22')
+        score_container.pack(side=tk.RIGHT, padx=20, pady=15)
+
+        tk.Label(
+            score_container,
+            text="SCORE",
+            font=('Arial', 10, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        ).pack()
+
 
