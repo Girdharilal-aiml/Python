@@ -360,3 +360,29 @@ class LanguageQuiz:
         vocab = self.vocabularies[self.current_language]
         self.current_word, self.current_answer = random.choice(vocab)
         
+        # Generate options (1 correct + 3 wrong)
+        self.options = [self.current_answer]
+        
+        other_words = [answer for _, answer in vocab if answer != self.current_answer]
+        wrong_options = random.sample(other_words, min(3, len(other_words)))
+        self.options.extend(wrong_options)
+        
+        random.shuffle(self.options)
+        
+        # Update UI
+        self.word_label.config(text=self.current_word, fg='#58a6ff')
+        self.result_label.config(text="")
+        self.progress_label.config(text=f"Question {self.total_questions + 1} of {self.questions_per_quiz}")
+        
+        # Update option buttons
+        for i, btn in enumerate(self.option_buttons):
+            if i < len(self.options):
+                btn.config(
+                    text=self.options[i],
+                    state='normal',
+                    bg='#21262d',
+                    command=lambda opt=self.options[i]: self.check_answer(opt)
+                )
+            else:
+                btn.config(text="", state='disabled')
+
