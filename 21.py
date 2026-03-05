@@ -148,4 +148,9 @@ class LanguageQuiz:
             bg='#161b22',
             fg='#3fb950'
         )
+        self.score_label.pack()
+
+        # Language selector
+        lang_frame = tk.Frame(main_frame, bg='#161b22')
+        lang_frame.pack(fill=tk.X, pady=(0, 20))
 
