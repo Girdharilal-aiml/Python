@@ -248,3 +248,13 @@ class LanguageQuiz:
             btn.pack(fill=tk.X, pady=8)
             self.option_buttons.append(btn)
 
+        # Result message
+        self.result_label = tk.Label(
+            question_card,
+            text="",
+            font=('Arial', 14, 'bold'),
+            bg='#161b22',
+            fg='#3fb950'
+        )
+        self.result_label.pack(pady=10)
+
