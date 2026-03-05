@@ -154,3 +154,15 @@ class LanguageQuiz:
         lang_frame = tk.Frame(main_frame, bg='#161b22')
         lang_frame.pack(fill=tk.X, pady=(0, 20))
 
+        tk.Label(
+            lang_frame,
+            text="Select Language:",
+            font=('Arial', 13, 'bold'),
+            bg='#161b22',
+            fg='#c9d1d9'
+        ).pack(side=tk.LEFT, padx=20, pady=15)
+
+        lang_buttons = tk.Frame(lang_frame, bg='#161b22')
+        lang_buttons.pack(side=tk.LEFT, pady=15)
+
+
