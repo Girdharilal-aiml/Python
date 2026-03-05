@@ -268,3 +268,7 @@ class LanguageQuiz:
         )
         self.progress_label.pack(pady=(10, 30))
 
+        # Control buttons
+        btn_frame = tk.Frame(main_frame, bg='#0d1117')
+        btn_frame.pack(pady=20)
+
