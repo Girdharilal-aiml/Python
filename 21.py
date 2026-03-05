@@ -258,3 +258,13 @@ class LanguageQuiz:
         )
         self.result_label.pack(pady=10)
 
+        # Progress
+        self.progress_label = tk.Label(
+            question_card,
+            text="",
+            font=('Arial', 12),
+            bg='#161b22',
+            fg='#8b949e'
+        )
+        self.progress_label.pack(pady=(10, 30))
+
