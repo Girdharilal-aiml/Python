@@ -215,4 +215,17 @@ class LanguageQuiz:
         )
         self.instruction_label.pack(pady=(30, 10))
 
+        self.word_label = tk.Label(
+            question_card,
+            text="Click 'Start Quiz' to begin",
+            font=self.word_font,
+            bg='#161b22',
+            fg='#58a6ff',
+            wraplength=600
+        )
+        self.word_label.pack(pady=20)
+
+        # Options buttons container
+        self.options_frame = tk.Frame(question_card, bg='#161b22')
+        self.options_frame.pack(pady=20, fill=tk.X, padx=40)
 
