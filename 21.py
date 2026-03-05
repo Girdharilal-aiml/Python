@@ -404,3 +404,56 @@ class LanguageQuiz:
             self.score += 1
             self.result_label.config(text="✓ Correct!", fg='#3fb950')
         else:
+            self.result_label.config(
+                text=f"✗ Wrong! Correct answer: {self.current_answer}",
+                fg='#f85149'
+            )
+        
+        # Update score
+        self.score_label.config(text=f"{self.score} / {self.total_questions}")
+        
+        # Enable next button
+        self.next_btn.config(state='normal')
+
+    def next_question(self):
+        self.next_btn.config(state='disabled')
+        self.load_question()
+
+    def end_quiz(self):
+        self.quiz_active = False
+        
+        percentage = int((self.score / self.total_questions) * 100)
+        
+        self.word_label.config(text="Quiz Complete!", fg='#58a6ff')
+        
+        if percentage >= 90:
+            message = f"🏆 Excellent! You got {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#3fb950'
+        elif percentage >= 70:
+            message = f"👍 Good job! You got {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#58a6ff'
+        elif percentage >= 50:
+            message = f"📚 Not bad! You got {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#d29922'
+        else:
+            message = f"💪 Keep practicing! You got {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#f85149'
+        
+        self.result_label.config(text=message, fg=color)
+        self.progress_label.config(text="")
+        
+        # Disable option buttons
+        for btn in self.option_buttons:
+            btn.config(text="", state='disabled', bg='#21262d')
+        
+        # Enable start button
+        self.start_btn.config(state='normal')
+        self.next_btn.config(state='disabled')
+
+def main():
+    root = tk.Tk()
+    app = LanguageQuiz(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
