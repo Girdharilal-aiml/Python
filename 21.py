@@ -324,3 +324,39 @@ class LanguageQuiz:
         for widget in self.root.winfo_children():
             self.update_language_buttons(widget, language)
         
+        # Reset quiz if active
+        if self.quiz_active:
+            self.quiz_active = False
+            self.start_btn.config(state='normal')
+            self.word_label.config(text="Click 'Start Quiz' to begin")
+
+    def update_language_buttons(self, widget, current_lang):
+        for child in widget.winfo_children():
+            if isinstance(child, tk.Button) and child.cget('text') in self.vocabularies.keys():
+                if child.cget('text') == current_lang:
+                    child.config(bg='#1f6feb')
+                else:
+                    child.config(bg='#21262d')
+            self.update_language_buttons(child, current_lang)
+
+    def start_quiz(self):
+        self.quiz_active = True
+        self.score = 0
+        self.total_questions = 0
+        self.start_btn.config(state='disabled')
+        self.next_btn.config(state='disabled')
+        
+        self.score_label.config(text=f"{self.score} / {self.total_questions}")
+        self.result_label.config(text="")
+        
+        self.load_question()
+
+    def load_question(self):
+        if self.total_questions >= self.questions_per_quiz:
+            self.end_quiz()
+            return
+
+        # Get random word
+        vocab = self.vocabularies[self.current_language]
+        self.current_word, self.current_answer = random.choice(vocab)
+        
