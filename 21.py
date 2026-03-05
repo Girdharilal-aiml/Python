@@ -18,4 +18,26 @@ class LanguageQuiz:
 
         # Vocabulary database
         self.vocabularies = {
+            "Spanish": [
+                ("Hello", "Hola"),
+                ("Goodbye", "Adiós"),
+                ("Please", "Por favor"),
+                ("Thank you", "Gracias"),
+                ("Yes", "Sí"),
+                ("No", "No"),
+                ("Good morning", "Buenos días"),
+                ("Good night", "Buenas noches"),
+                ("Water", "Agua"),
+                ("Food", "Comida"),
+                ("Friend", "Amigo"),
+                ("Family", "Familia"),
+                ("Love", "Amor"),
+                ("House", "Casa"),
+                ("Book", "Libro"),
+                ("Time", "Tiempo"),
+                ("Day", "Día"),
+                ("Night", "Noche"),
+                ("Sun", "Sol"),
+                ("Moon", "Luna"),
+            ],
 
