@@ -101,4 +101,11 @@ class LanguageQuiz:
         self.word_font = tkfont.Font(family='Arial', size=36, weight='bold')
         self.score_font = tkfont.Font(family='Arial', size=18, weight='bold')
 
+        # Main container
+        main_frame = tk.Frame(root, bg='#0d1117')
+        main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Header
+        header_frame = tk.Frame(main_frame, bg='#161b22')
+        header_frame.pack(fill=tk.X, pady=(0, 20))
 
