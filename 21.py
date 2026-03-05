@@ -165,4 +165,18 @@ class LanguageQuiz:
         lang_buttons = tk.Frame(lang_frame, bg='#161b22')
         lang_buttons.pack(side=tk.LEFT, pady=15)
 
+        for lang in self.vocabularies.keys():
+            btn = tk.Button(
+                lang_buttons,
+                text=lang,
+                command=lambda l=lang: self.select_language(l),
+                bg='#21262d' if lang != self.current_language else '#1f6feb',
+                fg='#c9d1d9',
+                font=('Arial', 11, 'bold'),
+                cursor='hand2',
+                bd=0,
+                width=10,
+                activebackground='#30363d'
+            )
+            btn.pack(side=tk.LEFT, padx=5)
 
