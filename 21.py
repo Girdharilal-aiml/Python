@@ -229,3 +229,22 @@ class LanguageQuiz:
         self.options_frame = tk.Frame(question_card, bg='#161b22')
         self.options_frame.pack(pady=20, fill=tk.X, padx=40)
 
+        self.option_buttons = []
+        for i in range(4):
+            btn = tk.Button(
+                self.options_frame,
+                text="",
+                font=('Arial', 14),
+                bg='#21262d',
+                fg='#c9d1d9',
+                cursor='hand2',
+                bd=0,
+                relief=tk.FLAT,
+                activebackground='#30363d',
+                wraplength=500,
+                state='disabled',
+                height=2
+            )
+            btn.pack(fill=tk.X, pady=8)
+            self.option_buttons.append(btn)
+
