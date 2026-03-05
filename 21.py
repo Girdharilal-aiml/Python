@@ -86,4 +86,19 @@ class LanguageQuiz:
             ],
         }
 
+        # Quiz state
+        self.current_language = "Spanish"
+        self.quiz_active = False
+        self.current_word = None
+        self.current_answer = None
+        self.options = []
+        self.score = 0
+        self.total_questions = 0
+        self.questions_per_quiz = 10
+
+        # Custom fonts
+        self.title_font = tkfont.Font(family='Arial', size=28, weight='bold')
+        self.word_font = tkfont.Font(family='Arial', size=36, weight='bold')
+        self.score_font = tkfont.Font(family='Arial', size=18, weight='bold')
+
 
