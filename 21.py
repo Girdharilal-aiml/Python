@@ -184,4 +184,15 @@ class LanguageQuiz:
         self.question_container = tk.Frame(main_frame, bg='#0d1117')
         self.question_container.pack(fill=tk.BOTH, expand=True, pady=10)
 
+        # Canvas for scrolling
+        canvas = tk.Canvas(self.question_container, bg='#0d1117', highlightthickness=0)
+        scrollbar = tk.Scrollbar(self.question_container, orient='vertical', command=canvas.yview)
+        
+        scrollable_frame = tk.Frame(canvas, bg='#0d1117')
+        
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
 
