@@ -287,3 +287,17 @@ class LanguageQuiz:
         )
         self.start_btn.pack(side=tk.LEFT, padx=10)
 
+        self.next_btn = tk.Button(
+            btn_frame,
+            text="Next Question",
+            command=self.next_question,
+            bg='#1f6feb',
+            fg='white',
+            font=('Arial', 14, 'bold'),
+            cursor='hand2',
+            bd=0,
+            width=15,
+            height=2,
+            state='disabled',
+            activebackground='#388bfd'
+        )
