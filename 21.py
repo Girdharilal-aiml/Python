@@ -109,3 +109,16 @@ class LanguageQuiz:
         header_frame = tk.Frame(main_frame, bg='#161b22')
         header_frame.pack(fill=tk.X, pady=(0, 20))
 
+        # Title
+        title_container = tk.Frame(header_frame, bg='#161b22')
+        title_container.pack(side=tk.LEFT, padx=20, pady=15)
+
+        tk.Label(
+            title_container,
+            text="🗣️",
+            font=('Arial', 35),
+            bg='#161b22',
+            fg='#58a6ff'
+        ).pack(side=tk.LEFT, padx=(0, 10))
+
+
