@@ -141,4 +141,11 @@ class LanguageQuiz:
             fg='#8b949e'
         ).pack()
 
+        self.score_label = tk.Label(
+            score_container,
+            text="0 / 0",
+            font=self.score_font,
+            bg='#161b22',
+            fg='#3fb950'
+        )
 
