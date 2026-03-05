@@ -386,3 +386,21 @@ class LanguageQuiz:
             else:
                 btn.config(text="", state='disabled')
 
+    def check_answer(self, selected):
+        self.total_questions += 1
+        
+        # Disable all buttons
+        for btn in self.option_buttons:
+            btn.config(state='disabled')
+            
+            # Color code the buttons
+            if btn.cget('text') == self.current_answer:
+                btn.config(bg='#238636')  # Correct answer in green
+            elif btn.cget('text') == selected and selected != self.current_answer:
+                btn.config(bg='#da3633')  # Wrong selection in red
+        
+        # Check if correct
+        if selected == self.current_answer:
+            self.score += 1
+            self.result_label.config(text="✓ Correct!", fg='#3fb950')
+        else:
