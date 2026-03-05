@@ -301,3 +301,26 @@ class LanguageQuiz:
             state='disabled',
             activebackground='#388bfd'
         )
+        self.next_btn.pack(side=tk.LEFT, padx=10)
+
+        # Bind resize
+        self.root.bind('<Configure>', self.on_resize)
+
+    def on_resize(self, event):
+        if event.widget == self.root:
+            # Update word wraplength based on window width
+            new_width = self.root.winfo_width()
+            wrap_width = max(300, new_width - 150)
+            self.word_label.config(wraplength=wrap_width)
+            
+            for btn in self.option_buttons:
+                btn.config(wraplength=max(300, new_width - 250))
+
+    def select_language(self, language):
+        self.current_language = language
+        self.instruction_label.config(text=f"Translate to {language}:")
+        
+        # Update language button colors
+        for widget in self.root.winfo_children():
+            self.update_language_buttons(widget, language)
+        
