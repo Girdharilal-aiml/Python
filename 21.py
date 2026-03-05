@@ -201,4 +201,18 @@ class LanguageQuiz:
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
+        # Question content
+        question_card = tk.Frame(scrollable_frame, bg='#161b22')
+        question_card.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        # Instruction/Word display
+        self.instruction_label = tk.Label(
+            question_card,
+            text="Translate to " + self.current_language + ":",
+            font=('Arial', 14, 'bold'),
+            bg='#161b22',
+            fg='#8b949e'
+        )
+        self.instruction_label.pack(pady=(30, 10))
+
 
