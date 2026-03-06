@@ -122,3 +122,17 @@ class NoteApp:
         btn_frame = tk.Frame(right_frame, bg='white')
         btn_frame.pack(fill=tk.X, padx=20, pady=10)
 
+        tk.Button(
+            btn_frame,
+            text="💾 Save",
+            command=self.save_note,
+            font=('Arial', 10, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            padx=15,
+            pady=5,
+            cursor='hand2',
+            activebackground='#45a049'
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
