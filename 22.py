@@ -73,3 +73,17 @@ class NoteApp:
         list_frame = tk.Frame(left_frame, bg='white')
         list_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 10))
 
+        scroll = tk.Scrollbar(list_frame)
+        scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.listbox = tk.Listbox(
+            list_frame,
+            font=('Arial', 10),
+            bg='white',
+            fg='#333',
+            selectbackground='#2196F3',
+            selectforeground='white',
+            bd=0,
+            highlightthickness=0,
+            yscrollcommand=scroll.set
+        )
