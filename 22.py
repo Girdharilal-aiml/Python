@@ -30,4 +30,8 @@ class NoteApp:
         left_frame.pack(side=tk.LEFT, fill=tk.Y)
         left_frame.pack_propagate(False)
 
+        # Header
+        header = tk.Frame(left_frame, bg='#f5f5f5')
+        header.pack(fill=tk.X, padx=10, pady=10)
+
         
