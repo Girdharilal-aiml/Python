@@ -136,3 +136,17 @@ class NoteApp:
             activebackground='#45a049'
         ).pack(side=tk.LEFT, padx=(0, 5))
 
+        tk.Button(
+            btn_frame,
+            text="🗑️ Delete",
+            command=self.delete_note,
+            font=('Arial', 10, 'bold'),
+            bg='#f44336',
+            fg='white',
+            bd=0,
+            padx=15,
+            pady=5,
+            cursor='hand2',
+            activebackground='#da190b'
+        ).pack(side=tk.LEFT)
+
