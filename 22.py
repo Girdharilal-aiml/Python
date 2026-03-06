@@ -206,3 +206,15 @@ class NoteApp:
 
         self.display_notes()
 
+    def load_notes(self):
+        if os.path.exists(self.notes_file):
+            try:
+                with open(self.notes_file, 'r', encoding='utf-8') as f:
+                    self.notes = json.load(f)
+            except:
+                self.notes = []
+
+    def save_notes(self):
+        with open(self.notes_file, 'w', encoding='utf-8') as f:
+            json.dump(self.notes, f, indent=2, ensure_ascii=False)
+
