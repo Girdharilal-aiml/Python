@@ -24,4 +24,10 @@ class NoteApp:
         self.current_note_index = None
         self.load_notes()
 
+        # Main split
+        # LEFT - Notes list (250px)
+        left_frame = tk.Frame(root, bg='#f5f5f5', width=250, relief=tk.FLAT, bd=1)
+        left_frame.pack(side=tk.LEFT, fill=tk.Y)
+        left_frame.pack_propagate(False)
+
         
