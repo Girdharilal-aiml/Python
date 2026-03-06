@@ -179,4 +179,11 @@ class NoteApp:
             pady=10,
             state='disabled'
         )
+        self.text.pack(fill=tk.BOTH, expand=True)
+        text_scroll.config(command=self.text.yview)
+        self.text.bind('<KeyRelease>', self.update_count)
+
+        # Footer
+        footer = tk.Frame(right_frame, bg='#f5f5f5', height=30)
+        footer.pack(fill=tk.X, side=tk.BOTTOM)
 
