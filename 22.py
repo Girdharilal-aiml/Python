@@ -118,3 +118,7 @@ class NoteApp:
         )
         self.title_entry.pack(fill=tk.X, pady=(2, 0), ipady=5)
 
+        # Buttons
+        btn_frame = tk.Frame(right_frame, bg='white')
+        btn_frame.pack(fill=tk.X, padx=20, pady=10)
+
