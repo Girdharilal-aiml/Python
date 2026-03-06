@@ -99,3 +99,11 @@ class NoteApp:
         title_frame = tk.Frame(right_frame, bg='white')
         title_frame.pack(fill=tk.X, padx=20, pady=(20, 5))
 
+        tk.Label(
+            title_frame,
+            text="Title:",
+            font=('Arial', 10),
+            bg='white',
+            fg='#666'
+        ).pack(anchor='w')
+
