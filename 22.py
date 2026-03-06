@@ -187,3 +187,22 @@ class NoteApp:
         footer = tk.Frame(right_frame, bg='#f5f5f5', height=30)
         footer.pack(fill=tk.X, side=tk.BOTTOM)
 
+        self.count_label = tk.Label(
+            footer,
+            text="0 words",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666'
+        )
+        self.count_label.pack(side=tk.RIGHT, padx=20, pady=5)
+
+        tk.Label(
+            footer,
+            text="Select a note to edit",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=20, pady=5)
+
+        self.display_notes()
+
