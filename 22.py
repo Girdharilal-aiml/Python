@@ -95,3 +95,7 @@ class NoteApp:
         right_frame = tk.Frame(root, bg='white')
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
+        # Title
+        title_frame = tk.Frame(right_frame, bg='white')
+        title_frame.pack(fill=tk.X, padx=20, pady=(20, 5))
+
