@@ -218,3 +218,16 @@ class NoteApp:
         with open(self.notes_file, 'w', encoding='utf-8') as f:
             json.dump(self.notes, f, indent=2, ensure_ascii=False)
 
+    def display_notes(self):
+        self.listbox.delete(0, tk.END)
+        for note in self.notes:
+            title = note.get('title', 'Untitled')[:30]
+            self.listbox.insert(tk.END, title)
+
+    def filter_notes(self):
+        search = self.search_var.get().lower()
+        self.listbox.delete(0, tk.END)
+        for note in self.notes:
+            if search in note.get('title', '').lower() or search in note.get('content', '').lower():
+                self.listbox.insert(tk.END, note.get('title', 'Untitled')[:30])
+
