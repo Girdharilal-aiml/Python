@@ -159,3 +159,24 @@ class NoteApp:
         )
         self.status.pack(side=tk.RIGHT, padx=10)
 
+        # Text editor
+        text_frame = tk.Frame(right_frame, bg='white')
+        text_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 10))
+
+        text_scroll = tk.Scrollbar(text_frame)
+        text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.text = tk.Text(
+            text_frame,
+            font=('Consolas', 11),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1,
+            wrap=tk.WORD,
+            yscrollcommand=text_scroll.set,
+            padx=10,
+            pady=10,
+            state='disabled'
+        )
+
