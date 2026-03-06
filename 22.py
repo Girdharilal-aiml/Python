@@ -249,3 +249,26 @@ class NoteApp:
         if not sel:
             return
         
+        # Save current first
+        if self.current_note_index is not None:
+            self.save_note()
+        
+        idx = sel[0]
+        search = self.search_var.get().lower()
+        
+        # Find actual index
+        if search:
+            filtered = [i for i, n in enumerate(self.notes) 
+                       if search in n.get('title', '').lower() or search in n.get('content', '').lower()]
+            if idx < len(filtered):
+                self.current_note_index = filtered[idx]
+        else:
+            self.current_note_index = idx
+        
+        note = self.notes[self.current_note_index]
+        
+        # Load
+        self.title_entry.config(state='normal')
+        self.title_entry.delete(0, tk.END)
+        self.title_entry.insert(0, note.get('title', ''))
+        
