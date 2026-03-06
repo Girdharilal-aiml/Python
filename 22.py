@@ -272,3 +272,17 @@ class NoteApp:
         self.title_entry.delete(0, tk.END)
         self.title_entry.insert(0, note.get('title', ''))
         
+        self.text.config(state='normal')
+        self.text.delete('1.0', tk.END)
+        self.text.insert('1.0', note.get('content', ''))
+        
+        self.update_count()
+        self.status.config(text=note.get('created', ''))
+
+    def save_note(self):
+        if self.current_note_index is None:
+            return
+        
+        title = self.title_entry.get().strip() or 'Untitled'
+        content = self.text.get('1.0', 'end-1c')
+        
