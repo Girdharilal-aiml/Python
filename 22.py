@@ -55,4 +55,7 @@ class NoteApp:
             activebackground='#45a049'
         ).pack(side=tk.RIGHT)
 
+        # Search
+        self.search_var = tk.StringVar()
+        self.search_var.trace('w', lambda *args: self.filter_notes())
         
