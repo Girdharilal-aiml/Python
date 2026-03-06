@@ -87,3 +87,7 @@ class NoteApp:
             highlightthickness=0,
             yscrollcommand=scroll.set
         )
+        self.listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scroll.config(command=self.listbox.yview)
+        self.listbox.bind('<<ListboxSelect>>', self.select_note)
+
