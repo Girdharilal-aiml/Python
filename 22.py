@@ -91,3 +91,7 @@ class NoteApp:
         scroll.config(command=self.listbox.yview)
         self.listbox.bind('<<ListboxSelect>>', self.select_note)
 
+        # RIGHT - Editor
+        right_frame = tk.Frame(root, bg='white')
+        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
