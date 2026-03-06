@@ -59,3 +59,13 @@ class NoteApp:
         self.search_var = tk.StringVar()
         self.search_var.trace('w', lambda *args: self.filter_notes())
         
+        search = tk.Entry(
+            left_frame,
+            textvariable=self.search_var,
+            font=('Arial', 10),
+            bg='white',
+            relief=tk.SOLID,
+            bd=1
+        )
+        search.pack(fill=tk.X, padx=10, pady=(0, 10))
+
