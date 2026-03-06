@@ -18,4 +18,10 @@ class NoteApp:
         self.root.resizable(True, True)
         self.root.minsize(700, 500)
 
+        # Data
+        self.notes_file = "notes_data.json"
+        self.notes = []
+        self.current_note_index = None
+        self.load_notes()
+
         
