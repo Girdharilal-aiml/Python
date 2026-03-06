@@ -69,3 +69,7 @@ class NoteApp:
         )
         search.pack(fill=tk.X, padx=10, pady=(0, 10))
 
+        # Notes list
+        list_frame = tk.Frame(left_frame, bg='white')
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 10))
+
