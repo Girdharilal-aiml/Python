@@ -286,3 +286,45 @@ class NoteApp:
         title = self.title_entry.get().strip() or 'Untitled'
         content = self.text.get('1.0', 'end-1c')
         
+        self.notes[self.current_note_index]['title'] = title
+        self.notes[self.current_note_index]['content'] = content
+        
+        self.save_notes()
+        self.display_notes()
+        
+        # Flash saved
+        self.status.config(text="✓ Saved", fg='#4CAF50')
+        self.root.after(1500, lambda: self.status.config(text=self.notes[self.current_note_index].get('created', ''), fg='#666'))
+
+    def delete_note(self):
+        if self.current_note_index is None:
+            return
+        
+        if messagebox.askyesno("Delete", "Delete this note?"):
+            self.notes.pop(self.current_note_index)
+            self.save_notes()
+            
+            self.title_entry.config(state='normal')
+            self.title_entry.delete(0, tk.END)
+            self.title_entry.config(state='disabled')
+            
+            self.text.config(state='normal')
+            self.text.delete('1.0', tk.END)
+            self.text.config(state='disabled')
+            
+            self.current_note_index = None
+            self.display_notes()
+
+    def update_count(self, event=None):
+        content = self.text.get('1.0', 'end-1c')
+        words = len(content.split())
+        chars = len(content)
+        self.count_label.config(text=f"{words} words · {chars} chars")
+
+def main():
+    root = tk.Tk()
+    app = NoteApp(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
