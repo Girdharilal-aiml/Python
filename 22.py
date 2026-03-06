@@ -150,3 +150,12 @@ class NoteApp:
             activebackground='#da190b'
         ).pack(side=tk.LEFT)
 
+        self.status = tk.Label(
+            btn_frame,
+            text="",
+            font=('Arial', 9),
+            bg='white',
+            fg='#666'
+        )
+        self.status.pack(side=tk.RIGHT, padx=10)
+
