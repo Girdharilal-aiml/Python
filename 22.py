@@ -107,3 +107,14 @@ class NoteApp:
             fg='#666'
         ).pack(anchor='w')
 
+        self.title_entry = tk.Entry(
+            title_frame,
+            font=('Arial', 14, 'bold'),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1,
+            state='disabled'
+        )
+        self.title_entry.pack(fill=tk.X, pady=(2, 0), ipady=5)
+
