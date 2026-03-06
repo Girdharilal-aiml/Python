@@ -42,4 +42,17 @@ class NoteApp:
             fg='#333'
         ).pack(side=tk.LEFT)
 
+        tk.Button(
+            header,
+            text="+",
+            command=self.new_note,
+            font=('Arial', 18, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            width=2,
+            bd=0,
+            cursor='hand2',
+            activebackground='#45a049'
+        ).pack(side=tk.RIGHT)
+
         
