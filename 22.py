@@ -34,4 +34,12 @@ class NoteApp:
         header = tk.Frame(left_frame, bg='#f5f5f5')
         header.pack(fill=tk.X, padx=10, pady=10)
 
+        tk.Label(
+            header,
+            text="📝 Notes",
+            font=('Arial', 16, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT)
+
         
