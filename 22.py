@@ -231,3 +231,21 @@ class NoteApp:
             if search in note.get('title', '').lower() or search in note.get('content', '').lower():
                 self.listbox.insert(tk.END, note.get('title', 'Untitled')[:30])
 
+    def new_note(self):
+        note = {
+            'title': 'New Note',
+            'content': '',
+            'created': datetime.now().strftime("%Y-%m-%d %H:%M")
+        }
+        self.notes.insert(0, note)
+        self.save_notes()
+        self.display_notes()
+        self.listbox.selection_clear(0, tk.END)
+        self.listbox.selection_set(0)
+        self.select_note(None)
+
+    def select_note(self, event):
+        sel = self.listbox.curselection()
+        if not sel:
+            return
+        
