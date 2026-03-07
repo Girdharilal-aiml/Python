@@ -154,3 +154,17 @@ class PomodoroTimer:
         )
         settings_frame.pack(fill=tk.X, padx=40, pady=0)
 
+        # Work time
+        work_frame = tk.Frame(settings_frame, bg='white')
+        work_frame.pack(fill=tk.X, padx=10, pady=5)
+
+        tk.Label(
+            work_frame,
+            text="Work:",
+            font=('Arial', 10),
+            bg='white',
+            fg='#666',
+            width=12,
+            anchor='w'
+        ).pack(side=tk.LEFT)
+
