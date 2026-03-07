@@ -142,3 +142,15 @@ class PomodoroTimer:
         )
         self.reset_btn.pack(side=tk.LEFT, padx=5, pady=10)
 
+        # Settings
+        settings_frame = tk.LabelFrame(
+            root,
+            text="Settings (minutes)",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1
+        )
+        settings_frame.pack(fill=tk.X, padx=40, pady=0)
+
