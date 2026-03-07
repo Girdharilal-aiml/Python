@@ -239,3 +239,17 @@ class PomodoroTimer:
                 self.time_left = self.work_time
                 self.update_display()
 
+    def update_short_break(self):
+        self.short_break = int(self.short_spinbox.get()) * 60
+
+    def update_long_break(self):
+        self.long_break = int(self.long_spinbox.get()) * 60
+
+    def start_timer(self):
+        if self.is_running:
+            # Pause
+            self.is_running = False
+            self.start_btn.config(text="▶ START", bg='#4CAF50')
+            if self.timer_id:
+                self.root.after_cancel(self.timer_id)
+        else:
