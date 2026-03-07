@@ -77,3 +77,7 @@ class PomodoroTimer:
         )
         self.status_label.pack(pady=10)
 
+        # Timer display
+        timer_frame = tk.Frame(root, bg='#f5f5f5', relief=tk.SOLID, bd=2)
+        timer_frame.pack(pady=30, padx=40, fill=tk.X)
+
