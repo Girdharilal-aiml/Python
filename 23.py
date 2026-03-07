@@ -176,3 +176,21 @@ class PomodoroTimer:
             width=10,
             command=self.update_work_time
         )
+        self.work_spinbox.delete(0, tk.END)
+        self.work_spinbox.insert(0, "25")
+        self.work_spinbox.pack(side=tk.LEFT, padx=5)
+
+        # Short break
+        short_frame = tk.Frame(settings_frame, bg='white')
+        short_frame.pack(fill=tk.X, padx=10, pady=5)
+
+        tk.Label(
+            short_frame,
+            text="Short Break:",
+            font=('Arial', 10),
+            bg='white',
+            fg='#666',
+            width=12,
+            anchor='w'
+        ).pack(side=tk.LEFT)
+
