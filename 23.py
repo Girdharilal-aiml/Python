@@ -94,3 +94,10 @@ class PomodoroTimer:
         progress_frame = tk.Frame(root, bg='white')
         progress_frame.pack(fill=tk.X, padx=40, pady=20)
 
+        self.progress_canvas = tk.Canvas(
+            progress_frame,
+            height=20,
+            bg='#e0e0e0',
+            highlightthickness=0
+        )
+        self.progress_canvas.pack(fill=tk.X)
