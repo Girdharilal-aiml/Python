@@ -50,4 +50,12 @@ class PomodoroTimer:
         session_frame = tk.Frame(root, bg='white')
         session_frame.pack(pady=20)
 
+        tk.Label(
+            session_frame,
+            text="Work Sessions:",
+            font=('Arial', 12),
+            bg='white',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=5)
+
 
