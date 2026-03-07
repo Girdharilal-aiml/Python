@@ -101,3 +101,10 @@ class PomodoroTimer:
             highlightthickness=0
         )
         self.progress_canvas.pack(fill=tk.X)
+
+        self.progress_bar = self.progress_canvas.create_rectangle(
+            0, 0, 0, 20,
+            fill='#4CAF50',
+            outline=''
+        )
+
