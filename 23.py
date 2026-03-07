@@ -58,4 +58,13 @@ class PomodoroTimer:
             fg='#666'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.session_label = tk.Label(
+            session_frame,
+            text="0",
+            font=('Arial', 20, 'bold'),
+            bg='white',
+            fg='#4CAF50'
+        )
+        self.session_label.pack(side=tk.LEFT, padx=5)
+
 
