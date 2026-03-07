@@ -108,3 +108,7 @@ class PomodoroTimer:
             outline=''
         )
 
+        # Control buttons
+        btn_frame = tk.Frame(root, bg='white')
+        btn_frame.pack(pady=0)
+
