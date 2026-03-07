@@ -210,3 +210,32 @@ class PomodoroTimer:
         long_frame = tk.Frame(settings_frame, bg='white')
         long_frame.pack(fill=tk.X, padx=10, pady=5)
 
+        tk.Label(
+            long_frame,
+            text="Long Break:",
+            font=('Arial', 10),
+            bg='white',
+            fg='#666',
+            width=12,
+            anchor='w'
+        ).pack(side=tk.LEFT)
+
+        self.long_spinbox = tk.Spinbox(
+            long_frame,
+            from_=1,
+            to=60,
+            font=('Arial', 10),
+            width=10,
+            command=self.update_long_break
+        )
+        self.long_spinbox.delete(0, tk.END)
+        self.long_spinbox.insert(0, "15")
+        self.long_spinbox.pack(side=tk.LEFT, padx=5)
+
+    def update_work_time(self):
+        if not self.is_running:
+            self.work_time = int(self.work_spinbox.get()) * 60
+            if self.is_work:
+                self.time_left = self.work_time
+                self.update_display()
+
