@@ -127,3 +127,18 @@ class PomodoroTimer:
         )
         self.start_btn.pack(side=tk.LEFT, padx=5, pady=10)
 
+        self.reset_btn = tk.Button(
+            btn_frame,
+            text="⟲ RESET",
+            command=self.reset_timer,
+            font=('Arial', 14, 'bold'),
+            bg='#f44336',
+            fg='white',
+            width=12,
+            height=2,
+            bd=0,
+            cursor='hand2',
+            activebackground='#da190b'
+        )
+        self.reset_btn.pack(side=tk.LEFT, padx=5, pady=10)
+
