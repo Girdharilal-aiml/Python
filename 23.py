@@ -288,3 +288,59 @@ class PomodoroTimer:
                 self.is_work = False
                 messagebox.showinfo("Break Time!", "Great work! Time for a break.")
             else:
+                self.time_left = self.work_time
+                self.is_work = True
+                self.status_label.config(text="WORK TIME", fg='#f44336')
+                messagebox.showinfo("Work Time!", "Break's over. Let's focus!")
+            
+            self.update_display()
+            self.update_progress()
+
+    def reset_timer(self):
+        if self.timer_id:
+            self.root.after_cancel(self.timer_id)
+        
+        self.is_running = False
+        self.is_work = True
+        self.time_left = self.work_time
+        
+        self.start_btn.config(text="▶ START", bg='#4CAF50')
+        self.status_label.config(text="WORK TIME", fg='#f44336')
+        
+        self.update_display()
+        self.update_progress()
+
+    def update_display(self):
+        minutes = self.time_left // 60
+        seconds = self.time_left % 60
+        self.time_label.config(text=f"{minutes:02d}:{seconds:02d}")
+
+    def update_progress(self):
+        if self.is_work:
+            total = self.work_time
+        elif self.work_sessions % 4 == 0:
+            total = self.long_break
+        else:
+            total = self.short_break
+        
+        if total > 0:
+            progress = (total - self.time_left) / total
+            width = self.progress_canvas.winfo_width()
+            self.progress_canvas.coords(
+                self.progress_bar,
+                0, 0, int(width * progress), 20
+            )
+            
+            # Change color based on mode
+            if self.is_work:
+                self.progress_canvas.itemconfig(self.progress_bar, fill='#4CAF50')
+            else:
+                self.progress_canvas.itemconfig(self.progress_bar, fill='#2196F3')
+
+def main():
+    root = tk.Tk()
+    app = PomodoroTimer(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
