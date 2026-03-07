@@ -168,3 +168,11 @@ class PomodoroTimer:
             anchor='w'
         ).pack(side=tk.LEFT)
 
+        self.work_spinbox = tk.Spinbox(
+            work_frame,
+            from_=1,
+            to=60,
+            font=('Arial', 10),
+            width=10,
+            command=self.update_work_time
+        )
