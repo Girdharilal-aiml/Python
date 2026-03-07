@@ -67,4 +67,13 @@ class PomodoroTimer:
         )
         self.session_label.pack(side=tk.LEFT, padx=5)
 
+        # Status
+        self.status_label = tk.Label(
+            root,
+            text="WORK TIME",
+            font=('Arial', 16, 'bold'),
+            bg='white',
+            fg='#f44336'
+        )
+        self.status_label.pack(pady=10)
 
