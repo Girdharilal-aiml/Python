@@ -112,3 +112,18 @@ class PomodoroTimer:
         btn_frame = tk.Frame(root, bg='white')
         btn_frame.pack(pady=0)
 
+        self.start_btn = tk.Button(
+            btn_frame,
+            text="▶ START",
+            command=self.start_timer,
+            font=('Arial', 14, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            width=12,
+            height=2,
+            bd=0,
+            cursor='hand2',
+            activebackground='#45a049'
+        )
+        self.start_btn.pack(side=tk.LEFT, padx=5, pady=10)
+
