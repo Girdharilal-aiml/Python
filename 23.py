@@ -81,3 +81,10 @@ class PomodoroTimer:
         timer_frame = tk.Frame(root, bg='#f5f5f5', relief=tk.SOLID, bd=2)
         timer_frame.pack(pady=30, padx=40, fill=tk.X)
 
+        self.time_label = tk.Label(
+            timer_frame,
+            text="25:00",
+            font=('Courier', 72, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        )
