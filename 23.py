@@ -88,3 +88,9 @@ class PomodoroTimer:
             bg='#f5f5f5',
             fg='#333'
         )
+        self.time_label.pack(pady=20)
+
+        # Progress bar
+        progress_frame = tk.Frame(root, bg='white')
+        progress_frame.pack(fill=tk.X, padx=40, pady=20)
+
