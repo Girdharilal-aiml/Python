@@ -253,3 +253,38 @@ class PomodoroTimer:
             if self.timer_id:
                 self.root.after_cancel(self.timer_id)
         else:
+            # Start
+            self.is_running = True
+            self.start_btn.config(text="⏸ PAUSE", bg='#FF9800')
+            self.countdown()
+
+    def countdown(self):
+        if not self.is_running:
+            return
+
+        if self.time_left > 0:
+            self.time_left -= 1
+            self.update_display()
+            self.update_progress()
+            self.timer_id = self.root.after(1000, self.countdown)
+        else:
+            # Time's up
+            self.is_running = False
+            self.start_btn.config(text="▶ START", bg='#4CAF50')
+            self.play_faah_sound()  # 🔊 PLAY FAAH SOUND HERE
+            
+            if self.is_work:
+                self.work_sessions += 1
+                self.session_label.config(text=str(self.work_sessions))
+                
+                # Determine break type
+                if self.work_sessions % 4 == 0:
+                    self.time_left = self.long_break
+                    self.status_label.config(text="LONG BREAK", fg='#2196F3')
+                else:
+                    self.time_left = self.short_break
+                    self.status_label.config(text="SHORT BREAK", fg='#2196F3')
+                
+                self.is_work = False
+                messagebox.showinfo("Break Time!", "Great work! Time for a break.")
+            else:
