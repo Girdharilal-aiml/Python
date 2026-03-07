@@ -194,3 +194,19 @@ class PomodoroTimer:
             anchor='w'
         ).pack(side=tk.LEFT)
 
+        self.short_spinbox = tk.Spinbox(
+            short_frame,
+            from_=1,
+            to=30,
+            font=('Arial', 10),
+            width=10,
+            command=self.update_short_break
+        )
+        self.short_spinbox.delete(0, tk.END)
+        self.short_spinbox.insert(0, "5")
+        self.short_spinbox.pack(side=tk.LEFT, padx=5)
+
+        # Long break
+        long_frame = tk.Frame(settings_frame, bg='white')
+        long_frame.pack(fill=tk.X, padx=10, pady=5)
+
