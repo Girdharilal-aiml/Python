@@ -46,4 +46,8 @@ class PomodoroTimer:
             fg='#333'
         ).pack(pady=20)
 
+        # Session counter
+        session_frame = tk.Frame(root, bg='white')
+        session_frame.pack(pady=20)
+
 
