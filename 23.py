@@ -26,3 +26,10 @@ class PomodoroTimer:
         self.short_break = 5 * 60  # 5 minutes
         self.long_break = 15 * 60  # 15 minutes
         
+        # State
+        self.time_left = self.work_time
+        self.is_running = False
+        self.is_work = True
+        self.work_sessions = 0
+        self.timer_id = None
+
