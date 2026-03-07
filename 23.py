@@ -21,3 +21,8 @@ class PomodoroTimer:
         self.root.resizable(True, True)
         self.root.minsize(400, 550)
 
+        # Timer settings (in seconds)
+        self.work_time = 25 * 60  # 25 minutes
+        self.short_break = 5 * 60  # 5 minutes
+        self.long_break = 15 * 60  # 15 minutes
+        
