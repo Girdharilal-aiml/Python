@@ -30,4 +30,11 @@ class Breakout:
         self.ball_speed_x = 4
         self.ball_speed_y = -4
         
+        # Bricks
+        self.brick_rows = 5
+        self.brick_cols = 10
+        self.brick_width = 58
+        self.brick_height = 20
+        self.brick_padding = 2
+        
         
