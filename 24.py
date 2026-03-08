@@ -149,3 +149,16 @@ class Breakout:
         self.canvas.delete("all")
         self.bricks = []
         
+        # Create bricks
+        offset_x = 10
+        offset_y = 50
+        
+        for row in range(self.brick_rows):
+            brick_row = []
+            for col in range(self.brick_cols):
+                x1 = offset_x + col * (self.brick_width + self.brick_padding)
+                y1 = offset_y + row * (self.brick_height + self.brick_padding)
+                x2 = x1 + self.brick_width
+                y2 = y1 + self.brick_height
+                
+        
