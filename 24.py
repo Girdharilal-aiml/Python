@@ -247,3 +247,38 @@ class Breakout:
             
             self.ball_speed_y = -abs(self.ball_speed_y)
             
+            # Add spin based on where ball hits paddle
+            paddle_center = (paddle_coords[0] + paddle_coords[2]) / 2
+            ball_center = (ball_x1 + ball_x2) / 2
+            offset = (ball_center - paddle_center) / (self.paddle_width / 2)
+            self.ball_speed_x = offset * 5
+        
+        # Brick collision
+        overlapping = self.canvas.find_overlapping(ball_x1, ball_y1, ball_x2, ball_y2)
+        
+        for item in overlapping:
+            tags = self.canvas.gettags(item)
+            if 'brick' in tags:
+                self.canvas.delete(item)
+                self.ball_speed_y = -self.ball_speed_y
+                self.score += 10
+                self.score_label.config(text=str(self.score))
+                
+                # Remove from bricks list
+                for row in self.bricks:
+                    if item in row:
+                        row.remove(item)
+                
+                # Check win
+                if all(len(row) == 0 for row in self.bricks):
+                    self.win_game()
+                    return
+                
+                break
+        
+        # Continue game loop
+        self.root.after(16, self.move_ball)  # ~60 FPS
+
+    def lose_life(self):
+        self.lives -= 1
+        
