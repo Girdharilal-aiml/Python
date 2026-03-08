@@ -16,4 +16,8 @@ class Breakout:
         self.root.resizable(True, True)
         self.root.minsize(500, 600)
 
+        # Game settings
+        self.canvas_width = 600
+        self.canvas_height = 600
+        
         
