@@ -106,4 +106,19 @@ class Breakout:
         controls = tk.Frame(root, bg='white', height=40)
         controls.pack(fill=tk.X)
 
+        self.start_btn = tk.Button(
+            controls,
+            text="▶ START",
+            command=self.start_game,
+            font=('Arial', 12, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            width=15,
+            height=2,
+            cursor='hand2',
+            activebackground='#45a049'
+        )
+        self.start_btn.pack(pady=10)
+
         
