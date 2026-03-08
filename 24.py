@@ -185,4 +185,15 @@ class Breakout:
             tags='paddle'
         )
         
+        # Create ball
+        ball_x = self.canvas_width // 2
+        ball_y = self.canvas_height - 70
         
+        self.ball = self.canvas.create_oval(
+            ball_x - self.ball_radius, ball_y - self.ball_radius,
+            ball_x + self.ball_radius, ball_y + self.ball_radius,
+            fill='#FFC107',
+            outline='',
+            tags='ball'
+        )
+
