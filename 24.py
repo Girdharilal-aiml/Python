@@ -161,4 +161,15 @@ class Breakout:
                 x2 = x1 + self.brick_width
                 y2 = y1 + self.brick_height
                 
+                color = self.brick_colors[row]
+                
+                brick = self.canvas.create_rectangle(
+                    x1, y1, x2, y2,
+                    fill=color,
+                    outline='white',
+                    width=2,
+                    tags='brick'
+                )
+                brick_row.append(brick)
+            self.bricks.append(brick_row)
         
