@@ -127,4 +127,15 @@ class Breakout:
         self.root.bind('<a>', self.move_paddle_left)
         self.root.bind('<d>', self.move_paddle_right)
         
+        # Bind resize
+        self.root.bind('<Configure>', self.on_resize)
+
+        # Initialize game
+        self.setup_game()
+    
+    def on_resize(self, event):
+        # Update canvas size if window is resized
+        if event.widget == self.root:
+            new_width = max(500, self.root.winfo_width())
+            new_height = max(600, self.root.winfo_height() - 100)
         
