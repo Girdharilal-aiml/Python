@@ -63,4 +63,13 @@ class Breakout:
             fg='#666'
         ).pack(side=tk.LEFT, padx=(0, 5))
 
+        self.score_label = tk.Label(
+            score_frame,
+            text="0",
+            font=('Arial', 18, 'bold'),
+            bg='#f5f5f5',
+            fg='#4CAF50'
+        )
+        self.score_label.pack(side=tk.LEFT)
+
         
