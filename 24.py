@@ -20,4 +20,8 @@ class Breakout:
         self.canvas_width = 600
         self.canvas_height = 600
         
+        # Paddle
+        self.paddle_width = 100
+        self.paddle_height = 15
+        self.paddle_speed = 20
         
