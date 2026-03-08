@@ -25,3 +25,9 @@ class Breakout:
         self.paddle_height = 15
         self.paddle_speed = 20
         
+        # Ball
+        self.ball_radius = 8
+        self.ball_speed_x = 4
+        self.ball_speed_y = -4
+        
+        
