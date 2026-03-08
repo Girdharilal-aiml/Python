@@ -37,4 +37,13 @@ class Breakout:
         self.brick_height = 20
         self.brick_padding = 2
         
+        # Game state
+        self.score = 0
+        self.lives = 3
+        self.game_running = False
+        self.bricks = []
+        
+        # Colors
+        self.brick_colors = ['#f44336', '#FF9800', '#FFC107', '#4CAF50', '#2196F3']
+
         
