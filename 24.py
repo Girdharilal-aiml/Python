@@ -197,3 +197,27 @@ class Breakout:
             tags='ball'
         )
 
+    def start_game(self):
+        if not self.game_running:
+            self.game_running = True
+            self.start_btn.config(state='disabled', text="PLAYING...")
+            # Start ball movement immediately
+            self.root.after(100, self.move_ball)
+
+    def move_paddle_left(self, event):
+        coords = self.canvas.coords(self.paddle)
+        if coords[0] > 0:
+            self.canvas.move(self.paddle, -self.paddle_speed, 0)
+
+    def move_paddle_right(self, event):
+        coords = self.canvas.coords(self.paddle)
+        if coords[2] < self.canvas_width:
+            self.canvas.move(self.paddle, self.paddle_speed, 0)
+
+    def move_ball(self):
+        if not self.game_running:
+            return
+        
+        # Move ball
+        self.canvas.move(self.ball, self.ball_speed_x, self.ball_speed_y)
+        
