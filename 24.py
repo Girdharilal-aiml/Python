@@ -121,4 +121,10 @@ class Breakout:
         )
         self.start_btn.pack(pady=10)
 
+        # Bind keys
+        self.root.bind('<Left>', self.move_paddle_left)
+        self.root.bind('<Right>', self.move_paddle_right)
+        self.root.bind('<a>', self.move_paddle_left)
+        self.root.bind('<d>', self.move_paddle_right)
+        
         
