@@ -102,4 +102,8 @@ class Breakout:
         )
         self.canvas.pack()
 
+        # Controls
+        controls = tk.Frame(root, bg='white', height=40)
+        controls.pack(fill=tk.X)
+
         
