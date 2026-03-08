@@ -55,4 +55,12 @@ class Breakout:
         score_frame = tk.Frame(header, bg='#f5f5f5')
         score_frame.pack(side=tk.LEFT, padx=20, pady=15)
 
+        tk.Label(
+            score_frame,
+            text="SCORE:",
+            font=('Arial', 11, 'bold'),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
         
