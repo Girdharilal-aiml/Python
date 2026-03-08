@@ -76,4 +76,12 @@ class Breakout:
         lives_frame = tk.Frame(header, bg='#f5f5f5')
         lives_frame.pack(side=tk.RIGHT, padx=20, pady=15)
 
+        tk.Label(
+            lives_frame,
+            text="LIVES:",
+            font=('Arial', 11, 'bold'),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
         
