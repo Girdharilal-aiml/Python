@@ -144,4 +144,8 @@ class Breakout:
                 self.canvas_width = new_width
                 self.canvas_height = new_height
 
+    def setup_game(self):
+        # Clear canvas
+        self.canvas.delete("all")
+        self.bricks = []
         
