@@ -173,3 +173,16 @@ class Breakout:
                 brick_row.append(brick)
             self.bricks.append(brick_row)
         
+        # Create paddle
+        paddle_x = self.canvas_width // 2 - self.paddle_width // 2
+        paddle_y = self.canvas_height - 50
+        
+        self.paddle = self.canvas.create_rectangle(
+            paddle_x, paddle_y,
+            paddle_x + self.paddle_width, paddle_y + self.paddle_height,
+            fill='#fff',
+            outline='',
+            tags='paddle'
+        )
+        
+        
