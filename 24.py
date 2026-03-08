@@ -84,4 +84,12 @@ class Breakout:
             fg='#666'
         ).pack(side=tk.LEFT, padx=(0, 5))
 
+        self.lives_label = tk.Label(
+            lives_frame,
+            text="❤️ ❤️ ❤️",
+            font=('Arial', 14),
+            bg='#f5f5f5'
+        )
+        self.lives_label.pack(side=tk.LEFT)
+
         
