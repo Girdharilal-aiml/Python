@@ -221,3 +221,29 @@ class Breakout:
         # Move ball
         self.canvas.move(self.ball, self.ball_speed_x, self.ball_speed_y)
         
+        # Get ball position
+        ball_coords = self.canvas.coords(self.ball)
+        ball_x1, ball_y1, ball_x2, ball_y2 = ball_coords
+        
+        # Wall collision (left/right)
+        if ball_x1 <= 0 or ball_x2 >= self.canvas_width:
+            self.ball_speed_x = -self.ball_speed_x
+        
+        # Top wall collision
+        if ball_y1 <= 0:
+            self.ball_speed_y = -self.ball_speed_y
+        
+        # Bottom (lose life)
+        if ball_y2 >= self.canvas_height:
+            self.lose_life()
+            return
+        
+        # Paddle collision
+        paddle_coords = self.canvas.coords(self.paddle)
+        if (ball_y2 >= paddle_coords[1] and 
+            ball_y1 <= paddle_coords[3] and
+            ball_x2 >= paddle_coords[0] and
+            ball_x1 <= paddle_coords[2]):
+            
+            self.ball_speed_y = -abs(self.ball_speed_y)
+            
