@@ -282,3 +282,65 @@ class Breakout:
     def lose_life(self):
         self.lives -= 1
         
+        # Update lives display
+        hearts = "❤️ " * self.lives
+        self.lives_label.config(text=hearts if hearts else "💔")
+        
+        if self.lives > 0:
+            # Reset ball
+            self.game_running = False
+            self.setup_game()
+            self.start_btn.config(state='normal', text="▶ START")
+            messagebox.showinfo("Life Lost", f"Lives remaining: {self.lives}")
+        else:
+            # Game over
+            self.game_over()
+
+    def game_over(self):
+        self.game_running = False
+        self.canvas.create_text(
+            self.canvas_width // 2,
+            self.canvas_height // 2,
+            text="GAME OVER",
+            font=('Arial', 48, 'bold'),
+            fill='#f44336'
+        )
+        
+        if messagebox.askyesno("Game Over", f"Final Score: {self.score}\nPlay again?"):
+            self.reset_game()
+        else:
+            self.root.quit()
+
+    def win_game(self):
+        self.game_running = False
+        self.canvas.create_text(
+            self.canvas_width // 2,
+            self.canvas_height // 2,
+            text="YOU WIN!",
+            font=('Arial', 48, 'bold'),
+            fill='#4CAF50'
+        )
+        
+        if messagebox.askyesno("Victory!", f"Score: {self.score}\nPlay again?"):
+            self.reset_game()
+        else:
+            self.root.quit()
+
+    def reset_game(self):
+        self.score = 0
+        self.lives = 3
+        self.game_running = False
+        
+        self.score_label.config(text="0")
+        self.lives_label.config(text="❤️ ❤️ ❤️")
+        self.start_btn.config(state='normal', text="▶ START")
+        
+        self.setup_game()
+
+def main():
+    root = tk.Tk()
+    game = Breakout(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
