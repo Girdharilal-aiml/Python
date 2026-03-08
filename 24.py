@@ -72,4 +72,8 @@ class Breakout:
         )
         self.score_label.pack(side=tk.LEFT)
 
+        # Lives
+        lives_frame = tk.Frame(header, bg='#f5f5f5')
+        lives_frame.pack(side=tk.RIGHT, padx=20, pady=15)
+
         
