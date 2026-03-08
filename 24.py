@@ -138,4 +138,10 @@ class Breakout:
         if event.widget == self.root:
             new_width = max(500, self.root.winfo_width())
             new_height = max(600, self.root.winfo_height() - 100)
+            
+            if new_width != self.canvas_width or new_height != self.canvas_height:
+                self.canvas.config(width=new_width, height=new_height)
+                self.canvas_width = new_width
+                self.canvas_height = new_height
+
         
