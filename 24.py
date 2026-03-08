@@ -51,4 +51,8 @@ class Breakout:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        # Score
+        score_frame = tk.Frame(header, bg='#f5f5f5')
+        score_frame.pack(side=tk.LEFT, padx=20, pady=15)
+
         
