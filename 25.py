@@ -152,3 +152,8 @@ class MusicPlayer:
             activebackground='#F57C00',
             pady=5
         ).pack(side=tk.LEFT, padx=5)
+
+        # Playlist
+        playlist_label_frame = tk.Frame(root, bg='white')
+        playlist_label_frame.pack(fill=tk.X, padx=20, pady=(20, 5))
+
