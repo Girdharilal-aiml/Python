@@ -179,3 +179,17 @@ class MusicPlayer:
             activebackground='#0b7dda'
         ).pack(side=tk.RIGHT, padx=5)
 
+        tk.Button(
+            playlist_label_frame,
+            text="Clear",
+            command=self.clear_playlist,
+            font=('Arial', 10, 'bold'),
+            bg='#f44336',
+            fg='white',
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor='hand2',
+            activebackground='#da190b'
+        ).pack(side=tk.RIGHT)
+
