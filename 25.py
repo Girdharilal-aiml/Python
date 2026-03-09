@@ -63,3 +63,7 @@ class MusicPlayer:
         )
         self.current_song_label.pack(pady=5)
 
+        # Playback controls - Main row
+        controls_frame = tk.Frame(root, bg='white')
+        controls_frame.pack(pady=10)
+
