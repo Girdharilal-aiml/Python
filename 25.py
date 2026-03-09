@@ -221,3 +221,50 @@ class MusicPlayer:
         status_frame = tk.Frame(root, bg='#f5f5f5', height=30)
         status_frame.pack(fill=tk.X, side=tk.BOTTOM)
 
+        self.status_label = tk.Label(
+            status_frame,
+            text="Ready",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='w'
+        )
+        self.status_label.pack(side=tk.LEFT, padx=15, pady=5)
+
+        self.song_count_label = tk.Label(
+            status_frame,
+            text="0 songs",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='e'
+        )
+        self.song_count_label.pack(side=tk.RIGHT, padx=15, pady=5)
+
+    def add_songs(self):
+        files = filedialog.askopenfilenames(
+            title="Select Music Files",
+            filetypes=[
+                ("Audio Files", "*.mp3 *.wav *.ogg *.flac"),
+                ("All Files", "*.*")
+            ]
+        )
+
+        for file in files:
+            if file not in self.playlist:
+                self.playlist.append(file)
+                filename = os.path.basename(file)
+                self.playlist_box.insert(tk.END, filename)
+
+        self.update_song_count()
+
+    def play_selected(self, event):
+        selection = self.playlist_box.curselection()
+        if selection:
+            self.current_index = selection[0]
+            self.play_song()
+
+    def play_song(self, start_pos=0):
+        if not self.playlist or self.current_index < 0:
+            return
+
