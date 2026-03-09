@@ -53,3 +53,13 @@ class MusicPlayer:
             fg='#666'
         ).pack()
 
+        self.current_song_label = tk.Label(
+            now_playing_frame,
+            text="No song selected",
+            font=('Arial', 14, 'bold'),
+            bg='white',
+            fg='#333',
+            wraplength=500
+        )
+        self.current_song_label.pack(pady=5)
+
