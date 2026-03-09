@@ -95,3 +95,16 @@ class MusicPlayer:
         )
         self.play_btn.pack(side=tk.LEFT, padx=5)
 
+        tk.Button(
+            controls_frame,
+            text="⏹",
+            command=self.stop_song,
+            font=('Arial', 20),
+            bg='#f44336',
+            fg='white',
+            width=3,
+            bd=0,
+            cursor='hand2',
+            activebackground='#da190b'
+        ).pack(side=tk.LEFT, padx=5)
+
