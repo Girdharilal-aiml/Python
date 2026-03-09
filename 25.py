@@ -125,3 +125,17 @@ class MusicPlayer:
         skip_frame = tk.Frame(root, bg='white')
         skip_frame.pack(pady=5)
 
+        tk.Button(
+            skip_frame,
+            text="⏪ 10s",
+            command=self.skip_backward,
+            font=('Arial', 10, 'bold'),
+            bg='#FF9800',
+            fg='white',
+            width=8,
+            bd=0,
+            cursor='hand2',
+            activebackground='#F57C00',
+            pady=5
+        ).pack(side=tk.LEFT, padx=5)
+
