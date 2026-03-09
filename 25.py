@@ -165,3 +165,17 @@ class MusicPlayer:
             fg='#333'
         ).pack(side=tk.LEFT)
 
+        tk.Button(
+            playlist_label_frame,
+            text="+ Add Files",
+            command=self.add_songs,
+            font=('Arial', 10, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor='hand2',
+            activebackground='#0b7dda'
+        ).pack(side=tk.RIGHT, padx=5)
+
