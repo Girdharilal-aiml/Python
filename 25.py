@@ -157,3 +157,11 @@ class MusicPlayer:
         playlist_label_frame = tk.Frame(root, bg='white')
         playlist_label_frame.pack(fill=tk.X, padx=20, pady=(20, 5))
 
+        tk.Label(
+            playlist_label_frame,
+            text="Playlist:",
+            font=('Arial', 13, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(side=tk.LEFT)
+
