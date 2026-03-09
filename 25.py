@@ -347,3 +347,63 @@ class MusicPlayer:
             # If skip fails, show message
             self.status_label.config(text="Skip not supported for this format")
 
+    def skip_backward(self):
+        if not self.is_playing or self.is_paused:
+            return
+        try:
+            # Calculate current position: start_position + time elapsed
+            elapsed = pygame.mixer.music.get_pos() / 1000  # milliseconds to seconds
+            current_pos = self.start_position + elapsed
+            new_pos = max(0, current_pos - 10)
+            
+            # Replay from new position
+            self.play_song(start_pos=new_pos)
+            self.status_label.config(text=f"Skipped -10s")
+        except Exception as e:
+            # If skip fails, show message
+            self.status_label.config(text="Skip not supported for this format")
+
+    def check_song_end(self):
+        """Check if song has ended and play next"""
+        if self.is_playing and not self.is_paused:
+            if not pygame.mixer.music.get_busy():
+                # Song ended, play next
+                self.next_song()
+            else:
+                # Check again after 100ms
+                self.root.after(100, self.check_song_end)
+
+    def next_song(self):
+        if not self.playlist:
+            return
+
+        self.current_index = (self.current_index + 1) % len(self.playlist)
+        self.play_song()
+
+    def previous_song(self):
+        if not self.playlist:
+            return
+
+        self.current_index = (self.current_index - 1) % len(self.playlist)
+        self.play_song()
+
+    def clear_playlist(self):
+        if messagebox.askyesno("Clear Playlist", "Remove all songs from playlist?"):
+            self.stop_song()
+            self.playlist.clear()
+            self.playlist_box.delete(0, tk.END)
+            self.current_index = -1
+            self.current_song_label.config(text="No song selected")
+            self.update_song_count()
+
+    def update_song_count(self):
+        count = len(self.playlist)
+        self.song_count_label.config(text=f"{count} song{'s' if count != 1 else ''}")
+
+def main():
+    root = tk.Tk()
+    player = MusicPlayer(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
