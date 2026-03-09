@@ -21,3 +21,10 @@ class MusicPlayer:
         # Initialize pygame mixer
         pygame.mixer.init()
 
+        # State
+        self.playlist = []
+        self.current_index = -1
+        self.is_playing = False
+        self.is_paused = False
+        self.start_position = 0  # Track where playback started (in seconds)
+
