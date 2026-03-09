@@ -108,3 +108,16 @@ class MusicPlayer:
             activebackground='#da190b'
         ).pack(side=tk.LEFT, padx=5)
 
+        tk.Button(
+            controls_frame,
+            text="⏭",
+            command=self.next_song,
+            font=('Arial', 20),
+            bg='#f5f5f5',
+            fg='#333',
+            width=3,
+            bd=0,
+            cursor='hand2',
+            activebackground='#e0e0e0'
+        ).pack(side=tk.LEFT, padx=5)
+
