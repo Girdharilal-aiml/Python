@@ -33,3 +33,11 @@ class MusicPlayer:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        tk.Label(
+            header,
+            text="🎵 Music Player",
+            font=('Arial', 24, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=20)
+
