@@ -200,3 +200,15 @@ class MusicPlayer:
         scrollbar = tk.Scrollbar(list_frame)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.playlist_box = tk.Listbox(
+            list_frame,
+            font=('Arial', 10),
+            bg='#f5f5f5',
+            fg='#333',
+            selectbackground='#2196F3',
+            selectforeground='white',
+            bd=1,
+            relief=tk.SOLID,
+            highlightthickness=0,
+            yscrollcommand=scrollbar.set
+        )
