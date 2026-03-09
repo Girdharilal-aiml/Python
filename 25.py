@@ -67,3 +67,16 @@ class MusicPlayer:
         controls_frame = tk.Frame(root, bg='white')
         controls_frame.pack(pady=10)
 
+        tk.Button(
+            controls_frame,
+            text="⏮",
+            command=self.previous_song,
+            font=('Arial', 20),
+            bg='#f5f5f5',
+            fg='#333',
+            width=3,
+            bd=0,
+            cursor='hand2',
+            activebackground='#e0e0e0'
+        ).pack(side=tk.LEFT, padx=5)
+
