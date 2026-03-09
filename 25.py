@@ -193,3 +193,10 @@ class MusicPlayer:
             activebackground='#da190b'
         ).pack(side=tk.RIGHT)
 
+        # Playlist listbox
+        list_frame = tk.Frame(root, bg='white')
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 20))
+
+        scrollbar = tk.Scrollbar(list_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
