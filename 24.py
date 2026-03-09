@@ -32,7 +32,7 @@ class Breakout:
         
         # Bricks
         self.brick_rows = 5
-        self.brick_cols = 10
+        self.brick_cols = 22
         self.brick_width = 58
         self.brick_height = 20
         self.brick_padding = 2
@@ -150,7 +150,7 @@ class Breakout:
         self.bricks = []
         
         # Create bricks
-        offset_x = 10
+        offset_x = 25
         offset_y = 50
         
         for row in range(self.brick_rows):
