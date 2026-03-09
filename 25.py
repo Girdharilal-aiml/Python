@@ -41,3 +41,7 @@ class MusicPlayer:
             fg='#333'
         ).pack(pady=20)
 
+        # Now playing
+        now_playing_frame = tk.Frame(root, bg='white')
+        now_playing_frame.pack(fill=tk.X, pady=15)
+
