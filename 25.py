@@ -304,3 +304,46 @@ class MusicPlayer:
             messagebox.showwarning("No Songs", "Add songs to the playlist first!")
             return
 
+        if not self.is_playing:
+            # Start playing
+            if self.current_index < 0:
+                self.current_index = 0
+            self.play_song()
+        elif self.is_paused:
+            # Resume playing
+            pygame.mixer.music.unpause()
+            self.is_paused = False
+            self.play_btn.config(text="⏸")
+            self.status_label.config(text="Playing...")
+        else:
+            # Pause playing
+            pygame.mixer.music.pause()
+            self.is_paused = True
+            self.play_btn.config(text="▶")
+            self.status_label.config(text="Paused")
+
+    def stop_song(self):
+        pygame.mixer.music.stop()
+        self.is_playing = False
+        self.is_paused = False
+        self.start_position = 0
+        self.play_btn.config(text="▶")
+        self.current_song_label.config(text="Stopped")
+        self.status_label.config(text="Stopped")
+
+    def skip_forward(self):
+        if not self.is_playing or self.is_paused:
+            return
+        try:
+            # Calculate current position: start_position + time elapsed
+            elapsed = pygame.mixer.music.get_pos() / 1000  # milliseconds to seconds
+            current_pos = self.start_position + elapsed
+            new_pos = current_pos + 10
+            
+            # Replay from new position
+            self.play_song(start_pos=new_pos)
+            self.status_label.config(text=f"Skipped +10s")
+        except Exception as e:
+            # If skip fails, show message
+            self.status_label.config(text="Skip not supported for this format")
+
