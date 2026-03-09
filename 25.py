@@ -45,3 +45,11 @@ class MusicPlayer:
         now_playing_frame = tk.Frame(root, bg='white')
         now_playing_frame.pack(fill=tk.X, pady=15)
 
+        tk.Label(
+            now_playing_frame,
+            text="Now Playing:",
+            font=('Arial', 11),
+            bg='white',
+            fg='#666'
+        ).pack()
+
