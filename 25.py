@@ -268,3 +268,39 @@ class MusicPlayer:
         if not self.playlist or self.current_index < 0:
             return
 
+        try:
+            song_path = self.playlist[self.current_index]
+            
+            # Stop current song if playing
+            pygame.mixer.music.stop()
+            
+            # Load and play new song from specified position
+            pygame.mixer.music.load(song_path)
+            pygame.mixer.music.play(start=start_pos)
+            
+            self.start_position = start_pos
+            
+            filename = os.path.basename(song_path)
+            self.current_song_label.config(text=filename)
+            self.play_btn.config(text="⏸")
+            
+            # Highlight current song
+            self.playlist_box.selection_clear(0, tk.END)
+            self.playlist_box.selection_set(self.current_index)
+            self.playlist_box.see(self.current_index)
+            
+            self.status_label.config(text="Playing...")
+            self.is_playing = True
+            self.is_paused = False
+            
+            # Check for song end
+            self.check_song_end()
+            
+        except Exception as e:
+            messagebox.showerror("Error", f"Could not play file:\n{str(e)}")
+
+    def play_pause(self):
+        if not self.playlist:
+            messagebox.showwarning("No Songs", "Add songs to the playlist first!")
+            return
+
