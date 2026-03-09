@@ -121,3 +121,7 @@ class MusicPlayer:
             activebackground='#e0e0e0'
         ).pack(side=tk.LEFT, padx=5)
 
+        # Skip controls - Second row
+        skip_frame = tk.Frame(root, bg='white')
+        skip_frame.pack(pady=5)
+
