@@ -212,3 +212,8 @@ class MusicPlayer:
             highlightthickness=0,
             yscrollcommand=scrollbar.set
         )
+        self.playlist_box.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.playlist_box.yview)
+
+        self.playlist_box.bind('<Double-Button-1>', self.play_selected)
+
