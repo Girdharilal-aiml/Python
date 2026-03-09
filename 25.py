@@ -80,3 +80,18 @@ class MusicPlayer:
             activebackground='#e0e0e0'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.play_btn = tk.Button(
+            controls_frame,
+            text="▶",
+            command=self.play_pause,
+            font=('Arial', 24),
+            bg='#4CAF50',
+            fg='white',
+            width=3,
+            height=1,
+            bd=0,
+            cursor='hand2',
+            activebackground='#45a049'
+        )
+        self.play_btn.pack(side=tk.LEFT, padx=5)
+
