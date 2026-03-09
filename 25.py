@@ -28,3 +28,8 @@ class MusicPlayer:
         self.is_paused = False
         self.start_position = 0  # Track where playback started (in seconds)
 
+        # Header
+        header = tk.Frame(root, bg='#f5f5f5', height=80)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
+
