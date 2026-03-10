@@ -116,4 +116,9 @@ class DrawingApp:
         main_container = tk.Frame(root, bg='white')
         main_container.pack(fill=tk.BOTH, expand=True)
 
+        # Left sidebar - Colors & Size
+        sidebar = tk.Frame(main_container, bg='#f5f5f5', width=150, relief=tk.FLAT, bd=1)
+        sidebar.pack(side=tk.LEFT, fill=tk.Y)
+        sidebar.pack_propagate(False)
+
 
