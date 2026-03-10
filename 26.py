@@ -240,4 +240,20 @@ class DrawingApp:
         self.root.update()
         self.init_image()
 
+    def init_image(self):
+        width = self.canvas.winfo_width()
+        height = self.canvas.winfo_height()
+        self.image = Image.new('RGB', (width, height), self.bg_color)
+        self.draw = ImageDraw.Draw(self.image)
+
+    def select_tool(self, tool):
+        self.tool = tool
+        
+        # Update button colors
+        for t, btn in self.tool_buttons.items():
+            if t == tool:
+                btn.config(bg='#2196F3', fg='white')
+            else:
+                btn.config(bg='#e0e0e0', fg='#333')
+
 
