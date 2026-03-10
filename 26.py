@@ -16,4 +16,11 @@ class DrawingApp:
         self.root.resizable(True, True)
         self.root.minsize(700, 500)
 
+        # Drawing state
+        self.old_x = None
+        self.old_y = None
+        self.color = '#000000'
+        self.bg_color = '#FFFFFF'
+        self.brush_size = 3
+        self.tool = 'pen'  # pen, eraser, line, rectangle, circle
 
