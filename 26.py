@@ -153,4 +153,13 @@ class DrawingApp:
             pady=5
         ).pack(pady=5)
 
+        # Quick colors
+        tk.Label(
+            sidebar,
+            text="Quick Colors:",
+            font=('Arial', 9, 'bold'),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack(pady=(15, 5))
+
 
