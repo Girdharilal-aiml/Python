@@ -33,4 +33,8 @@ class DrawingApp:
         toolbar.pack(fill=tk.X, side=tk.TOP)
         toolbar.pack_propagate(False)
 
+        # File buttons
+        file_frame = tk.Frame(toolbar, bg='#f5f5f5')
+        file_frame.pack(side=tk.LEFT, padx=10, pady=10)
+
 
