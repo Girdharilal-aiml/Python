@@ -173,4 +173,20 @@ class DrawingApp:
         colors_grid = tk.Frame(sidebar, bg='#f5f5f5')
         colors_grid.pack(pady=5, padx=10)
 
+        for i, color in enumerate(quick_colors):
+            row = i // 4
+            col = i % 4
+            
+            btn = tk.Button(
+                colors_grid,
+                bg=color,
+                width=2,
+                height=1,
+                bd=1,
+                relief=tk.RAISED,
+                cursor='hand2',
+                command=lambda c=color: self.set_color(c)
+            )
+            btn.grid(row=row, column=col, padx=2, pady=2)
+
 
