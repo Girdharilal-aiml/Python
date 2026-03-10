@@ -97,4 +97,18 @@ class DrawingApp:
             ('Circle', 'circle', '⭕')
         ]
 
+        for name, tool_id, icon in tools:
+            btn = tk.Button(
+                tools_frame,
+                text=icon,
+                command=lambda t=tool_id: self.select_tool(t),
+                bg='#2196F3' if tool_id == 'pen' else '#e0e0e0',
+                fg='white' if tool_id == 'pen' else '#333',
+                font=('Arial', 14),
+                width=2,
+                bd=0,
+                cursor='hand2'
+            )
+            btn.pack(side=tk.LEFT, padx=2)
+            self.tool_buttons[tool_id] = btn
 
