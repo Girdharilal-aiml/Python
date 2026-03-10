@@ -76,4 +76,8 @@ class DrawingApp:
             cursor='hand2'
         ).pack(side=tk.LEFT, padx=2)
 
+        # Tools
+        tools_frame = tk.Frame(toolbar, bg='#f5f5f5')
+        tools_frame.pack(side=tk.LEFT, padx=20, pady=10)
+
 
