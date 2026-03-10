@@ -207,4 +207,14 @@ class DrawingApp:
         )
         self.size_label.pack()
 
+        self.size_scale = tk.Scale(
+            sidebar,
+            from_=1,
+            to=50,
+            orient=tk.HORIZONTAL,
+            command=self.change_size,
+            bg='#f5f5f5',
+            highlightthickness=0,
+            length=120
+        )
 
