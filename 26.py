@@ -63,4 +63,17 @@ class DrawingApp:
             cursor='hand2'
         ).pack(side=tk.LEFT, padx=2)
 
+        tk.Button(
+            file_frame,
+            text="Clear",
+            command=self.clear_canvas,
+            bg='#f44336',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor='hand2'
+        ).pack(side=tk.LEFT, padx=2)
+
 
