@@ -256,4 +256,37 @@ class DrawingApp:
             else:
                 btn.config(bg='#e0e0e0', fg='#333')
 
+    def choose_color(self):
+        color = colorchooser.askcolor(color=self.color)[1]
+        if color:
+            self.color = color
+            self.color_display.config(bg=color)
 
+    def set_color(self, color):
+        self.color = color
+        self.color_display.config(bg=color)
+
+    def change_size(self, value):
+        self.brush_size = int(value)
+        self.size_label.config(text=str(self.brush_size))
+
+    def on_press(self, event):
+        self.old_x = event.x
+        self.old_y = event.y
+
+    def on_drag(self, event):
+        if self.old_x and self.old_y:
+            if self.tool == 'pen':
+                self.canvas.create_line(
+                    self.old_x, self.old_y, event.x, event.y,
+                    width=self.brush_size,
+                    fill=self.color,
+                    capstyle=tk.ROUND,
+                    smooth=True
+                )
+                self.draw.line(
+                    [self.old_x, self.old_y, event.x, event.y],
+                    fill=self.color,
+                    width=self.brush_size
+                )
+            elif self.tool == 'eraser':
