@@ -88,4 +88,13 @@ class DrawingApp:
             fg='#333'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.tool_buttons = {}
+        tools = [
+            ('Pen', 'pen', '✏️'),
+            ('Eraser', 'eraser', '🧹'),
+            ('Line', 'line', '📏'),
+            ('Rectangle', 'rectangle', '▭'),
+            ('Circle', 'circle', '⭕')
+        ]
+
 
