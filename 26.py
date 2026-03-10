@@ -140,4 +140,17 @@ class DrawingApp:
         )
         self.color_display.pack(pady=5)
 
+        tk.Button(
+            sidebar,
+            text="Choose Color",
+            command=self.choose_color,
+            bg='#2196F3',
+            fg='white',
+            font=('Arial', 9, 'bold'),
+            bd=0,
+            cursor='hand2',
+            padx=10,
+            pady=5
+        ).pack(pady=5)
+
 
