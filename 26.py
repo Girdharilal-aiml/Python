@@ -198,4 +198,13 @@ class DrawingApp:
             fg='#333'
         ).pack(pady=(20, 5))
 
+        self.size_label = tk.Label(
+            sidebar,
+            text=str(self.brush_size),
+            font=('Arial', 16, 'bold'),
+            bg='#f5f5f5',
+            fg='#2196F3'
+        )
+        self.size_label.pack()
+
 
