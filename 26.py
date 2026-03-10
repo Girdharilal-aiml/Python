@@ -290,3 +290,93 @@ class DrawingApp:
                     width=self.brush_size
                 )
             elif self.tool == 'eraser':
+                self.canvas.create_line(
+                    self.old_x, self.old_y, event.x, event.y,
+                    width=self.brush_size,
+                    fill=self.bg_color,
+                    capstyle=tk.ROUND,
+                    smooth=True
+                )
+                self.draw.line(
+                    [self.old_x, self.old_y, event.x, event.y],
+                    fill=self.bg_color,
+                    width=self.brush_size
+                )
+        
+        self.old_x = event.x
+        self.old_y = event.y
+
+    def on_release(self, event):
+        if self.tool in ['line', 'rectangle', 'circle']:
+            if self.old_x and self.old_y:
+                if self.tool == 'line':
+                    self.canvas.create_line(
+                        self.old_x, self.old_y, event.x, event.y,
+                        width=self.brush_size,
+                        fill=self.color
+                    )
+                    self.draw.line(
+                        [self.old_x, self.old_y, event.x, event.y],
+                        fill=self.color,
+                        width=self.brush_size
+                    )
+                elif self.tool == 'rectangle':
+                    self.canvas.create_rectangle(
+                        self.old_x, self.old_y, event.x, event.y,
+                        outline=self.color,
+                        width=self.brush_size
+                    )
+                    self.draw.rectangle(
+                        [self.old_x, self.old_y, event.x, event.y],
+                        outline=self.color,
+                        width=self.brush_size
+                    )
+                elif self.tool == 'circle':
+                    self.canvas.create_oval(
+                        self.old_x, self.old_y, event.x, event.y,
+                        outline=self.color,
+                        width=self.brush_size
+                    )
+                    self.draw.ellipse(
+                        [self.old_x, self.old_y, event.x, event.y],
+                        outline=self.color,
+                        width=self.brush_size
+                    )
+        
+        self.old_x = None
+        self.old_y = None
+
+    def clear_canvas(self):
+        if messagebox.askyesno("Clear Canvas", "Clear all drawings?"):
+            self.canvas.delete('all')
+            self.init_image()
+
+    def new_canvas(self):
+        if messagebox.askyesno("New Canvas", "Start a new drawing? (Current drawing will be lost)"):
+            self.canvas.delete('all')
+            self.init_image()
+
+    def save_drawing(self):
+        filepath = filedialog.asksaveasfilename(
+            defaultextension='.png',
+            filetypes=[
+                ('PNG files', '*.png'),
+                ('JPEG files', '*.jpg'),
+                ('All files', '*.*')
+            ]
+        )
+        
+        if filepath:
+            try:
+                self.image.save(filepath)
+                messagebox.showinfo("Success", "Drawing saved successfully!")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save:\n{str(e)}")
+
+def main():
+    root = tk.Tk()
+    app = DrawingApp(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
