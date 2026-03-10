@@ -121,4 +121,12 @@ class DrawingApp:
         sidebar.pack(side=tk.LEFT, fill=tk.Y)
         sidebar.pack_propagate(False)
 
+        # Color picker
+        tk.Label(
+            sidebar,
+            text="Color:",
+            font=('Arial', 11, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=(15, 5))
 
