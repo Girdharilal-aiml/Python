@@ -23,4 +23,9 @@ class DrawingApp:
         self.bg_color = '#FFFFFF'
         self.brush_size = 3
         self.tool = 'pen'  # pen, eraser, line, rectangle, circle
+        
+        # For PIL image saving
+        self.image = None
+        self.draw = None
+
 
