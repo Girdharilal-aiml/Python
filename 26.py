@@ -7,4 +7,13 @@ import tkinter as tk
 from tkinter import colorchooser, filedialog, messagebox
 from PIL import Image, ImageDraw
 
+class DrawingApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Paint")
+        self.root.geometry("900x700")
+        self.root.configure(bg='white')
+        self.root.resizable(True, True)
+        self.root.minsize(700, 500)
+
 
