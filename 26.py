@@ -28,4 +28,9 @@ class DrawingApp:
         self.image = None
         self.draw = None
 
+        # Top toolbar
+        toolbar = tk.Frame(root, bg='#f5f5f5', height=60, relief=tk.FLAT, bd=1)
+        toolbar.pack(fill=tk.X, side=tk.TOP)
+        toolbar.pack_propagate(False)
+
 
