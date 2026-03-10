@@ -170,3 +170,7 @@ class DrawingApp:
             '#FF9800', '#FF5722', '#795548', '#9E9E9E'
         ]
 
+        colors_grid = tk.Frame(sidebar, bg='#f5f5f5')
+        colors_grid.pack(pady=5, padx=10)
+
+
