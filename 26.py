@@ -189,4 +189,13 @@ class DrawingApp:
             )
             btn.grid(row=row, column=col, padx=2, pady=2)
 
+        # Brush size
+        tk.Label(
+            sidebar,
+            text="Brush Size:",
+            font=('Arial', 11, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=(20, 5))
+
 
