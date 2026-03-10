@@ -112,3 +112,8 @@ class DrawingApp:
             btn.pack(side=tk.LEFT, padx=2)
             self.tool_buttons[tool_id] = btn
 
+        # Main container
+        main_container = tk.Frame(root, bg='white')
+        main_container.pack(fill=tk.BOTH, expand=True)
+
+
