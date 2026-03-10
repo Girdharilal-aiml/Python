@@ -50,4 +50,17 @@ class DrawingApp:
             cursor='hand2'
         ).pack(side=tk.LEFT, padx=2)
 
+        tk.Button(
+            file_frame,
+            text="Save",
+            command=self.save_drawing,
+            bg='#2196F3',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor='hand2'
+        ).pack(side=tk.LEFT, padx=2)
+
 
