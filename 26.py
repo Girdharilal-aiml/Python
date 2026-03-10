@@ -217,4 +217,27 @@ class DrawingApp:
             highlightthickness=0,
             length=120
         )
+        self.size_scale.set(self.brush_size)
+        self.size_scale.pack(pady=5)
+
+        # Canvas
+        canvas_frame = tk.Frame(main_container, bg='#cccccc', relief=tk.SUNKEN, bd=2)
+        canvas_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        self.canvas = tk.Canvas(
+            canvas_frame,
+            bg='white',
+            cursor='crosshair'
+        )
+        self.canvas.pack(fill=tk.BOTH, expand=True)
+
+        # Bind mouse events
+        self.canvas.bind('<Button-1>', self.on_press)
+        self.canvas.bind('<B1-Motion>', self.on_drag)
+        self.canvas.bind('<ButtonRelease-1>', self.on_release)
+
+        # Initialize PIL image for saving
+        self.root.update()
+        self.init_image()
+
 
