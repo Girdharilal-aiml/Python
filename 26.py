@@ -80,4 +80,12 @@ class DrawingApp:
         tools_frame = tk.Frame(toolbar, bg='#f5f5f5')
         tools_frame.pack(side=tk.LEFT, padx=20, pady=10)
 
+        tk.Label(
+            tools_frame,
+            text="Tool:",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=5)
+
 
