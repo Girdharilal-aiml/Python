@@ -130,3 +130,14 @@ class DrawingApp:
             fg='#333'
         ).pack(pady=(15, 5))
 
+        self.color_display = tk.Canvas(
+            sidebar,
+            width=80,
+            height=80,
+            bg=self.color,
+            highlightthickness=2,
+            highlightbackground='#333'
+        )
+        self.color_display.pack(pady=5)
+
+
