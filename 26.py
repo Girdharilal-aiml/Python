@@ -37,4 +37,17 @@ class DrawingApp:
         file_frame = tk.Frame(toolbar, bg='#f5f5f5')
         file_frame.pack(side=tk.LEFT, padx=10, pady=10)
 
+        tk.Button(
+            file_frame,
+            text="New",
+            command=self.new_canvas,
+            bg='#4CAF50',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            padx=10,
+            pady=5,
+            cursor='hand2'
+        ).pack(side=tk.LEFT, padx=2)
+
 
