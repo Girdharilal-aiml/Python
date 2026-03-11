@@ -245,3 +245,16 @@ class FlashcardApp:
 
         cards = self.decks[self.current_deck]
         
+        if not cards:
+            tk.Label(
+                cards_frame,
+                text="No cards yet. Click '+ Add Card' to create one.",
+                font=('Arial', 12),
+                bg='white',
+                fg='#999'
+            ).pack(pady=20)
+        else:
+            for i, card in enumerate(cards):
+                card_widget = tk.Frame(cards_frame, bg='#f5f5f5', relief=tk.SOLID, bd=1)
+                card_widget.pack(fill=tk.X, pady=5)
+
