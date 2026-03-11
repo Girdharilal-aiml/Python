@@ -152,3 +152,12 @@ class FlashcardApp:
             except:
                 self.decks = {}
 
+    def save_data(self):
+        with open(self.data_file, 'w', encoding='utf-8') as f:
+            json.dump(self.decks, f, indent=2, ensure_ascii=False)
+
+    def display_decks(self):
+        self.decks_listbox.delete(0, tk.END)
+        for deck_name in self.decks.keys():
+            count = len(self.decks[deck_name])
+            self.decks_listbox.insert(tk.END, f"{deck_name} ({count})")
