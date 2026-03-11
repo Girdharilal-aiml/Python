@@ -197,3 +197,22 @@ class FlashcardApp:
                 else:
                     self.show_study()
 
+    def show_manage(self):
+        self.current_mode = 'manage'
+        self.manage_btn.config(bg='#2196F3', fg='white')
+        self.study_btn.config(bg='#e0e0e0', fg='#333')
+        
+        # Clear content
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        if not self.current_deck:
+            tk.Label(
+                self.content_frame,
+                text="Select a deck to manage cards",
+                font=('Arial', 14),
+                bg='white',
+                fg='#666'
+            ).pack(pady=50)
+            return
+
