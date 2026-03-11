@@ -346,3 +346,10 @@ class FlashcardApp:
             pady=8
         ).pack(pady=20)
 
+    def delete_card(self, index):
+        if messagebox.askyesno("Delete", "Delete this card?"):
+            self.decks[self.current_deck].pop(index)
+            self.save_data()
+            self.display_decks()
+            self.show_manage()
+
