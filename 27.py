@@ -78,4 +78,11 @@ class FlashcardApp:
             relief=tk.SOLID,
             yscrollcommand=scroll.set
         )
+        self.decks_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scroll.config(command=self.decks_listbox.yview)
+        self.decks_listbox.bind('<<ListboxSelect>>', self.select_deck)
+
+        # Deck actions
+        actions = tk.Frame(sidebar, bg='#f5f5f5')
+        actions.pack(fill=tk.X, padx=10, pady=10)
 
