@@ -278,3 +278,16 @@ class FlashcardApp:
                     wraplength=500
                 ).pack(fill=tk.X, padx=10, pady=(2, 8))
 
+                tk.Button(
+                    card_widget,
+                    text="Delete",
+                    command=lambda idx=i: self.delete_card(idx),
+                    font=('Arial', 8),
+                    bg='#f44336',
+                    fg='white',
+                    bd=0,
+                    cursor='hand2',
+                    padx=8,
+                    pady=3
+                ).pack(side=tk.RIGHT, padx=10, pady=5)
+
