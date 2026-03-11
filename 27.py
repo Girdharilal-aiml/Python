@@ -460,3 +460,60 @@ class FlashcardApp:
             fg='white'
         ).pack(pady=(30, 10))
 
+        tk.Label(
+            card_frame,
+            text=text,
+            font=('Arial', 16),
+            bg='#2196F3' if not self.show_answer else '#4CAF50',
+            fg='white',
+            wraplength=500,
+            justify='center'
+        ).pack(pady=20, padx=20)
+
+        # Buttons
+        btn_frame = tk.Frame(self.content_frame, bg='white')
+        btn_frame.pack(pady=20)
+
+        if not self.show_answer:
+            tk.Button(
+                btn_frame,
+                text="Show Answer",
+                command=self.flip_card,
+                font=('Arial', 12, 'bold'),
+                bg='#FF9800',
+                fg='white',
+                bd=0,
+                cursor='hand2',
+                padx=30,
+                pady=12
+            ).pack()
+        else:
+            tk.Button(
+                btn_frame,
+                text="Next Card →",
+                command=self.next_card,
+                font=('Arial', 12, 'bold'),
+                bg='#4CAF50',
+                fg='white',
+                bd=0,
+                cursor='hand2',
+                padx=30,
+                pady=12
+            ).pack()
+
+    def flip_card(self):
+        self.show_answer = True
+        self.display_card()
+
+    def next_card(self):
+        self.current_index += 1
+        self.show_answer = False
+        self.display_card()
+
+def main():
+    root = tk.Tk()
+    app = FlashcardApp(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
