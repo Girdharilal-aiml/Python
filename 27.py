@@ -268,3 +268,13 @@ class FlashcardApp:
                     wraplength=500
                 ).pack(fill=tk.X, padx=10, pady=(8, 2))
 
+                tk.Label(
+                    card_widget,
+                    text=f"A: {card['answer']}",
+                    font=('Arial', 10),
+                    bg='#f5f5f5',
+                    fg='#666',
+                    anchor='w',
+                    wraplength=500
+                ).pack(fill=tk.X, padx=10, pady=(2, 8))
+
