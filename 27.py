@@ -178,3 +178,22 @@ class FlashcardApp:
         if not sel:
             messagebox.showwarning("No Selection", "Select a deck first!")
             return
+        
+        deck_name = list(self.decks.keys())[sel[0]]
+        if messagebox.askyesno("Delete", f"Delete '{deck_name}'?"):
+            del self.decks[deck_name]
+            self.save_data()
+            self.display_decks()
+            self.current_deck = None
+            self.show_manage()
+
+    def select_deck(self, event):
+        sel = self.decks_listbox.curselection()
+        if sel:
+            self.current_deck = list(self.decks.keys())[sel[0]]
+            if hasattr(self, 'current_mode'):
+                if self.current_mode == 'manage':
+                    self.show_manage()
+                else:
+                    self.show_study()
+
