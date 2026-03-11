@@ -258,3 +258,13 @@ class FlashcardApp:
                 card_widget = tk.Frame(cards_frame, bg='#f5f5f5', relief=tk.SOLID, bd=1)
                 card_widget.pack(fill=tk.X, pady=5)
 
+                tk.Label(
+                    card_widget,
+                    text=f"Q: {card['question']}",
+                    font=('Arial', 11, 'bold'),
+                    bg='#f5f5f5',
+                    fg='#333',
+                    anchor='w',
+                    wraplength=500
+                ).pack(fill=tk.X, padx=10, pady=(8, 2))
+
