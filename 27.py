@@ -122,3 +122,25 @@ class FlashcardApp:
         )
         self.manage_btn.pack(side=tk.LEFT, padx=2, pady=5)
 
+        self.study_btn = tk.Button(
+            tabs_frame,
+            text="Study Mode",
+            command=self.show_study,
+            font=('Arial', 11, 'bold'),
+            bg='#e0e0e0',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=10
+        )
+        self.study_btn.pack(side=tk.LEFT, padx=2, pady=5)
+
+        # Content area
+        self.content_frame = tk.Frame(right_frame, bg='white')
+        self.content_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Load decks
+        self.display_decks()
+        self.show_manage()
+
