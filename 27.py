@@ -144,3 +144,11 @@ class FlashcardApp:
         self.display_decks()
         self.show_manage()
 
+    def load_data(self):
+        if os.path.exists(self.data_file):
+            try:
+                with open(self.data_file, 'r', encoding='utf-8') as f:
+                    self.decks = json.load(f)
+            except:
+                self.decks = {}
+
