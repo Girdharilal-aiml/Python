@@ -173,3 +173,8 @@ class FlashcardApp:
                 self.save_data()
                 self.display_decks()
 
+    def delete_deck(self):
+        sel = self.decks_listbox.curselection()
+        if not sel:
+            messagebox.showwarning("No Selection", "Select a deck first!")
+            return
