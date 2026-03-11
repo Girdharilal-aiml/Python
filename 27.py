@@ -224,4 +224,24 @@ class FlashcardApp:
             bg='white',
             fg='#333'
         ).pack(pady=10)
-   
+
+        # Add card button
+        tk.Button(
+            self.content_frame,
+            text="+ Add Card",
+            command=self.add_card,
+            font=('Arial', 11, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=8
+        ).pack(pady=10)
+
+        # Cards list
+        cards_frame = tk.Frame(self.content_frame, bg='white')
+        cards_frame.pack(fill=tk.BOTH, expand=True, pady=10)
+
+        cards = self.decks[self.current_deck]
+        
