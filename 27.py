@@ -67,3 +67,15 @@ class FlashcardApp:
         scroll = tk.Scrollbar(list_frame)
         scroll.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.decks_listbox = tk.Listbox(
+            list_frame,
+            font=('Arial', 11),
+            bg='white',
+            fg='#333',
+            selectbackground='#2196F3',
+            selectforeground='white',
+            bd=1,
+            relief=tk.SOLID,
+            yscrollcommand=scroll.set
+        )
+
