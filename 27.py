@@ -320,3 +320,16 @@ class FlashcardApp:
         answer_text = tk.Text(dialog, font=('Arial', 10), height=3, width=40, relief=tk.SOLID, bd=1)
         answer_text.pack(padx=20)
 
+        def save():
+            q = question_text.get('1.0', 'end-1c').strip()
+            a = answer_text.get('1.0', 'end-1c').strip()
+            
+            if q and a:
+                self.decks[self.current_deck].append({'question': q, 'answer': a})
+                self.save_data()
+                self.display_decks()
+                self.show_manage()
+                dialog.destroy()
+            else:
+                messagebox.showwarning("Empty Fields", "Please fill both fields!")
+
