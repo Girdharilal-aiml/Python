@@ -384,3 +384,79 @@ class FlashcardApp:
             ).pack(pady=50)
             return
 
+        # Start study session
+        self.current_cards = cards.copy()
+        random.shuffle(self.current_cards)
+        self.current_index = 0
+        self.show_answer = False
+        
+        self.display_card()
+
+    def display_card(self):
+        # Clear content
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+        if self.current_index >= len(self.current_cards):
+            # Finished
+            tk.Label(
+                self.content_frame,
+                text="🎉 Study Session Complete!",
+                font=('Arial', 20, 'bold'),
+                bg='white',
+                fg='#4CAF50'
+            ).pack(pady=50)
+
+            tk.Label(
+                self.content_frame,
+                text=f"You reviewed {len(self.current_cards)} cards",
+                font=('Arial', 14),
+                bg='white',
+                fg='#666'
+            ).pack(pady=10)
+
+            tk.Button(
+                self.content_frame,
+                text="Study Again",
+                command=self.show_study,
+                font=('Arial', 12, 'bold'),
+                bg='#2196F3',
+                fg='white',
+                bd=0,
+                cursor='hand2',
+                padx=20,
+                pady=10
+            ).pack(pady=20)
+            return
+
+        card = self.current_cards[self.current_index]
+
+        # Progress
+        tk.Label(
+            self.content_frame,
+            text=f"Card {self.current_index + 1} / {len(self.current_cards)}",
+            font=('Arial', 11),
+            bg='white',
+            fg='#666'
+        ).pack(pady=10)
+
+        # Card display
+        card_frame = tk.Frame(
+            self.content_frame,
+            bg='#2196F3' if not self.show_answer else '#4CAF50',
+            relief=tk.SOLID,
+            bd=0
+        )
+        card_frame.pack(pady=30, padx=40, fill=tk.BOTH, expand=True)
+
+        text = card['question'] if not self.show_answer else card['answer']
+        label_text = "Question" if not self.show_answer else "Answer"
+
+        tk.Label(
+            card_frame,
+            text=label_text,
+            font=('Arial', 12, 'bold'),
+            bg='#2196F3' if not self.show_answer else '#4CAF50',
+            fg='white'
+        ).pack(pady=(30, 10))
+
