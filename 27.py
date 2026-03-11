@@ -216,3 +216,12 @@ class FlashcardApp:
             ).pack(pady=50)
             return
 
+        # Header
+        tk.Label(
+            self.content_frame,
+            text=f"Deck: {self.current_deck}",
+            font=('Arial', 16, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(pady=10)
+   
