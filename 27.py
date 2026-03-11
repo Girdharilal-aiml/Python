@@ -86,3 +86,24 @@ class FlashcardApp:
         actions = tk.Frame(sidebar, bg='#f5f5f5')
         actions.pack(fill=tk.X, padx=10, pady=10)
 
+        tk.Button(
+            actions,
+            text="Delete Deck",
+            command=self.delete_deck,
+            font=('Arial', 9, 'bold'),
+            bg='#f44336',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=10,
+            pady=5
+        ).pack(fill=tk.X)
+
+        # Right side - Main area
+        right_frame = tk.Frame(main_container, bg='white')
+        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
+        # Tabs
+        tabs_frame = tk.Frame(right_frame, bg='#f5f5f5', height=50)
+        tabs_frame.pack(fill=tk.X)
+        tabs_frame.pack_propagate(False)
