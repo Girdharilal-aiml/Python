@@ -333,3 +333,16 @@ class FlashcardApp:
             else:
                 messagebox.showwarning("Empty Fields", "Please fill both fields!")
 
+        tk.Button(
+            dialog,
+            text="Add Card",
+            command=save,
+            font=('Arial', 11, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=8
+        ).pack(pady=20)
+
