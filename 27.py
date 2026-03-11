@@ -291,3 +291,22 @@ class FlashcardApp:
                     pady=3
                 ).pack(side=tk.RIGHT, padx=10, pady=5)
 
+    def add_card(self):
+        # Create dialog
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Add Card")
+        dialog.geometry("400x300")
+        dialog.configure(bg='white')
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        tk.Label(
+            dialog,
+            text="Question:",
+            font=('Arial', 11, 'bold'),
+            bg='white'
+        ).pack(pady=(20, 5), padx=20, anchor='w')
+
+        question_text = tk.Text(dialog, font=('Arial', 10), height=3, width=40, relief=tk.SOLID, bd=1)
+        question_text.pack(padx=20)
+
