@@ -107,3 +107,18 @@ class FlashcardApp:
         tabs_frame = tk.Frame(right_frame, bg='#f5f5f5', height=50)
         tabs_frame.pack(fill=tk.X)
         tabs_frame.pack_propagate(False)
+
+        self.manage_btn = tk.Button(
+            tabs_frame,
+            text="Manage Cards",
+            command=self.show_manage,
+            font=('Arial', 11, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=10
+        )
+        self.manage_btn.pack(side=tk.LEFT, padx=2, pady=5)
+
