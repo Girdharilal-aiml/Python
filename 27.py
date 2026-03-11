@@ -36,3 +36,15 @@ class FlashcardApp:
         sidebar.pack(side=tk.LEFT, fill=tk.Y)
         sidebar.pack_propagate(False)
 
+        # Sidebar header
+        header = tk.Frame(sidebar, bg='#f5f5f5')
+        header.pack(fill=tk.X, padx=15, pady=15)
+
+        tk.Label(
+            header,
+            text="📚 My Decks",
+            font=('Arial', 16, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT)
+
