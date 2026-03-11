@@ -161,3 +161,15 @@ class FlashcardApp:
         for deck_name in self.decks.keys():
             count = len(self.decks[deck_name])
             self.decks_listbox.insert(tk.END, f"{deck_name} ({count})")
+
+    def new_deck(self):
+        name = simpledialog.askstring("New Deck", "Enter deck name:")
+        if name and name.strip():
+            name = name.strip()
+            if name in self.decks:
+                messagebox.showwarning("Exists", "Deck already exists!")
+            else:
+                self.decks[name] = []
+                self.save_data()
+                self.display_decks()
+
