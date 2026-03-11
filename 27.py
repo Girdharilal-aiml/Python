@@ -48,3 +48,22 @@ class FlashcardApp:
             fg='#333'
         ).pack(side=tk.LEFT)
 
+        tk.Button(
+            header,
+            text="+",
+            command=self.new_deck,
+            font=('Arial', 16, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            width=2,
+            bd=0,
+            cursor='hand2'
+        ).pack(side=tk.RIGHT)
+
+        # Decks list
+        list_frame = tk.Frame(sidebar, bg='#f5f5f5')
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
+
+        scroll = tk.Scrollbar(list_frame)
+        scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
