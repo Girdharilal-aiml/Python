@@ -150,3 +150,12 @@ class MathQuiz:
         # Answer input
         answer_container = tk.Frame(root, bg='white')
         answer_container.pack(pady=8)
+
+        tk.Label(
+            answer_container,
+            text="Your Answer:",
+            font=('Arial', 12, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack()
+
