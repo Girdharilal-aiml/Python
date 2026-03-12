@@ -115,3 +115,8 @@ class MathQuiz:
             fg='#333'
         ).pack(side=tk.LEFT, padx=10)
 
+        self.op_vars = {}
+        for op in self.operations:
+            var = tk.BooleanVar(value=(op in ['+', '-']))
+            self.op_vars[op] = var
+            
