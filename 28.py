@@ -120,3 +120,15 @@ class MathQuiz:
             var = tk.BooleanVar(value=(op in ['+', '-']))
             self.op_vars[op] = var
             
+            cb = tk.Checkbutton(
+                ops_frame,
+                text=op,
+                variable=var,
+                font=('Arial', 14, 'bold'),
+                bg='white',
+                fg='#333',
+                selectcolor='white',
+                command=self.update_operations
+            )
+            cb.pack(side=tk.LEFT, padx=8)
+
