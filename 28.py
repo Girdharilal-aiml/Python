@@ -183,3 +183,13 @@ class MathQuiz:
         )
         self.result_label.pack(pady=5)
 
+        # Progress
+        self.progress_label = tk.Label(
+            root,
+            text="",
+            font=('Arial', 11),
+            bg='white',
+            fg='#666'
+        )
+        self.progress_label.pack()
+
