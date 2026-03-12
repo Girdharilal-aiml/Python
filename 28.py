@@ -100,3 +100,10 @@ class MathQuiz:
                 padx=15,
                 pady=5
             )
+            btn.pack(side=tk.LEFT, padx=5)
+            self.diff_buttons[level] = btn
+
+        # Operations
+        ops_frame = tk.Frame(settings_frame, bg='white')
+        ops_frame.pack(pady=8)
+
