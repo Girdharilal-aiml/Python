@@ -173,3 +173,13 @@ class MathQuiz:
         self.answer_entry.pack(pady=5, ipady=8)
         self.answer_entry.bind('<Return>', lambda e: self.submit_answer())
 
+        # Result feedback
+        self.result_label = tk.Label(
+            root,
+            text="",
+            font=('Arial', 14, 'bold'),
+            bg='white',
+            fg='#4CAF50'
+        )
+        self.result_label.pack(pady=5)
+
