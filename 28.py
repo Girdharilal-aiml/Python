@@ -74,3 +74,7 @@ class MathQuiz:
         )
         settings_frame.pack(fill=tk.X, padx=40, pady=8)
 
+        # Difficulty
+        diff_frame = tk.Frame(settings_frame, bg='white')
+        diff_frame.pack(pady=8)
+
