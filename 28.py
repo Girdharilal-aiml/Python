@@ -241,3 +241,18 @@ class MathQuiz:
         )
         self.next_btn.pack(side=tk.LEFT, padx=5)
 
+    def set_difficulty(self, level):
+        self.difficulty = level
+        for lvl, btn in self.diff_buttons.items():
+            if lvl == level:
+                btn.config(bg='#4CAF50', fg='white')
+            else:
+                btn.config(bg='#e0e0e0', fg='#333')
+
+    def update_operations(self):
+        self.selected_operations = [op for op, var in self.op_vars.items() if var.get()]
+        if not self.selected_operations:
+            messagebox.showwarning("No Operations", "Select at least one operation!")
+            self.op_vars['+'].set(True)
+            self.selected_operations = ['+']
+
