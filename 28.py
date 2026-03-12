@@ -304,3 +304,39 @@ class MathQuiz:
                 num1, num2 = num2, num1
             self.current_answer = num1 - num2
             question = f"{num1} - {num2}"
+        elif operation == '×':
+            if self.difficulty == 'Easy':
+                num1 = random.randint(1, 12)
+                num2 = random.randint(1, 12)
+            self.current_answer = num1 * num2
+            question = f"{num1} × {num2}"
+        elif operation == '÷':
+            # Make sure division is exact
+            if self.difficulty == 'Easy':
+                divisor = random.randint(2, 10)
+                quotient = random.randint(2, 10)
+            elif self.difficulty == 'Medium':
+                divisor = random.randint(2, 12)
+                quotient = random.randint(5, 15)
+            else:
+                divisor = random.randint(5, 20)
+                quotient = random.randint(5, 20)
+            
+            num1 = divisor * quotient
+            num2 = divisor
+            self.current_answer = quotient
+            question = f"{num1} ÷ {num2}"
+        
+        self.question_label.config(text=question)
+        self.progress_label.config(text=f"Question {self.total_questions + 1} / {self.questions_per_quiz}")
+
+    def submit_answer(self):
+        try:
+            user_answer = int(self.answer_entry.get())
+            
+            self.total_questions += 1
+            
+            if user_answer == self.current_answer:
+                self.score += 1
+                self.result_label.config(text="✓ Correct!", fg='#4CAF50')
+                self.question_label.config(bg='#4CAF50')
