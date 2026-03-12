@@ -107,3 +107,11 @@ class MathQuiz:
         ops_frame = tk.Frame(settings_frame, bg='white')
         ops_frame.pack(pady=8)
 
+        tk.Label(
+            ops_frame,
+            text="Operations:",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=10)
+
