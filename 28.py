@@ -41,3 +41,7 @@ class MathQuiz:
             fg='#333'
         ).pack(pady=15)
 
+        # Score panel
+        score_frame = tk.Frame(root, bg='white')
+        score_frame.pack(pady=8)
+
