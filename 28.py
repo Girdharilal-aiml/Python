@@ -271,3 +271,36 @@ class MathQuiz:
         
         self.generate_question()
 
+    def generate_question(self):
+        if self.total_questions >= self.questions_per_quiz:
+            self.end_quiz()
+            return
+
+        # Clear previous
+        self.answer_entry.delete(0, tk.END)
+        self.answer_entry.focus()
+        self.result_label.config(text="")
+        
+        # Generate based on difficulty
+        operation = random.choice(self.selected_operations)
+        
+        if self.difficulty == 'Easy':
+            num1 = random.randint(1, 20)
+            num2 = random.randint(1, 20)
+        elif self.difficulty == 'Medium':
+            num1 = random.randint(10, 50)
+            num2 = random.randint(10, 50)
+        else:  # Hard
+            num1 = random.randint(20, 100)
+            num2 = random.randint(20, 100)
+        
+        # Calculate answer
+        if operation == '+':
+            self.current_answer = num1 + num2
+            question = f"{num1} + {num2}"
+        elif operation == '-':
+            # Make sure result is positive
+            if num1 < num2:
+                num1, num2 = num2, num1
+            self.current_answer = num1 - num2
+            question = f"{num1} - {num2}"
