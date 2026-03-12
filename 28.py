@@ -33,3 +33,11 @@ class MathQuiz:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        tk.Label(
+            header,
+            text="🧮 Math Quiz",
+            font=('Arial', 20, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=15)
+
