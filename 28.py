@@ -256,3 +256,18 @@ class MathQuiz:
             self.op_vars['+'].set(True)
             self.selected_operations = ['+']
 
+    def start_quiz(self):
+        self.quiz_active = True
+        self.score = 0
+        self.total_questions = 0
+        self.start_time = time.time()
+        
+        self.start_btn.config(state='disabled')
+        self.answer_entry.config(state='normal')
+        self.submit_btn.config(state='normal')
+        
+        self.score_label.config(text="0 / 0")
+        self.result_label.config(text="")
+        
+        self.generate_question()
+
