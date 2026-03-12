@@ -78,3 +78,11 @@ class MathQuiz:
         diff_frame = tk.Frame(settings_frame, bg='white')
         diff_frame.pack(pady=8)
 
+        tk.Label(
+            diff_frame,
+            text="Difficulty:",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=10)
+
