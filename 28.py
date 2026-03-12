@@ -211,3 +211,33 @@ class MathQuiz:
         )
         self.start_btn.pack(side=tk.LEFT, padx=5)
 
+        self.submit_btn = tk.Button(
+            btn_frame,
+            text="SUBMIT",
+            command=self.submit_answer,
+            font=('Arial', 14, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=25,
+            pady=12,
+            state='disabled'
+        )
+        self.submit_btn.pack(side=tk.LEFT, padx=5)
+
+        self.next_btn = tk.Button(
+            btn_frame,
+            text="NEXT ➜",
+            command=self.next_question,
+            font=('Arial', 14, 'bold'),
+            bg='#FF9800',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=25,
+            pady=12,
+            state='disabled'
+        )
+        self.next_btn.pack(side=tk.LEFT, padx=5)
+
