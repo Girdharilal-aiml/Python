@@ -132,3 +132,8 @@ class MathQuiz:
             )
             cb.pack(side=tk.LEFT, padx=8)
 
+        # Question area
+        question_frame = tk.Frame(root, bg='#2196F3', relief=tk.SOLID, bd=0, height=150)
+        question_frame.pack(fill=tk.X, padx=40, pady=10)
+        question_frame.pack_propagate(False)
+
