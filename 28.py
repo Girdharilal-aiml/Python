@@ -53,3 +53,11 @@ class MathQuiz:
             fg='#666'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.score_label = tk.Label(
+            score_frame,
+            text="0 / 0",
+            font=('Arial', 20, 'bold'),
+            bg='white',
+            fg='#4CAF50'
+        )
+        self.score_label.pack(side=tk.LEFT, padx=5)
