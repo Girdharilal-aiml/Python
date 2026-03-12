@@ -45,3 +45,11 @@ class MathQuiz:
         score_frame = tk.Frame(root, bg='white')
         score_frame.pack(pady=8)
 
+        tk.Label(
+            score_frame,
+            text="SCORE:",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=5)
+
