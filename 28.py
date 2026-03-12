@@ -159,3 +159,17 @@ class MathQuiz:
             fg='#333'
         ).pack()
 
+        self.answer_entry = tk.Entry(
+            answer_container,
+            font=('Arial', 20, 'bold'),
+            bg='#f5f5f5',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=2,
+            justify='center',
+            width=15,
+            state='disabled'
+        )
+        self.answer_entry.pack(pady=5, ipady=8)
+        self.answer_entry.bind('<Return>', lambda e: self.submit_answer())
+
