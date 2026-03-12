@@ -61,3 +61,16 @@ class MathQuiz:
             fg='#4CAF50'
         )
         self.score_label.pack(side=tk.LEFT, padx=5)
+
+        # Settings
+        settings_frame = tk.LabelFrame(
+            root,
+            text="Settings",
+            font=('Arial', 12, 'bold'),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1
+        )
+        settings_frame.pack(fill=tk.X, padx=40, pady=8)
+
