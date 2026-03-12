@@ -137,3 +137,16 @@ class MathQuiz:
         question_frame.pack(fill=tk.X, padx=40, pady=10)
         question_frame.pack_propagate(False)
 
+        self.question_label = tk.Label(
+            question_frame,
+            text="Click 'Start Quiz' to begin",
+            font=('Arial', 28, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            wraplength=500
+        )
+        self.question_label.pack(expand=True)
+
+        # Answer input
+        answer_container = tk.Frame(root, bg='white')
+        answer_container.pack(pady=8)
