@@ -340,3 +340,63 @@ class MathQuiz:
                 self.score += 1
                 self.result_label.config(text="✓ Correct!", fg='#4CAF50')
                 self.question_label.config(bg='#4CAF50')
+            else:
+                self.result_label.config(
+                    text=f"✗ Wrong! Correct answer: {self.current_answer}",
+                    fg='#f44336'
+                )
+                self.question_label.config(bg='#f44336')
+            
+            self.score_label.config(text=f"{self.score} / {self.total_questions}")
+            
+            self.answer_entry.config(state='disabled')
+            self.submit_btn.config(state='disabled')
+            self.next_btn.config(state='normal')
+            
+        except ValueError:
+            messagebox.showwarning("Invalid", "Please enter a number!")
+
+    def next_question(self):
+        self.answer_entry.config(state='normal')
+        self.submit_btn.config(state='normal')
+        self.next_btn.config(state='disabled')
+        self.question_label.config(bg='#2196F3')
+        
+        self.generate_question()
+
+    def end_quiz(self):
+        self.quiz_active = False
+        elapsed_time = int(time.time() - self.start_time)
+        
+        percentage = int((self.score / self.total_questions) * 100)
+        
+        self.question_label.config(text="Quiz Complete!", bg='#4CAF50')
+        
+        if percentage >= 90:
+            message = f"🏆 Excellent! {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#4CAF50'
+        elif percentage >= 70:
+            message = f"👍 Good! {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#2196F3'
+        elif percentage >= 50:
+            message = f"📚 Not bad! {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#FF9800'
+        else:
+            message = f"💪 Keep practicing! {self.score}/{self.total_questions} ({percentage}%)"
+            color = '#f44336'
+        
+        self.result_label.config(text=message, fg=color)
+        self.progress_label.config(text=f"Time: {elapsed_time}s")
+        
+        self.answer_entry.config(state='disabled')
+        self.submit_btn.config(state='disabled')
+        self.next_btn.config(state='disabled')
+        self.start_btn.config(state='normal')
+
+def main():
+    root = tk.Tk()
+    app = MathQuiz(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
