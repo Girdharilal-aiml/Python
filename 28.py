@@ -86,3 +86,17 @@ class MathQuiz:
             fg='#333'
         ).pack(side=tk.LEFT, padx=10)
 
+        self.diff_buttons = {}
+        for level in ['Easy', 'Medium', 'Hard']:
+            btn = tk.Button(
+                diff_frame,
+                text=level,
+                command=lambda l=level: self.set_difficulty(l),
+                font=('Arial', 10, 'bold'),
+                bg='#4CAF50' if level == 'Easy' else '#e0e0e0',
+                fg='white' if level == 'Easy' else '#333',
+                bd=0,
+                cursor='hand2',
+                padx=15,
+                pady=5
+            )
