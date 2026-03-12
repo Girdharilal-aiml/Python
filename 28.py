@@ -27,3 +27,9 @@ class MathQuiz:
         self.questions_per_quiz = 10
         self.current_answer = None
         self.start_time = None
+
+        # Header
+        header = tk.Frame(root, bg='#f5f5f5', height=60)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
+
