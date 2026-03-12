@@ -17,3 +17,13 @@ class MathQuiz:
         self.root.resizable(True, True)
         self.root.minsize(500, 550)
 
+        # Game state
+        self.score = 0
+        self.total_questions = 0
+        self.difficulty = 'Easy'
+        self.operations = ['+', '-', '×', '÷']
+        self.selected_operations = ['+', '-']
+        self.quiz_active = False
+        self.questions_per_quiz = 10
+        self.current_answer = None
+        self.start_time = None
