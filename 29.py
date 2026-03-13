@@ -347,3 +347,22 @@ Start typing to create your document!
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to open file:\n{str(e)}")
 
+    def save_file(self):
+        if self.current_file:
+            filepath = self.current_file
+        else:
+            filepath = filedialog.asksaveasfilename(
+                defaultextension='.md',
+                filetypes=[
+                    ("Markdown files", "*.md"),
+                    ("Text files", "*.txt"),
+                    ("All files", "*.*")
+                ]
+            )
+        
+        if filepath:
+            try:
+                content = self.editor.get('1.0', 'end-1c')
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
