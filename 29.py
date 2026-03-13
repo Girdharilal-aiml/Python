@@ -229,3 +229,18 @@ Use # for headings (# to ######)
 - Item 2
 - Item 3
 
+### Emphasis
+**Bold text**
+*Italic text*
+`Inline code`
+
+### Links
+[Click here](https://example.com)
+
+> This is a blockquote
+> It can span multiple lines
+
+---
+
+Start typing to create your document!
+"""
