@@ -88,3 +88,7 @@ class MarkdownEditor:
         )
         self.filename_label.pack(side=tk.RIGHT, padx=15)
 
+        # Main container - Split view
+        main_container = tk.Frame(root, bg='white')
+        main_container.pack(fill=tk.BOTH, expand=True)
+
