@@ -101,3 +101,10 @@ class MarkdownEditor:
         editor_header.pack(fill=tk.X)
         editor_header.pack_propagate(False)
 
+        tk.Label(
+            editor_header,
+            text="✏️ Markdown",
+            font=('Arial', 12, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=15, pady=8)
