@@ -214,3 +214,18 @@ class MarkdownEditor:
 
         # Sample content
         sample = """# Welcome to Markdown Editor
+
+## Features
+- **Live Preview** - See changes instantly
+- *Easy formatting* - Simple syntax
+- `Code snippets` - Inline code support
+
+## Quick Guide
+### Headings
+Use # for headings (# to ######)
+
+### Lists
+- Item 1
+- Item 2
+- Item 3
+
