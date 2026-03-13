@@ -39,3 +39,15 @@ class MarkdownEditor:
             pady=8
         ).pack(side=tk.LEFT, padx=5, pady=8)
 
+        tk.Button(
+            toolbar,
+            text="Open",
+            command=self.open_file,
+            bg='#2196F3',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            cursor='hand2',
+            padx=12,
+            pady=8
+        ).pack(side=tk.LEFT, padx=5, pady=8)
