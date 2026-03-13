@@ -192,3 +192,12 @@ class MarkdownEditor:
         status_bar = tk.Frame(root, bg='#f5f5f5', height=25)
         status_bar.pack(fill=tk.X, side=tk.BOTTOM)
 
+        self.status_label = tk.Label(
+            status_bar,
+            text="Ready",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='w'
+        )
+        self.status_label.pack(side=tk.LEFT, padx=10)
