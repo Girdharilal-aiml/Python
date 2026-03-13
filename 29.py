@@ -51,3 +51,16 @@ class MarkdownEditor:
             padx=12,
             pady=8
         ).pack(side=tk.LEFT, padx=5, pady=8)
+
+        tk.Button(
+            toolbar,
+            text="Save",
+            command=self.save_file,
+            bg='#FF9800',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            cursor='hand2',
+            padx=12,
+            pady=8
+        ).pack(side=tk.LEFT, padx=5, pady=8)
