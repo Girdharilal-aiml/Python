@@ -129,3 +129,22 @@ class MarkdownEditor:
             pady=15,
             undo=True
         )
+        self.editor.pack(fill=tk.BOTH, expand=True)
+        editor_scroll.config(command=self.editor.yview)
+
+        # Bind typing to update preview
+        self.editor.bind('<KeyRelease>', self.update_preview)
+
+        # Separator
+        separator = tk.Frame(main_container, bg='#cccccc', width=2)
+        separator.pack(side=tk.LEFT, fill=tk.Y)
+
+        # Right - Preview
+        preview_frame = tk.Frame(main_container, bg='white')
+        preview_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
+        # Preview header
+        preview_header = tk.Frame(preview_frame, bg='#f5f5f5', height=40)
+        preview_header.pack(fill=tk.X)
+        preview_header.pack_propagate(False)
+
