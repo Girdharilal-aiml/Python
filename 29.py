@@ -244,3 +244,17 @@ Use # for headings (# to ######)
 
 Start typing to create your document!
 """
+        self.editor.insert('1.0', sample)
+        self.update_preview()
+
+    def update_preview(self, event=None):
+        # Get markdown text
+        md_text = self.editor.get('1.0', 'end-1c')
+        
+        # Convert to HTML
+        html = markdown.markdown(md_text, extensions=['extra', 'nl2br'])
+        
+        # Simple HTML to text conversion for preview
+        self.preview.config(state='normal')
+        self.preview.delete('1.0', tk.END)
+        
