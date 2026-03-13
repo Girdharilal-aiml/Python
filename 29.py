@@ -156,3 +156,9 @@ class MarkdownEditor:
             fg='#333'
         ).pack(side=tk.LEFT, padx=15, pady=8)
 
+        # Preview area
+        preview_text_frame = tk.Frame(preview_frame, bg='white')
+        preview_text_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        preview_scroll = tk.Scrollbar(preview_text_frame)
+        preview_scroll.pack(side=tk.RIGHT, fill=tk.Y)
