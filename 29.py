@@ -116,3 +116,16 @@ class MarkdownEditor:
         editor_scroll = tk.Scrollbar(editor_text_frame)
         editor_scroll.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.editor = tk.Text(
+            editor_text_frame,
+            font=('Consolas', 11),
+            bg='#1e1e1e',
+            fg='#d4d4d4',
+            insertbackground='white',
+            relief=tk.FLAT,
+            wrap=tk.WORD,
+            yscrollcommand=editor_scroll.set,
+            padx=15,
+            pady=15,
+            undo=True
+        )
