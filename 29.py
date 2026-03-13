@@ -162,3 +162,16 @@ class MarkdownEditor:
 
         preview_scroll = tk.Scrollbar(preview_text_frame)
         preview_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.preview = tk.Text(
+            preview_text_frame,
+            font=('Arial', 11),
+            bg='white',
+            fg='#333',
+            relief=tk.FLAT,
+            wrap=tk.WORD,
+            yscrollcommand=preview_scroll.set,
+            padx=15,
+            pady=15,
+            state='disabled'
+        )
