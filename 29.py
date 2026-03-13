@@ -201,3 +201,16 @@ class MarkdownEditor:
             anchor='w'
         )
         self.status_label.pack(side=tk.LEFT, padx=10)
+
+        self.word_count_label = tk.Label(
+            status_bar,
+            text="0 words",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='e'
+        )
+        self.word_count_label.pack(side=tk.RIGHT, padx=10)
+
+        # Sample content
+        sample = """# Welcome to Markdown Editor
