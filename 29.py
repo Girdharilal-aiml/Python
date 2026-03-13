@@ -366,3 +366,79 @@ Start typing to create your document!
                 with open(filepath, 'w', encoding='utf-8') as f:
                     f.write(content)
                 
+                self.current_file = filepath
+                self.filename_label.config(text=os.path.basename(filepath))
+                self.status_label.config(text="✓ Saved")
+                self.root.after(2000, lambda: self.status_label.config(text="Ready"))
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save file:\n{str(e)}")
+
+    def export_html(self):
+        filepath = filedialog.asksaveasfilename(
+            defaultextension='.html',
+            filetypes=[
+                ("HTML files", "*.html"),
+                ("All files", "*.*")
+            ]
+        )
+        
+        if filepath:
+            try:
+                md_text = self.editor.get('1.0', 'end-1c')
+                html = markdown.markdown(md_text, extensions=['extra', 'nl2br'])
+                
+                # Create full HTML document
+                full_html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown Export</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }}
+        code {{
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #d73a49;
+        }}
+        pre {{
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }}
+        blockquote {{
+            border-left: 4px solid #ddd;
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }}
+    </style>
+</head>
+<body>
+{html}
+</body>
+</html>"""
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(full_html)
+                
+                messagebox.showinfo("Success", "HTML exported successfully!")
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to export HTML:\n{str(e)}")
+
+def main():
+    root = tk.Tk()
+    app = MarkdownEditor(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
