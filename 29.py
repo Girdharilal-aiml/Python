@@ -175,3 +175,7 @@ class MarkdownEditor:
             pady=15,
             state='disabled'
         )
+        self.preview.pack(fill=tk.BOTH, expand=True)
+        preview_scroll.config(command=self.preview.yview)
+
+        # Configure preview tags
