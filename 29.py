@@ -300,3 +300,25 @@ Start typing to create your document!
                     if ip.startswith('*') and ip.endswith('*') and not ip.startswith('**'):
                         self.preview.insert(tk.END, ip[1:-1], 'italic')
                     else:
+                        # Code
+                        code_parts = re.split(r'(`[^`]+`)', ip)
+                        for cp in code_parts:
+                            if cp.startswith('`') and cp.endswith('`'):
+                                self.preview.insert(tk.END, cp[1:-1], 'code')
+                            else:
+                                # Links
+                                link_parts = re.split(r'(\[[^\]]+\]\([^)]+\))', cp)
+                                for lp in link_parts:
+                                    if lp.startswith('[') and '](' in lp:
+                                        link_text = lp[lp.find('[')+1:lp.find(']')]
+                                        self.preview.insert(tk.END, link_text, 'link')
+                                    else:
+                                        self.preview.insert(tk.END, lp)
+
+    def new_file(self):
+        if messagebox.askyesno("New File", "Create new file? (Unsaved changes will be lost)"):
+            self.editor.delete('1.0', tk.END)
+            self.current_file = None
+            self.filename_label.config(text="Untitled.md")
+            self.status_label.config(text="New file created")
+
