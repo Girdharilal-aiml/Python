@@ -108,3 +108,11 @@ class MarkdownEditor:
             bg='#f5f5f5',
             fg='#333'
         ).pack(side=tk.LEFT, padx=15, pady=8)
+
+        # Editor text area
+        editor_text_frame = tk.Frame(editor_frame, bg='white')
+        editor_text_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        editor_scroll = tk.Scrollbar(editor_text_frame)
+        editor_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
