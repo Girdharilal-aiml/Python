@@ -78,3 +78,13 @@ class MarkdownEditor:
             pady=8
         ).pack(side=tk.LEFT, padx=5, pady=8)
 
+        # Filename label
+        self.filename_label = tk.Label(
+            toolbar,
+            text="Untitled.md",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        )
+        self.filename_label.pack(side=tk.RIGHT, padx=15)
+
