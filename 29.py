@@ -322,3 +322,28 @@ Start typing to create your document!
             self.filename_label.config(text="Untitled.md")
             self.status_label.config(text="New file created")
 
+    def open_file(self):
+        filepath = filedialog.askopenfilename(
+            title="Open Markdown File",
+            filetypes=[
+                ("Markdown files", "*.md"),
+                ("Text files", "*.txt"),
+                ("All files", "*.*")
+            ]
+        )
+        
+        if filepath:
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                self.editor.delete('1.0', tk.END)
+                self.editor.insert('1.0', content)
+                self.current_file = filepath
+                self.filename_label.config(text=os.path.basename(filepath))
+                self.status_label.config(text=f"Opened: {os.path.basename(filepath)}")
+                self.update_preview()
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to open file:\n{str(e)}")
+
