@@ -64,3 +64,17 @@ class MarkdownEditor:
             padx=12,
             pady=8
         ).pack(side=tk.LEFT, padx=5, pady=8)
+
+        tk.Button(
+            toolbar,
+            text="Export HTML",
+            command=self.export_html,
+            bg='#9C27B0',
+            fg='white',
+            font=('Arial', 10, 'bold'),
+            bd=0,
+            cursor='hand2',
+            padx=12,
+            pady=8
+        ).pack(side=tk.LEFT, padx=5, pady=8)
+
