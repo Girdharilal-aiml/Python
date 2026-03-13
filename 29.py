@@ -18,3 +18,9 @@ class MarkdownEditor:
         self.root.resizable(True, True)
         self.root.minsize(800, 500)
 
+        self.current_file = None
+
+        # Toolbar
+        toolbar = tk.Frame(root, bg='#f5f5f5', height=50, relief=tk.FLAT, bd=1)
+        toolbar.pack(fill=tk.X)
+        toolbar.pack_propagate(False)
