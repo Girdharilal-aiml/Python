@@ -148,3 +148,11 @@ class MarkdownEditor:
         preview_header.pack(fill=tk.X)
         preview_header.pack_propagate(False)
 
+        tk.Label(
+            preview_header,
+            text="👁️ Preview",
+            font=('Arial', 12, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=15, pady=8)
+
