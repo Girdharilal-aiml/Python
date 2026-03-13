@@ -179,3 +179,16 @@ class MarkdownEditor:
         preview_scroll.config(command=self.preview.yview)
 
         # Configure preview tags
+        self.preview.tag_configure('h1', font=('Arial', 24, 'bold'), foreground='#1a1a1a')
+        self.preview.tag_configure('h2', font=('Arial', 20, 'bold'), foreground='#1a1a1a')
+        self.preview.tag_configure('h3', font=('Arial', 16, 'bold'), foreground='#1a1a1a')
+        self.preview.tag_configure('bold', font=('Arial', 11, 'bold'))
+        self.preview.tag_configure('italic', font=('Arial', 11, 'italic'))
+        self.preview.tag_configure('code', font=('Consolas', 10), background='#f5f5f5', foreground='#d73a49')
+        self.preview.tag_configure('blockquote', font=('Arial', 11, 'italic'), foreground='#666', lmargin1=20, lmargin2=20)
+        self.preview.tag_configure('link', font=('Arial', 11), foreground='#2196F3', underline=True)
+
+        # Status bar
+        status_bar = tk.Frame(root, bg='#f5f5f5', height=25)
+        status_bar.pack(fill=tk.X, side=tk.BOTTOM)
+
