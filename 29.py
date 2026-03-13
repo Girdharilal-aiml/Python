@@ -258,3 +258,29 @@ Start typing to create your document!
         self.preview.config(state='normal')
         self.preview.delete('1.0', tk.END)
         
+        # Basic rendering (simplified)
+        lines = md_text.split('\n')
+        for line in lines:
+            if line.startswith('# '):
+                self.preview.insert(tk.END, line[2:] + '\n', 'h1')
+            elif line.startswith('## '):
+                self.preview.insert(tk.END, line[3:] + '\n', 'h2')
+            elif line.startswith('### '):
+                self.preview.insert(tk.END, line[4:] + '\n', 'h3')
+            elif line.startswith('> '):
+                self.preview.insert(tk.END, line[2:] + '\n', 'blockquote')
+            elif line.startswith('---'):
+                self.preview.insert(tk.END, '─' * 50 + '\n')
+            elif line.startswith('- ') or line.startswith('* '):
+                self.preview.insert(tk.END, '  • ' + line[2:] + '\n')
+            else:
+                # Handle inline formatting
+                self.render_inline(line + '\n')
+        
+        self.preview.config(state='disabled')
+        
+        # Update word count
+        words = len(md_text.split())
+        chars = len(md_text)
+        self.word_count_label.config(text=f"{words} words · {chars} chars")
+
