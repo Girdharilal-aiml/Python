@@ -92,3 +92,12 @@ class MarkdownEditor:
         main_container = tk.Frame(root, bg='white')
         main_container.pack(fill=tk.BOTH, expand=True)
 
+        # Left - Editor
+        editor_frame = tk.Frame(main_container, bg='white')
+        editor_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # Editor header
+        editor_header = tk.Frame(editor_frame, bg='#f5f5f5', height=40)
+        editor_header.pack(fill=tk.X)
+        editor_header.pack_propagate(False)
+
