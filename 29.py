@@ -284,3 +284,19 @@ Start typing to create your document!
         chars = len(md_text)
         self.word_count_label.config(text=f"{words} words · {chars} chars")
 
+    def render_inline(self, text):
+        """Simple inline formatting"""
+        import re
+        
+        # Bold
+        parts = re.split(r'(\*\*[^*]+\*\*)', text)
+        for part in parts:
+            if part.startswith('**') and part.endswith('**'):
+                self.preview.insert(tk.END, part[2:-2], 'bold')
+            else:
+                # Italic
+                italic_parts = re.split(r'(\*[^*]+\*)', part)
+                for ip in italic_parts:
+                    if ip.startswith('*') and ip.endswith('*') and not ip.startswith('**'):
+                        self.preview.insert(tk.END, ip[1:-1], 'italic')
+                    else:
