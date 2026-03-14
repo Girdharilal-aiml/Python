@@ -156,3 +156,22 @@ class CalendarPlanner:
             relief=tk.SOLID,
             yscrollcommand=scroll.set
         )
+        self.events_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scroll.config(command=self.events_listbox.yview)
+
+        tk.Button(
+            sidebar,
+            text="Delete Event",
+            command=self.delete_event,
+            font=('Arial', 10, 'bold'),
+            bg='#f44336',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=15,
+            pady=8
+        ).pack(pady=10)
+
+        # Build calendar
+        self.build_calendar()
+
