@@ -266,3 +266,17 @@ class CalendarPlanner:
                     # Bind click
                     day_frame.bind('<Button-1>', lambda e, d=day: self.select_date(d))
                     day_label.bind('<Button-1>', lambda e, d=day: self.select_date(d))
+
+        # Configure grid weights for responsiveness
+        for i in range(7):
+            self.calendar_frame.grid_columnconfigure(i, weight=1)
+        for i in range(len(cal) + 1):
+            self.calendar_frame.grid_rowconfigure(i, weight=1)
+
+    def select_date(self, day):
+        self.selected_date = f"{self.current_year}-{self.current_month:02d}-{day:02d}"
+        
+        # Update label
+        date_obj = datetime.strptime(self.selected_date, "%Y-%m-%d")
+        formatted_date = date_obj.strftime("%B %d, %Y")
+        self.selected_date_label.config(text=formatted_date)
