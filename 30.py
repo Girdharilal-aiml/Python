@@ -352,3 +352,15 @@ class CalendarPlanner:
         
         self.build_calendar()
 
+    def go_to_today(self):
+        self.current_month = self.today.month
+        self.current_year = self.today.year
+        self.build_calendar()
+
+def main():
+    root = tk.Tk()
+    app = CalendarPlanner(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
