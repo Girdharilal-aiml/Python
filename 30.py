@@ -186,3 +186,13 @@ class CalendarPlanner:
     def save_events(self):
         with open(self.events_file, 'w', encoding='utf-8') as f:
             json.dump(self.events, f, indent=2, ensure_ascii=False)
+
+    def build_calendar(self):
+        # Clear calendar
+        for widget in self.calendar_frame.winfo_children():
+            widget.destroy()
+
+        # Update month label
+        month_name = calendar.month_name[self.current_month]
+        self.month_label.config(text=f"{month_name} {self.current_year}")
+
