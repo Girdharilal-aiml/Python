@@ -48,3 +48,15 @@ class CalendarPlanner:
         nav_frame.pack(fill=tk.X)
         nav_frame.pack_propagate(False)
 
+        tk.Button(
+            nav_frame,
+            text="◀",
+            command=self.prev_month,
+            font=('Arial', 16, 'bold'),
+            bg='#e0e0e0',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            width=3
+        ).pack(side=tk.LEFT, padx=20, pady=15)
+
