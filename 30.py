@@ -223,3 +223,21 @@ class CalendarPlanner:
                         bg='white'
                     ).grid(row=week_num + 1, column=day_num, sticky='nsew')
                 else:
+                    # Check if day has events
+                    date_str = f"{self.current_year}-{self.current_month:02d}-{day:02d}"
+                    has_events = date_str in self.events and len(self.events[date_str]) > 0
+                    
+                    # Check if today
+                    is_today = (day == self.today.day and 
+                               self.current_month == self.today.month and 
+                               self.current_year == self.today.year)
+                    
+                    # Create day frame
+                    day_frame = tk.Frame(
+                        self.calendar_frame,
+                        bg='#2196F3' if is_today else ('#e3f2fd' if has_events else 'white'),
+                        relief=tk.SOLID,
+                        bd=1,
+                        cursor='hand2'
+                    )
+                    day_frame.grid(row=week_num + 1, column=day_num, padx=1, pady=1, sticky='nsew')
