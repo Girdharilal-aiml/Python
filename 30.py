@@ -263,3 +263,6 @@ class CalendarPlanner:
                             fg='white' if is_today else '#2196F3'
                         ).pack()
                     
+                    # Bind click
+                    day_frame.bind('<Button-1>', lambda e, d=day: self.select_date(d))
+                    day_label.bind('<Button-1>', lambda e, d=day: self.select_date(d))
