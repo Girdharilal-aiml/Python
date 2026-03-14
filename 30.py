@@ -196,3 +196,16 @@ class CalendarPlanner:
         month_name = calendar.month_name[self.current_month]
         self.month_label.config(text=f"{month_name} {self.current_year}")
 
+        # Day headers
+        days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        for i, day in enumerate(days):
+            tk.Label(
+                self.calendar_frame,
+                text=day,
+                font=('Arial', 11, 'bold'),
+                bg='#f5f5f5',
+                fg='#333',
+                width=9,
+                height=1
+            ).grid(row=0, column=i, padx=1, pady=1, sticky='nsew')
+
