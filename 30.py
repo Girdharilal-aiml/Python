@@ -115,3 +115,13 @@ class CalendarPlanner:
             bg='#f5f5f5',
             fg='#333'
         ).pack(pady=15)
+
+        self.selected_date_label = tk.Label(
+            sidebar,
+            text="Select a date",
+            font=('Arial', 11),
+            bg='#f5f5f5',
+            fg='#666'
+        )
+        self.selected_date_label.pack(pady=5)
+
