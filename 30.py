@@ -42,3 +42,9 @@ class CalendarPlanner:
             bg='#2196F3',
             fg='white'
         ).pack(pady=20)
+
+        # Navigation
+        nav_frame = tk.Frame(root, bg='#f5f5f5', height=60)
+        nav_frame.pack(fill=tk.X)
+        nav_frame.pack_propagate(False)
+
