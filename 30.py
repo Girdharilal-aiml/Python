@@ -125,3 +125,16 @@ class CalendarPlanner:
         )
         self.selected_date_label.pack(pady=5)
 
+        tk.Button(
+            sidebar,
+            text="+ Add Event",
+            command=self.add_event,
+            font=('Arial', 11, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=15,
+            pady=8
+        ).pack(pady=10)
+
