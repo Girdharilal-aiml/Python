@@ -23,3 +23,9 @@ class CalendarPlanner:
         self.events_file = "calendar_events.json"
         self.events = {}  # Format: {"YYYY-MM-DD": ["event1", "event2"]}
         self.load_events()
+
+        # Current date
+        self.today = datetime.now()
+        self.current_month = self.today.month
+        self.current_year = self.today.year
+        self.selected_date = None
