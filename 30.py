@@ -145,3 +145,14 @@ class CalendarPlanner:
         scroll = tk.Scrollbar(list_frame)
         scroll.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.events_listbox = tk.Listbox(
+            list_frame,
+            font=('Arial', 10),
+            bg='white',
+            fg='#333',
+            selectbackground='#2196F3',
+            selectforeground='white',
+            bd=1,
+            relief=tk.SOLID,
+            yscrollcommand=scroll.set
+        )
