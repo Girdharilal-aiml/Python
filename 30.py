@@ -69,3 +69,27 @@ class CalendarPlanner:
         )
         self.month_label.pack(side=tk.LEFT, expand=True)
 
+        tk.Button(
+            nav_frame,
+            text="▶",
+            command=self.next_month,
+            font=('Arial', 16, 'bold'),
+            bg='#e0e0e0',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            width=3
+        ).pack(side=tk.RIGHT, padx=20, pady=15)
+
+        tk.Button(
+            nav_frame,
+            text="Today",
+            command=self.go_to_today,
+            font=('Arial', 11, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=15,
+            pady=5
+        ).pack(side=tk.RIGHT, padx=10)
