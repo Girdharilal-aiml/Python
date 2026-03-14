@@ -209,3 +209,17 @@ class CalendarPlanner:
                 height=1
             ).grid(row=0, column=i, padx=1, pady=1, sticky='nsew')
 
+        # Get calendar for current month
+        cal = calendar.monthcalendar(self.current_year, self.current_month)
+
+        # Create day buttons
+        for week_num, week in enumerate(cal):
+            for day_num, day in enumerate(week):
+                if day == 0:
+                    # Empty cell
+                    tk.Label(
+                        self.calendar_frame,
+                        text="",
+                        bg='white'
+                    ).grid(row=week_num + 1, column=day_num, sticky='nsew')
+                else:
