@@ -101,3 +101,17 @@ class CalendarPlanner:
         # Calendar grid
         self.calendar_frame = tk.Frame(main_container, bg='white')
         self.calendar_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # Event sidebar
+        sidebar = tk.Frame(main_container, bg='#f5f5f5', width=250, relief=tk.SOLID, bd=1)
+        sidebar.pack(side=tk.RIGHT, fill=tk.Y, padx=(10, 0))
+        sidebar.pack_propagate(False)
+
+        # Sidebar header
+        tk.Label(
+            sidebar,
+            text="Events",
+            font=('Arial', 16, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=15)
