@@ -299,3 +299,27 @@ class CalendarPlanner:
             messagebox.showwarning("No Date", "Please select a date first!")
             return
         
+        event = simpledialog.askstring("New Event", "Enter event description:")
+        
+        if event and event.strip():
+            if self.selected_date not in self.events:
+                self.events[self.selected_date] = []
+            
+            self.events[self.selected_date].append(event.strip())
+            self.save_events()
+            self.load_date_events()
+            self.build_calendar()
+
+    def delete_event(self):
+        if not self.selected_date:
+            messagebox.showwarning("No Date", "Please select a date first!")
+            return
+        
+        selection = self.events_listbox.curselection()
+        if not selection:
+            messagebox.showwarning("No Event", "Please select an event to delete!")
+            return
+        
+        index = selection[0]
+        event = self.events[self.selected_date][index]
+        
