@@ -18,3 +18,8 @@ class CalendarPlanner:
         self.root.configure(bg='white')
         self.root.resizable(True, True)
         self.root.minsize(800, 600)
+
+        # Data
+        self.events_file = "calendar_events.json"
+        self.events = {}  # Format: {"YYYY-MM-DD": ["event1", "event2"]}
+        self.load_events()
