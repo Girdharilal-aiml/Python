@@ -29,3 +29,8 @@ class CalendarPlanner:
         self.current_month = self.today.month
         self.current_year = self.today.year
         self.selected_date = None
+
+        # Header
+        header = tk.Frame(root, bg='#2196F3', height=80)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
