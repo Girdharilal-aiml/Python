@@ -280,3 +280,22 @@ class CalendarPlanner:
         date_obj = datetime.strptime(self.selected_date, "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
         self.selected_date_label.config(text=formatted_date)
+        
+        # Load events for this date
+        self.load_date_events()
+        
+        # Rebuild calendar to show selection
+        self.build_calendar()
+
+    def load_date_events(self):
+        self.events_listbox.delete(0, tk.END)
+        
+        if self.selected_date in self.events:
+            for event in self.events[self.selected_date]:
+                self.events_listbox.insert(tk.END, event)
+
+    def add_event(self):
+        if not self.selected_date:
+            messagebox.showwarning("No Date", "Please select a date first!")
+            return
+        
