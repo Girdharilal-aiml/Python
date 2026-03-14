@@ -175,3 +175,11 @@ class CalendarPlanner:
         # Build calendar
         self.build_calendar()
 
+    def load_events(self):
+        if os.path.exists(self.events_file):
+            try:
+                with open(self.events_file, 'r', encoding='utf-8') as f:
+                    self.events = json.load(f)
+            except:
+                self.events = {}
+
