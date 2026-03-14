@@ -138,3 +138,10 @@ class CalendarPlanner:
             pady=8
         ).pack(pady=10)
 
+        # Events list
+        list_frame = tk.Frame(sidebar, bg='#f5f5f5')
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
+
+        scroll = tk.Scrollbar(list_frame)
+        scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
