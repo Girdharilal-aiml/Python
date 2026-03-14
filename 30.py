@@ -60,3 +60,12 @@ class CalendarPlanner:
             width=3
         ).pack(side=tk.LEFT, padx=20, pady=15)
 
+        self.month_label = tk.Label(
+            nav_frame,
+            text="",
+            font=('Arial', 18, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        )
+        self.month_label.pack(side=tk.LEFT, expand=True)
+
