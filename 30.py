@@ -241,3 +241,25 @@ class CalendarPlanner:
                         cursor='hand2'
                     )
                     day_frame.grid(row=week_num + 1, column=day_num, padx=1, pady=1, sticky='nsew')
+                    
+                    # Day number
+                    day_label = tk.Label(
+                        day_frame,
+                        text=str(day),
+                        font=('Arial', 14, 'bold' if is_today else 'normal'),
+                        bg='#2196F3' if is_today else ('#e3f2fd' if has_events else 'white'),
+                        fg='white' if is_today else '#333'
+                    )
+                    day_label.pack(pady=(5, 0))
+                    
+                    # Event indicator
+                    if has_events:
+                        event_count = len(self.events[date_str])
+                        tk.Label(
+                            day_frame,
+                            text=f"• {event_count}",
+                            font=('Arial', 9),
+                            bg='#2196F3' if is_today else '#e3f2fd',
+                            fg='white' if is_today else '#2196F3'
+                        ).pack()
+                    
