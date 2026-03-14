@@ -323,3 +323,32 @@ class CalendarPlanner:
         index = selection[0]
         event = self.events[self.selected_date][index]
         
+        if messagebox.askyesno("Delete", f"Delete event:\n{event}?"):
+            self.events[self.selected_date].pop(index)
+            
+            # Remove date key if no events left
+            if len(self.events[self.selected_date]) == 0:
+                del self.events[self.selected_date]
+            
+            self.save_events()
+            self.load_date_events()
+            self.build_calendar()
+
+    def prev_month(self):
+        if self.current_month == 1:
+            self.current_month = 12
+            self.current_year -= 1
+        else:
+            self.current_month -= 1
+        
+        self.build_calendar()
+
+    def next_month(self):
+        if self.current_month == 12:
+            self.current_month = 1
+            self.current_year += 1
+        else:
+            self.current_month += 1
+        
+        self.build_calendar()
+
