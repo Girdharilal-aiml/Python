@@ -196,4 +196,17 @@ class MemoryGame:
                     cursor='hand2',
                     command=lambda idx=index: self.flip_card(idx)
                 )
+                btn.grid(row=i, column=j, padx=3, pady=3, sticky='nsew')
+                self.card_buttons.append(btn)
+
+        # Configure grid weights for responsive sizing
+        for i in range(rows):
+            self.board_frame.grid_rowconfigure(i, weight=1)
+        for j in range(cols):
+            self.board_frame.grid_columnconfigure(j, weight=1)
+
+    def flip_card(self, index):
+        # Ignore if already flipped or matched
+        if index in self.flipped or index in self.matched:
+            return
             
