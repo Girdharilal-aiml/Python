@@ -91,3 +91,14 @@ class Pong:
         # Mode selection
         mode_frame = tk.Frame(controls, bg='white')
         mode_frame.pack(side=tk.LEFT, padx=20, pady=5)
+
+        tk.Label(
+            mode_frame,
+            text="Mode:",
+            font=('Arial', 10, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=5)
+
+        
+        
