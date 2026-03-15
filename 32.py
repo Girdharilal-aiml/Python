@@ -7,3 +7,16 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
+class Pong:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Pong")
+        self.root.geometry("800x600")
+        self.root.configure(bg='white')
+        self.root.resizable(True, True)
+        self.root.minsize(600, 450)
+
+        # Game settings (will be updated on resize)
+        self.canvas_width = 800
+        self.canvas_height = 500
+        
