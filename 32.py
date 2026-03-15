@@ -100,5 +100,19 @@ class Pong:
             fg='#333'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.ai_btn = tk.Button(
+            mode_frame,
+            text="vs AI",
+            command=lambda: self.set_mode('ai'),
+            font=('Arial', 9, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=10,
+            pady=3
+        )
+        self.ai_btn.pack(side=tk.LEFT, padx=2)
+
         
         
