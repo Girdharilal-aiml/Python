@@ -20,3 +20,13 @@ class Pong:
         self.canvas_width = 800
         self.canvas_height = 500
         
+        # Paddle settings
+        self.paddle_width = 15
+        self.paddle_height = 100
+        self.paddle_speed = 20
+        
+        # Ball settings
+        self.ball_size = 15
+        self.ball_speed_x = 7
+        self.ball_speed_y = 7
+        
