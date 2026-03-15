@@ -231,5 +231,15 @@ class Pong:
             )
             self.center_lines.append(line)
     
+    def reposition_game_elements(self):
+        """Reposition paddles and ball to maintain relative positions"""
+        if not self.game_running:
+            # Reposition paddle 1 (left)
+            self.canvas.coords(
+                self.paddle1,
+                30, self.canvas_height // 2 - self.paddle_height // 2,
+                30 + self.paddle_width, self.canvas_height // 2 + self.paddle_height // 2
+            )
+            
         
         
