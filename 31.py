@@ -115,3 +115,8 @@ class MemoryGame:
                 selectcolor='white',
                 command=self.change_difficulty
             ).pack(side=tk.LEFT, padx=5)
+
+        # Game board
+        self.board_frame = tk.Frame(root, bg='white')
+        self.board_frame.pack(fill=tk.BOTH, expand=True, padx=30, pady=20)
+
