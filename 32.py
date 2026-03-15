@@ -210,5 +210,12 @@ class Pong:
             self.update_canvas_size()
             if self.paddle1 and self.paddle2 and self.ball:
                 self.reposition_game_elements()
+    
+    def update_canvas_size(self):
+        """Update canvas dimensions"""
+        self.canvas.update_idletasks()
+        self.canvas_width = self.canvas.winfo_width()
+        self.canvas_height = self.canvas.winfo_height()
+        
         
         
