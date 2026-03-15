@@ -128,5 +128,19 @@ class Pong:
         )
         self.two_player_btn.pack(side=tk.LEFT, padx=2)
 
+        # Start button
+        self.start_btn = tk.Button(
+            controls,
+            text="▶ START",
+            command=self.start_game,
+            font=('Arial', 12, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=8
+        )
+        self.start_btn.pack(side=tk.RIGHT, padx=20, pady=5)
         
         
