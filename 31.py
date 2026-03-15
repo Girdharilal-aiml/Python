@@ -78,3 +78,8 @@ class MemoryGame:
             bg='white',
             fg='#666'
         ).pack()
+
+        self.pairs_label = tk.Label(
+            pairs_container,
+            text="0 / 8",
+            font=('Arial', 20, 'bold'),
