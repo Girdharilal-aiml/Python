@@ -88,3 +88,7 @@ class MemoryGame:
         )
         self.pairs_label.pack()
 
+        # Difficulty selection
+        diff_frame = tk.Frame(root, bg='white')
+        diff_frame.pack(pady=10)
+
