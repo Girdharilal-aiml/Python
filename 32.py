@@ -275,5 +275,14 @@ class Pong:
                 30 + self.paddle_width, self.canvas_height // 2 + self.paddle_height // 2
             )
 
+        if self.paddle2 is None:
+            self.paddle2 = self.canvas.create_rectangle(
+                self.canvas_width - 30 - self.paddle_width,
+                self.canvas_height // 2 - self.paddle_height // 2,
+                self.canvas_width - 30,
+                self.canvas_height // 2 + self.paddle_height // 2,
+                fill='#f44336',
+                outline=''
+            )
         
         
