@@ -92,3 +92,13 @@ class MemoryGame:
         diff_frame = tk.Frame(root, bg='white')
         diff_frame.pack(pady=10)
 
+        tk.Label(
+            diff_frame,
+            text="Difficulty:",
+            font=('Arial', 12, 'bold'),
+            bg='white',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=10)
+
+        self.difficulty = tk.StringVar(value='4x4')
+        
