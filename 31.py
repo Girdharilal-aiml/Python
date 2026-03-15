@@ -16,3 +16,7 @@ class MemoryGame:
         self.root.resizable(True, True)
         self.root.minsize(600, 700)
 
+        # Game state
+        self.cards = []
+        self.card_buttons = []
+        self.flipped = []
