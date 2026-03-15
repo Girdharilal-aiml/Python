@@ -41,3 +41,8 @@ class MemoryGame:
             bg='#f5f5f5',
             fg='#333'
         ).pack(pady=20)
+
+        # Score panel
+        score_frame = tk.Frame(root, bg='white')
+        score_frame.pack(pady=15)
+
