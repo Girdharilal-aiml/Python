@@ -372,5 +372,128 @@ class Pong:
         elif direction == 'down' and coords[3] < self.canvas_height:
             self.canvas.move(self.paddle2, 0, self.paddle_speed)
 
+    def ai_move(self):
+        if not self.game_running or self.game_mode != 'ai':
+            return
+
+        # Get positions
+        ball_coords = self.canvas.coords(self.ball)
+        ball_y = (ball_coords[1] + ball_coords[3]) / 2
         
+        paddle_coords = self.canvas.coords(self.paddle2)
+        paddle_y = (paddle_coords[1] + paddle_coords[3]) / 2
+
+        # Improved AI - faster and more accurate
+        ai_speed = 15  # Increased from 8 to 15
+        reaction_threshold = 5  # Reduced from 10 to 5 for faster reaction
         
+        if ball_y < paddle_y - reaction_threshold and paddle_coords[1] > 0:
+            self.canvas.move(self.paddle2, 0, -ai_speed)
+        elif ball_y > paddle_y + reaction_threshold and paddle_coords[3] < self.canvas_height:
+            self.canvas.move(self.paddle2, 0, ai_speed)
+
+        # Continue AI movement with faster update rate
+        self.root.after(20, self.ai_move)  # Changed from 50ms to 20ms
+
+    def move_ball(self):
+        if not self.game_running:
+            return
+
+        # Move ball
+        self.canvas.move(self.ball, self.ball_speed_x, self.ball_speed_y)
+
+        # Get ball position
+        ball_coords = self.canvas.coords(self.ball)
+        ball_x1, ball_y1, ball_x2, ball_y2 = ball_coords
+
+        # Top/bottom wall collision
+        if ball_y1 <= 0 or ball_y2 >= self.canvas_height:
+            self.ball_speed_y = -self.ball_speed_y
+
+        # Paddle collision
+        paddle1_coords = self.canvas.coords(self.paddle1)
+        paddle2_coords = self.canvas.coords(self.paddle2)
+
+        # Left paddle collision
+        if (ball_x1 <= paddle1_coords[2] and 
+            ball_y2 >= paddle1_coords[1] and 
+            ball_y1 <= paddle1_coords[3] and
+            self.ball_speed_x < 0):
+            self.ball_speed_x = -self.ball_speed_x
+            # Add spin based on hit position
+            paddle_center = (paddle1_coords[1] + paddle1_coords[3]) / 2
+            ball_center = (ball_y1 + ball_y2) / 2
+            offset = (ball_center - paddle_center) / (self.paddle_height / 2)
+            self.ball_speed_y += offset * 2
+
+        # Right paddle collision
+        if (ball_x2 >= paddle2_coords[0] and 
+            ball_y2 >= paddle2_coords[1] and 
+            ball_y1 <= paddle2_coords[3] and
+            self.ball_speed_x > 0):
+            self.ball_speed_x = -self.ball_speed_x
+            # Add spin
+            paddle_center = (paddle2_coords[1] + paddle2_coords[3]) / 2
+            ball_center = (ball_y1 + ball_y2) / 2
+            offset = (ball_center - paddle_center) / (self.paddle_height / 2)
+            self.ball_speed_y += offset * 2
+
+        # Score points
+        if ball_x2 < 0:
+            # Player 2 scores
+            self.player2_score += 1
+            self.p2_score_label.config(text=str(self.player2_score))
+            self.reset_ball()
+        elif ball_x1 > self.canvas_width:
+            # Player 1 scores
+            self.player1_score += 1
+            self.p1_score_label.config(text=str(self.player1_score))
+            self.reset_ball()
+
+        # Check win condition
+        if self.player1_score >= 5 or self.player2_score >= 5:
+            self.end_game()
+            return
+
+        # Continue game loop
+        self.root.after(16, self.move_ball)  # ~60 FPS
+
+    def reset_ball(self):
+        # Reset ball to center
+        self.canvas.coords(
+            self.ball,
+            self.canvas_width // 2 - self.ball_size,
+            self.canvas_height // 2 - self.ball_size,
+            self.canvas_width // 2 + self.ball_size,
+            self.canvas_height // 2 + self.ball_size
+        )
+        
+        # Random direction
+        self.ball_speed_x = random.choice([-7, 7])
+        self.ball_speed_y = random.choice([-7, -5, 5, 7])
+
+    def end_game(self):
+        self.game_running = False
+        
+        winner = "Player 1" if self.player1_score >= 5 else ("AI" if self.game_mode == 'ai' else "Player 2")
+        
+        if messagebox.askyesno("Game Over", f"{winner} wins!\n\nPlay again?"):
+            self.reset_game()
+        else:
+            self.root.quit()
+
+    def reset_game(self):
+        self.player1_score = 0
+        self.player2_score = 0
+        self.p1_score_label.config(text="0")
+        self.p2_score_label.config(text="0")
+        self.start_btn.config(state='normal')
+        self.reset_ball()
+
+def main():
+    root = tk.Tk()
+    game = Pong(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
