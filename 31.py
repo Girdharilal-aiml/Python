@@ -120,3 +120,7 @@ class MemoryGame:
         self.board_frame = tk.Frame(root, bg='white')
         self.board_frame.pack(fill=tk.BOTH, expand=True, padx=30, pady=20)
 
+        # Buttons
+        btn_frame = tk.Frame(root, bg='white')
+        btn_frame.pack(pady=20)
+
