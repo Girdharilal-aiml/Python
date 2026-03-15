@@ -124,3 +124,15 @@ class MemoryGame:
         btn_frame = tk.Frame(root, bg='white')
         btn_frame.pack(pady=20)
 
+        tk.Button(
+            btn_frame,
+            text="🔄 New Game",
+            command=self.new_game,
+            font=('Arial', 14, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=25,
+            pady=12
+        ).pack()
