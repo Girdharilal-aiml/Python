@@ -25,3 +25,7 @@ class MemoryGame:
         self.pairs_found = 0
         self.game_active = False
 
+        # Card emojis
+        self.symbols = ['🍎', '🍌', '🍇', '🍊', '🍓', '🍒', '🍑', '🍍',
+                       '🥝', '🥥', '🍉', '🍋', '🥭', '🍏', '🫐', '🍈']
+
