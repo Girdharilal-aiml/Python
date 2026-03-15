@@ -136,3 +136,6 @@ class MemoryGame:
             padx=25,
             pady=12
         ).pack()
+
+        # Initialize game
+        self.new_game()
