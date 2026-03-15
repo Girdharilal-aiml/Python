@@ -139,3 +139,9 @@ class MemoryGame:
 
         # Initialize game
         self.new_game()
+
+    def change_difficulty(self):
+        if self.game_active:
+            if messagebox.askyesno("Change Difficulty", "Start a new game with new difficulty?"):
+                self.new_game()
+
