@@ -50,3 +50,9 @@ class MemoryGame:
         moves_container = tk.Frame(score_frame, bg='white')
         moves_container.pack(side=tk.LEFT, padx=20)
 
+        tk.Label(
+            moves_container,
+            text="MOVES:",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#666'
