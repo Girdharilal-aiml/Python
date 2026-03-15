@@ -46,3 +46,7 @@ class MemoryGame:
         score_frame = tk.Frame(root, bg='white')
         score_frame.pack(pady=15)
 
+        # Moves
+        moves_container = tk.Frame(score_frame, bg='white')
+        moves_container.pack(side=tk.LEFT, padx=20)
+
