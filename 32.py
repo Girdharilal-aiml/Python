@@ -114,5 +114,19 @@ class Pong:
         )
         self.ai_btn.pack(side=tk.LEFT, padx=2)
 
+        self.two_player_btn = tk.Button(
+            mode_frame,
+            text="2 Players",
+            command=lambda: self.set_mode('2player'),
+            font=('Arial', 9, 'bold'),
+            bg='#e0e0e0',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            padx=10,
+            pady=3
+        )
+        self.two_player_btn.pack(side=tk.LEFT, padx=2)
+
         
         
