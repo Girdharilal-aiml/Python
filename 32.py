@@ -259,5 +259,14 @@ class Pong:
                 ball_x + self.ball_size, ball_y + self.ball_size
             )
 
+    def setup_game(self):
+        # Create or update paddles
+        if self.paddle1 is None:
+            self.paddle1 = self.canvas.create_rectangle(
+                30, self.canvas_height // 2 - self.paddle_height // 2,
+                30 + self.paddle_width, self.canvas_height // 2 + self.paddle_height // 2,
+                fill='#2196F3',
+                outline=''
+            )
         
         
