@@ -175,4 +175,25 @@ class MemoryGame:
             num_pairs = 16
 
         self.pairs_label.config(text=f"0 / {num_pairs}")
+
+        # Create card pairs
+        selected_symbols = self.symbols[:num_pairs]
+        self.cards = selected_symbols * 2  # Create pairs
+        random.shuffle(self.cards)
+
+        # Create card buttons
+        for i in range(rows):
+            for j in range(cols):
+                index = i * cols + j
+                
+                btn = tk.Button(
+                    self.board_frame,
+                    text="?",
+                    font=('Arial', 32),
+                    bg='#2196F3',
+                    fg='white',
+                    bd=0,
+                    cursor='hand2',
+                    command=lambda idx=index: self.flip_card(idx)
+                )
             
