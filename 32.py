@@ -304,5 +304,37 @@ class Pong:
                 fill='white',
                 outline=''
             )
+        else:
+            self.canvas.coords(
+                self.ball,
+                ball_x - self.ball_size, ball_y - self.ball_size,
+                ball_x + self.ball_size, ball_y + self.ball_size
+            )
+
+    def key_press(self, key):
+        self.keys_pressed[key] = True
+    
+    def key_release(self, key):
+        self.keys_pressed[key] = False
+    
+    def handle_continuous_movement(self):
+        """Handle continuous paddle movement when keys are held"""
+        if not self.game_running:
+            self.root.after(16, self.handle_continuous_movement)
+            return
+            
+        if self.keys_pressed['w']:
+            self.move_paddle1('up')
+        if self.keys_pressed['s']:
+            self.move_paddle1('down')
+            
+        if self.game_mode == '2player':
+            if self.keys_pressed['up']:
+                self.move_paddle2('up')
+            if self.keys_pressed['down']:
+                self.move_paddle2('down')
+        
+        self.root.after(16, self.handle_continuous_movement)
+
         
         
