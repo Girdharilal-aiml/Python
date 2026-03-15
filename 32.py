@@ -336,5 +336,25 @@ class Pong:
         
         self.root.after(16, self.handle_continuous_movement)
 
+    def start_game(self):
+        if not self.game_running:
+            self.game_running = True
+            self.start_btn.config(state='disabled')
+            
+            # Random ball direction
+            self.ball_speed_x = random.choice([-7, 7])
+            self.ball_speed_y = random.choice([-7, -5, 5, 7])
+            
+            self.handle_continuous_movement()
+            self.move_ball()
+            if self.game_mode == 'ai':
+                self.ai_move()
+
+    def move_paddle1(self, direction):
+        if not self.game_running:
+            return
+            
+        coords = self.canvas.coords(self.paddle1)
+        
         
         
