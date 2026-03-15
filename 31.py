@@ -159,5 +159,7 @@ class MemoryGame:
         self.pairs_found = 0
         self.game_active = True
 
+        # Update labels
+        self.moves_label.config(text="0")
         
             
