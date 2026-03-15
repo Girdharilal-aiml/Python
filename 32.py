@@ -152,5 +152,14 @@ class Pong:
             fg='#666'
         )
         self.controls_label.pack(side=tk.RIGHT, padx=10)
+
+        # Bind keys (both lowercase and uppercase)
+        self.root.bind('<w>', lambda e: self.move_paddle1('up'))
+        self.root.bind('<W>', lambda e: self.move_paddle1('up'))
+        self.root.bind('<s>', lambda e: self.move_paddle1('down'))
+        self.root.bind('<S>', lambda e: self.move_paddle1('down'))
+        self.root.bind('<Up>', lambda e: self.move_paddle2('up'))
+        self.root.bind('<Down>', lambda e: self.move_paddle2('down'))
+        
         
         
