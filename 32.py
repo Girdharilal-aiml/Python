@@ -217,5 +217,19 @@ class Pong:
         self.canvas_width = self.canvas.winfo_width()
         self.canvas_height = self.canvas.winfo_height()
         
+        # Redraw center line
+        for line in self.center_lines:
+            self.canvas.delete(line)
+        self.center_lines = []
+        
+        for i in range(0, self.canvas_height, 20):
+            line = self.canvas.create_rectangle(
+                self.canvas_width // 2 - 2, i,
+                self.canvas_width // 2 + 2, i + 10,
+                fill='white',
+                outline=''
+            )
+            self.center_lines.append(line)
+    
         
         
