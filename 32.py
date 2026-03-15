@@ -69,3 +69,15 @@ class Pong:
             fg='#f44336'
         )
         self.p2_score_label.pack(side=tk.LEFT, padx=50)
+
+        # Canvas
+        self.canvas = tk.Canvas(
+            root,
+            bg='#1a1a2e',
+            highlightthickness=0
+        )
+        self.canvas.pack(fill=tk.BOTH, expand=True)
+        
+        # Bind resize event
+        self.canvas.bind('<Configure>', self.on_resize)
+
