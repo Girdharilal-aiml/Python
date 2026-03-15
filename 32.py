@@ -81,3 +81,13 @@ class Pong:
         # Bind resize event
         self.canvas.bind('<Configure>', self.on_resize)
 
+        # Center line (will be drawn on resize)
+        self.center_lines = []
+
+        # Controls info
+        controls = tk.Frame(root, bg='white', height=40)
+        controls.pack(fill=tk.X)
+
+        # Mode selection
+        mode_frame = tk.Frame(controls, bg='white')
+        mode_frame.pack(side=tk.LEFT, padx=20, pady=5)
