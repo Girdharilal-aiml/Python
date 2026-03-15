@@ -268,5 +268,12 @@ class Pong:
                 fill='#2196F3',
                 outline=''
             )
+        else:
+            self.canvas.coords(
+                self.paddle1,
+                30, self.canvas_height // 2 - self.paddle_height // 2,
+                30 + self.paddle_width, self.canvas_height // 2 + self.paddle_height // 2
+            )
+
         
         
