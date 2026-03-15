@@ -12,3 +12,7 @@ class MemoryGame:
         self.root = root
         self.root.title("Memory Card Game")
         self.root.geometry("700x800")
+        self.root.configure(bg='white')
+        self.root.resizable(True, True)
+        self.root.minsize(600, 700)
+
