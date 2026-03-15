@@ -162,4 +162,17 @@ class MemoryGame:
         # Update labels
         self.moves_label.config(text="0")
         
+        # Get grid size
+        diff = self.difficulty.get()
+        if diff == '4x4':
+            rows, cols = 4, 4
+            num_pairs = 8
+        elif diff == '4x6':
+            rows, cols = 4, 6
+            num_pairs = 12
+        else:  # 4x8
+            rows, cols = 4, 8
+            num_pairs = 16
+
+        self.pairs_label.config(text=f"0 / {num_pairs}")
             
