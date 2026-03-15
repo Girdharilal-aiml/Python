@@ -356,5 +356,21 @@ class Pong:
             
         coords = self.canvas.coords(self.paddle1)
         
+        if direction == 'up' and coords[1] > 0:
+            self.canvas.move(self.paddle1, 0, -self.paddle_speed)
+        elif direction == 'down' and coords[3] < self.canvas_height:
+            self.canvas.move(self.paddle1, 0, self.paddle_speed)
+
+    def move_paddle2(self, direction):
+        if self.game_mode == 'ai' or not self.game_running:
+            return
+        
+        coords = self.canvas.coords(self.paddle2)
+        
+        if direction == 'up' and coords[1] > 0:
+            self.canvas.move(self.paddle2, 0, -self.paddle_speed)
+        elif direction == 'down' and coords[3] < self.canvas_height:
+            self.canvas.move(self.paddle2, 0, self.paddle_speed)
+
         
         
