@@ -250,5 +250,14 @@ class Pong:
                 self.canvas_height // 2 + self.paddle_height // 2
             )
             
+            # Reposition ball
+            ball_x = self.canvas_width // 2
+            ball_y = self.canvas_height // 2
+            self.canvas.coords(
+                self.ball,
+                ball_x - self.ball_size, ball_y - self.ball_size,
+                ball_x + self.ball_size, ball_y + self.ball_size
+            )
+
         
         
