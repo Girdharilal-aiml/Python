@@ -190,4 +190,13 @@ class Pong:
         
         self.game_mode = mode
         
+        if mode == 'ai':
+            self.ai_btn.config(bg='#4CAF50', fg='white')
+            self.two_player_btn.config(bg='#e0e0e0', fg='#333')
+            self.controls_label.config(text="Player 1: W/S  |  AI: Auto")
+        else:
+            self.ai_btn.config(bg='#e0e0e0', fg='#333')
+            self.two_player_btn.config(bg='#4CAF50', fg='white')
+            self.controls_label.config(text="Player 1: W/S  |  Player 2: ↑/↓")
+        
         
