@@ -150,3 +150,14 @@ class MemoryGame:
         for widget in self.board_frame.winfo_children():
             widget.destroy()
 
+        # Reset state
+        self.cards = []
+        self.card_buttons = []
+        self.flipped = []
+        self.matched = []
+        self.moves = 0
+        self.pairs_found = 0
+        self.game_active = True
+
+        
+            
