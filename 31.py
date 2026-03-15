@@ -102,3 +102,10 @@ class MemoryGame:
 
         self.difficulty = tk.StringVar(value='4x4')
         
+        difficulties = [('4x4 (Easy)', '4x4'), ('4x6 (Medium)', '4x6'), ('4x8 (Hard)', '4x8')]
+        for text, value in difficulties:
+            tk.Radiobutton(
+                diff_frame,
+                text=text,
+                variable=self.difficulty,
+                value=value,
