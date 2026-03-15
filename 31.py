@@ -56,3 +56,8 @@ class MemoryGame:
             font=('Arial', 11, 'bold'),
             bg='white',
             fg='#666'
+        ).pack()
+
+        self.moves_label = tk.Label(
+            moves_container,
+            text="0",
