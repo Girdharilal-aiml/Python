@@ -161,5 +161,24 @@ class Pong:
         self.root.bind('<Up>', lambda e: self.move_paddle2('up'))
         self.root.bind('<Down>', lambda e: self.move_paddle2('down'))
         
+        # Allow continuous movement
+        self.keys_pressed = {'w': False, 's': False, 'up': False, 'down': False}
+        self.root.bind('<KeyPress-w>', lambda e: self.key_press('w'))
+        self.root.bind('<KeyPress-W>', lambda e: self.key_press('w'))
+        self.root.bind('<KeyPress-s>', lambda e: self.key_press('s'))
+        self.root.bind('<KeyPress-S>', lambda e: self.key_press('s'))
+        self.root.bind('<KeyRelease-w>', lambda e: self.key_release('w'))
+        self.root.bind('<KeyRelease-W>', lambda e: self.key_release('w'))
+        self.root.bind('<KeyRelease-s>', lambda e: self.key_release('s'))
+        self.root.bind('<KeyRelease-S>', lambda e: self.key_release('s'))
+        self.root.bind('<KeyPress-Up>', lambda e: self.key_press('up'))
+        self.root.bind('<KeyPress-Down>', lambda e: self.key_press('down'))
+        self.root.bind('<KeyRelease-Up>', lambda e: self.key_release('up'))
+        self.root.bind('<KeyRelease-Down>', lambda e: self.key_release('down'))
+
+        # Initialize game objects
+        self.paddle1 = None
+        self.paddle2 = None
+        self.ball = None
         
         
