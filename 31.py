@@ -209,4 +209,26 @@ class MemoryGame:
         # Ignore if already flipped or matched
         if index in self.flipped or index in self.matched:
             return
+
+        # Ignore if 2 cards already flipped
+        if len(self.flipped) >= 2:
+            return
+
+        # Flip the card
+        self.flipped.append(index)
+        self.card_buttons[index].config(
+            text=self.cards[index],
+            bg='white',
+            state='disabled'
+        )
+
+        # Check if 2 cards are flipped
+        if len(self.flipped) == 2:
+            self.moves += 1
+            self.moves_label.config(text=str(self.moves))
+            self.root.after(1000, self.check_match)
+
+    def check_match(self):
+        idx1, idx2 = self.flipped
+
             
