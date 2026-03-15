@@ -109,3 +109,9 @@ class MemoryGame:
                 text=text,
                 variable=self.difficulty,
                 value=value,
+                font=('Arial', 10),
+                bg='white',
+                fg='#333',
+                selectcolor='white',
+                command=self.change_difficulty
+            ).pack(side=tk.LEFT, padx=5)
