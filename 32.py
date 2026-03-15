@@ -52,3 +52,12 @@ class Pong:
             bg='#f5f5f5',
             fg='#2196F3'
         )
+        self.p1_score_label.pack(side=tk.LEFT, padx=50)
+
+        tk.Label(
+            score_frame,
+            text="🏓",
+            font=('Arial', 24),
+            bg='#f5f5f5'
+        ).pack(side=tk.LEFT, padx=20)
+
