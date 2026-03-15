@@ -41,3 +41,14 @@ class Pong:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        # Scores
+        score_frame = tk.Frame(header, bg='#f5f5f5')
+        score_frame.pack(expand=True)
+
+        self.p1_score_label = tk.Label(
+            score_frame,
+            text="0",
+            font=('Arial', 28, 'bold'),
+            bg='#f5f5f5',
+            fg='#2196F3'
+        )
