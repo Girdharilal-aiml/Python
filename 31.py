@@ -83,3 +83,8 @@ class MemoryGame:
             pairs_container,
             text="0 / 8",
             font=('Arial', 20, 'bold'),
+            bg='white',
+            fg='#4CAF50'
+        )
+        self.pairs_label.pack()
+
