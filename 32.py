@@ -198,5 +198,10 @@ class Pong:
             self.ai_btn.config(bg='#e0e0e0', fg='#333')
             self.two_player_btn.config(bg='#4CAF50', fg='white')
             self.controls_label.config(text="Player 1: W/S  |  Player 2: ↑/↓")
+
+    def initialize_game(self):
+        """Initialize game after window is ready"""
+        self.update_canvas_size()
+        self.setup_game()
         
         
