@@ -231,4 +231,49 @@ class MemoryGame:
     def check_match(self):
         idx1, idx2 = self.flipped
 
+        if self.cards[idx1] == self.cards[idx2]:
+            # Match found!
+            self.matched.extend(self.flipped)
+            self.pairs_found += 1
             
+            # Get total pairs
+            diff = self.difficulty.get()
+            total_pairs = 8 if diff == '4x4' else (12 if diff == '4x6' else 16)
+            
+            self.pairs_label.config(text=f"{self.pairs_found} / {total_pairs}")
+            
+            # Keep cards face up, change color
+            for idx in self.flipped:
+                self.card_buttons[idx].config(bg='#4CAF50')
+            
+            # Check if game is won
+            if self.pairs_found == total_pairs:
+                self.win_game()
+        else:
+            # No match - flip back
+            for idx in self.flipped:
+                self.card_buttons[idx].config(
+                    text="?",
+                    bg='#2196F3',
+                    state='normal'
+                )
+
+        # Clear flipped list
+        self.flipped = []
+
+    def win_game(self):
+        self.game_active = False
+        
+        # Show win message
+        message = f"🎉 Congratulations!\n\nYou won in {self.moves} moves!"
+        
+        if messagebox.askyesno("You Win!", message + "\n\nPlay again?"):
+            self.new_game()
+
+def main():
+    root = tk.Tk()
+    game = MemoryGame(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
