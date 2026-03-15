@@ -181,4 +181,13 @@ class Pong:
         self.paddle2 = None
         self.ball = None
         
+        # Update canvas size after window is ready
+        self.root.after(100, self.initialize_game)
+
+    def set_mode(self, mode):
+        if self.game_running:
+            return
+        
+        self.game_mode = mode
+        
         
