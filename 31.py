@@ -20,3 +20,8 @@ class MemoryGame:
         self.cards = []
         self.card_buttons = []
         self.flipped = []
+        self.matched = []
+        self.moves = 0
+        self.pairs_found = 0
+        self.game_active = False
+
