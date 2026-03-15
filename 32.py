@@ -203,5 +203,12 @@ class Pong:
         """Initialize game after window is ready"""
         self.update_canvas_size()
         self.setup_game()
+    
+    def on_resize(self, event):
+        """Handle window resize"""
+        if event.width != self.canvas_width or event.height != self.canvas_height:
+            self.update_canvas_size()
+            if self.paddle1 and self.paddle2 and self.ball:
+                self.reposition_game_elements()
         
         
