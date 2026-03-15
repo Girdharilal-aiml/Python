@@ -145,3 +145,8 @@ class MemoryGame:
             if messagebox.askyesno("Change Difficulty", "Start a new game with new difficulty?"):
                 self.new_game()
 
+    def new_game(self):
+        # Clear board
+        for widget in self.board_frame.winfo_children():
+            widget.destroy()
+
