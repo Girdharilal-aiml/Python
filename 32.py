@@ -293,5 +293,16 @@ class Pong:
                 self.canvas_height // 2 + self.paddle_height // 2
             )
 
+        # Create or update ball
+        ball_x = self.canvas_width // 2
+        ball_y = self.canvas_height // 2
+
+        if self.ball is None:
+            self.ball = self.canvas.create_oval(
+                ball_x - self.ball_size, ball_y - self.ball_size,
+                ball_x + self.ball_size, ball_y + self.ball_size,
+                fill='white',
+                outline=''
+            )
         
         
