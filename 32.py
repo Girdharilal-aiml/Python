@@ -142,5 +142,15 @@ class Pong:
             pady=8
         )
         self.start_btn.pack(side=tk.RIGHT, padx=20, pady=5)
+
+        # Controls label
+        self.controls_label = tk.Label(
+            controls,
+            text="Player 1: W/S  |  AI: Auto",
+            font=('Arial', 9),
+            bg='white',
+            fg='#666'
+        )
+        self.controls_label.pack(side=tk.RIGHT, padx=10)
         
         
