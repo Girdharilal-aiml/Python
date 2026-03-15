@@ -67,3 +67,9 @@ class MemoryGame:
         )
         self.moves_label.pack()
 
+        # Pairs
+        pairs_container = tk.Frame(score_frame, bg='white')
+        pairs_container.pack(side=tk.LEFT, padx=20)
+
+        tk.Label(
+            pairs_container,
