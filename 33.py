@@ -143,4 +143,11 @@ class SnakeGame:
             self.canvas_height // 2,
             text=text,
             font=('Arial', 24, 'bold'),
+            fill='white',
+            tags='message'
+        )
+
+    def new_game(self):
+        # Reset snake
+        start_x = self.grid_size // 2
         
