@@ -168,3 +168,9 @@ class SnakeGame:
         # Reset speed
         self.speed = 150
         
+        # Clear canvas
+        self.canvas.delete('all')
+        self.draw_grid()
+        
+        # Spawn food
+        self.spawn_food()
