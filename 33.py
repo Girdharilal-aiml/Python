@@ -107,4 +107,11 @@ class SnakeGame:
             fg='#666'
         ).pack(pady=5)
 
+        # Bind keys
+        self.root.bind('<Up>', lambda e: self.change_direction('Up'))
+        self.root.bind('<Down>', lambda e: self.change_direction('Down'))
+        self.root.bind('<Left>', lambda e: self.change_direction('Left'))
+        self.root.bind('<Right>', lambda e: self.change_direction('Right'))
+        self.root.bind('<w>', lambda e: self.change_direction('Up'))
+        self.root.bind('<s>', lambda e: self.change_direction('Down'))
         
