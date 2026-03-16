@@ -136,4 +136,11 @@ class SnakeGame:
                 width=1
             )
 
+    def show_message(self, text):
+        self.canvas.delete('message')
+        self.canvas.create_text(
+            self.canvas_width // 2,
+            self.canvas_height // 2,
+            text=text,
+            font=('Arial', 24, 'bold'),
         
