@@ -89,4 +89,16 @@ class SnakeGame:
             height=self.canvas_height,
             bg='#1a1a2e',
             highlightthickness=0
+        )
+        self.canvas.pack()
+
+        # Draw grid
+        self.draw_grid()
+
+        # Controls
+        controls = tk.Frame(root, bg='white', height=30)
+        controls.pack(fill=tk.X)
+
+        tk.Label(
+            controls,
         
