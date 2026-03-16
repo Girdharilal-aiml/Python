@@ -64,4 +64,8 @@ class SnakeGame:
         # High score
         high_score_container = tk.Frame(score_frame, bg='#f5f5f5')
         high_score_container.pack(side=tk.LEFT, padx=30)
+
+        tk.Label(
+            high_score_container,
+            text="HIGH SCORE:",
         
