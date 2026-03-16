@@ -257,3 +257,72 @@ class SnakeGame:
         if not self.game_running:
             return
 
+        # Update direction
+        self.direction = self.next_direction
+
+        # Get head position
+        head_x, head_y = self.snake[0]
+
+        # Calculate new head position
+        if self.direction == 'Up':
+            new_head = (head_x, head_y - 1)
+        elif self.direction == 'Down':
+            new_head = (head_x, head_y + 1)
+        elif self.direction == 'Left':
+            new_head = (head_x - 1, head_y)
+        else:  # Right
+            new_head = (head_x + 1, head_y)
+
+        # Check wall collision
+        if (new_head[0] < 0 or new_head[0] >= self.grid_size or
+            new_head[1] < 0 or new_head[1] >= self.grid_size):
+            self.game_over()
+            return
+
+        # Check self collision
+        if new_head in self.snake:
+            self.game_over()
+            return
+
+        # Add new head
+        self.snake.insert(0, new_head)
+
+        # Check food collision
+        if new_head == self.food:
+            self.score += 10
+            self.score_label.config(text=str(self.score))
+            
+            # Update high score
+            if self.score > self.high_score:
+                self.high_score = self.score
+                self.high_score_label.config(text=str(self.high_score))
+            
+            # Increase speed
+            self.speed = max(50, self.speed - 5)
+            
+            # Spawn new food
+            self.spawn_food()
+        else:
+            # Remove tail
+            self.snake.pop()
+
+        # Redraw
+        self.draw_snake()
+
+        # Continue game loop
+        self.root.after(self.speed, self.move_snake)
+
+    def game_over(self):
+        self.game_running = False
+        self.snake = []
+        
+        message = f"GAME OVER!\n\nScore: {self.score}\nHigh Score: {self.high_score}\n\nPress SPACE to play again"
+        self.show_message(message)
+
+def main():
+    root = tk.Tk()
+    game = SnakeGame(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
