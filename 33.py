@@ -59,4 +59,9 @@ class SnakeGame:
             bg='#f5f5f5',
             fg='#4CAF50'
         )
+        self.score_label.pack()
+
+        # High score
+        high_score_container = tk.Frame(score_frame, bg='#f5f5f5')
+        high_score_container.pack(side=tk.LEFT, padx=30)
         
