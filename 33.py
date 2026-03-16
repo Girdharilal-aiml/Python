@@ -216,3 +216,7 @@ class SnakeGame:
                 color = '#388E3C'
                 outline = '#4CAF50'
             
+            self.canvas.create_rectangle(
+                x * self.cell_size + 2,
+                y * self.cell_size + 2,
+                (x + 1) * self.cell_size - 2,
