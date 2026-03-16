@@ -161,3 +161,10 @@ class SnakeGame:
         self.direction = 'Right'
         self.next_direction = 'Right'
         
+        # Reset score
+        self.score = 0
+        self.score_label.config(text="0")
+        
+        # Reset speed
+        self.speed = 150
+        
