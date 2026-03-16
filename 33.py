@@ -197,3 +197,10 @@ class SnakeGame:
             self.food[0] * self.cell_size + 2,
             self.food[1] * self.cell_size + 2,
             (self.food[0] + 1) * self.cell_size - 2,
+            (self.food[1] + 1) * self.cell_size - 2,
+            fill='#f44336',
+            outline='#ff5252',
+            width=2,
+            tags='food'
+        )
+
