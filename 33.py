@@ -129,4 +129,11 @@ class SnakeGame:
                 fill='#2a2a3e',
                 width=1
             )
+        for i in range(0, self.canvas_height, self.cell_size):
+            self.canvas.create_line(
+                0, i, self.canvas_width, i,
+                fill='#2a2a3e',
+                width=1
+            )
+
         
