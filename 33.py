@@ -18,6 +18,19 @@ class SnakeGame:
         # Game settings
         self.canvas_width = 600
         self.canvas_height = 600
+        self.grid_size = 20
+        self.cell_size = self.canvas_width // self.grid_size
+        
+        # Game state
+        self.snake = []
+        self.direction = 'Right'
+        self.next_direction = 'Right'
+        self.food = None
+        self.score = 0
+        self.high_score = 0
+        self.game_running = False
+        self.speed = 150  # milliseconds
+
 
 
         
