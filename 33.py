@@ -121,4 +121,12 @@ class SnakeGame:
         # Show start message
         self.show_message("Press SPACE to start")
 
+    def draw_grid(self):
+        # Draw light grid lines
+        for i in range(0, self.canvas_width, self.cell_size):
+            self.canvas.create_line(
+                i, 0, i, self.canvas_height,
+                fill='#2a2a3e',
+                width=1
+            )
         
