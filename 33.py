@@ -82,4 +82,11 @@ class SnakeGame:
         )
         self.high_score_label.pack()
 
+        # Canvas
+        self.canvas = tk.Canvas(
+            root,
+            width=self.canvas_width,
+            height=self.canvas_height,
+            bg='#1a1a2e',
+            highlightthickness=0
         
