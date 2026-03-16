@@ -68,4 +68,11 @@ class SnakeGame:
         tk.Label(
             high_score_container,
             text="HIGH SCORE:",
+            font=('Arial', 11, 'bold'),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack()
+
+        self.high_score_label = tk.Label(
+            high_score_container,
         
