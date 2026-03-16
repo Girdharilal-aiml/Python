@@ -36,5 +36,8 @@ class SnakeGame:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        # Score display
+        score_frame = tk.Frame(header, bg='#f5f5f5')
+        score_frame.pack(expand=True)
 
         
