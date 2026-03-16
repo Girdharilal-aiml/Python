@@ -11,3 +11,13 @@ class SnakeGame:
     def __init__(self, root):
         self.root = root
         self.root.title("Snake Game")
+        self.root.geometry("600x700")
+        self.root.configure(bg='white')
+        self.root.resizable(False, False)
+
+        # Game settings
+        self.canvas_width = 600
+        self.canvas_height = 600
+
+
+        
