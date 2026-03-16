@@ -40,4 +40,8 @@ class SnakeGame:
         score_frame = tk.Frame(header, bg='#f5f5f5')
         score_frame.pack(expand=True)
 
+        # Current score
+        score_container = tk.Frame(score_frame, bg='#f5f5f5')
+        score_container.pack(side=tk.LEFT, padx=30)
+
         
