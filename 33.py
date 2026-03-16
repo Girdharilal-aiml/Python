@@ -235,3 +235,25 @@ class SnakeGame:
             'Left': 'Right',
             'Right': 'Left'
         }
+        
+        if opposites[new_direction] != self.direction:
+            self.next_direction = new_direction
+
+    def toggle_pause(self):
+        if not self.game_running and not self.snake:
+            # Start new game
+            self.new_game()
+        elif self.game_running:
+            # Pause
+            self.game_running = False
+            self.show_message("PAUSED\nPress SPACE to resume")
+        else:
+            # Resume
+            self.game_running = True
+            self.canvas.delete('message')
+            self.move_snake()
+
+    def move_snake(self):
+        if not self.game_running:
+            return
+
