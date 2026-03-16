@@ -150,4 +150,10 @@ class SnakeGame:
     def new_game(self):
         # Reset snake
         start_x = self.grid_size // 2
+        start_y = self.grid_size // 2
+        self.snake = [
+            (start_x, start_y),
+            (start_x - 1, start_y),
+            (start_x - 2, start_y)
+        ]
         
