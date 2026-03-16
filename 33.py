@@ -157,3 +157,7 @@ class SnakeGame:
             (start_x - 2, start_y)
         ]
         
+        # Reset direction
+        self.direction = 'Right'
+        self.next_direction = 'Right'
+        
