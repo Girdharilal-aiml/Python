@@ -52,4 +52,11 @@ class SnakeGame:
             fg='#666'
         ).pack()
 
+        self.score_label = tk.Label(
+            score_container,
+            text="0",
+            font=('Arial', 24, 'bold'),
+            bg='#f5f5f5',
+            fg='#4CAF50'
+        )
         
