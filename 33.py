@@ -220,3 +220,18 @@ class SnakeGame:
                 x * self.cell_size + 2,
                 y * self.cell_size + 2,
                 (x + 1) * self.cell_size - 2,
+                (y + 1) * self.cell_size - 2,
+                fill=color,
+                outline=outline,
+                width=2,
+                tags='snake'
+            )
+
+    def change_direction(self, new_direction):
+        # Prevent reversing
+        opposites = {
+            'Up': 'Down',
+            'Down': 'Up',
+            'Left': 'Right',
+            'Right': 'Left'
+        }
