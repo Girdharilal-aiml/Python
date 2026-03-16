@@ -204,3 +204,15 @@ class SnakeGame:
             tags='food'
         )
 
+    def draw_snake(self):
+        self.canvas.delete('snake')
+        
+        for i, (x, y) in enumerate(self.snake):
+            # Head is brighter
+            if i == 0:
+                color = '#4CAF50'
+                outline = '#66BB6A'
+            else:
+                color = '#388E3C'
+                outline = '#4CAF50'
+            
