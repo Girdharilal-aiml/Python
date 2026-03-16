@@ -174,3 +174,11 @@ class SnakeGame:
         
         # Spawn food
         self.spawn_food()
+        
+        # Draw snake
+        self.draw_snake()
+        
+        # Start game
+        self.game_running = True
+        self.move_snake()
+
