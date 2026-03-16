@@ -101,4 +101,10 @@ class SnakeGame:
 
         tk.Label(
             controls,
+            text="Controls: Arrow Keys or WASD  |  Press SPACE to start/pause",
+            font=('Arial', 10),
+            bg='white',
+            fg='#666'
+        ).pack(pady=5)
+
         
