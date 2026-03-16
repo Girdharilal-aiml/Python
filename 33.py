@@ -182,3 +182,18 @@ class SnakeGame:
         self.game_running = True
         self.move_snake()
 
+    def spawn_food(self):
+        while True:
+            x = random.randint(0, self.grid_size - 1)
+            y = random.randint(0, self.grid_size - 1)
+            
+            if (x, y) not in self.snake:
+                self.food = (x, y)
+                break
+        
+        # Draw food
+        self.canvas.delete('food')
+        self.canvas.create_oval(
+            self.food[0] * self.cell_size + 2,
+            self.food[1] * self.cell_size + 2,
+            (self.food[0] + 1) * self.cell_size - 2,
