@@ -114,4 +114,11 @@ class SnakeGame:
         self.root.bind('<Right>', lambda e: self.change_direction('Right'))
         self.root.bind('<w>', lambda e: self.change_direction('Up'))
         self.root.bind('<s>', lambda e: self.change_direction('Down'))
+        self.root.bind('<a>', lambda e: self.change_direction('Left'))
+        self.root.bind('<d>', lambda e: self.change_direction('Right'))
+        self.root.bind('<space>', lambda e: self.toggle_pause())
+
+        # Show start message
+        self.show_message("Press SPACE to start")
+
         
