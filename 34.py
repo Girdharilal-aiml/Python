@@ -43,3 +43,12 @@ class FileSearchTool:
         # Path selection
         path_frame = tk.Frame(search_frame, bg='#f5f5f5')
         path_frame.pack(fill=tk.X, pady=(0, 10))
+
+        tk.Label(
+            path_frame,
+            text="Search in:",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=(0, 10))
+
