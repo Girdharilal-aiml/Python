@@ -178,3 +178,13 @@ class FileSearchTool:
         # Results list
         results_frame = tk.Frame(main_container, bg='white')
         results_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        tk.Label(
+            results_frame,
+            text="Results:",
+            font=('Arial', 11, 'bold'),
+            bg='white',
+            fg='#333',
+            anchor='w'
+        ).pack(fill=tk.X, pady=(0, 5))
+
