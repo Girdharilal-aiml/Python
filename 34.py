@@ -87,3 +87,14 @@ class FileSearchTool:
             bg='#f5f5f5',
             fg='#333'
         ).pack(side=tk.LEFT, padx=(0, 10))
+
+        self.search_entry = tk.Entry(
+            input_frame,
+            font=('Arial', 12),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1
+        )
+        self.search_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=8)
+        self.search_entry.bind('<Return>', lambda e: self.search_files())
