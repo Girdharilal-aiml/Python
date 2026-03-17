@@ -62,3 +62,21 @@ class FileSearchTool:
         )
         self.path_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=5)
         self.path_entry.insert(0, self.search_path)
+
+        tk.Button(
+            path_frame,
+            text="Browse",
+            command=self.browse_path,
+            font=('Arial', 10, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=15,
+            pady=5
+        ).pack(side=tk.LEFT, padx=(10, 0))
+
+        # Search input
+        input_frame = tk.Frame(search_frame, bg='#f5f5f5')
+        input_frame.pack(fill=tk.X)
+
