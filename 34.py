@@ -27,3 +27,11 @@ class FileSearchTool:
         header = tk.Frame(root, bg='#2196F3', height=70)
         header.pack(fill=tk.X)
         header.pack_propagate(False)
+
+        tk.Label(
+            header,
+            text="🔍 File Search Tool",
+            font=('Arial', 24, 'bold'),
+            bg='#2196F3',
+            fg='white'
+        ).pack(pady=18)
