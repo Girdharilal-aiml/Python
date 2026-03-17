@@ -158,3 +158,15 @@ class FileSearchTool:
             fg='#333',
             selectcolor='white'
         ).pack(side=tk.LEFT, padx=(0, 15))
+
+        # Search in subdirectories
+        self.search_subdirs = tk.BooleanVar(value=True)
+        tk.Checkbutton(
+            filter_frame,
+            text="Include subdirectories",
+            variable=self.search_subdirs,
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#333',
+            selectcolor='white'
+        ).pack(side=tk.LEFT)
