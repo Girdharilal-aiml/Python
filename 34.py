@@ -52,3 +52,13 @@ class FileSearchTool:
             fg='#333'
         ).pack(side=tk.LEFT, padx=(0, 10))
 
+        self.path_entry = tk.Entry(
+            path_frame,
+            font=('Arial', 10),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1
+        )
+        self.path_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=5)
+        self.path_entry.insert(0, self.search_path)
