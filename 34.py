@@ -409,3 +409,46 @@ class FileSearchTool:
             info += f"Size: {size_str}\n\n"
             info += f"Type: {os.path.splitext(filepath)[1] or 'No extension'}\n\n"
             
+            import time
+            modified = time.ctime(stats.st_mtime)
+            info += f"Modified: {modified}\n\n"
+
+            # Display info
+            self.info_text.config(state='normal')
+            self.info_text.delete('1.0', tk.END)
+            self.info_text.insert('1.0', info)
+            self.info_text.config(state='disabled')
+
+        except Exception as e:
+            self.info_text.config(state='normal')
+            self.info_text.delete('1.0', tk.END)
+            self.info_text.insert('1.0', f"Error getting file info:\n{str(e)}")
+            self.info_text.config(state='disabled')
+
+    def open_file(self, event=None):
+        selection = self.results_listbox.curselection()
+        if not selection:
+            messagebox.showwarning("No Selection", "Please select a file first!")
+            return
+
+        filepath = self.results[selection[0]]
+        
+        try:
+            if sys.platform == 'win32':
+                os.startfile(filepath)
+            elif sys.platform == 'darwin':
+                subprocess.call(['open', filepath])
+            else:
+                subprocess.call(['xdg-open', filepath])
+        except Exception as e:
+            messagebox.showerror("Error", f"Cannot open file:\n{str(e)}")
+
+    def open_location(self):
+        selection = self.results_listbox.curselection()
+        if not selection:
+            messagebox.showwarning("No Selection", "Please select a file first!")
+            return
+
+        filepath = self.results[selection[0]]
+        folder = os.path.dirname(filepath)
+        
