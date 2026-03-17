@@ -112,3 +112,6 @@ class FileSearchTool:
             pady=8
         ).pack(side=tk.LEFT, padx=(10, 0))
 
+        # Filters
+        filter_frame = tk.Frame(root, bg='#f5f5f5')
+        filter_frame.pack(fill=tk.X, padx=20, pady=(0, 10))
