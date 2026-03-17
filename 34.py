@@ -227,3 +227,16 @@ class FileSearchTool:
         # Info text
         info_scroll = tk.Scrollbar(info_frame)
         info_scroll.pack(side=tk.RIGHT, fill=tk.Y, padx=(0, 5))
+
+        self.info_text = tk.Text(
+            info_frame,
+            font=('Arial', 9),
+            bg='white',
+            fg='#333',
+            wrap=tk.WORD,
+            bd=0,
+            padx=10,
+            pady=10,
+            state='disabled',
+            yscrollcommand=info_scroll.set
+        )
