@@ -115,3 +115,11 @@ class FileSearchTool:
         # Filters
         filter_frame = tk.Frame(root, bg='#f5f5f5')
         filter_frame.pack(fill=tk.X, padx=20, pady=(0, 10))
+
+        tk.Label(
+            filter_frame,
+            text="Filters:",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=(0, 15))
