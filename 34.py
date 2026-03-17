@@ -19,3 +19,11 @@ class FileSearchTool:
         self.root.resizable(True, True)
         self.root.minsize(800, 600)
 
+        # Search state
+        self.search_path = str(Path.home())
+        self.results = []
+
+        # Header
+        header = tk.Frame(root, bg='#2196F3', height=70)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
