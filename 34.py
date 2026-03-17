@@ -334,3 +334,42 @@ class FileSearchTool:
         case_sensitive = self.case_sensitive.get()
         search_subdirs = self.search_subdirs.get()
 
+        # Search
+        try:
+            count = 0
+            search_pattern = search_term if case_sensitive else search_term.lower()
+
+            if search_subdirs:
+                # Search recursively
+                for root, dirs, files in os.walk(search_path):
+                    for filename in files:
+                        # Check filename match
+                        check_name = filename if case_sensitive else filename.lower()
+                        if search_pattern in check_name:
+                            # Check file type filter
+                            if file_type != 'All':
+                                extensions = self.get_file_extensions(file_type)
+                                if not any(filename.lower().endswith(ext) for ext in extensions):
+                                    continue
+                            
+                            filepath = os.path.join(root, filename)
+                            self.results.append(filepath)
+                            self.results_listbox.insert(tk.END, filepath)
+                            count += 1
+            else:
+                # Search only in specified directory
+                try:
+                    for filename in os.listdir(search_path):
+                        filepath = os.path.join(search_path, filename)
+                        if os.path.isfile(filepath):
+                            check_name = filename if case_sensitive else filename.lower()
+                            if search_pattern in check_name:
+                                # Check file type filter
+                                if file_type != 'All':
+                                    extensions = self.get_file_extensions(file_type)
+                                    if not any(filename.lower().endswith(ext) for ext in extensions):
+                                        continue
+                                
+                                self.results.append(filepath)
+                                self.results_listbox.insert(tk.END, filepath)
+                                count += 1
