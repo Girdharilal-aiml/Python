@@ -259,3 +259,15 @@ class FileSearchTool:
             pady=5
         ).pack(fill=tk.X, pady=2)
 
+        tk.Button(
+            btn_frame,
+            text="Open Location",
+            command=self.open_location,
+            font=('Arial', 9, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=5
+        ).pack(fill=tk.X, pady=2)
+
