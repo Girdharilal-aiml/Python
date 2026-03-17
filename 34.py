@@ -271,3 +271,14 @@ class FileSearchTool:
             pady=5
         ).pack(fill=tk.X, pady=2)
 
+        tk.Button(
+            btn_frame,
+            text="Copy Path",
+            command=self.copy_path,
+            font=('Arial', 9, 'bold'),
+            bg='#FF9800',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=5
+        ).pack(fill=tk.X, pady=2)
