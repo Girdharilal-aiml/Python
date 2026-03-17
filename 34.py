@@ -240,3 +240,22 @@ class FileSearchTool:
             state='disabled',
             yscrollcommand=info_scroll.set
         )
+        self.info_text.pack(fill=tk.BOTH, expand=True, padx=5, pady=(0, 10))
+        info_scroll.config(command=self.info_text.yview)
+
+        # Action buttons
+        btn_frame = tk.Frame(info_frame, bg='#f5f5f5')
+        btn_frame.pack(fill=tk.X, padx=10, pady=10)
+
+        tk.Button(
+            btn_frame,
+            text="Open File",
+            command=self.open_file,
+            font=('Arial', 9, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=5
+        ).pack(fill=tk.X, pady=2)
+
