@@ -216,3 +216,14 @@ class FileSearchTool:
         info_frame.pack(side=tk.RIGHT, fill=tk.Y, padx=(10, 0))
         info_frame.pack_propagate(False)
 
+        tk.Label(
+            info_frame,
+            text="File Info",
+            font=('Arial', 12, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(pady=15)
+
+        # Info text
+        info_scroll = tk.Scrollbar(info_frame)
+        info_scroll.pack(side=tk.RIGHT, fill=tk.Y, padx=(0, 5))
