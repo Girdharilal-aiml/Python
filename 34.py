@@ -312,4 +312,25 @@ class FileSearchTool:
         }
         return extensions.get(file_type, [])
 
+    def search_files(self):
+        search_term = self.search_entry.get().strip()
+        if not search_term:
+            messagebox.showwarning("Empty Search", "Please enter a filename to search!")
+            return
+
+        search_path = self.path_entry.get().strip()
+        if not os.path.exists(search_path):
+            messagebox.showerror("Invalid Path", "The search path does not exist!")
+            return
+
+        # Clear previous results
+        self.results_listbox.delete(0, tk.END)
+        self.results = []
+        self.status_label.config(text="Searching...")
+        self.root.update()
+
+        # Get filters
+        file_type = self.file_type.get()
+        case_sensitive = self.case_sensitive.get()
+        search_subdirs = self.search_subdirs.get()
 
