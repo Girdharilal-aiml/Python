@@ -98,3 +98,17 @@ class FileSearchTool:
         )
         self.search_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=8)
         self.search_entry.bind('<Return>', lambda e: self.search_files())
+
+        tk.Button(
+            input_frame,
+            text="🔍 SEARCH",
+            command=self.search_files,
+            font=('Arial', 12, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=20,
+            pady=8
+        ).pack(side=tk.LEFT, padx=(10, 0))
+
