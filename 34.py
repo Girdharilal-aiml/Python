@@ -301,3 +301,15 @@ class FileSearchTool:
             self.search_path = path
             self.path_entry.delete(0, tk.END)
             self.path_entry.insert(0, path)
+
+    def get_file_extensions(self, file_type):
+        extensions = {
+            'Documents': ['.pdf', '.doc', '.docx', '.txt', '.rtf', '.odt'],
+            'Images': ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'],
+            'Videos': ['.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv'],
+            'Audio': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a'],
+            'Code': ['.py', '.js', '.html', '.css', '.java', '.cpp', '.c', '.php']
+        }
+        return extensions.get(file_type, [])
+
+
