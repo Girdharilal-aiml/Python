@@ -35,3 +35,11 @@ class FileSearchTool:
             bg='#2196F3',
             fg='white'
         ).pack(pady=18)
+
+        # Search controls
+        search_frame = tk.Frame(root, bg='#f5f5f5')
+        search_frame.pack(fill=tk.X, padx=20, pady=15)
+
+        # Path selection
+        path_frame = tk.Frame(search_frame, bg='#f5f5f5')
+        path_frame.pack(fill=tk.X, pady=(0, 10))
