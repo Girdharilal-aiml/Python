@@ -452,3 +452,31 @@ class FileSearchTool:
         filepath = self.results[selection[0]]
         folder = os.path.dirname(filepath)
         
+        try:
+            if sys.platform == 'win32':
+                os.startfile(folder)
+            elif sys.platform == 'darwin':
+                subprocess.call(['open', folder])
+            else:
+                subprocess.call(['xdg-open', folder])
+        except Exception as e:
+            messagebox.showerror("Error", f"Cannot open location:\n{str(e)}")
+
+    def copy_path(self):
+        selection = self.results_listbox.curselection()
+        if not selection:
+            messagebox.showwarning("No Selection", "Please select a file first!")
+            return
+
+        filepath = self.results[selection[0]]
+        self.root.clipboard_clear()
+        self.root.clipboard_append(filepath)
+        self.status_label.config(text="Path copied to clipboard!")
+
+def main():
+    root = tk.Tk()
+    app = FileSearchTool(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
