@@ -80,3 +80,10 @@ class FileSearchTool:
         input_frame = tk.Frame(search_frame, bg='#f5f5f5')
         input_frame.pack(fill=tk.X)
 
+        tk.Label(
+            input_frame,
+            text="Filename:",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5f5',
+            fg='#333'
+        ).pack(side=tk.LEFT, padx=(0, 10))
