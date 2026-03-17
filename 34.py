@@ -295,3 +295,9 @@ class FileSearchTool:
         )
         self.status_label.pack(fill=tk.X, side=tk.BOTTOM)
 
+    def browse_path(self):
+        path = filedialog.askdirectory(initialdir=self.search_path)
+        if path:
+            self.search_path = path
+            self.path_entry.delete(0, tk.END)
+            self.path_entry.insert(0, path)
