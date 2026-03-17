@@ -373,3 +373,39 @@ class FileSearchTool:
                                 self.results.append(filepath)
                                 self.results_listbox.insert(tk.END, filepath)
                                 count += 1
+                except PermissionError:
+                    pass
+
+            self.status_label.config(text=f"Found {count} file(s)")
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Search failed:\n{str(e)}")
+            self.status_label.config(text="Search failed")
+
+    def show_file_info(self, event=None):
+        selection = self.results_listbox.curselection()
+        if not selection:
+            return
+
+        filepath = self.results[selection[0]]
+        
+        try:
+            stats = os.stat(filepath)
+            size = stats.st_size
+            
+            # Format size
+            if size < 1024:
+                size_str = f"{size} bytes"
+            elif size < 1024 * 1024:
+                size_str = f"{size / 1024:.2f} KB"
+            elif size < 1024 * 1024 * 1024:
+                size_str = f"{size / (1024 * 1024):.2f} MB"
+            else:
+                size_str = f"{size / (1024 * 1024 * 1024):.2f} GB"
+
+            # Get file info
+            info = f"Name: {os.path.basename(filepath)}\n\n"
+            info += f"Path: {filepath}\n\n"
+            info += f"Size: {size_str}\n\n"
+            info += f"Type: {os.path.splitext(filepath)[1] or 'No extension'}\n\n"
+            
