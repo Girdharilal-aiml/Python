@@ -135,3 +135,15 @@ class FileSearchTool:
 
         self.file_type = tk.StringVar(value='All')
         types = ['All', 'Documents', 'Images', 'Videos', 'Audio', 'Code']
+        
+        type_menu = tk.OptionMenu(filter_frame, self.file_type, *types)
+        type_menu.config(
+            font=('Arial', 9),
+            bg='white',
+            fg='#333',
+            bd=1,
+            relief=tk.SOLID,
+            cursor='hand2'
+        )
+        type_menu.pack(side=tk.LEFT, padx=(0, 15))
+
