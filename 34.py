@@ -282,3 +282,16 @@ class FileSearchTool:
             cursor='hand2',
             pady=5
         ).pack(fill=tk.X, pady=2)
+
+        # Status bar
+        self.status_label = tk.Label(
+            root,
+            text="Ready",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='w',
+            relief=tk.FLAT
+        )
+        self.status_label.pack(fill=tk.X, side=tk.BOTTOM)
+
