@@ -205,3 +205,14 @@ class FileSearchTool:
             bd=0,
             yscrollcommand=scrollbar.set
         )
+        self.results_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.results_listbox.yview)
+
+        self.results_listbox.bind('<<ListboxSelect>>', self.show_file_info)
+        self.results_listbox.bind('<Double-Button-1>', self.open_file)
+
+        # File info panel
+        info_frame = tk.Frame(main_container, bg='#f5f5f5', width=300, relief=tk.SOLID, bd=1)
+        info_frame.pack(side=tk.RIGHT, fill=tk.Y, padx=(10, 0))
+        info_frame.pack_propagate(False)
+
