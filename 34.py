@@ -188,3 +188,10 @@ class FileSearchTool:
             anchor='w'
         ).pack(fill=tk.X, pady=(0, 5))
 
+        # Listbox with scrollbar
+        list_container = tk.Frame(results_frame, bg='white', relief=tk.SOLID, bd=1)
+        list_container.pack(fill=tk.BOTH, expand=True)
+
+        scrollbar = tk.Scrollbar(list_container)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
