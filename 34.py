@@ -147,3 +147,14 @@ class FileSearchTool:
         )
         type_menu.pack(side=tk.LEFT, padx=(0, 15))
 
+        # Case sensitive
+        self.case_sensitive = tk.BooleanVar(value=False)
+        tk.Checkbutton(
+            filter_frame,
+            text="Case sensitive",
+            variable=self.case_sensitive,
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#333',
+            selectcolor='white'
+        ).pack(side=tk.LEFT, padx=(0, 15))
