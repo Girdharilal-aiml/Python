@@ -195,3 +195,13 @@ class FileSearchTool:
         scrollbar = tk.Scrollbar(list_container)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.results_listbox = tk.Listbox(
+            list_container,
+            font=('Consolas', 9),
+            bg='white',
+            fg='#333',
+            selectbackground='#2196F3',
+            selectforeground='white',
+            bd=0,
+            yscrollcommand=scrollbar.set
+        )
