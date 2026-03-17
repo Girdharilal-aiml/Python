@@ -123,3 +123,15 @@ class FileSearchTool:
             bg='#f5f5f5',
             fg='#333'
         ).pack(side=tk.LEFT, padx=(0, 15))
+
+        # File type filter
+        tk.Label(
+            filter_frame,
+            text="Type:",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666'
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
+        self.file_type = tk.StringVar(value='All')
+        types = ['All', 'Documents', 'Images', 'Videos', 'Audio', 'Code']
