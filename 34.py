@@ -170,3 +170,11 @@ class FileSearchTool:
             fg='#333',
             selectcolor='white'
         ).pack(side=tk.LEFT)
+
+        # Main container
+        main_container = tk.Frame(root, bg='white')
+        main_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 20))
+
+        # Results list
+        results_frame = tk.Frame(main_container, bg='white')
+        results_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
