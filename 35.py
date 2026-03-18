@@ -142,4 +142,12 @@ class QuestBoardApp:
             font=("Georgia", 22, "bold"),
         ).pack(side=tk.LEFT, padx=18)
 
+        self.profile_label = tk.Label(
+            header,
+            text="",
+            bg="#1f3b4d",
+            fg="#e8edf0",
+            font=("Consolas", 11, "bold"),
+        )
+        self.profile_label.pack(side=tk.RIGHT, padx=18)
 
