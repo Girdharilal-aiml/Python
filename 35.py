@@ -310,3 +310,11 @@ class QuestBoardApp:
 
         self.tree.bind("<Double-1>", self.load_selected_into_form)
 
+    def build_timer_panel(self, parent: tk.Widget) -> None:
+        panel = tk.Frame(parent, bg="#ece8dc", bd=1, relief=tk.SOLID)
+        panel.grid(row=0, column=2, sticky="nsew", padx=(12, 0))
+
+        tk.Label(panel, text="Focus Timer", bg="#ece8dc", fg="#1f3b4d", font=("Georgia", 14, "bold")).pack(
+            anchor="w", padx=12, pady=(12, 8)
+        )
+
