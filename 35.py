@@ -49,4 +49,16 @@ def next_level_cost(level: int) -> int:
     return 120 + (level - 1) * 80
 
 
+def level_from_xp(total_xp: int) -> tuple[int, int, int]:
+    level = 1
+    spent = 0
+    while True:
+        cost = next_level_cost(level)
+        if total_xp < spent + cost:
+            in_level = total_xp - spent
+            return level, in_level, cost
+        spent += cost
+        level += 1
+
+
 
