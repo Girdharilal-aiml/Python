@@ -532,4 +532,16 @@ class QuestBoardApp:
         if status_text:
             self.status_label.config(text=status_text)
 
+    def update_timer_label(self) -> None:
+        mins, secs = divmod(self.timer_remaining, 60)
+        self.timer_label.config(text=f"{mins:02d}:{secs:02d}")
+        self.timer_mode_label.config(text=f"Mode: {self.timer_mode}")
+
+    def start_timer(self) -> None:
+        if self.timer_remaining <= 0:
+            self.reset_timer()
+        if not self.timer_running:
+            self.timer_running = True
+            self.tick_timer()
+            self.status_label.config(text=f"Timer running ({self.timer_mode})")
 
