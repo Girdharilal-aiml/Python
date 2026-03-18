@@ -115,4 +115,18 @@ class QuestBoardApp:
         self.timer_mode = "Work"
         self.timer_job: str | None = None
 
+        self.title_var = tk.StringVar()
+        self.category_var = tk.StringVar(value="Study")
+        self.difficulty_var = tk.StringVar(value="Normal")
+        self.status_var = tk.StringVar(value="Open")
+        self.search_var = tk.StringVar()
+        self.filter_status_var = tk.StringVar(value="All")
+        self.filter_category_var = tk.StringVar(value="All")
+        self.work_var = tk.IntVar(value=25)
+        self.break_var = tk.IntVar(value=5)
+
+        self.build_ui()
+        self.load_state()
+        self.refresh_all()
+
 
