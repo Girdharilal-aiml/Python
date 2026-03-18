@@ -458,3 +458,60 @@ class QuestBoardApp:
         self.difficulty_var.set("Normal")
         self.status_var.set("Open")
         self.notes_text.delete("1.0", tk.END)
+
+    def load_selected_into_form(self, _event: tk.Event | None = None) -> None:
+        quest = self.get_selected_quest()
+        if not quest:
+            return
+        self.title_var.set(quest.title)
+        self.category_var.set(quest.category)
+        self.difficulty_var.set(quest.difficulty)
+        self.status_var.set(quest.status)
+        self.notes_text.delete("1.0", tk.END)
+        self.notes_text.insert("1.0", quest.notes)
+
+    def filtered_quests(self) -> list[Quest]:
+        text = self.search_var.get().strip().lower()
+        wanted_status = self.filter_status_var.get().strip()
+        wanted_category = self.filter_category_var.get().strip()
+
+        result = []
+        for quest in self.quests:
+            if wanted_status != "All" and quest.status != wanted_status:
+                continue
+            if wanted_category != "All" and quest.category != wanted_category:
+                continue
+            if text:
+                blob = f"{quest.title} {quest.notes} {quest.category} {quest.difficulty}".lower()
+                if text not in blob:
+                    continue
+            result.append(quest)
+        return result
+
+    def refresh_table(self) -> None:
+        for item in self.tree.get_children():
+            self.tree.delete(item)
+
+        for q in self.filtered_quests():
+            self.tree.insert(
+                "",
+                tk.END,
+                values=(
+                    q.quest_id,
+                    q.title,
+                    q.category,
+                    q.difficulty,
+                    q.status,
+                    q.xp,
+                    q.created_at,
+                    q.completed_at,
+                ),
+            )
+
+    def reset_filters(self) -> None:
+        self.search_var.set("")
+        self.filter_status_var.set("All")
+        self.filter_category_var.set("All")
+        self.refresh_table()
+
+
