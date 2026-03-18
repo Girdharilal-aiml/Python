@@ -207,3 +207,20 @@ class QuestBoardApp:
         self.notes_text = tk.Text(panel, height=6, font=("Segoe UI", 10), wrap="word")
         self.notes_text.pack(fill=tk.X, padx=12, pady=(2, 10))
 
+        actions = tk.Frame(panel, bg="#ece8dc")
+        actions.pack(fill=tk.X, padx=12, pady=(4, 10))
+
+        tk.Button(actions, text="Add Quest", command=self.add_quest, bg="#1c7c54", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, pady=3
+        )
+        tk.Button(
+            actions, text="Update Selected", command=self.update_selected, bg="#2a5d8f", fg="white", bd=0, padx=10, pady=7
+        ).pack(fill=tk.X, pady=3)
+        tk.Button(
+            actions, text="Mark Completed", command=self.complete_selected, bg="#b36a1f", fg="white", bd=0, padx=10, pady=7
+        ).pack(fill=tk.X, pady=3)
+        tk.Button(actions, text="Delete Selected", command=self.delete_selected, bg="#9b2d30", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, pady=3
+        )
+        tk.Button(actions, text="Clear Form", command=self.clear_form, bg="#5d5d5d", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, pady=3
