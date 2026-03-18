@@ -20,3 +20,19 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 import tkinter as tk
 from tkinter import messagebox, ttk
+
+
+DATA_FILE = Path(__file__).with_name("questboard_data.json")
+DATE_FMT = "%Y-%m-%d"
+STAMP_FMT = "%Y-%m-%d %H:%M"
+
+
+def now_stamp() -> str:
+    return datetime.now().strftime(STAMP_FMT)
+
+
+def today_str() -> str:
+    return date.today().strftime(DATE_FMT)
+
+
+
