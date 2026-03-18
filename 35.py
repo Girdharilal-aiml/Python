@@ -364,3 +364,42 @@ class QuestBoardApp:
         }
         DATA_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
+    def add_quest(self) -> None:
+        title = self.title_var.get().strip()
+        category = self.category_var.get().strip()
+        difficulty = self.difficulty_var.get().strip()
+        notes = self.notes_text.get("1.0", tk.END).strip()
+
+        if not title:
+            messagebox.showwarning("Missing Title", "Please enter a quest title.")
+            return
+
+        quest = Quest(
+            quest_id=self.next_id,
+            title=title,
+            category=category,
+            difficulty=difficulty,
+            notes=notes,
+            status=self.status_var.get(),
+            xp=xp_for_difficulty(difficulty),
+            created_at=now_stamp(),
+            completed_at="",
+        )
+        self.quests.append(quest)
+        self.next_id += 1
+        self.clear_form()
+        self.save_state()
+        self.refresh_all(status_text=f"Added quest #{quest.quest_id}")
+
+    def get_selected_quest(self) -> Quest | None:
+        selected = self.tree.selection()
+        if not selected:
+            return None
+        row = self.tree.item(selected[0], "values")
+        if not row:
+            return None
+        quest_id = int(row[0])
+        for quest in self.quests:
+            if quest.quest_id == quest_id:
+                return quest
+        return None
