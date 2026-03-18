@@ -299,3 +299,14 @@ class QuestBoardApp:
         self.tree.heading("created", text="Created")
         self.tree.heading("completed", text="Completed")
 
+        self.tree.column("id", width=45, anchor="center")
+        self.tree.column("title", width=210, anchor="w")
+        self.tree.column("cat", width=95, anchor="center")
+        self.tree.column("diff", width=90, anchor="center")
+        self.tree.column("status", width=100, anchor="center")
+        self.tree.column("xp", width=60, anchor="center")
+        self.tree.column("created", width=130, anchor="center")
+        self.tree.column("completed", width=130, anchor="center")
+
+        self.tree.bind("<Double-1>", self.load_selected_into_form)
+
