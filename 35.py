@@ -97,3 +97,11 @@ class Quest:
     completed_at: str
 
 
+class QuestBoardApp:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        self.root.title("QuestBoard Studio")
+        self.root.geometry("1240x760")
+        self.root.minsize(1000, 640)
+        self.root.configure(bg="#f3f1eb")
+
