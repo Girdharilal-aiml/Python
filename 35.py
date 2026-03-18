@@ -184,3 +184,14 @@ class QuestBoardApp:
             anchor="w", padx=12, pady=(12, 8)
         )
 
+        tk.Label(panel, text="Title", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        tk.Entry(panel, textvariable=self.title_var, width=30, font=("Segoe UI", 10)).pack(fill=tk.X, padx=12, pady=(2, 8))
+
+        tk.Label(panel, text="Category", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        ttk.Combobox(
+            panel,
+            textvariable=self.category_var,
+            values=["Study", "Work", "Health", "Code", "Creative", "Life"],
+            state="readonly",
+        ).pack(fill=tk.X, padx=12, pady=(2, 8))
+
