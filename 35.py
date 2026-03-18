@@ -318,3 +318,34 @@ class QuestBoardApp:
             anchor="w", padx=12, pady=(12, 8)
         )
 
+        tk.Label(panel, text="Work Minutes", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        tk.Spinbox(panel, from_=1, to=120, textvariable=self.work_var, width=8).pack(anchor="w", padx=12, pady=(2, 8))
+
+        tk.Label(panel, text="Break Minutes", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        tk.Spinbox(panel, from_=1, to=60, textvariable=self.break_var, width=8).pack(anchor="w", padx=12, pady=(2, 12))
+
+        self.timer_label = tk.Label(panel, text="25:00", bg="#ece8dc", fg="#1f3b4d", font=("Consolas", 30, "bold"))
+        self.timer_label.pack(padx=12, pady=10)
+
+        self.timer_mode_label = tk.Label(panel, text="Mode: Work", bg="#ece8dc", fg="#4a4a4a", font=("Segoe UI", 10, "bold"))
+        self.timer_mode_label.pack(padx=12, pady=(0, 10))
+
+        tk.Button(panel, text="Start / Resume", command=self.start_timer, bg="#1c7c54", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, padx=12, pady=3
+        )
+        tk.Button(panel, text="Pause", command=self.pause_timer, bg="#2a5d8f", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, padx=12, pady=3
+        )
+        tk.Button(panel, text="Reset", command=self.reset_timer, bg="#5d5d5d", fg="white", bd=0, padx=10, pady=7).pack(
+            fill=tk.X, padx=12, pady=(3, 12)
+        )
+
+    def load_state(self) -> None:
+        if not DATA_FILE.exists():
+            return
+
+        try:
+            payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+            self.total_xp = int(payload.get("total_xp", 0))
+            self.next_id = int(payload.get("next_id", 1))
+            self.completion_days = list(payload.get("completion_days", []))
