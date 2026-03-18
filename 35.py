@@ -246,3 +246,14 @@ class QuestBoardApp:
         filter_bar.grid(row=0, column=0, sticky="ew")
         filter_bar.grid_columnconfigure(1, weight=1)
 
+        tk.Label(filter_bar, text="Search", bg="#f2f2f2", font=("Segoe UI", 9, "bold")).grid(row=0, column=0, padx=(8, 4), pady=10)
+        tk.Entry(filter_bar, textvariable=self.search_var, width=18).grid(row=0, column=1, padx=4, pady=10, sticky="ew")
+
+        ttk.Combobox(
+            filter_bar,
+            textvariable=self.filter_status_var,
+            values=["All", "Open", "In Progress", "Done"],
+            state="readonly",
+            width=12,
+        ).grid(row=0, column=2, padx=4, pady=10)
+
