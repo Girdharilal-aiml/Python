@@ -151,3 +151,15 @@ class QuestBoardApp:
         )
         self.profile_label.pack(side=tk.RIGHT, padx=18)
 
+        body = tk.Frame(self.root, bg="#f3f1eb")
+        body.pack(fill=tk.BOTH, expand=True, padx=14, pady=14)
+        body.grid_columnconfigure(0, weight=0)
+        body.grid_columnconfigure(1, weight=1)
+        body.grid_columnconfigure(2, weight=0)
+        body.grid_rowconfigure(0, weight=1)
+
+        self.build_form_panel(body)
+        self.build_table_panel(body)
+        self.build_timer_panel(body)
+
+
