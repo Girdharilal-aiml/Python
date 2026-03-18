@@ -257,3 +257,17 @@ class QuestBoardApp:
             width=12,
         ).grid(row=0, column=2, padx=4, pady=10)
 
+        ttk.Combobox(
+            filter_bar,
+            textvariable=self.filter_category_var,
+            values=["All", "Study", "Work", "Health", "Code", "Creative", "Life"],
+            state="readonly",
+            width=12,
+        ).grid(row=0, column=3, padx=4, pady=10)
+
+        tk.Button(filter_bar, text="Apply", command=self.refresh_table, bg="#1f3b4d", fg="white", bd=0, padx=10).grid(
+            row=0, column=4, padx=4, pady=10
+        )
+        tk.Button(filter_bar, text="Reset", command=self.reset_filters, bg="#4a4a4a", fg="white", bd=0, padx=10).grid(
+            row=0, column=5, padx=(4, 8), pady=10
+        )
