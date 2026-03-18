@@ -35,4 +35,18 @@ def today_str() -> str:
     return date.today().strftime(DATE_FMT)
 
 
+def xp_for_difficulty(difficulty: str) -> int:
+    table = {
+        "Easy": 20,
+        "Normal": 40,
+        "Hard": 70,
+        "Epic": 110,
+    }
+    return table.get(difficulty, 40)
+
+
+def next_level_cost(level: int) -> int:
+    return 120 + (level - 1) * 80
+
+
 
