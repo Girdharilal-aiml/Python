@@ -349,3 +349,18 @@ class QuestBoardApp:
             self.total_xp = int(payload.get("total_xp", 0))
             self.next_id = int(payload.get("next_id", 1))
             self.completion_days = list(payload.get("completion_days", []))
+
+            quests_data = payload.get("quests", [])
+            self.quests = [Quest(**item) for item in quests_data]
+        except Exception as exc:
+            messagebox.showwarning("Load Warning", f"Could not load previous data: {exc}")
+
+    def save_state(self) -> None:
+        payload = {
+            "total_xp": self.total_xp,
+            "next_id": self.next_id,
+            "completion_days": self.completion_days,
+            "quests": [asdict(q) for q in self.quests],
+        }
+        DATA_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
