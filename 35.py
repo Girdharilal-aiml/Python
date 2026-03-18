@@ -162,4 +162,16 @@ class QuestBoardApp:
         self.build_table_panel(body)
         self.build_timer_panel(body)
 
+        footer = tk.Frame(self.root, bg="#d8d4c7", height=30)
+        footer.pack(fill=tk.X)
+        footer.pack_propagate(False)
+
+        self.status_label = tk.Label(
+            footer,
+            text="Ready",
+            bg="#d8d4c7",
+            fg="#2d2d2d",
+            anchor="w",
+            font=("Segoe UI", 9),
+        )
 
