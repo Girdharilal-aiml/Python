@@ -61,4 +61,13 @@ def level_from_xp(total_xp: int) -> tuple[int, int, int]:
         level += 1
 
 
+def compute_streak(completion_dates: list[str]) -> int:
+    if not completion_dates:
+        return 0
+
+    unique_days = sorted(set(completion_dates))
+    today = date.today()
+    cursor = today
+    streak = 0
+
 
