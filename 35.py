@@ -105,3 +105,14 @@ class QuestBoardApp:
         self.root.minsize(1000, 640)
         self.root.configure(bg="#f3f1eb")
 
+        self.quests: list[Quest] = []
+        self.next_id = 1
+        self.total_xp = 0
+        self.completion_days: list[str] = []
+
+        self.timer_running = False
+        self.timer_remaining = 25 * 60
+        self.timer_mode = "Work"
+        self.timer_job: str | None = None
+
+
