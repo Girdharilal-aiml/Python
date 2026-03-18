@@ -287,3 +287,15 @@ class QuestBoardApp:
             yscrollcommand=yscroll.set,
             selectmode="browse",
         )
+        self.tree.grid(row=0, column=0, sticky="nsew")
+        yscroll.config(command=self.tree.yview)
+
+        self.tree.heading("id", text="ID")
+        self.tree.heading("title", text="Title")
+        self.tree.heading("cat", text="Category")
+        self.tree.heading("diff", text="Difficulty")
+        self.tree.heading("status", text="Status")
+        self.tree.heading("xp", text="XP")
+        self.tree.heading("created", text="Created")
+        self.tree.heading("completed", text="Completed")
+
