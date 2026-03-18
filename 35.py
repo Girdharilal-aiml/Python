@@ -129,4 +129,17 @@ class QuestBoardApp:
         self.load_state()
         self.refresh_all()
 
+    def build_ui(self) -> None:
+        header = tk.Frame(self.root, bg="#1f3b4d", height=76)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
+
+        tk.Label(
+            header,
+            text="QuestBoard Studio",
+            bg="#1f3b4d",
+            fg="#f7d78b",
+            font=("Georgia", 22, "bold"),
+        ).pack(side=tk.LEFT, padx=18)
+
 
