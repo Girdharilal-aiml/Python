@@ -174,4 +174,13 @@ class QuestBoardApp:
             anchor="w",
             font=("Segoe UI", 9),
         )
+        self.status_label.pack(fill=tk.X, padx=10)
+
+    def build_form_panel(self, parent: tk.Widget) -> None:
+        panel = tk.Frame(parent, bg="#ece8dc", bd=1, relief=tk.SOLID)
+        panel.grid(row=0, column=0, sticky="nsew", padx=(0, 12))
+
+        tk.Label(panel, text="Create / Edit Quest", bg="#ece8dc", fg="#1f3b4d", font=("Georgia", 14, "bold")).pack(
+            anchor="w", padx=12, pady=(12, 8)
+        )
 
