@@ -70,4 +70,17 @@ def compute_streak(completion_dates: list[str]) -> int:
     cursor = today
     streak = 0
 
+    days_set = {datetime.strptime(d, DATE_FMT).date() for d in unique_days}
+
+    if cursor not in days_set:
+        cursor = cursor - timedelta(days=1)
+        if cursor not in days_set:
+            return 0
+
+    while cursor in days_set:
+        streak += 1
+        cursor = cursor - timedelta(days=1)
+
+    return streak
+
 
