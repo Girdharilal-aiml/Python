@@ -403,3 +403,58 @@ class QuestBoardApp:
             if quest.quest_id == quest_id:
                 return quest
         return None
+
+    def update_selected(self) -> None:
+        quest = self.get_selected_quest()
+        if not quest:
+            messagebox.showinfo("No Selection", "Select a quest first.")
+            return
+
+        new_title = self.title_var.get().strip()
+        if not new_title:
+            messagebox.showwarning("Missing Title", "Quest title cannot be empty.")
+            return
+
+        quest.title = new_title
+        quest.category = self.category_var.get().strip()
+        quest.difficulty = self.difficulty_var.get().strip()
+        quest.notes = self.notes_text.get("1.0", tk.END).strip()
+        quest.xp = xp_for_difficulty(quest.difficulty)
+        self.save_state()
+        self.refresh_all(status_text=f"Updated quest #{quest.quest_id}")
+
+    def complete_selected(self) -> None:
+        quest = self.get_selected_quest()
+        if not quest:
+            messagebox.showinfo("No Selection", "Select a quest first.")
+            return
+        if quest.status == "Done":
+            messagebox.showinfo("Already Done", "That quest is already completed.")
+            return
+
+        quest.status = "Done"
+        quest.completed_at = now_stamp()
+        self.total_xp += quest.xp
+        self.completion_days.append(today_str())
+        self.save_state()
+        self.refresh_all(status_text=f"Quest #{quest.quest_id} completed. +{quest.xp} XP")
+
+    def delete_selected(self) -> None:
+        quest = self.get_selected_quest()
+        if not quest:
+            messagebox.showinfo("No Selection", "Select a quest first.")
+            return
+
+        if not messagebox.askyesno("Confirm Delete", f"Delete quest #{quest.quest_id}?"):
+            return
+
+        self.quests = [q for q in self.quests if q.quest_id != quest.quest_id]
+        self.save_state()
+        self.refresh_all(status_text=f"Deleted quest #{quest.quest_id}")
+
+    def clear_form(self) -> None:
+        self.title_var.set("")
+        self.category_var.set("Study")
+        self.difficulty_var.set("Normal")
+        self.status_var.set("Open")
+        self.notes_text.delete("1.0", tk.END)
