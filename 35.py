@@ -271,3 +271,19 @@ class QuestBoardApp:
         tk.Button(filter_bar, text="Reset", command=self.reset_filters, bg="#4a4a4a", fg="white", bd=0, padx=10).grid(
             row=0, column=5, padx=(4, 8), pady=10
         )
+
+        table_frame = tk.Frame(panel, bg="white")
+        table_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=(0, 8))
+        table_frame.grid_columnconfigure(0, weight=1)
+        table_frame.grid_rowconfigure(0, weight=1)
+
+        yscroll = ttk.Scrollbar(table_frame, orient="vertical")
+        yscroll.grid(row=0, column=1, sticky="ns")
+
+        self.tree = ttk.Treeview(
+            table_frame,
+            columns=("id", "title", "cat", "diff", "status", "xp", "created", "completed"),
+            show="headings",
+            yscrollcommand=yscroll.set,
+            selectmode="browse",
+        )
