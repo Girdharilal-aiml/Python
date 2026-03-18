@@ -545,3 +545,41 @@ class QuestBoardApp:
             self.tick_timer()
             self.status_label.config(text=f"Timer running ({self.timer_mode})")
 
+    def pause_timer(self) -> None:
+        self.timer_running = False
+        if self.timer_job is not None:
+            self.root.after_cancel(self.timer_job)
+            self.timer_job = None
+        self.status_label.config(text="Timer paused")
+
+    def reset_timer(self) -> None:
+        self.pause_timer()
+        self.timer_mode = "Work"
+        self.timer_remaining = max(1, self.work_var.get()) * 60
+        self.update_timer_label()
+        self.status_label.config(text="Timer reset")
+
+    def tick_timer(self) -> None:
+        if not self.timer_running:
+            return
+
+        if self.timer_remaining > 0:
+            self.timer_remaining -= 1
+            self.update_timer_label()
+            self.timer_job = self.root.after(1000, self.tick_timer)
+            return
+
+        self.root.bell()
+        if self.timer_mode == "Work":
+            self.timer_mode = "Break"
+            self.timer_remaining = max(1, self.break_var.get()) * 60
+            self.status_label.config(text="Work session done. Break started.")
+        else:
+            self.timer_mode = "Work"
+            self.timer_remaining = max(1, self.work_var.get()) * 60
+            self.status_label.config(text="Break finished. Back to work.")
+
+        self.update_timer_label()
+        self.timer_job = self.root.after(1000, self.tick_timer)
+
+
