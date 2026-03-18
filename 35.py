@@ -583,3 +583,12 @@ class QuestBoardApp:
         self.timer_job = self.root.after(1000, self.tick_timer)
 
 
+def main() -> None:
+    root = tk.Tk()
+    app = QuestBoardApp(root)
+    app.reset_timer()
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
