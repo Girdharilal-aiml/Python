@@ -224,3 +224,15 @@ class QuestBoardApp:
         )
         tk.Button(actions, text="Clear Form", command=self.clear_form, bg="#5d5d5d", fg="white", bd=0, padx=10, pady=7).pack(
             fill=tk.X, pady=3
+        )
+
+        tk.Label(
+            panel,
+            text="Tip: Double-click a row to load it into the form.",
+            bg="#ece8dc",
+            fg="#5a5a5a",
+            font=("Segoe UI", 9, "italic"),
+            wraplength=260,
+            justify="left",
+        ).pack(anchor="w", padx=12, pady=(4, 12))
+
