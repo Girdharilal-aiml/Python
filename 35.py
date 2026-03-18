@@ -514,4 +514,22 @@ class QuestBoardApp:
         self.filter_category_var.set("All")
         self.refresh_table()
 
+    def refresh_profile(self) -> None:
+        level, in_level_xp, need = level_from_xp(self.total_xp)
+        streak = compute_streak(self.completion_days)
+        open_count = sum(1 for q in self.quests if q.status != "Done")
+        done_count = sum(1 for q in self.quests if q.status == "Done")
+        self.profile_label.config(
+            text=(
+                f"Level {level} | XP {self.total_xp} | Progress {in_level_xp}/{need} | "
+                f"Streak {streak}d | Open {open_count} | Done {done_count}"
+            )
+        )
+
+    def refresh_all(self, status_text: str | None = None) -> None:
+        self.refresh_table()
+        self.refresh_profile()
+        if status_text:
+            self.status_label.config(text=status_text)
+
 
