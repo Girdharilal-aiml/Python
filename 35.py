@@ -195,3 +195,15 @@ class QuestBoardApp:
             state="readonly",
         ).pack(fill=tk.X, padx=12, pady=(2, 8))
 
+        tk.Label(panel, text="Difficulty", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        ttk.Combobox(
+            panel,
+            textvariable=self.difficulty_var,
+            values=["Easy", "Normal", "Hard", "Epic"],
+            state="readonly",
+        ).pack(fill=tk.X, padx=12, pady=(2, 8))
+
+        tk.Label(panel, text="Notes", bg="#ece8dc", font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=12)
+        self.notes_text = tk.Text(panel, height=6, font=("Segoe UI", 10), wrap="word")
+        self.notes_text.pack(fill=tk.X, padx=12, pady=(2, 10))
+
