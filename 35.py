@@ -84,3 +84,16 @@ def compute_streak(completion_dates: list[str]) -> int:
     return streak
 
 
+@dataclass
+class Quest:
+    quest_id: int
+    title: str
+    category: str
+    difficulty: str
+    notes: str
+    status: str
+    xp: int
+    created_at: str
+    completed_at: str
+
+
