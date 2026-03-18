@@ -236,3 +236,13 @@ class QuestBoardApp:
             justify="left",
         ).pack(anchor="w", padx=12, pady=(4, 12))
 
+    def build_table_panel(self, parent: tk.Widget) -> None:
+        panel = tk.Frame(parent, bg="white", bd=1, relief=tk.SOLID)
+        panel.grid(row=0, column=1, sticky="nsew")
+        panel.grid_columnconfigure(0, weight=1)
+        panel.grid_rowconfigure(1, weight=1)
+
+        filter_bar = tk.Frame(panel, bg="#f2f2f2", height=56)
+        filter_bar.grid(row=0, column=0, sticky="ew")
+        filter_bar.grid_columnconfigure(1, weight=1)
+
