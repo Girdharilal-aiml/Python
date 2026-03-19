@@ -193,3 +193,16 @@ class ContactManager:
                     pady=5
                 )
                 entry.pack(fill=tk.BOTH, expand=True)
+            else:
+                entry = tk.Entry(
+                    field_frame,
+                    font=('Arial', 11),
+                    bg='#f5f5f5',
+                    fg='#333',
+                    relief=tk.SOLID,
+                    bd=1
+                )
+                entry.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=5)
+
+            self.entries[field] = entry
+
