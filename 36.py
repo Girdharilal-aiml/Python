@@ -270,3 +270,14 @@ class ContactManager:
                         f"{contact.get('phone', '')} {contact.get('email', '')} " \
                         f"{contact.get('company', '')}".lower()
             
+            if search in searchable:
+                name = f"{contact.get('first_name', '')} {contact.get('last_name', '')}".strip()
+                if not name:
+                    name = contact.get('email', 'Unnamed')
+                self.contacts_listbox.insert(tk.END, name)
+
+    def select_contact(self, event):
+        selection = self.contacts_listbox.curselection()
+        if not selection:
+            return
+
