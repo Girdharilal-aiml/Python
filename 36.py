@@ -107,3 +107,15 @@ class ContactManager:
             pady=8
         ).pack(fill=tk.X, pady=2)
 
+        tk.Button(
+            btn_frame,
+            text="🗑️ Delete",
+            command=self.delete_contact,
+            font=('Arial', 10, 'bold'),
+            bg='#f44336',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=8
+        ).pack(fill=tk.X, pady=2)
+
