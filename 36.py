@@ -166,3 +166,13 @@ class ContactManager:
             field_frame = tk.Frame(form_container, bg='white')
             field_frame.pack(fill=tk.X, pady=8)
 
+            tk.Label(
+                field_frame,
+                text=label,
+                font=('Arial', 11, 'bold'),
+                bg='white',
+                fg='#333',
+                width=12,
+                anchor='w'
+            ).pack(side=tk.LEFT, padx=(0, 10))
+
