@@ -149,3 +149,15 @@ class ContactManager:
         form_container = tk.Frame(details_frame, bg='white')
         form_container.pack(fill=tk.BOTH, expand=True)
 
+        # Form fields
+        fields = [
+            ('First Name:', 'first_name'),
+            ('Last Name:', 'last_name'),
+            ('Phone:', 'phone'),
+            ('Email:', 'email'),
+            ('Company:', 'company'),
+            ('Address:', 'address'),
+            ('Notes:', 'notes')
+        ]
+
+        self.entries = {}
