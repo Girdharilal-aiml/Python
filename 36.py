@@ -76,3 +76,14 @@ class ContactManager:
         scroll = tk.Scrollbar(list_frame)
         scroll.pack(side=tk.RIGHT, fill=tk.Y)
 
+        self.contacts_listbox = tk.Listbox(
+            list_frame,
+            font=('Arial', 11),
+            bg='white',
+            fg='#333',
+            selectbackground='#3F51B5',
+            selectforeground='white',
+            bd=1,
+            relief=tk.SOLID,
+            yscrollcommand=scroll.set
+        )
