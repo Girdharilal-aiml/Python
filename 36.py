@@ -68,3 +68,11 @@ class ContactManager:
             relief=tk.SOLID,
             bd=1
         ).pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=5)
+
+        # Contact list
+        list_frame = tk.Frame(sidebar, bg='#f5f5f5')
+        list_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 10))
+
+        scroll = tk.Scrollbar(list_frame)
+        scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
