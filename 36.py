@@ -134,3 +134,12 @@ class ContactManager:
         # Right side - Contact details
         details_frame = tk.Frame(main_container, bg='white')
         details_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+        # Form title
+        self.form_title = tk.Label(
+            details_frame,
+            text="Contact Details",
+            font=('Arial', 18, 'bold'),
+            bg='white',
+            fg='#333'
+        )
