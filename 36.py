@@ -327,3 +327,17 @@ class ContactManager:
         self.clear_form()
         self.entries['first_name'].focus()
 
+    def save_contact(self):
+        # Get data from form
+        contact_data = {}
+        for field, entry in self.entries.items():
+            if isinstance(entry, tk.Text):
+                contact_data[field] = entry.get('1.0', 'end-1c').strip()
+            else:
+                contact_data[field] = entry.get().strip()
+
+        # Validate
+        if not contact_data['first_name'] and not contact_data['last_name'] and not contact_data['email']:
+            messagebox.showwarning("Missing Info", "Please enter at least a name or email!")
+            return
+
