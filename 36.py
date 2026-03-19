@@ -119,3 +119,14 @@ class ContactManager:
             pady=8
         ).pack(fill=tk.X, pady=2)
 
+        tk.Button(
+            btn_frame,
+            text="📤 Export vCard",
+            command=self.export_vcard,
+            font=('Arial', 10, 'bold'),
+            bg='#2196F3',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=8
+        ).pack(fill=tk.X, pady=2)
