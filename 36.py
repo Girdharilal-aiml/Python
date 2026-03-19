@@ -341,3 +341,28 @@ class ContactManager:
             messagebox.showwarning("Missing Info", "Please enter at least a name or email!")
             return
 
+        # Update or add
+        if self.current_contact:
+            # Update existing
+            index = self.contacts.index(self.current_contact)
+            self.contacts[index] = contact_data
+            self.status_label.config(text="✓ Contact updated")
+        else:
+            # Add new
+            self.contacts.append(contact_data)
+            self.status_label.config(text="✓ Contact added")
+
+        # Save and refresh
+        self.save_contacts()
+        self.display_contacts()
+        self.clear_form()
+
+    def delete_contact(self):
+        if not self.current_contact:
+            messagebox.showwarning("No Selection", "Please select a contact to delete!")
+            return
+
+        name = f"{self.current_contact.get('first_name', '')} {self.current_contact.get('last_name', '')}".strip()
+        if not name:
+            name = self.current_contact.get('email', 'this contact')
+
