@@ -366,3 +366,65 @@ class ContactManager:
         if not name:
             name = self.current_contact.get('email', 'this contact')
 
+        if messagebox.askyesno("Delete Contact", f"Delete {name}?"):
+            self.contacts.remove(self.current_contact)
+            self.save_contacts()
+            self.display_contacts()
+            self.clear_form()
+            self.status_label.config(text="✓ Contact deleted")
+
+    def export_vcard(self):
+        if not self.current_contact:
+            messagebox.showwarning("No Selection", "Please select a contact to export!")
+            return
+
+        filepath = filedialog.asksaveasfilename(
+            defaultextension='.vcf',
+            filetypes=[("vCard files", "*.vcf"), ("All files", "*.*")]
+        )
+
+        if not filepath:
+            return
+
+        try:
+            # Create vCard
+            vcard = "BEGIN:VCARD\n"
+            vcard += "VERSION:3.0\n"
+            
+            # Name
+            fn = f"{self.current_contact.get('first_name', '')} {self.current_contact.get('last_name', '')}".strip()
+            if fn:
+                vcard += f"FN:{fn}\n"
+                vcard += f"N:{self.current_contact.get('last_name', '')};{self.current_contact.get('first_name', '')};;;\n"
+            
+            # Phone
+            if self.current_contact.get('phone'):
+                vcard += f"TEL;TYPE=CELL:{self.current_contact['phone']}\n"
+            
+            # Email
+            if self.current_contact.get('email'):
+                vcard += f"EMAIL:{self.current_contact['email']}\n"
+            
+            # Company
+            if self.current_contact.get('company'):
+                vcard += f"ORG:{self.current_contact['company']}\n"
+            
+            # Address
+            if self.current_contact.get('address'):
+                vcard += f"ADR:;;{self.current_contact['address']};;;;\n"
+            
+            # Notes
+            if self.current_contact.get('notes'):
+                vcard += f"NOTE:{self.current_contact['notes']}\n"
+            
+            vcard += "END:VCARD\n"
+
+            # Save
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(vcard)
+
+            messagebox.showinfo("Success", "vCard exported successfully!")
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to export:\n{str(e)}")
+
