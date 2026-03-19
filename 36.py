@@ -254,3 +254,19 @@ class ContactManager:
         sorted_contacts = sorted(self.contacts, 
                                 key=lambda x: f"{x.get('first_name', '')} {x.get('last_name', '')}".strip())
         
+        for contact in sorted_contacts:
+            name = f"{contact.get('first_name', '')} {contact.get('last_name', '')}".strip()
+            if not name:
+                name = contact.get('email', 'Unnamed')
+            self.contacts_listbox.insert(tk.END, name)
+
+    def filter_contacts(self):
+        search = self.search_var.get().lower()
+        self.contacts_listbox.delete(0, tk.END)
+        
+        for contact in self.contacts:
+            # Search in all fields
+            searchable = f"{contact.get('first_name', '')} {contact.get('last_name', '')} " \
+                        f"{contact.get('phone', '')} {contact.get('email', '')} " \
+                        f"{contact.get('company', '')}".lower()
+            
