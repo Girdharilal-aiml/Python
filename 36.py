@@ -17,3 +17,14 @@ class ContactManager:
         self.root.resizable(True, True)
         self.root.minsize(800, 600)
 
+        # Data
+        self.contacts_file = "contacts.json"
+        self.contacts = []
+        self.current_contact = None
+        self.load_contacts()
+
+        # Header
+        header = tk.Frame(root, bg='#3F51B5', height=70)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
+
