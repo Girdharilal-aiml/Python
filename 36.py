@@ -231,3 +231,14 @@ class ContactManager:
         )
         self.status_label.pack(fill=tk.X, side=tk.BOTTOM)
 
+        # Display contacts
+        self.display_contacts()
+        self.clear_form()
+
+    def load_contacts(self):
+        if os.path.exists(self.contacts_file):
+            try:
+                with open(self.contacts_file, 'r', encoding='utf-8') as f:
+                    self.contacts = json.load(f)
+            except:
+                self.contacts = []
