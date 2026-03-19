@@ -28,3 +28,15 @@ class ContactManager:
         header.pack(fill=tk.X)
         header.pack_propagate(False)
 
+        tk.Label(
+            header,
+            text="🗂️ Contact Manager",
+            font=('Arial', 24, 'bold'),
+            bg='#3F51B5',
+            fg='white'
+        ).pack(pady=18)
+
+        # Main container
+        main_container = tk.Frame(root, bg='white')
+        main_container.pack(fill=tk.BOTH, expand=True)
+
