@@ -242,3 +242,15 @@ class ContactManager:
                     self.contacts = json.load(f)
             except:
                 self.contacts = []
+
+    def save_contacts(self):
+        with open(self.contacts_file, 'w', encoding='utf-8') as f:
+            json.dump(self.contacts, f, indent=2, ensure_ascii=False)
+
+    def display_contacts(self):
+        self.contacts_listbox.delete(0, tk.END)
+        
+        # Sort by name
+        sorted_contacts = sorted(self.contacts, 
+                                key=lambda x: f"{x.get('first_name', '')} {x.get('last_name', '')}".strip())
+        
