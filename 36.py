@@ -313,3 +313,17 @@ class ContactManager:
 
         self.form_title.config(text="Edit Contact")
 
+    def clear_form(self):
+        for entry in self.entries.values():
+            if isinstance(entry, tk.Text):
+                entry.delete('1.0', tk.END)
+            else:
+                entry.delete(0, tk.END)
+        
+        self.current_contact = None
+        self.form_title.config(text="New Contact")
+
+    def new_contact(self):
+        self.clear_form()
+        self.entries['first_name'].focus()
+
