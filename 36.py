@@ -94,3 +94,16 @@ class ContactManager:
         # Buttons
         btn_frame = tk.Frame(sidebar, bg='#f5f5f5')
         btn_frame.pack(fill=tk.X, padx=10, pady=10)
+
+        tk.Button(
+            btn_frame,
+            text="➕ New Contact",
+            command=self.new_contact,
+            font=('Arial', 10, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            pady=8
+        ).pack(fill=tk.X, pady=2)
+
