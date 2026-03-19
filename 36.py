@@ -281,3 +281,17 @@ class ContactManager:
         if not selection:
             return
 
+        # Get selected name
+        selected_name = self.contacts_listbox.get(selection[0])
+        
+        # Find contact
+        for contact in self.contacts:
+            name = f"{contact.get('first_name', '')} {contact.get('last_name', '')}".strip()
+            if not name:
+                name = contact.get('email', 'Unnamed')
+            
+            if name == selected_name:
+                self.current_contact = contact
+                self.load_contact_to_form(contact)
+                break
+
