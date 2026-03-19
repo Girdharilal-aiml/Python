@@ -49,3 +49,12 @@ class ContactManager:
         search_frame = tk.Frame(sidebar, bg='#f5f5f5')
         search_frame.pack(fill=tk.X, padx=10, pady=10)
 
+        tk.Label(
+            search_frame,
+            text="🔍",
+            font=('Arial', 14),
+            bg='#f5f5f5'
+        ).pack(side=tk.LEFT, padx=(0, 5))
+
+        self.search_var = tk.StringVar()
+        self.search_var.trace('w', lambda *args: self.filter_contacts())
