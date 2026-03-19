@@ -206,3 +206,17 @@ class ContactManager:
 
             self.entries[field] = entry
 
+        # Save button
+        tk.Button(
+            details_frame,
+            text="💾 Save Contact",
+            command=self.save_contact,
+            font=('Arial', 14, 'bold'),
+            bg='#4CAF50',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            padx=30,
+            pady=12
+        ).pack(pady=30)
+
