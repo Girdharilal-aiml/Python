@@ -220,3 +220,14 @@ class ContactManager:
             pady=12
         ).pack(pady=30)
 
+        # Status bar
+        self.status_label = tk.Label(
+            root,
+            text=f"{len(self.contacts)} contacts",
+            font=('Arial', 9),
+            bg='#f5f5f5',
+            fg='#666',
+            anchor='w'
+        )
+        self.status_label.pack(fill=tk.X, side=tk.BOTTOM)
+
