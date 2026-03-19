@@ -87,3 +87,10 @@ class ContactManager:
             relief=tk.SOLID,
             yscrollcommand=scroll.set
         )
+        self.contacts_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        scroll.config(command=self.contacts_listbox.yview)
+        self.contacts_listbox.bind('<<ListboxSelect>>', self.select_contact)
+
+        # Buttons
+        btn_frame = tk.Frame(sidebar, bg='#f5f5f5')
+        btn_frame.pack(fill=tk.X, padx=10, pady=10)
