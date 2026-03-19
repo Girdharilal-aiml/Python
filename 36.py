@@ -143,3 +143,9 @@ class ContactManager:
             bg='white',
             fg='#333'
         )
+        self.form_title.pack(pady=(0, 20))
+
+        # Form container
+        form_container = tk.Frame(details_frame, bg='white')
+        form_container.pack(fill=tk.BOTH, expand=True)
+
