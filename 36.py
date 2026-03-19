@@ -176,3 +176,8 @@ class ContactManager:
                 anchor='w'
             ).pack(side=tk.LEFT, padx=(0, 10))
 
+            if field == 'notes':
+                # Text widget for notes
+                notes_frame = tk.Frame(field_frame, bg='white', relief=tk.SOLID, bd=1)
+                notes_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
