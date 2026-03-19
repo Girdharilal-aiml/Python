@@ -40,3 +40,12 @@ class ContactManager:
         main_container = tk.Frame(root, bg='white')
         main_container.pack(fill=tk.BOTH, expand=True)
 
+        # Left sidebar - Contact list
+        sidebar = tk.Frame(main_container, bg='#f5f5f5', width=300, relief=tk.SOLID, bd=1)
+        sidebar.pack(side=tk.LEFT, fill=tk.Y)
+        sidebar.pack_propagate(False)
+
+        # Search bar
+        search_frame = tk.Frame(sidebar, bg='#f5f5f5')
+        search_frame.pack(fill=tk.X, padx=10, pady=10)
+
