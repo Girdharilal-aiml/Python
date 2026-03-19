@@ -130,3 +130,7 @@ class ContactManager:
             cursor='hand2',
             pady=8
         ).pack(fill=tk.X, pady=2)
+
+        # Right side - Contact details
+        details_frame = tk.Frame(main_container, bg='white')
+        details_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=20, pady=20)
