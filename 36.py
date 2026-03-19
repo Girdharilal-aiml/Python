@@ -58,3 +58,13 @@ class ContactManager:
 
         self.search_var = tk.StringVar()
         self.search_var.trace('w', lambda *args: self.filter_contacts())
+
+        tk.Entry(
+            search_frame,
+            textvariable=self.search_var,
+            font=('Arial', 11),
+            bg='white',
+            fg='#333',
+            relief=tk.SOLID,
+            bd=1
+        ).pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=5)
