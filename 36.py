@@ -181,3 +181,15 @@ class ContactManager:
                 notes_frame = tk.Frame(field_frame, bg='white', relief=tk.SOLID, bd=1)
                 notes_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
+                entry = tk.Text(
+                    notes_frame,
+                    font=('Arial', 10),
+                    bg='white',
+                    fg='#333',
+                    wrap=tk.WORD,
+                    height=4,
+                    bd=0,
+                    padx=5,
+                    pady=5
+                )
+                entry.pack(fill=tk.BOTH, expand=True)
