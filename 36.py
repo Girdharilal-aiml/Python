@@ -428,3 +428,10 @@ class ContactManager:
         except Exception as e:
             messagebox.showerror("Error", f"Failed to export:\n{str(e)}")
 
+def main():
+    root = tk.Tk()
+    app = ContactManager(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
