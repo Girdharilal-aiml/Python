@@ -295,3 +295,21 @@ class ContactManager:
                 self.load_contact_to_form(contact)
                 break
 
+    def load_contact_to_form(self, contact):
+        # Clear form
+        for entry in self.entries.values():
+            if isinstance(entry, tk.Text):
+                entry.delete('1.0', tk.END)
+            else:
+                entry.delete(0, tk.END)
+
+        # Load data
+        for field, entry in self.entries.items():
+            value = contact.get(field, '')
+            if isinstance(entry, tk.Text):
+                entry.insert('1.0', value)
+            else:
+                entry.insert(0, value)
+
+        self.form_title.config(text="Edit Contact")
+
