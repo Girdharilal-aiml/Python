@@ -161,3 +161,8 @@ class ContactManager:
         ]
 
         self.entries = {}
+        
+        for i, (label, field) in enumerate(fields):
+            field_frame = tk.Frame(form_container, bg='white')
+            field_frame.pack(fill=tk.X, pady=8)
+
