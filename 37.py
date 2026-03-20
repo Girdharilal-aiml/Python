@@ -102,3 +102,19 @@ class DocumentTab:
             selectbackground=th["select_bg"],
             selectforeground=th["select_fg"],
         )
+
+    def _on_text_yscroll(self, first: str, last: str) -> None:
+        self.v_scroll.set(first, last)
+        self.line_numbers.yview_moveto(first)
+
+    def _on_vertical_scroll(self, *args: str) -> None:
+        self.text.yview(*args)
+        self.line_numbers.yview(*args)
+
+    def _on_key_release(self, _event: tk.Event) -> None:
+        self.update_line_numbers()
+        self.app.update_status_bar()
+        if self.highlight_job:
+            self.app.root.after_cancel(self.highlight_job)
+        self.highlight_job = self.app.root.after(80, self.highlight_syntax)
+
