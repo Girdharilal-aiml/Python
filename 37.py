@@ -91,3 +91,14 @@ class DocumentTab:
         self.apply_theme()
         self.update_line_numbers()
 
+    def apply_theme(self) -> None:
+        th = self.app.theme
+        self.frame.configure(bg=th["editor_bg"])
+        self.line_numbers.configure(bg=th["line_bg"], fg=th["line_fg"], insertbackground=th["line_fg"])
+        self.text.configure(
+            bg=th["editor_bg"],
+            fg=th["editor_fg"],
+            insertbackground=th["cursor"],
+            selectbackground=th["select_bg"],
+            selectforeground=th["select_fg"],
+        )
