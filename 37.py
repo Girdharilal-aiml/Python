@@ -31,3 +31,19 @@ class DocumentTab:
         self.app = app
         self.file_path: Path | None = None
         self.modified = False
+
+        self.frame = tk.Frame(parent, bg=self.app.theme["editor_bg"])
+        self.frame.grid_rowconfigure(0, weight=1)
+        self.frame.grid_columnconfigure(1, weight=1)
+
+        self.line_numbers = tk.Text(
+            self.frame,
+            width=5,
+            padx=6,
+            pady=8,
+            bd=0,
+            state="disabled",
+            wrap="none",
+            cursor="arrow",
+            font=("Consolas", 11),
+        )
