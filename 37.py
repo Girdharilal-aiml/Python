@@ -267,3 +267,17 @@ class CodeEditorApp:
         view_menu = tk.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="View", menu=view_menu)
         view_menu.add_command(label="Toggle Theme", command=self.toggle_theme)
+
+        run_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="Run", menu=run_menu)
+        run_menu.add_command(label="Run Current Python File", command=self.run_current_file, accelerator="F5")
+
+        settings_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="Settings", menu=settings_menu)
+        settings_menu.add_checkbutton(label="Enable Autosave", variable=self.autosave_enabled)
+        settings_menu.add_command(label="Set Autosave Seconds", command=self.set_autosave_interval)
+
+        self.toolbar = tk.Frame(self.root, height=42)
+        self.toolbar.pack(fill=tk.X)
+        self.toolbar.pack_propagate(False)
+
