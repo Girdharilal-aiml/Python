@@ -395,3 +395,26 @@ class CodeEditorApp:
         tab.update_tab_visual()
         self.apply_theme()
         self.update_status_bar()
+
+    def close_current_tab(self) -> None:
+        tab = self.current_tab()
+        if not tab:
+            return
+
+        if tab.modified:
+            save = messagebox.askyesnocancel("Unsaved Changes", f"Save changes to {tab.display_name}?")
+            if save is None:
+                return
+            if save:
+                if not self.save_file():
+                    return
+
+        self.notebook.forget(tab.frame)
+        self.tabs = [t for t in self.tabs if t is not tab]
+
+        if not self.tabs:
+            self.new_tab()
+        self.update_status_bar()
+
+    def open_file(self, path: str | None = None) -> None:
+
