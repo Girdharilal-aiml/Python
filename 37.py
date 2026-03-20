@@ -47,3 +47,16 @@ class DocumentTab:
             cursor="arrow",
             font=("Consolas", 11),
         )
+        self.line_numbers.grid(row=0, column=0, sticky="ns")
+
+        editor_container = tk.Frame(self.frame, bg=self.app.theme["editor_bg"])
+        editor_container.grid(row=0, column=1, sticky="nsew")
+        editor_container.grid_rowconfigure(0, weight=1)
+        editor_container.grid_columnconfigure(0, weight=1)
+
+        self.v_scroll = tk.Scrollbar(editor_container, orient="vertical")
+        self.v_scroll.grid(row=0, column=1, sticky="ns")
+
+        self.h_scroll = tk.Scrollbar(editor_container, orient="horizontal")
+        self.h_scroll.grid(row=1, column=0, sticky="ew")
+
