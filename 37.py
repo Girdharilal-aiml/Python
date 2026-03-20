@@ -175,3 +175,16 @@ class DocumentTab:
         return self.text.get("1.0", "end-1c")
 
 
+class CodeEditorApp:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        self.root.title("NovaPad")
+        self.root.geometry("1180x760")
+        self.root.minsize(920, 620)
+
+        self.keywords = [
+            "def", "class", "import", "from", "if", "elif", "else", "for", "while",
+            "return", "try", "except", "with", "as", "pass", "break", "continue",
+            "True", "False", "None", "and", "or", "not", "in", "is", "lambda",
+            "function", "var", "let", "const", "async", "await", "new", "this",
+        ]
