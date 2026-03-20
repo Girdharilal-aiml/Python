@@ -456,3 +456,22 @@ class CodeEditorApp:
         self.log_output(f"Opened: {p}")
         self.update_status_bar()
 
+    def save_file(self) -> bool:
+        tab = self.current_tab()
+        if not tab:
+            return False
+        if tab.file_path is None:
+            return self.save_as()
+
+        try:
+            tab.file_path.write_text(tab.get_content(), encoding="utf-8")
+            tab.modified = False
+            tab.update_tab_visual()
+            self.push_recent_file(str(tab.file_path))
+            self.log_output(f"Saved: {tab.file_path}")
+            self.update_status_bar()
+            return True
+        except Exception as exc:
+            messagebox.showerror("Save Error", f"Could not save file:\n{exc}")
+            return False
+
