@@ -417,4 +417,24 @@ class CodeEditorApp:
         self.update_status_bar()
 
     def open_file(self, path: str | None = None) -> None:
+        if not path:
+            path = filedialog.askopenfilename(
+                filetypes=[
+                    ("Python files", "*.py"),
+                    ("JavaScript files", "*.js"),
+                    ("Web files", "*.html *.css"),
+                    ("Text files", "*.txt"),
+                    ("All files", "*.*"),
+                ]
+            )
+            if not path:
+                return
+
+        try:
+            p = Path(path)
+            text = p.read_text(encoding="utf-8")
+        except Exception as exc:
+            messagebox.showerror("Open Error", f"Could not open file:\n{exc}")
+            return
+
 
