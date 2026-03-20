@@ -610,3 +610,72 @@ class CodeEditorApp:
             if not self.save_file():
                 return
 
+        cmd = [sys.executable, str(tab.file_path)]
+        self.log_output("$ " + " ".join(cmd))
+        try:
+            proc = subprocess.run(cmd, capture_output=True, text=True, cwd=str(tab.file_path.parent))
+            if proc.stdout:
+                self.log_output(proc.stdout.rstrip())
+            if proc.stderr:
+                self.log_output(proc.stderr.rstrip())
+            self.log_output(f"Process exited with code {proc.returncode}")
+        except Exception as exc:
+            self.log_output(f"Run error: {exc}")
+
+    def log_output(self, text: str) -> None:
+        self.output_text.configure(state="normal")
+        self.output_text.insert(tk.END, text + "\n")
+        self.output_text.see(tk.END)
+        self.output_text.configure(state="disabled")
+
+    def push_recent_file(self, path: str) -> None:
+        if path in self.recent_files:
+            self.recent_files.remove(path)
+        self.recent_files.insert(0, path)
+        self.recent_files = self.recent_files[:10]
+        self.refresh_recent_menu()
+        self._save_state()
+
+    def refresh_recent_menu(self) -> None:
+        self.recent_menu.delete(0, tk.END)
+        if not self.recent_files:
+            self.recent_menu.add_command(label="(empty)", state="disabled")
+            return
+        for file_path in self.recent_files:
+            self.recent_menu.add_command(label=file_path, command=lambda p=file_path: self.open_file(p))
+
+    def schedule_autosave(self) -> None:
+        interval_ms = max(5, self.autosave_seconds.get()) * 1000
+        self.root.after(interval_ms, self.autosave_tick)
+
+    def autosave_tick(self) -> None:
+        if self.autosave_enabled.get():
+            for tab in self.tabs:
+                if tab.modified and tab.file_path is not None:
+                    try:
+                        tab.file_path.write_text(tab.get_content(), encoding="utf-8")
+                        tab.modified = False
+                        tab.update_tab_visual()
+                        self.log_output(f"Autosaved: {tab.file_path}")
+                    except Exception as exc:
+                        self.log_output(f"Autosave failed: {exc}")
+        self.update_status_bar()
+        self._save_state()
+        self.schedule_autosave()
+
+    def set_autosave_interval(self) -> None:
+        win = tk.Toplevel(self.root)
+        win.title("Autosave Interval")
+        win.geometry("280x120")
+        win.transient(self.root)
+
+        tk.Label(win, text="Autosave every N seconds:").pack(anchor="w", padx=12, pady=(14, 6))
+        box = tk.Spinbox(win, from_=5, to=600, textvariable=self.autosave_seconds, width=10)
+        box.pack(anchor="w", padx=12)
+
+        def done() -> None:
+            self._save_state()
+            win.destroy()
+
+        tk.Button(win, text="Save", command=done).pack(pady=12)
+
