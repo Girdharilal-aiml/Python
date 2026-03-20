@@ -238,3 +238,22 @@ class CodeEditorApp:
         self.new_tab()
         self.schedule_autosave()
 
+    def _build_ui(self) -> None:
+        self.root.protocol("WM_DELETE_WINDOW", self.on_exit)
+
+        self.menubar = tk.Menu(self.root)
+        self.root.config(menu=self.menubar)
+
+        self.file_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="File", menu=self.file_menu)
+        self.file_menu.add_command(label="New Tab", command=self.new_tab, accelerator="Ctrl+N")
+        self.file_menu.add_command(label="Open...", command=self.open_file, accelerator="Ctrl+O")
+        self.file_menu.add_command(label="Save", command=self.save_file, accelerator="Ctrl+S")
+        self.file_menu.add_command(label="Save As...", command=self.save_as)
+        self.file_menu.add_separator()
+        self.recent_menu = tk.Menu(self.file_menu, tearoff=0)
+        self.file_menu.add_cascade(label="Recent Files", menu=self.recent_menu)
+        self.file_menu.add_separator()
+        self.file_menu.add_command(label="Close Tab", command=self.close_current_tab, accelerator="Ctrl+W")
+        self.file_menu.add_command(label="Exit", command=self.on_exit)
+
