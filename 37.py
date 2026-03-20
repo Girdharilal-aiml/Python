@@ -530,3 +530,54 @@ class CodeEditorApp:
         entry.pack(fill=tk.X, padx=12)
         entry.focus_set()
 
+        def do_find() -> None:
+            needle = entry.get()
+            tab.text.tag_remove("found", "1.0", tk.END)
+            if not needle:
+                return
+            start = "1.0"
+            count = 0
+            while True:
+                pos = tab.text.search(needle, start, tk.END)
+                if not pos:
+                    break
+                end = f"{pos}+{len(needle)}c"
+                tab.text.tag_add("found", pos, end)
+                start = end
+                count += 1
+            self.log_output(f"Find '{needle}': {count} match(es)")
+
+        tk.Button(win, text="Find All", command=do_find, padx=10).pack(pady=12)
+
+    def show_replace(self) -> None:
+        tab = self.current_tab()
+        if not tab:
+            return
+
+        win = tk.Toplevel(self.root)
+        win.title("Replace")
+        win.geometry("380x190")
+        win.transient(self.root)
+
+        tk.Label(win, text="Find:").pack(anchor="w", padx=12, pady=(12, 4))
+        find_entry = tk.Entry(win)
+        find_entry.pack(fill=tk.X, padx=12)
+        find_entry.focus_set()
+
+        tk.Label(win, text="Replace with:").pack(anchor="w", padx=12, pady=(10, 4))
+        repl_entry = tk.Entry(win)
+        repl_entry.pack(fill=tk.X, padx=12)
+
+        def do_replace() -> None:
+            needle = find_entry.get()
+            repl = repl_entry.get()
+            if not needle:
+                return
+            content = tab.get_content()
+            count = content.count(needle)
+            tab.load_content(content.replace(needle, repl))
+            tab.modified = True
+            tab.update_tab_visual()
+            self.log_output(f"Replace '{needle}' -> '{repl}': {count} replacement(s)")
+            win.destroy()
+
