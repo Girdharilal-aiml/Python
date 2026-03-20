@@ -330,3 +330,23 @@ class CodeEditorApp:
     def _load_state(self) -> None:
         if not APP_STATE.exists():
             return
+        try:
+            data = json.loads(APP_STATE.read_text(encoding="utf-8"))
+            self.theme_name = data.get("theme", "dark")
+            self.theme = self.themes.get(self.theme_name, self.themes["dark"])
+            self.recent_files = [p for p in data.get("recent_files", []) if Path(p).exists()]
+            self.autosave_enabled.set(bool(data.get("autosave_enabled", True)))
+            self.autosave_seconds.set(int(data.get("autosave_seconds", 20)))
+            self.refresh_recent_menu()
+        except Exception:
+            pass
+
+    def _save_state(self) -> None:
+        payload = {
+            "theme": self.theme_name,
+            "recent_files": self.recent_files[:10],
+            "autosave_enabled": self.autosave_enabled.get(),
+            "autosave_seconds": self.autosave_seconds.get(),
+        }
+        APP_STATE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
