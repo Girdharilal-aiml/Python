@@ -350,3 +350,29 @@ class CodeEditorApp:
         }
         APP_STATE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
+    def apply_theme(self) -> None:
+        th = self.theme
+        self.root.configure(bg=th["window_bg"])
+        self.toolbar.configure(bg=th["toolbar_bg"])
+        self.status_bar.configure(bg=th["status_bg"])
+        self.output_frame.configure(bg=th["toolbar_bg"])
+        self.output_text.configure(bg=th["output_bg"], fg=th["output_fg"], insertbackground=th["output_fg"])
+
+        for widget in self.toolbar.winfo_children():
+            if isinstance(widget, tk.Button):
+                widget.configure(bg=th["toolbar_bg"], fg=th["toolbar_fg"], activebackground=th["line_bg"], activeforeground=th["toolbar_fg"])
+            elif isinstance(widget, tk.Label):
+                widget.configure(bg=th["toolbar_bg"], fg=th["toolbar_fg"])
+
+        self.status_label.configure(bg=th["status_bg"], fg=th["status_fg"])
+        self.file_label.configure(bg=th["status_bg"], fg=th["status_fg"])
+
+        for tab in self.tabs:
+            tab.apply_theme()
+
+    def toggle_theme(self) -> None:
+        self.theme_name = "light" if self.theme_name == "dark" else "dark"
+        self.theme = self.themes[self.theme_name]
+        self.apply_theme()
+        self._save_state()
+
