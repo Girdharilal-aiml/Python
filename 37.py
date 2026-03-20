@@ -224,3 +224,17 @@ class CodeEditorApp:
             },
         }
 
+        self.theme_name = "dark"
+        self.theme = self.themes[self.theme_name]
+
+        self.autosave_enabled = tk.BooleanVar(value=True)
+        self.autosave_seconds = tk.IntVar(value=20)
+        self.recent_files: list[str] = []
+        self.tabs: list[DocumentTab] = []
+
+        self._build_ui()
+        self._load_state()
+        self.apply_theme()
+        self.new_tab()
+        self.schedule_autosave()
+
