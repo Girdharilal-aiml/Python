@@ -162,3 +162,16 @@ class DocumentTab:
 
         for match in re.finditer(r"\\b\\d+\\.?\\d*\\b", content):
             self.text.tag_add("number", f"1.0+{match.start()}c", f"1.0+{match.end()}c")
+
+    def load_content(self, text: str) -> None:
+        self.text.delete("1.0", tk.END)
+        self.text.insert("1.0", text)
+        self.modified = False
+        self.update_line_numbers()
+        self.highlight_syntax()
+        self.update_tab_visual()
+
+    def get_content(self) -> str:
+        return self.text.get("1.0", "end-1c")
+
+
