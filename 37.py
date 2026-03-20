@@ -145,3 +145,20 @@ class DocumentTab:
         self.line_numbers.insert("1.0", nums)
         self.line_numbers.configure(state="disabled")
 
+    def highlight_syntax(self) -> None:
+        for tag in ("keyword", "string", "comment", "number"):
+            self.text.tag_remove(tag, "1.0", tk.END)
+
+        content = self.text.get("1.0", "end-1c")
+        for kw in self.app.keywords:
+            for match in re.finditer(r"\\b" + re.escape(kw) + r"\\b", content):
+                self.text.tag_add("keyword", f"1.0+{match.start()}c", f"1.0+{match.end()}c")
+
+        for match in re.finditer(r'(["\'])(?:(?=(\\?))\\2.)*?\\1', content):
+            self.text.tag_add("string", f"1.0+{match.start()}c", f"1.0+{match.end()}c")
+
+        for match in re.finditer(r"#.*?$|//.*?$", content, re.MULTILINE):
+            self.text.tag_add("comment", f"1.0+{match.start()}c", f"1.0+{match.end()}c")
+
+        for match in re.finditer(r"\\b\\d+\\.?\\d*\\b", content):
+            self.text.tag_add("number", f"1.0+{match.start()}c", f"1.0+{match.end()}c")
