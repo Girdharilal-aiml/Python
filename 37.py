@@ -118,3 +118,17 @@ class DocumentTab:
             self.app.root.after_cancel(self.highlight_job)
         self.highlight_job = self.app.root.after(80, self.highlight_syntax)
 
+    def _on_modified(self, _event: tk.Event) -> None:
+        if self.text.edit_modified():
+            self.modified = True
+            self.update_tab_visual()
+            self.text.edit_modified(False)
+
+    def set_tab_title(self, title: str) -> None:
+        self.base_title = title
+
+    def update_tab_visual(self) -> None:
+        title = self.display_name
+        if self.modified:
+            title += " *"
+        self.app.notebook.tab(self.frame, text=title)
