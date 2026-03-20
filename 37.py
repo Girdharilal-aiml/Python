@@ -281,3 +281,18 @@ class CodeEditorApp:
         self.toolbar.pack(fill=tk.X)
         self.toolbar.pack_propagate(False)
 
+        tk.Button(self.toolbar, text="New", command=self.new_tab, padx=10, pady=5, bd=0).pack(side=tk.LEFT, padx=4, pady=6)
+        tk.Button(self.toolbar, text="Open", command=self.open_file, padx=10, pady=5, bd=0).pack(side=tk.LEFT, padx=4, pady=6)
+        tk.Button(self.toolbar, text="Save", command=self.save_file, padx=10, pady=5, bd=0).pack(side=tk.LEFT, padx=4, pady=6)
+        tk.Button(self.toolbar, text="Run", command=self.run_current_file, padx=10, pady=5, bd=0).pack(side=tk.LEFT, padx=4, pady=6)
+
+        self.autosave_label = tk.Label(self.toolbar, text="Autosave: ON")
+        self.autosave_label.pack(side=tk.RIGHT, padx=12)
+
+        self.notebook = ttk.Notebook(self.root)
+        self.notebook.pack(fill=tk.BOTH, expand=True)
+        self.notebook.bind("<<NotebookTabChanged>>", lambda _e: self.update_status_bar())
+
+        self.output_frame = tk.Frame(self.root, height=160)
+        self.output_frame.pack(fill=tk.X)
+        self.output_frame.pack_propagate(False)
