@@ -296,3 +296,18 @@ class CodeEditorApp:
         self.output_frame = tk.Frame(self.root, height=160)
         self.output_frame.pack(fill=tk.X)
         self.output_frame.pack_propagate(False)
+
+        out_header = tk.Frame(self.output_frame, height=24)
+        out_header.pack(fill=tk.X)
+        out_header.pack_propagate(False)
+        tk.Label(out_header, text="Output", anchor="w").pack(side=tk.LEFT, padx=8)
+        tk.Button(out_header, text="Clear", command=lambda: self.output_text.delete("1.0", tk.END), bd=0, padx=8).pack(
+            side=tk.RIGHT, padx=8, pady=2
+        )
+
+        self.output_text = tk.Text(self.output_frame, height=8, wrap="word", state="disabled", font=("Consolas", 10), bd=1)
+        self.output_text.pack(fill=tk.BOTH, expand=True, padx=6, pady=(0, 6))
+
+        self.status_bar = tk.Frame(self.root, height=26)
+        self.status_bar.pack(fill=tk.X, side=tk.BOTTOM)
+        self.status_bar.pack_propagate(False)
