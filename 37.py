@@ -132,3 +132,16 @@ class DocumentTab:
         if self.modified:
             title += " *"
         self.app.notebook.tab(self.frame, text=title)
+
+    @property
+    def display_name(self) -> str:
+        return self.file_path.name if self.file_path else self.base_title
+
+    def update_line_numbers(self) -> None:
+        line_count = self.text.get("1.0", "end-1c").count("\n") + 1
+        nums = "\n".join(str(i) for i in range(1, line_count + 1))
+        self.line_numbers.configure(state="normal")
+        self.line_numbers.delete("1.0", tk.END)
+        self.line_numbers.insert("1.0", nums)
+        self.line_numbers.configure(state="disabled")
+
