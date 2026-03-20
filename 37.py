@@ -475,3 +475,25 @@ class CodeEditorApp:
             messagebox.showerror("Save Error", f"Could not save file:\n{exc}")
             return False
 
+    def save_as(self) -> bool:
+        tab = self.current_tab()
+        if not tab:
+            return False
+
+        path = filedialog.asksaveasfilename(
+            defaultextension=".txt",
+            filetypes=[
+                ("Python files", "*.py"),
+                ("JavaScript files", "*.js"),
+                ("Web files", "*.html *.css"),
+                ("Text files", "*.txt"),
+                ("All files", "*.*"),
+            ],
+        )
+        if not path:
+            return False
+
+        tab.file_path = Path(path)
+        return self.save_file()
+
+
