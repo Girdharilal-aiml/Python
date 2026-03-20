@@ -60,3 +60,19 @@ class DocumentTab:
         self.h_scroll = tk.Scrollbar(editor_container, orient="horizontal")
         self.h_scroll.grid(row=1, column=0, sticky="ew")
 
+        self.text = tk.Text(
+            editor_container,
+            wrap="none",
+            undo=True,
+            font=("Consolas", 11),
+            insertwidth=2,
+            padx=10,
+            pady=10,
+            yscrollcommand=self._on_text_yscroll,
+            xscrollcommand=self.h_scroll.set,
+        )
+        self.text.grid(row=0, column=0, sticky="nsew")
+
+        self.v_scroll.config(command=self._on_vertical_scroll)
+        self.h_scroll.config(command=self.text.xview)
+
