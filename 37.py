@@ -437,4 +437,22 @@ class CodeEditorApp:
             messagebox.showerror("Open Error", f"Could not open file:\n{exc}")
             return
 
+        existing = self.current_tab()
+        if existing and not existing.modified and not existing.get_content().strip() and existing.file_path is None:
+            tab = existing
+            tab.load_content(text)
+            tab.file_path = p
+            tab.modified = False
+            tab.update_tab_visual()
+        else:
+            self.new_tab(content=text, title=p.name)
+            tab = self.current_tab()
+            if tab:
+                tab.file_path = p
+                tab.modified = False
+                tab.update_tab_visual()
+
+        self.push_recent_file(str(p))
+        self.log_output(f"Opened: {p}")
+        self.update_status_bar()
 
