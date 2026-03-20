@@ -581,3 +581,32 @@ class CodeEditorApp:
             self.log_output(f"Replace '{needle}' -> '{repl}': {count} replacement(s)")
             win.destroy()
 
+        tk.Button(win, text="Replace All", command=do_replace, padx=10).pack(pady=14)
+
+    def select_all(self) -> str:
+        tab = self.current_tab()
+        if not tab:
+            return "break"
+        tab.text.tag_add(tk.SEL, "1.0", tk.END)
+        tab.text.mark_set(tk.INSERT, "1.0")
+        tab.text.see(tk.INSERT)
+        return "break"
+
+    def run_current_file(self) -> None:
+        tab = self.current_tab()
+        if not tab:
+            return
+        if tab.file_path is None:
+            if not self.save_as():
+                return
+        if tab.file_path is None:
+            return
+
+        if tab.file_path.suffix.lower() != ".py":
+            messagebox.showinfo("Run", "Run supports Python files only.")
+            return
+
+        if tab.modified:
+            if not self.save_file():
+                return
+
