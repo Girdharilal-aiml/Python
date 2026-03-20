@@ -206,3 +206,21 @@ class CodeEditorApp:
                 "output_bg": "#101010",
                 "output_fg": "#d0d0d0",
             },
+            "light": {
+                "window_bg": "#f4f4f4",
+                "toolbar_bg": "#e4e4e4",
+                "toolbar_fg": "#202020",
+                "editor_bg": "#ffffff",
+                "editor_fg": "#1a1a1a",
+                "line_bg": "#ececec",
+                "line_fg": "#666666",
+                "cursor": "#111111",
+                "select_bg": "#cfe8ff",
+                "select_fg": "#111111",
+                "status_bg": "#e4e4e4",
+                "status_fg": "#353535",
+                "output_bg": "#f8f8f8",
+                "output_fg": "#222222",
+            },
+        }
+
