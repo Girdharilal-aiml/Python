@@ -376,3 +376,22 @@ class CodeEditorApp:
         self.apply_theme()
         self._save_state()
 
+    def current_tab(self) -> DocumentTab | None:
+        if not self.tabs:
+            return None
+        selected = self.notebook.select()
+        for tab in self.tabs:
+            if str(tab.frame) == selected:
+                return tab
+        return None
+
+    def new_tab(self, content: str = "", title: str = "Untitled") -> None:
+        tab = DocumentTab(self.notebook, self, title=title)
+        self.tabs.append(tab)
+        self.notebook.add(tab.frame, text=title)
+        self.notebook.select(tab.frame)
+        if content:
+            tab.load_content(content)
+        tab.update_tab_visual()
+        self.apply_theme()
+        self.update_status_bar()
