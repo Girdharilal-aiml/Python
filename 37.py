@@ -679,3 +679,32 @@ class CodeEditorApp:
 
         tk.Button(win, text="Save", command=done).pack(pady=12)
 
+    def confirm_close_all(self) -> bool:
+        for tab in self.tabs:
+            if tab.modified:
+                self.notebook.select(tab.frame)
+                save = messagebox.askyesnocancel("Unsaved Changes", f"Save changes to {tab.display_name}?")
+                if save is None:
+                    return False
+                if save:
+                    if tab is not self.current_tab():
+                        self.notebook.select(tab.frame)
+                    if not self.save_file():
+                        return False
+        return True
+
+    def on_exit(self) -> None:
+        if not self.confirm_close_all():
+            return
+        self._save_state()
+        self.root.destroy()
+
+
+def main() -> None:
+    root = tk.Tk()
+    app = CodeEditorApp(root)
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
