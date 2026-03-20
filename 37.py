@@ -188,3 +188,21 @@ class CodeEditorApp:
             "True", "False", "None", "and", "or", "not", "in", "is", "lambda",
             "function", "var", "let", "const", "async", "await", "new", "this",
         ]
+
+        self.themes = {
+            "dark": {
+                "window_bg": "#1e1e1e",
+                "toolbar_bg": "#2d2d2d",
+                "toolbar_fg": "#e6e6e6",
+                "editor_bg": "#1e1e1e",
+                "editor_fg": "#d4d4d4",
+                "line_bg": "#2d2d2d",
+                "line_fg": "#8b949e",
+                "cursor": "#ffffff",
+                "select_bg": "#264f78",
+                "select_fg": "#ffffff",
+                "status_bg": "#2d2d2d",
+                "status_fg": "#8b949e",
+                "output_bg": "#101010",
+                "output_fg": "#d0d0d0",
+            },
