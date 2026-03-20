@@ -311,3 +311,22 @@ class CodeEditorApp:
         self.status_bar = tk.Frame(self.root, height=26)
         self.status_bar.pack(fill=tk.X, side=tk.BOTTOM)
         self.status_bar.pack_propagate(False)
+
+        self.status_label = tk.Label(self.status_bar, text="Line 1, Col 1", anchor="w")
+        self.status_label.pack(side=tk.LEFT, padx=10)
+
+        self.file_label = tk.Label(self.status_bar, text="Untitled", anchor="e")
+        self.file_label.pack(side=tk.RIGHT, padx=10)
+
+        self.root.bind("<Control-n>", lambda _e: self.new_tab())
+        self.root.bind("<Control-o>", lambda _e: self.open_file())
+        self.root.bind("<Control-s>", lambda _e: self.save_file())
+        self.root.bind("<Control-w>", lambda _e: self.close_current_tab())
+        self.root.bind("<Control-f>", lambda _e: self.show_find())
+        self.root.bind("<Control-h>", lambda _e: self.show_replace())
+        self.root.bind("<Control-a>", lambda _e: self.select_all())
+        self.root.bind("<F5>", lambda _e: self.run_current_file())
+
+    def _load_state(self) -> None:
+        if not APP_STATE.exists():
+            return
