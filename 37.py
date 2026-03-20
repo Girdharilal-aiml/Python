@@ -496,4 +496,37 @@ class CodeEditorApp:
         tab.file_path = Path(path)
         return self.save_file()
 
+    def update_status_bar(self) -> None:
+        tab = self.current_tab()
+        if not tab:
+            self.status_label.configure(text="No tab")
+            self.file_label.configure(text="")
+            return
+
+        try:
+            cursor = tab.text.index(tk.INSERT)
+            line, col = cursor.split(".")
+            chars = len(tab.get_content())
+            self.status_label.configure(text=f"Line {line}, Col {int(col)+1} | {chars} chars")
+        except Exception:
+            self.status_label.configure(text="Ready")
+
+        file_name = str(tab.file_path) if tab.file_path else tab.display_name
+        self.file_label.configure(text=file_name)
+        self.autosave_label.configure(text=f"Autosave: {'ON' if self.autosave_enabled.get() else 'OFF'}")
+
+    def show_find(self) -> None:
+        tab = self.current_tab()
+        if not tab:
+            return
+
+        win = tk.Toplevel(self.root)
+        win.title("Find")
+        win.geometry("360x130")
+        win.transient(self.root)
+
+        tk.Label(win, text="Find:").pack(anchor="w", padx=12, pady=(12, 4))
+        entry = tk.Entry(win)
+        entry.pack(fill=tk.X, padx=12)
+        entry.focus_set()
 
