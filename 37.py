@@ -76,3 +76,18 @@ class DocumentTab:
         self.v_scroll.config(command=self._on_vertical_scroll)
         self.h_scroll.config(command=self.text.xview)
 
+        self.text.tag_configure("keyword", foreground="#569cd6")
+        self.text.tag_configure("string", foreground="#ce9178")
+        self.text.tag_configure("comment", foreground="#6a9955")
+        self.text.tag_configure("number", foreground="#b5cea8")
+        self.text.tag_configure("found", background="#ffb347", foreground="#111111")
+
+        self.text.bind("<KeyRelease>", self._on_key_release)
+        self.text.bind("<<Modified>>", self._on_modified)
+        self.text.bind("<ButtonRelease-1>", lambda _e: self.app.update_status_bar())
+
+        self.highlight_job: str | None = None
+        self.set_tab_title(title)
+        self.apply_theme()
+        self.update_line_numbers()
+
