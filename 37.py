@@ -23,3 +23,11 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 
+APP_STATE = Path(__file__).with_name("novapad_state.json")
+
+
+class DocumentTab:
+    def __init__(self, parent: ttk.Notebook, app: "CodeEditorApp", title: str = "Untitled") -> None:
+        self.app = app
+        self.file_path: Path | None = None
+        self.modified = False
