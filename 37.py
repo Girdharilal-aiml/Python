@@ -257,3 +257,13 @@ class CodeEditorApp:
         self.file_menu.add_command(label="Close Tab", command=self.close_current_tab, accelerator="Ctrl+W")
         self.file_menu.add_command(label="Exit", command=self.on_exit)
 
+        edit_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="Edit", menu=edit_menu)
+        edit_menu.add_command(label="Find", command=self.show_find, accelerator="Ctrl+F")
+        edit_menu.add_command(label="Replace", command=self.show_replace, accelerator="Ctrl+H")
+        edit_menu.add_separator()
+        edit_menu.add_command(label="Select All", command=self.select_all, accelerator="Ctrl+A")
+
+        view_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="View", menu=view_menu)
+        view_menu.add_command(label="Toggle Theme", command=self.toggle_theme)
