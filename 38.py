@@ -346,3 +346,23 @@ class MusicOrganizerPro:
         self.time_label = tk.Label(pf, text="0:00", font=('Arial', 8),
                                    bg=C['surface'], fg=C['subtext'], width=4)
         self.time_label.pack(side=tk.LEFT)
+
+        self.progress_var = tk.DoubleVar()
+        ttk.Scale(pf, from_=0, to=100, orient=tk.HORIZONTAL,
+                  variable=self.progress_var, length=400
+                  ).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=8)
+
+        self.duration_label = tk.Label(pf, text="0:00", font=('Arial', 8),
+                                       bg=C['surface'], fg=C['subtext'], width=4)
+        self.duration_label.pack(side=tk.LEFT)
+
+        # Controls row
+        cf = tk.Frame(bar, bg=C['surface'])
+        cf.pack(pady=(0, 6))
+
+        btn = dict(bg=C['surface'], fg=C['text'], bd=0, relief=tk.FLAT,
+                   cursor='hand2', font=('Arial', 14),
+                   activebackground=C['surface'], activeforeground=C['primary'])
+
+        tk.Button(cf, text="⏮", command=self.play_prev, **btn).pack(side=tk.LEFT, padx=8)
+
