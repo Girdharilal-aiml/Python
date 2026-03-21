@@ -167,3 +167,17 @@ class MusicOrganizerPro:
 
         lf = tk.Frame(sb, bg=C['surface'])
         lf.pack(fill=tk.BOTH, expand=True, padx=10)
+
+        sc = tk.Scrollbar(lf)
+        sc.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.playlist_listbox = tk.Listbox(
+            lf, font=('Arial', 10),
+            bg=C['surface2'], fg=C['text'],
+            selectbackground=C['primary'], selectforeground='black',
+            bd=0, relief=tk.FLAT, yscrollcommand=sc.set, activestyle='none'
+        )
+        self.playlist_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        sc.config(command=self.playlist_listbox.yview)
+        self.playlist_listbox.bind('<<ListboxSelect>>', self.select_playlist)
+
