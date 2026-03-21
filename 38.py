@@ -607,3 +607,86 @@ class MusicOrganizerPro:
                 self.save_data()
                 self.display_playlists()
 
+    def delete_playlist(self):
+        sel = self.playlist_listbox.curselection()
+        if not sel:
+            messagebox.showwarning("No Selection", "Select a playlist to delete.")
+            return
+        raw = self.playlist_listbox.get(sel[0]).strip()
+        name = raw.split('  (')[0].strip()
+        if messagebox.askyesno("Delete", f"Delete playlist '{name}'?"):
+            del self.playlists[name]
+            self.save_data()
+            self.display_playlists()
+            self.show_library()
+
+    # ----------------------------------------------------- rating / moods
+
+    def on_select_song(self, _event):
+        sel = self.music_tree.selection()
+        if not sel:
+            return
+        fp = self.music_tree.item(sel[0])['tags'][0]
+        song = next((s for s in self.library if s['path'] == fp), None)
+        if not song:
+            return
+        self._show_details(song)
+        self._refresh_stars(song.get('rating', 0))
+        self._refresh_moods(song.get('moods', []))
+
+    def _show_details(self, song):
+        self.details_text.config(state='normal')
+        self.details_text.delete('1.0', tk.END)
+        self.details_text.insert(tk.END,
+            f"Title:   {song.get('title', 'Unknown')}\n"
+            f"Artist:  {song.get('artist', 'Unknown')}\n"
+            f"Album:   {song.get('album', 'Unknown')}\n"
+            f"Year:    {song.get('year', '—')}\n"
+            f"Length:  {song.get('duration', '—')}\n"
+            f"Plays:   {song.get('play_count', 0)}\n"
+            f"Last:    {song.get('last_played') or 'Never'}"
+        )
+        self.details_text.config(state='disabled')
+
+    def _refresh_stars(self, rating):
+        for i, btn in enumerate(self.star_buttons):
+            btn.config(text="★" if i < rating else "☆")
+
+    def _refresh_moods(self, moods):
+        for mood, var in self.mood_vars.items():
+            var.set(mood in moods)
+
+    def set_rating(self, rating):
+        sel = self.music_tree.selection()
+        if not sel:
+            return
+        fp = self.music_tree.item(sel[0])['tags'][0]
+        song = next((s for s in self.library if s['path'] == fp), None)
+        if not song:
+            return
+        # Clicking the same star again toggles it off
+        song['rating'] = 0 if song.get('rating') == rating else rating
+        self._refresh_stars(song['rating'])
+        self.save_data()
+        self.display_songs(self.current_view)
+        for item in self.music_tree.get_children():
+            if self.music_tree.item(item)['tags'][0] == fp:
+                self.music_tree.selection_set(item)
+                break
+
+    def save_mood(self):
+        sel = self.music_tree.selection()
+        if not sel:
+            return
+        fp = self.music_tree.item(sel[0])['tags'][0]
+        song = next((s for s in self.library if s['path'] == fp), None)
+        if not song:
+            return
+        song['moods'] = [m for m, v in self.mood_vars.items() if v.get()]
+        self.save_data()
+        self.display_songs(self.current_view)
+        for item in self.music_tree.get_children():
+            if self.music_tree.item(item)['tags'][0] == fp:
+                self.music_tree.selection_set(item)
+                break
+
