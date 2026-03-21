@@ -138,3 +138,19 @@ class MusicOrganizerPro:
         )
         self.header_stats.pack(side=tk.RIGHT, padx=20)
 
+    def _sidebar_btn(self, parent, text, cmd):
+        tk.Button(
+            parent, text=text, command=cmd,
+            font=('Arial', 10), bg=C['surface'], fg=C['text'],
+            bd=0, relief=tk.FLAT, cursor='hand2',
+            anchor='w', padx=15, pady=7,
+            activebackground=C['surface2'], activeforeground=C['primary']
+        ).pack(fill=tk.X)
+
+    def _build_sidebar(self, body):
+        sb = tk.Frame(body, bg=C['surface'], width=215)
+        sb.pack(side=tk.LEFT, fill=tk.Y)
+        sb.pack_propagate(False)
+
+        tk.Label(sb, text="LIBRARY", font=('Arial', 8, 'bold'),
+                 bg=C['surface'], fg=C['subtext']).pack(anchor='w', padx=15, pady=(14, 4))
