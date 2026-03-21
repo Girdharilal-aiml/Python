@@ -366,3 +366,23 @@ class MusicOrganizerPro:
 
         tk.Button(cf, text="⏮", command=self.play_prev, **btn).pack(side=tk.LEFT, padx=8)
 
+        self.play_btn = tk.Button(
+            cf, text="▶", command=self.toggle_play,
+            font=('Arial', 17, 'bold'), bg=C['primary'], fg='black',
+            bd=0, relief=tk.FLAT, cursor='hand2', padx=10, pady=1,
+            activebackground=C['accent'], activeforeground='black'
+        )
+        self.play_btn.pack(side=tk.LEFT, padx=8)
+
+        tk.Button(cf, text="⏭", command=self.play_next, **btn).pack(side=tk.LEFT, padx=8)
+        tk.Button(cf, text="⏹", command=self.stop_playback, **btn).pack(side=tk.LEFT, padx=8)
+
+        tk.Label(cf, text="🔊", font=('Arial', 11),
+                 bg=C['surface'], fg=C['subtext']).pack(side=tk.LEFT, padx=(20, 4))
+        self.volume_var = tk.DoubleVar(value=70)
+        ttk.Scale(cf, from_=0, to=100, orient=tk.HORIZONTAL,
+                  variable=self.volume_var, command=self.set_volume,
+                  length=100).pack(side=tk.LEFT)
+        self.set_volume(70)
+
+    # ----------------------------------------------------------- display
