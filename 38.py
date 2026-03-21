@@ -55,3 +55,21 @@ class MusicOrganizerPro:
         self.current_view = []
         self.load_data()
 
+        # Playback state
+        self.current_song = None
+        self.is_playing = False
+        self.is_paused = False
+        self._song_length = 0
+        self._seek_pos = 0
+        self._playback_start = 0
+
+        self.build_ui()
+
+        if not MUTAGEN_AVAILABLE:
+            messagebox.showwarning(
+                "mutagen not found",
+                "Install mutagen for metadata reading:\n\npip install mutagen"
+            )
+
+    # ------------------------------------------------------------------ data
+
