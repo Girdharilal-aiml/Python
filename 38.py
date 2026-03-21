@@ -305,3 +305,25 @@ class MusicOrganizerPro:
             b.pack(side=tk.LEFT)
             self.star_buttons.append(b)
 
+        section("MOOD TAGS")
+        mood_f = tk.Frame(rp, bg=C['surface'])
+        mood_f.pack(fill=tk.X, padx=12)
+        self.mood_vars = {}
+        for i, mood in enumerate(MOODS):
+            var = tk.BooleanVar()
+            self.mood_vars[mood] = var
+            tk.Checkbutton(
+                mood_f, text=mood, variable=var,
+                font=('Arial', 9), bg=C['surface'], fg=C['text'],
+                selectcolor=C['surface2'],
+                activebackground=C['surface'], activeforeground=C['primary'],
+                command=self.save_mood
+            ).grid(row=i // 2, column=i % 2, sticky='w', pady=2)
+
+        section("STATS")
+        self.stats_text = tk.Text(
+            rp, font=('Arial', 9), bg=C['surface2'], fg=C['text'],
+            wrap=tk.WORD, bd=0, padx=10, pady=8, state='disabled',
+            height=7, relief=tk.FLAT
+        )
+        self.stats_text.pack(fill=tk.X, padx=10, pady=(0, 10))
