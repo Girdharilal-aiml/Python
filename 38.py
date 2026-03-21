@@ -272,3 +272,20 @@ class MusicOrganizerPro:
         self.music_tree.bind('<Double-Button-1>', self.on_double_click)
         self.music_tree.bind('<<TreeviewSelect>>', self.on_select_song)
 
+    def _build_right_panel(self, body):
+        rp = tk.Frame(body, bg=C['surface'], width=225)
+        rp.pack(side=tk.RIGHT, fill=tk.Y)
+        rp.pack_propagate(False)
+
+        def section(text):
+            tk.Label(rp, text=text, font=('Arial', 8, 'bold'),
+                     bg=C['surface'], fg=C['subtext']
+                     ).pack(anchor='w', padx=15, pady=(14, 4))
+
+        section("SONG INFO")
+        self.details_text = tk.Text(
+            rp, font=('Arial', 9), bg=C['surface2'], fg=C['text'],
+            wrap=tk.WORD, bd=0, padx=10, pady=8, state='disabled',
+            height=8, relief=tk.FLAT
+        )
+        self.details_text.pack(fill=tk.X, padx=10)
