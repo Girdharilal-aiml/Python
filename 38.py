@@ -197,3 +197,17 @@ class MusicOrganizerPro:
             font=('Arial', 9), bg=C['surface2'], fg=C['subtext'],
             bd=0, relief=tk.FLAT, cursor='hand2', pady=6
         ).pack(fill=tk.X, padx=10, pady=(2, 8))
+
+    def _build_center(self, body):
+        center = tk.Frame(body, bg=C['dark'])
+        center.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=1)
+
+        # Toolbar
+        tb = tk.Frame(center, bg=C['dark'])
+        tb.pack(fill=tk.X, padx=10, pady=8)
+
+        for text, cmd, bg, fg in [
+            ("➕  Add Songs",       self.add_songs,        C['primary'],  'black'),
+            ("🗑  Remove",          self.remove_song,       C['danger'],   'white'),
+            ("▶  Add to Playlist", self.add_to_playlist,  C['surface2'], C['text']),
+        ]:
