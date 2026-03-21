@@ -816,3 +816,74 @@ class MusicOrganizerPro:
         total_plays = sum(s.get('play_count', 0) for s in self.library)
         top = max(self.library, key=lambda s: s.get('play_count', 0), default=None)
 
+        self.stats_text.config(state='normal')
+        self.stats_text.delete('1.0', tk.END)
+        self.stats_text.insert(tk.END,
+            f"Total songs:  {total}\n"
+            f"Ever played:  {played}\n"
+            f"Total plays:  {total_plays}\n"
+            f"Rated:        {rated}\n"
+        )
+        if top and top.get('play_count', 0) > 0:
+            self.stats_text.insert(
+                tk.END,
+                f"\nMost played:\n{top.get('title','?')}\n"
+                f"({top['play_count']} plays)"
+            )
+        self.stats_text.config(state='disabled')
+
+    def update_header_stats(self):
+        plays = sum(s.get('play_count', 0) for s in self.library)
+        self.header_stats.config(
+            text=f"{len(self.library)} songs  •  {plays} total plays"
+        )
+
+    # ----------------------------------------------------------- export
+
+    def export_m3u(self):
+        if self.current_playlist:
+            songs = [s for s in self.library
+                     if s['path'] in self.playlists[self.current_playlist]]
+            default = f"{self.current_playlist}.m3u"
+        else:
+            songs = self.current_view
+            default = "playlist.m3u"
+
+        if not songs:
+            messagebox.showwarning("Empty", "No songs to export.")
+            return
+
+        fp = filedialog.asksaveasfilename(
+            defaultextension=".m3u",
+            filetypes=[("M3U Playlist", "*.m3u")],
+            initialfile=default
+        )
+        if not fp:
+            return
+
+        with open(fp, 'w', encoding='utf-8') as f:
+            f.write("#EXTM3U\n")
+            for song in songs:
+                dur = -1
+                if ':' in song.get('duration', ''):
+                    try:
+                        m, s = song['duration'].split(':')
+                        dur = int(m) * 60 + int(s)
+                    except ValueError:
+                        pass
+                artist = song.get('artist', 'Unknown')
+                title  = song.get('title', 'Unknown')
+                f.write(f"#EXTINF:{dur},{artist} - {title}\n")
+                f.write(f"{song['path']}\n")
+
+        messagebox.showinfo("Exported", f"Exported {len(songs)} songs to:\n{fp}")
+
+
+def main():
+    root = tk.Tk()
+    MusicOrganizerPro(root)
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
