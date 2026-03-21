@@ -472,3 +472,24 @@ class MusicOrganizerPro:
         self.current_view = [s for s in self.library if s['path'] in paths]
         self.apply_sort()
 
+    def on_search(self, *_):
+        q = self.search_var.get().lower().strip()
+        if not q:
+            if self.current_playlist:
+                self.select_playlist(None)
+            else:
+                self.show_library()
+            return
+        results = [
+            s for s in self.library
+            if q in s.get('title', '').lower()
+            or q in s.get('artist', '').lower()
+            or q in s.get('album', '').lower()
+            or q in ', '.join(s.get('moods', [])).lower()
+        ]
+        self.view_label.config(text=f'🔍  "{self.search_var.get()}"')
+        self.current_view = results
+        self.display_songs(results)
+
+    # ---------------------------------------------------- song management
+
