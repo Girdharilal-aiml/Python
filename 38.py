@@ -493,3 +493,91 @@ class MusicOrganizerPro:
 
     # ---------------------------------------------------- song management
 
+    def add_songs(self):
+        filepaths = filedialog.askopenfilenames(
+            title="Select Music Files",
+            filetypes=[("Audio Files", "*.mp3 *.wav *.flac *.m4a *.ogg"),
+                       ("All Files", "*.*")]
+        )
+        if not filepaths:
+            return
+        added = 0
+        for fp in filepaths:
+            if any(s['path'] == fp for s in self.library):
+                continue
+            meta = self.get_metadata(fp)
+            meta.update({'path': fp, 'rating': 0, 'play_count': 0,
+                         'last_played': None, 'moods': []})
+            self.library.append(meta)
+            added += 1
+        self.save_data()
+        self.show_library()
+        self.update_stats_panel()
+        if added:
+            self.status_label.config(text=f"  Added {added} new song(s).")
+
+    def get_metadata(self, filepath):
+        meta = {'title': Path(filepath).stem,
+                'artist': 'Unknown', 'album': 'Unknown',
+                'year': '', 'duration': ''}
+        if MUTAGEN_AVAILABLE:
+            try:
+                audio = MutagenFile(filepath, easy=True)
+                if audio:
+                    meta['title']  = audio.get('title',  [Path(filepath).stem])[0]
+                    meta['artist'] = audio.get('artist', ['Unknown'])[0]
+                    meta['album']  = audio.get('album',  ['Unknown'])[0]
+                    meta['year']   = audio.get('date',   [''])[0]
+                    if hasattr(audio.info, 'length'):
+                        d = int(audio.info.length)
+                        meta['duration'] = f"{d // 60}:{d % 60:02d}"
+            except Exception:
+                pass
+        return meta
+
+    def remove_song(self):
+        sel = self.music_tree.selection()
+        if not sel:
+            messagebox.showwarning("No Selection", "Select a song first.")
+            return
+        fp = self.music_tree.item(sel[0])['tags'][0]
+        if self.current_playlist:
+            if messagebox.askyesno("Remove", "Remove from this playlist?"):
+                self.playlists[self.current_playlist].remove(fp)
+                self.save_data()
+                self.select_playlist(None)
+        else:
+            if messagebox.askyesno("Remove", "Remove from library permanently?"):
+                self.library = [s for s in self.library if s['path'] != fp]
+                for pl in self.playlists.values():
+                    if fp in pl:
+                        pl.remove(fp)
+                self.save_data()
+                self.show_library()
+                self.update_stats_panel()
+
+    def add_to_playlist(self):
+        sel = self.music_tree.selection()
+        if not sel:
+            messagebox.showwarning("No Selection", "Select a song first.")
+            return
+        if not self.playlists:
+            messagebox.showwarning("No Playlists", "Create a playlist first.")
+            return
+        fp = self.music_tree.item(sel[0])['tags'][0]
+
+        win = tk.Toplevel(self.root)
+        win.title("Add to Playlist")
+        win.geometry("260x300")
+        win.configure(bg=C['surface'])
+        win.transient(self.root)
+        win.grab_set()
+
+        tk.Label(win, text="Choose a playlist:", font=('Arial', 10, 'bold'),
+                 bg=C['surface'], fg=C['text']).pack(pady=15)
+        lb = tk.Listbox(win, font=('Arial', 10), bg=C['surface2'], fg=C['text'],
+                        selectbackground=C['primary'], bd=0, relief=tk.FLAT)
+        lb.pack(fill=tk.BOTH, expand=True, padx=15)
+        for name in sorted(self.playlists.keys()):
+            lb.insert(tk.END, name)
+
