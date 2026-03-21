@@ -225,3 +225,19 @@ class MusicOrganizerPro:
         sf.pack(fill=tk.X, padx=10, pady=(0, 6))
         tk.Label(sf, text="Sort by:", font=('Arial', 9),
                  bg=C['dark'], fg=C['subtext']).pack(side=tk.LEFT)
+        self.sort_var = tk.StringVar(value="Title")
+        for s in ["Title", "Artist", "Album", "Year", "Rating", "Plays"]:
+            tk.Radiobutton(
+                sf, text=s, variable=self.sort_var, value=s,
+                command=self.apply_sort,
+                font=('Arial', 9), bg=C['dark'], fg=C['subtext'],
+                selectcolor=C['surface'], activebackground=C['dark'],
+                activeforeground=C['primary']
+            ).pack(side=tk.LEFT, padx=6)
+
+        # Table
+        tf = tk.Frame(center, bg=C['dark'])
+        tf.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 5))
+
+        vsb = tk.Scrollbar(tf)
+        vsb.pack(side=tk.RIGHT, fill=tk.Y)
