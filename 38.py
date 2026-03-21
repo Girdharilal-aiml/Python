@@ -460,3 +460,15 @@ class MusicOrganizerPro:
         self.current_view = played
         self.display_songs(played)
 
+    def select_playlist(self, event):
+        sel = self.playlist_listbox.curselection()
+        if not sel:
+            return
+        raw = self.playlist_listbox.get(sel[0]).strip()
+        name = raw.split('  (')[0].strip()
+        self.current_playlist = name
+        self.view_label.config(text=f"▶  {name}")
+        paths = self.playlists[name]
+        self.current_view = [s for s in self.library if s['path'] in paths]
+        self.apply_sort()
+
