@@ -211,3 +211,17 @@ class MusicOrganizerPro:
             ("🗑  Remove",          self.remove_song,       C['danger'],   'white'),
             ("▶  Add to Playlist", self.add_to_playlist,  C['surface2'], C['text']),
         ]:
+            tk.Button(tb, text=text, command=cmd, font=('Arial', 10, 'bold'),
+                      bg=bg, fg=fg, bd=0, relief=tk.FLAT, cursor='hand2',
+                      padx=12, pady=5).pack(side=tk.LEFT, padx=2)
+
+        self.view_label = tk.Label(tb, text="All Songs",
+                                   font=('Arial', 12, 'bold'),
+                                   bg=C['dark'], fg=C['text'])
+        self.view_label.pack(side=tk.RIGHT, padx=10)
+
+        # Sort bar
+        sf = tk.Frame(center, bg=C['dark'])
+        sf.pack(fill=tk.X, padx=10, pady=(0, 6))
+        tk.Label(sf, text="Sort by:", font=('Arial', 9),
+                 bg=C['dark'], fg=C['subtext']).pack(side=tk.LEFT)
