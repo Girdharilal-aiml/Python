@@ -181,3 +181,19 @@ class MusicOrganizerPro:
         sc.config(command=self.playlist_listbox.yview)
         self.playlist_listbox.bind('<<ListboxSelect>>', self.select_playlist)
 
+        bf = tk.Frame(sb, bg=C['surface'])
+        bf.pack(fill=tk.X, padx=10, pady=4)
+        tk.Button(bf, text="＋ New", command=self.new_playlist,
+                  font=('Arial', 9, 'bold'), bg=C['primary'], fg='black',
+                  bd=0, relief=tk.FLAT, cursor='hand2', pady=5
+                  ).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 3))
+        tk.Button(bf, text="✕ Delete", command=self.delete_playlist,
+                  font=('Arial', 9), bg=C['danger'], fg='white',
+                  bd=0, relief=tk.FLAT, cursor='hand2', pady=5
+                  ).pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        tk.Button(
+            sb, text="📤  Export M3U", command=self.export_m3u,
+            font=('Arial', 9), bg=C['surface2'], fg=C['subtext'],
+            bd=0, relief=tk.FLAT, cursor='hand2', pady=6
+        ).pack(fill=tk.X, padx=10, pady=(2, 8))
