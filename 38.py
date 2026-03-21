@@ -392,3 +392,28 @@ class MusicOrganizerPro:
         for name in sorted(self.playlists.keys()):
             self.playlist_listbox.insert(tk.END, f"  {name}  ({len(self.playlists[name])})")
 
+    def display_songs(self, songs):
+        for item in self.music_tree.get_children():
+            self.music_tree.delete(item)
+        for song in songs:
+            r = song.get('rating', 0)
+            stars = "★" * r + "☆" * (5 - r)
+            moods = ", ".join(song.get('moods', []))
+            self.music_tree.insert('', tk.END, values=(
+                song.get('title', 'Unknown'),
+                song.get('artist', 'Unknown'),
+                song.get('album', 'Unknown'),
+                song.get('year', ''),
+                song.get('duration', ''),
+                stars,
+                song.get('play_count', 0),
+                moods
+            ), tags=(song['path'],))
+
+        n = len(songs)
+        self.status_label.config(
+            text=f"  {n} song{'s' if n != 1 else ''} shown  •  "
+                 f"Library: {len(self.library)} total"
+        )
+        self.update_header_stats()
+
