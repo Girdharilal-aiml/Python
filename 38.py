@@ -91,3 +91,22 @@ class MusicOrganizerPro:
 
     # ------------------------------------------------------------------- ui
 
+    def build_ui(self):
+        self._build_header()
+        body = tk.Frame(self.root, bg=C['dark'])
+        body.pack(fill=tk.BOTH, expand=True)
+        self._build_sidebar(body)
+        self._build_center(body)
+        self._build_right_panel(body)
+        self._build_playback_bar()
+        self.status_label = tk.Label(
+            self.root, text="", font=('Arial', 9),
+            bg=C['surface'], fg=C['subtext'], anchor='w', padx=10
+        )
+        self.status_label.pack(fill=tk.X, side=tk.BOTTOM)
+
+        self.display_playlists()
+        self.show_library()
+        self.update_stats_panel()
+
+
