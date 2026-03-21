@@ -386,3 +386,9 @@ class MusicOrganizerPro:
         self.set_volume(70)
 
     # ----------------------------------------------------------- display
+
+    def display_playlists(self):
+        self.playlist_listbox.delete(0, tk.END)
+        for name in sorted(self.playlists.keys()):
+            self.playlist_listbox.insert(tk.END, f"  {name}  ({len(self.playlists[name])})")
+
