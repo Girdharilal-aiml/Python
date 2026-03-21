@@ -430,3 +430,18 @@ class MusicOrganizerPro:
                                                 lambda s: s.get('title', '').lower()))
         self.display_songs(self.current_view)
 
+    # --------------------------------------------------------- smart views
+
+    def show_library(self):
+        self.current_playlist = None
+        self.view_label.config(text="All Songs")
+        self.current_view = list(self.library)
+        self.apply_sort()
+
+    def show_top_rated(self):
+        self.current_playlist = None
+        self.view_label.config(text="⭐  Top Rated")
+        self.current_view = sorted(self.library,
+                                   key=lambda s: s.get('rating', 0), reverse=True)
+        self.display_songs(self.current_view)
+
