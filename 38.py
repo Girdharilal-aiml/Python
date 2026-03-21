@@ -256,3 +256,19 @@ class MusicOrganizerPro:
             self.music_tree.heading(col, text=col)
             self.music_tree.column(col, width=widths[col], minwidth=40)
 
+        style = ttk.Style()
+        style.theme_use('clam')
+        style.configure("Treeview",
+                        background=C['surface'], foreground=C['text'],
+                        rowheight=28, fieldbackground=C['surface'], borderwidth=0)
+        style.configure("Treeview.Heading",
+                        font=('Arial', 9, 'bold'),
+                        background=C['surface2'], foreground=C['subtext'],
+                        relief=tk.FLAT)
+        style.map('Treeview',
+                  background=[('selected', C['primary'])],
+                  foreground=[('selected', 'black')])
+
+        self.music_tree.bind('<Double-Button-1>', self.on_double_click)
+        self.music_tree.bind('<<TreeviewSelect>>', self.on_select_song)
+
