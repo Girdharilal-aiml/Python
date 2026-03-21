@@ -73,3 +73,21 @@ class MusicOrganizerPro:
 
     # ------------------------------------------------------------------ data
 
+    def load_data(self):
+        if os.path.exists(self.library_file):
+            try:
+                with open(self.library_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    self.library = data.get('library', [])
+                    self.playlists = data.get('playlists', {})
+            except Exception:
+                self.library = []
+                self.playlists = {}
+
+    def save_data(self):
+        with open(self.library_file, 'w', encoding='utf-8') as f:
+            json.dump({'library': self.library, 'playlists': self.playlists},
+                      f, indent=2, ensure_ascii=False)
+
+    # ------------------------------------------------------------------- ui
+
