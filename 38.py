@@ -18,3 +18,23 @@ from datetime import datetime
 
 PYGAME_AVAILABLE = False
 
+try:
+    from mutagen import File as MutagenFile
+    MUTAGEN_AVAILABLE = True
+except ImportError:
+    MUTAGEN_AVAILABLE = False
+
+MOODS = ["Chill", "Energetic", "Sad", "Happy", "Focus", "Party"]
+
+C = {
+    'primary':  '#1DB954',
+    'accent':   '#1ed760',
+    'dark':     '#121212',
+    'surface':  '#282828',
+    'surface2': '#333333',
+    'text':     '#FFFFFF',
+    'subtext':  '#B3B3B3',
+    'danger':   '#c0392b',
+}
+
+
