@@ -417,3 +417,16 @@ class MusicOrganizerPro:
         )
         self.update_header_stats()
 
+    def apply_sort(self):
+        key_map = {
+            'Title':  lambda s: s.get('title', '').lower(),
+            'Artist': lambda s: s.get('artist', '').lower(),
+            'Album':  lambda s: s.get('album', '').lower(),
+            'Year':   lambda s: s.get('year', ''),
+            'Rating': lambda s: -s.get('rating', 0),
+            'Plays':  lambda s: -s.get('play_count', 0),
+        }
+        self.current_view.sort(key=key_map.get(self.sort_var.get(),
+                                                lambda s: s.get('title', '').lower()))
+        self.display_songs(self.current_view)
+
