@@ -119,4 +119,22 @@ class MusicOrganizerPro:
             font=('Arial', 19, 'bold'), bg=C['surface'], fg=C['primary']
         ).pack(side=tk.LEFT, padx=20, pady=10)
 
+        # Search bar
+        sf = tk.Frame(header, bg=C['surface2'], padx=6, pady=4)
+        sf.pack(side=tk.LEFT, padx=30, pady=10)
+        tk.Label(sf, text="🔍", bg=C['surface2'], fg=C['subtext'],
+                 font=('Arial', 11)).pack(side=tk.LEFT)
+        self.search_var = tk.StringVar()
+        self.search_var.trace_add('write', self.on_search)
+        tk.Entry(
+            sf, textvariable=self.search_var,
+            font=('Arial', 11), bg=C['surface2'], fg=C['text'],
+            insertbackground='white', relief=tk.FLAT, width=28, bd=0
+        ).pack(side=tk.LEFT, padx=4)
+
+        self.header_stats = tk.Label(
+            header, text="", font=('Arial', 9),
+            bg=C['surface'], fg=C['subtext']
+        )
+        self.header_stats.pack(side=tk.RIGHT, padx=20)
 
