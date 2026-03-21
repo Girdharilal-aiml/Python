@@ -445,3 +445,18 @@ class MusicOrganizerPro:
                                    key=lambda s: s.get('rating', 0), reverse=True)
         self.display_songs(self.current_view)
 
+    def show_most_played(self):
+        self.current_playlist = None
+        self.view_label.config(text="🔥  Most Played")
+        self.current_view = sorted(self.library,
+                                   key=lambda s: s.get('play_count', 0), reverse=True)
+        self.display_songs(self.current_view)
+
+    def show_recently_played(self):
+        self.current_playlist = None
+        self.view_label.config(text="🕐  Recently Played")
+        played = [s for s in self.library if s.get('last_played')]
+        played.sort(key=lambda s: s.get('last_played', ''), reverse=True)
+        self.current_view = played
+        self.display_songs(played)
+
