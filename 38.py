@@ -154,3 +154,16 @@ class MusicOrganizerPro:
 
         tk.Label(sb, text="LIBRARY", font=('Arial', 8, 'bold'),
                  bg=C['surface'], fg=C['subtext']).pack(anchor='w', padx=15, pady=(14, 4))
+
+        self._sidebar_btn(sb, "📚   All Songs",       self.show_library)
+        self._sidebar_btn(sb, "⭐   Top Rated",        self.show_top_rated)
+        self._sidebar_btn(sb, "🔥   Most Played",      self.show_most_played)
+        self._sidebar_btn(sb, "🕐   Recently Played",  self.show_recently_played)
+
+        tk.Frame(sb, bg=C['surface2'], height=1).pack(fill=tk.X, padx=15, pady=8)
+
+        tk.Label(sb, text="PLAYLISTS", font=('Arial', 8, 'bold'),
+                 bg=C['surface'], fg=C['subtext']).pack(anchor='w', padx=15, pady=(0, 4))
+
+        lf = tk.Frame(sb, bg=C['surface'])
+        lf.pack(fill=tk.BOTH, expand=True, padx=10)
