@@ -327,3 +327,22 @@ class MusicOrganizerPro:
             height=7, relief=tk.FLAT
         )
         self.stats_text.pack(fill=tk.X, padx=10, pady=(0, 10))
+
+    def _build_playback_bar(self):
+        bar = tk.Frame(self.root, bg=C['surface'], height=88)
+        bar.pack(fill=tk.X, side=tk.BOTTOM)
+        bar.pack_propagate(False)
+
+        self.now_playing_label = tk.Label(
+            bar, text="No song playing",
+            font=('Arial', 10, 'bold'), bg=C['surface'], fg=C['text']
+        )
+        self.now_playing_label.pack(pady=(8, 0))
+
+        # Progress row
+        pf = tk.Frame(bar, bg=C['surface'])
+        pf.pack(fill=tk.X, padx=20, pady=2)
+
+        self.time_label = tk.Label(pf, text="0:00", font=('Arial', 8),
+                                   bg=C['surface'], fg=C['subtext'], width=4)
+        self.time_label.pack(side=tk.LEFT)
