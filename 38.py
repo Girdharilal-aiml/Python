@@ -581,3 +581,29 @@ class MusicOrganizerPro:
         for name in sorted(self.playlists.keys()):
             lb.insert(tk.END, name)
 
+        def confirm():
+            s = lb.curselection()
+            if not s:
+                return
+            name = lb.get(s[0])
+            if fp not in self.playlists[name]:
+                self.playlists[name].append(fp)
+                self.save_data()
+                self.display_playlists()
+            win.destroy()
+
+        tk.Button(win, text="Add", command=confirm, font=('Arial', 10, 'bold'),
+                  bg=C['primary'], fg='black', bd=0, relief=tk.FLAT,
+                  cursor='hand2', pady=8).pack(fill=tk.X, padx=15, pady=10)
+
+    def new_playlist(self):
+        name = simpledialog.askstring("New Playlist", "Playlist name:", parent=self.root)
+        if name and name.strip():
+            name = name.strip()
+            if name in self.playlists:
+                messagebox.showwarning("Exists", "A playlist with that name already exists.")
+            else:
+                self.playlists[name] = []
+                self.save_data()
+                self.display_playlists()
+
