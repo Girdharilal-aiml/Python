@@ -241,3 +241,18 @@ class MusicOrganizerPro:
 
         vsb = tk.Scrollbar(tf)
         vsb.pack(side=tk.RIGHT, fill=tk.Y)
+
+        cols = ('Title', 'Artist', 'Album', 'Year', 'Dur', 'Rating', 'Plays', 'Mood')
+        self.music_tree = ttk.Treeview(
+            tf, columns=cols, show='headings',
+            yscrollcommand=vsb.set, selectmode='browse'
+        )
+        self.music_tree.pack(fill=tk.BOTH, expand=True)
+        vsb.config(command=self.music_tree.yview)
+
+        widths = {'Title': 220, 'Artist': 140, 'Album': 120,
+                  'Year': 52, 'Dur': 65, 'Rating': 72, 'Plays': 48, 'Mood': 120}
+        for col in cols:
+            self.music_tree.heading(col, text=col)
+            self.music_tree.column(col, width=widths[col], minwidth=40)
+
