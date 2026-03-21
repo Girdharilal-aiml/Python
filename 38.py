@@ -109,4 +109,14 @@ class MusicOrganizerPro:
         self.show_library()
         self.update_stats_panel()
 
+    def _build_header(self):
+        header = tk.Frame(self.root, bg=C['surface'], height=58)
+        header.pack(fill=tk.X)
+        header.pack_propagate(False)
+
+        tk.Label(
+            header, text="♪  Music Organizer Pro",
+            font=('Arial', 19, 'bold'), bg=C['surface'], fg=C['primary']
+        ).pack(side=tk.LEFT, padx=20, pady=10)
+
 
