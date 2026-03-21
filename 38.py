@@ -690,3 +690,129 @@ class MusicOrganizerPro:
                 self.music_tree.selection_set(item)
                 break
 
+    def on_double_click(self, _event):
+        sel = self.music_tree.selection()
+        if sel:
+            self.on_select_song(_event)
+
+    # ---------------------------------------------------------- playback
+
+    def _open_external_player(self, filepath, reason):
+        try:
+            os.startfile(filepath)
+            return True
+        except Exception as e:
+            first_error = str(e)
+        try:
+            subprocess.Popen(["cmd", "/c", "start", "", filepath], shell=False)
+            return True
+        except Exception as e:
+            messagebox.showerror(
+                "Open File Error",
+                f"Could not open this file ({reason}).\n\n"
+                f"First error: {first_error}\n"
+                f"Last error: {e}"
+            )
+            return False
+
+    def play_song(self, filepath):
+        if not os.path.exists(filepath):
+            messagebox.showerror("File Not Found", f"Cannot find:\n{filepath}")
+            return
+
+        song = next((s for s in self.library if s['path'] == filepath), None)
+        if not song:
+            return
+        if self._open_external_player(filepath, "external player mode"):
+            self.current_song = filepath
+            song['play_count'] = song.get('play_count', 0) + 1
+            song['last_played'] = datetime.now().strftime('%Y-%m-%d %H:%M')
+            self.save_data()
+            title = song.get('title', Path(filepath).stem)
+            self.now_playing_label.config(
+                text=f"Opened: {title}"
+            )
+            self._load_duration(song)
+            self._show_details(song)
+            self.update_stats_panel()
+            self.display_songs(self.current_view)
+
+    def _load_duration(self, song):
+        dur = song.get('duration', '0:00')
+        self.duration_label.config(text=dur)
+        self._song_length = 0
+        if ':' in dur:
+            try:
+                m, s = dur.split(':')
+                self._song_length = int(m) * 60 + int(s)
+            except ValueError:
+                pass
+
+    def _start_progress(self):
+        self._playback_start = time.time()
+        self._seek_pos = 0
+
+        def _run():
+            while self.is_playing and not self.is_paused:
+                elapsed = self._seek_pos + (time.time() - self._playback_start)
+                if self._song_length > 0:
+                    pct = min(elapsed / self._song_length * 100, 100)
+                    self.progress_var.set(pct)
+                    m, s = divmod(int(elapsed), 60)
+                    self.time_label.config(text=f"{m}:{s:02d}")
+                    if pct >= 100:
+                        self.root.after(300, self.play_next)
+                        break
+                time.sleep(0.4)
+
+        threading.Thread(target=_run, daemon=True).start()
+
+    def toggle_play(self):
+        sel = self.music_tree.selection()
+        if sel:
+            self.play_song(self.music_tree.item(sel[0])['tags'][0])
+        elif self.current_view:
+            self.play_song(self.current_view[0]['path'])
+
+    def stop_playback(self):
+        self.current_song = None
+        self.now_playing_label.config(text="No file opened")
+        self.progress_var.set(0)
+        self.time_label.config(text="0:00")
+
+    def play_next(self):
+        if not self.current_view:
+            return
+        paths = [s['path'] for s in self.current_view]
+        if not paths:
+            return
+        if self.current_song in paths:
+            next_path = paths[(paths.index(self.current_song) + 1) % len(paths)]
+        else:
+            next_path = paths[0]
+        self.play_song(next_path)
+
+    def play_prev(self):
+        if not self.current_view:
+            return
+        paths = [s['path'] for s in self.current_view]
+        if not paths:
+            return
+        if self.current_song in paths:
+            prev_path = paths[(paths.index(self.current_song) - 1) % len(paths)]
+        else:
+            prev_path = paths[0]
+        self.play_song(prev_path)
+
+    def set_volume(self, val):
+        return
+
+    # ------------------------------------------------------------- stats
+
+    def update_stats_panel(self):
+        total = len(self.library)
+        played = sum(1 for s in self.library if s.get('play_count', 0) > 0)
+        rated  = sum(1 for s in self.library if s.get('rating', 0) > 0)
+        total_plays = sum(s.get('play_count', 0) for s in self.library)
+        top = max(self.library, key=lambda s: s.get('play_count', 0), default=None)
+
