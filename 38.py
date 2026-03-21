@@ -38,3 +38,20 @@ C = {
 }
 
 
+class MusicOrganizerPro:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Music Organizer Pro")
+        self.root.geometry("1280x760")
+        self.root.configure(bg=C['dark'])
+        self.root.resizable(True, True)
+        self.root.minsize(960, 620)
+
+        # Data
+        self.library_file = "music_library.json"
+        self.library = []
+        self.playlists = {}
+        self.current_playlist = None
+        self.current_view = []
+        self.load_data()
+
