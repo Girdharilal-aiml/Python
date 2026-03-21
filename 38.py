@@ -289,3 +289,19 @@ class MusicOrganizerPro:
             height=8, relief=tk.FLAT
         )
         self.details_text.pack(fill=tk.X, padx=10)
+
+        section("RATING")
+        star_f = tk.Frame(rp, bg=C['surface'])
+        star_f.pack(anchor='w', padx=10)
+        self.star_buttons = []
+        for i in range(1, 6):
+            b = tk.Button(
+                star_f, text="☆", font=('Arial', 17),
+                bg=C['surface'], fg='#f39c12',
+                bd=0, relief=tk.FLAT, cursor='hand2',
+                activebackground=C['surface'], activeforeground='#f39c12',
+                command=lambda x=i: self.set_rating(x)
+            )
+            b.pack(side=tk.LEFT)
+            self.star_buttons.append(b)
+
