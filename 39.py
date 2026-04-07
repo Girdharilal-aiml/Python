@@ -110,4 +110,10 @@ class EBookReader:
         self.filename_label = tk.Label(
             toolbar,
             text="No book open",
+            font=('Arial', 11, 'italic'),
+            bg='#d4c5a9',
+            fg='#555'
+        )
+        self.filename_label.pack(side=tk.RIGHT, padx=15)
+
 
