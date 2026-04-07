@@ -120,4 +120,14 @@ class EBookReader:
         main_container = tk.Frame(root, bg='#f5f5dc')
         main_container.pack(fill=tk.BOTH, expand=True)
 
+        # Left sidebar - TOC/Bookmarks
+        sidebar = tk.Frame(main_container, bg='#e8e8d8', width=250, relief=tk.SOLID, bd=1)
+        sidebar.pack(side=tk.LEFT, fill=tk.Y)
+        sidebar.pack_propagate(False)
+
+        # Tabs
+        tabs_frame = tk.Frame(sidebar, bg='#e8e8d8')
+        tabs_frame.pack(fill=tk.X)
+
+        self.toc_btn = tk.Button(
 
