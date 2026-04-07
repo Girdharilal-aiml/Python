@@ -141,3 +141,8 @@ class EBookReader:
         )
         self.toc_btn.pack(side=tk.LEFT, fill=tk.X, expand=True, pady=5)
 
+        self.bookmarks_btn = tk.Button(
+            tabs_frame,
+            text="Bookmarks",
+            command=self.show_bookmarks_sidebar,
+            font=('Arial', 10, 'bold'),
