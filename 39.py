@@ -135,4 +135,9 @@ class EBookReader:
             command=self.show_toc,
             font=('Arial', 10, 'bold'),
             bg='#a0826d',
+            fg='white',
+            bd=0,
+            cursor='hand2'
+        )
+        self.toc_btn.pack(side=tk.LEFT, fill=tk.X, expand=True, pady=5)
 
