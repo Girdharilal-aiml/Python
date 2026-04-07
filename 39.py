@@ -116,4 +116,8 @@ class EBookReader:
         )
         self.filename_label.pack(side=tk.RIGHT, padx=15)
 
+        # Main container
+        main_container = tk.Frame(root, bg='#f5f5dc')
+        main_container.pack(fill=tk.BOTH, expand=True)
+
 
