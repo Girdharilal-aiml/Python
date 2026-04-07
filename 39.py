@@ -56,3 +56,7 @@ class EBookReader:
         toolbar.pack(fill=tk.X)
         toolbar.pack_propagate(False)
 
+        tk.Button(
+            toolbar,
+            text="Open Book",
+            command=self.open_file,
