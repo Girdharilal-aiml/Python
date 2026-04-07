@@ -51,3 +51,8 @@ class EBookReader:
         bookmarks_menu.add_command(label="Add Bookmark", command=self.add_bookmark, accelerator="Ctrl+B")
         bookmarks_menu.add_command(label="View Bookmarks", command=self.show_bookmarks)
 
+        # Toolbar
+        toolbar = tk.Frame(root, bg='#d4c5a9', height=50)
+        toolbar.pack(fill=tk.X)
+        toolbar.pack_propagate(False)
+
