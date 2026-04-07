@@ -47,3 +47,7 @@ class EBookReader:
 
         # Bookmarks menu
         bookmarks_menu = tk.Menu(menubar, tearoff=0, bg='#e8e8d8', fg='#333')
+        menubar.add_cascade(label="Bookmarks", menu=bookmarks_menu)
+        bookmarks_menu.add_command(label="Add Bookmark", command=self.add_bookmark, accelerator="Ctrl+B")
+        bookmarks_menu.add_command(label="View Bookmarks", command=self.show_bookmarks)
+
