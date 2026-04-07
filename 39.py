@@ -15,3 +15,7 @@ try:
 except ImportError:
     PDF_AVAILABLE = False
 
+class EBookReader:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("eBook Reader")
