@@ -28,3 +28,8 @@ class EBookReader:
         self.bookmarks_file = "bookmarks.json"
         self.bookmarks = {}
         self.current_file = None
+        self.current_page = 0
+        self.total_pages = 0
+        self.pdf_reader = None
+        self.file_type = None
+        self.load_bookmarks()
