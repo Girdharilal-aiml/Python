@@ -64,3 +64,8 @@ class EBookReader:
             bg='#8b7355',
             fg='white',
             bd=0,
+            cursor='hand2',
+            padx=15,
+            pady=8
+        ).pack(side=tk.LEFT, padx=10, pady=8)
+
