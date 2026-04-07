@@ -60,3 +60,7 @@ class EBookReader:
             toolbar,
             text="Open Book",
             command=self.open_file,
+            font=('Arial', 10, 'bold'),
+            bg='#8b7355',
+            fg='white',
+            bd=0,
