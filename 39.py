@@ -100,4 +100,9 @@ class EBookReader:
             command=self.next_page,
             font=('Arial', 12, 'bold'),
             bg='#a0826d',
+            fg='white',
+            bd=0,
+            cursor='hand2',
+            width=3
+        ).pack(side=tk.LEFT, padx=2)
 
