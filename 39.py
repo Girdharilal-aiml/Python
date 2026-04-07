@@ -69,3 +69,8 @@ class EBookReader:
             pady=8
         ).pack(side=tk.LEFT, padx=10, pady=8)
 
+        # Navigation (for PDFs)
+        self.nav_frame = tk.Frame(toolbar, bg='#d4c5a9')
+        self.nav_frame.pack(side=tk.LEFT, padx=20)
+
+        tk.Button(
