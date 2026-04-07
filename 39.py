@@ -130,4 +130,9 @@ class EBookReader:
         tabs_frame.pack(fill=tk.X)
 
         self.toc_btn = tk.Button(
+            tabs_frame,
+            text="Contents",
+            command=self.show_toc,
+            font=('Arial', 10, 'bold'),
+            bg='#a0826d',
 
