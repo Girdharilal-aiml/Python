@@ -95,4 +95,9 @@ class EBookReader:
         self.page_label.pack(side=tk.LEFT, padx=10)
 
         tk.Button(
+            self.nav_frame,
+            text="▶",
+            command=self.next_page,
+            font=('Arial', 12, 'bold'),
+            bg='#a0826d',
 
