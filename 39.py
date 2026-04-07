@@ -38,3 +38,7 @@ class EBookReader:
         menubar = tk.Menu(root, bg='#e8e8d8', fg='#333', bd=0)
         root.config(menu=menubar)
 
+        # File menu
+        file_menu = tk.Menu(menubar, tearoff=0, bg='#e8e8d8', fg='#333')
+        menubar.add_cascade(label="File", menu=file_menu)
+        file_menu.add_command(label="Open", command=self.open_file, accelerator="Ctrl+O")
