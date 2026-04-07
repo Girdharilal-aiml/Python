@@ -9,3 +9,9 @@ from tkinter import filedialog, messagebox, scrolledtext
 import json
 import os
 
+try:
+    import PyPDF2
+    PDF_AVAILABLE = True
+except ImportError:
+    PDF_AVAILABLE = False
+
