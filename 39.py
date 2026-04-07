@@ -33,3 +33,8 @@ class EBookReader:
         self.pdf_reader = None
         self.file_type = None
         self.load_bookmarks()
+
+        # Menu bar
+        menubar = tk.Menu(root, bg='#e8e8d8', fg='#333', bd=0)
+        root.config(menu=menubar)
+
