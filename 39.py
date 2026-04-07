@@ -90,4 +90,9 @@ class EBookReader:
             text="Page 0 / 0",
             font=('Arial', 10),
             bg='#d4c5a9',
+            fg='#333'
+        )
+        self.page_label.pack(side=tk.LEFT, padx=10)
+
+        tk.Button(
 
