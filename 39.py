@@ -24,3 +24,7 @@ class EBookReader:
         self.root.resizable(True, True)
         self.root.minsize(800, 600)
 
+        # Data
+        self.bookmarks_file = "bookmarks.json"
+        self.bookmarks = {}
+        self.current_file = None
