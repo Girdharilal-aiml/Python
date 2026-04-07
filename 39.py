@@ -42,3 +42,8 @@ class EBookReader:
         file_menu = tk.Menu(menubar, tearoff=0, bg='#e8e8d8', fg='#333')
         menubar.add_cascade(label="File", menu=file_menu)
         file_menu.add_command(label="Open", command=self.open_file, accelerator="Ctrl+O")
+        file_menu.add_separator()
+        file_menu.add_command(label="Exit", command=root.quit)
+
+        # Bookmarks menu
+        bookmarks_menu = tk.Menu(menubar, tearoff=0, bg='#e8e8d8', fg='#333')
