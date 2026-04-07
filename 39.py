@@ -85,4 +85,9 @@ class EBookReader:
             width=3
         ).pack(side=tk.LEFT, padx=2)
 
+        self.page_label = tk.Label(
+            self.nav_frame,
+            text="Page 0 / 0",
+            font=('Arial', 10),
+            bg='#d4c5a9',
 
