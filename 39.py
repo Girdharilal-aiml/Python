@@ -106,3 +106,8 @@ class EBookReader:
             width=3
         ).pack(side=tk.LEFT, padx=2)
 
+        # Filename
+        self.filename_label = tk.Label(
+            toolbar,
+            text="No book open",
+
