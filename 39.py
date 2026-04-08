@@ -244,3 +244,18 @@ class EBookReader:
             width=2
         ).pack(side=tk.LEFT, padx=2)
 
+        # Keyboard shortcuts
+        self.root.bind('<Control-o>', lambda e: self.open_file())
+        self.root.bind('<Control-b>', lambda e: self.add_bookmark())
+        self.root.bind('<Left>', lambda e: self.prev_page())
+        self.root.bind('<Right>', lambda e: self.next_page())
+
+        # Show welcome
+        self.show_toc()
+
+    def load_bookmarks(self):
+        if os.path.exists(self.bookmarks_file):
+            try:
+                with open(self.bookmarks_file, 'r', encoding='utf-8') as f:
+                    self.bookmarks = json.load(f)
+            except:
