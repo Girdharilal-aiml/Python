@@ -184,3 +184,7 @@ class EBookReader:
             font=('Georgia', 12),
             bg='#fffff0',
             fg='#2b2b2b',
+            wrap=tk.WORD,
+            padx=30,
+            pady=20,
+            spacing1=5,
