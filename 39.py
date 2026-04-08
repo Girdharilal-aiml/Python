@@ -180,3 +180,7 @@ class EBookReader:
         text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
 
         self.text_widget = tk.Text(
+            reading_frame,
+            font=('Georgia', 12),
+            bg='#fffff0',
+            fg='#2b2b2b',
