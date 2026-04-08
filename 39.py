@@ -168,3 +168,6 @@ class EBookReader:
             yscrollcommand=sidebar_scroll.set
         )
         self.sidebar_listbox.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+        sidebar_scroll.config(command=self.sidebar_listbox.yview)
+        self.sidebar_listbox.bind('<<ListboxSelect>>', self.sidebar_select)
+
