@@ -280,3 +280,14 @@ class EBookReader:
 
         self.current_file = filepath
         self.filename_label.config(text=os.path.basename(filepath))
+
+        if filepath.endswith('.txt'):
+            self.load_txt(filepath)
+        elif filepath.endswith('.pdf'):
+            if not PDF_AVAILABLE:
+                messagebox.showerror("Missing Library", 
+                                   "PDF support requires PyPDF2.\n"
+                                   "Install with: pip install PyPDF2")
+                return
+            self.load_pdf(filepath)
+
