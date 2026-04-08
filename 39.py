@@ -197,3 +197,7 @@ class EBookReader:
         text_scroll.config(command=self.text_widget.yview)
 
         # Font size controls
+        font_frame = tk.Frame(reading_frame, bg='#f5f5dc')
+        font_frame.pack(side=tk.BOTTOM, pady=(10, 0))
+
+        tk.Label(
