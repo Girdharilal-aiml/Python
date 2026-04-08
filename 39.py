@@ -224,3 +224,8 @@ class EBookReader:
 
         self.font_size_label = tk.Label(
             font_frame,
+            text="12",
+            font=('Arial', 10, 'bold'),
+            bg='#f5f5dc',
+            fg='#333',
+            width=3
