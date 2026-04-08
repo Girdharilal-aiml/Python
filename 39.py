@@ -154,3 +154,6 @@ class EBookReader:
         self.bookmarks_btn.pack(side=tk.LEFT, fill=tk.X, expand=True, pady=5)
 
         # Sidebar content
+        sidebar_scroll = tk.Scrollbar(sidebar)
+        sidebar_scroll.pack(side=tk.RIGHT, fill=tk.Y, padx=(0, 5))
+
