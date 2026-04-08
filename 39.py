@@ -163,3 +163,6 @@ class EBookReader:
             bg='#f5f5dc',
             fg='#333',
             selectbackground='#8b7355',
+            selectforeground='white',
+            bd=0,
+            yscrollcommand=sidebar_scroll.set
