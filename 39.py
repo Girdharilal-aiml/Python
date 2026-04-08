@@ -194,3 +194,6 @@ class EBookReader:
             state='disabled'
         )
         self.text_widget.pack(fill=tk.BOTH, expand=True)
+        text_scroll.config(command=self.text_widget.yview)
+
+        # Font size controls
