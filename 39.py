@@ -166,3 +166,5 @@ class EBookReader:
             selectforeground='white',
             bd=0,
             yscrollcommand=sidebar_scroll.set
+        )
+        self.sidebar_listbox.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
