@@ -191,3 +191,6 @@ class EBookReader:
             spacing2=3,
             spacing3=5,
             yscrollcommand=text_scroll.set,
+            state='disabled'
+        )
+        self.text_widget.pack(fill=tk.BOTH, expand=True)
