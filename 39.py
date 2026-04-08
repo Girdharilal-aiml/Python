@@ -174,3 +174,6 @@ class EBookReader:
         # Reading area
         reading_frame = tk.Frame(main_container, bg='#f5f5dc')
         reading_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=15, pady=15)
+
+        # Text widget
+        text_scroll = tk.Scrollbar(reading_frame)
