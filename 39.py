@@ -216,3 +216,7 @@ class EBookReader:
             command=self.decrease_font,
             font=('Arial', 10, 'bold'),
             bg='#d4c5a9',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            width=2
