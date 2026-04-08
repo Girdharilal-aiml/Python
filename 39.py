@@ -177,3 +177,6 @@ class EBookReader:
 
         # Text widget
         text_scroll = tk.Scrollbar(reading_frame)
+        text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.text_widget = tk.Text(
