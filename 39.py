@@ -188,3 +188,6 @@ class EBookReader:
             padx=30,
             pady=20,
             spacing1=5,
+            spacing2=3,
+            spacing3=5,
+            yscrollcommand=text_scroll.set,
