@@ -212,3 +212,7 @@ class EBookReader:
         
         tk.Button(
             font_frame,
+            text="-",
+            command=self.decrease_font,
+            font=('Arial', 10, 'bold'),
+            bg='#d4c5a9',
