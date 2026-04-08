@@ -205,3 +205,6 @@ class EBookReader:
             text="Font Size:",
             font=('Arial', 9),
             bg='#f5f5dc',
+            fg='#555'
+        ).pack(side=tk.LEFT, padx=5)
+
