@@ -220,3 +220,7 @@ class EBookReader:
             bd=0,
             cursor='hand2',
             width=2
+        ).pack(side=tk.LEFT, padx=2)
+
+        self.font_size_label = tk.Label(
+            font_frame,
