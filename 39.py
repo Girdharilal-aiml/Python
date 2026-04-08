@@ -157,3 +157,6 @@ class EBookReader:
         sidebar_scroll = tk.Scrollbar(sidebar)
         sidebar_scroll.pack(side=tk.RIGHT, fill=tk.Y, padx=(0, 5))
 
+        self.sidebar_listbox = tk.Listbox(
+            sidebar,
+            font=('Arial', 10),
