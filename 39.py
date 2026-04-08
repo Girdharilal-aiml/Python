@@ -259,3 +259,12 @@ class EBookReader:
                 with open(self.bookmarks_file, 'r', encoding='utf-8') as f:
                     self.bookmarks = json.load(f)
             except:
+                self.bookmarks = {}
+
+    def save_bookmarks(self):
+        with open(self.bookmarks_file, 'w', encoding='utf-8') as f:
+            json.dump(self.bookmarks, f, indent=2, ensure_ascii=False)
+
+    def open_file(self):
+        filepath = filedialog.askopenfilename(
+            title="Open eBook",
