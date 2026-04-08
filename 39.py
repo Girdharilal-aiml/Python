@@ -171,3 +171,6 @@ class EBookReader:
         sidebar_scroll.config(command=self.sidebar_listbox.yview)
         self.sidebar_listbox.bind('<<ListboxSelect>>', self.sidebar_select)
 
+        # Reading area
+        reading_frame = tk.Frame(main_container, bg='#f5f5dc')
+        reading_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=15, pady=15)
