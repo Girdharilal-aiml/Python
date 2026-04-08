@@ -208,3 +208,7 @@ class EBookReader:
             fg='#555'
         ).pack(side=tk.LEFT, padx=5)
 
+        self.font_size = 12
+        
+        tk.Button(
+            font_frame,
