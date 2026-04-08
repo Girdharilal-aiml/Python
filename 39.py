@@ -268,3 +268,15 @@ class EBookReader:
     def open_file(self):
         filepath = filedialog.askopenfilename(
             title="Open eBook",
+            filetypes=[
+                ("Text files", "*.txt"),
+                ("PDF files", "*.pdf"),
+                ("All files", "*.*")
+            ]
+        )
+
+        if not filepath:
+            return
+
+        self.current_file = filepath
+        self.filename_label.config(text=os.path.basename(filepath))
