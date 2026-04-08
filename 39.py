@@ -238,3 +238,9 @@ class EBookReader:
             command=self.increase_font,
             font=('Arial', 10, 'bold'),
             bg='#d4c5a9',
+            fg='#333',
+            bd=0,
+            cursor='hand2',
+            width=2
+        ).pack(side=tk.LEFT, padx=2)
+
