@@ -160,3 +160,6 @@ class EBookReader:
         self.sidebar_listbox = tk.Listbox(
             sidebar,
             font=('Arial', 10),
+            bg='#f5f5dc',
+            fg='#333',
+            selectbackground='#8b7355',
