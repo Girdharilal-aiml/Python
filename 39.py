@@ -201,3 +201,7 @@ class EBookReader:
         font_frame.pack(side=tk.BOTTOM, pady=(10, 0))
 
         tk.Label(
+            font_frame,
+            text="Font Size:",
+            font=('Arial', 9),
+            bg='#f5f5dc',
