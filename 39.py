@@ -151,3 +151,6 @@ class EBookReader:
             bd=0,
             cursor='hand2'
         )
+        self.bookmarks_btn.pack(side=tk.LEFT, fill=tk.X, expand=True, pady=5)
+
+        # Sidebar content
