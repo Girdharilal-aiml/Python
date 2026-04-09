@@ -387,3 +387,7 @@ class EBookReader:
 
             bookmark = {
                 'name': name.strip(),
+                'page': self.current_page if self.file_type == 'pdf' else 0
+            }
+
+            self.bookmarks[self.current_file].append(bookmark)
