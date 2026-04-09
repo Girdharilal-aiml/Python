@@ -395,3 +395,22 @@ class EBookReader:
             messagebox.showinfo("Saved", "Bookmark added!")
 
     def show_toc(self):
+        self.toc_btn.config(bg='#a0826d', fg='white')
+        self.bookmarks_btn.config(bg='#d4c5a9', fg='#333')
+
+        self.sidebar_listbox.delete(0, tk.END)
+
+        if self.current_file and self.file_type == 'pdf':
+            self.sidebar_listbox.insert(tk.END, f"Total Pages: {self.total_pages}")
+            self.sidebar_listbox.insert(tk.END, "")
+            for i in range(min(20, self.total_pages)):
+                self.sidebar_listbox.insert(tk.END, f"Page {i + 1}")
+        else:
+            self.sidebar_listbox.insert(tk.END, "Table of Contents")
+            self.sidebar_listbox.insert(tk.END, "")
+            self.sidebar_listbox.insert(tk.END, "Open a book to view contents")
+
+    def show_bookmarks_sidebar(self):
+        self.toc_btn.config(bg='#d4c5a9', fg='#333')
+        self.bookmarks_btn.config(bg='#a0826d', fg='white')
+
