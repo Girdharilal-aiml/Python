@@ -353,3 +353,7 @@ class EBookReader:
             self.current_page -= 1
             self.display_pdf_page()
 
+    def next_page(self):
+        if self.file_type != 'pdf':
+            return
+
