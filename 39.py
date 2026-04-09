@@ -303,3 +303,7 @@ class EBookReader:
             self.text_widget.config(state='normal')
             self.text_widget.delete('1.0', tk.END)
             self.text_widget.insert('1.0', content)
+            self.text_widget.config(state='disabled')
+
+            self.page_label.config(text="TXT File")
+            self.show_toc()
