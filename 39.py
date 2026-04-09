@@ -436,3 +436,16 @@ class EBookReader:
         text = self.sidebar_listbox.get(selection[0])
 
         # TOC navigation
+        if text.startswith("Page ") and self.file_type == 'pdf':
+            try:
+                page_num = int(text.split()[1]) - 1
+                self.current_page = page_num
+                self.display_pdf_page()
+            except:
+                pass
+
+        # Bookmark navigation
+        elif text.startswith("📖 "):
+            if self.current_file in self.bookmarks:
+                bookmark_name = text.split("📖 ")[1].split(" (Page")[0]
+                for bookmark in self.bookmarks[self.current_file]:
