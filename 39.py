@@ -425,3 +425,14 @@ class EBookReader:
             self.sidebar_listbox.insert(tk.END, "")
             self.sidebar_listbox.insert(tk.END, "Press Ctrl+B to add")
 
+    def show_bookmarks(self):
+        self.show_bookmarks_sidebar()
+
+    def sidebar_select(self, event):
+        selection = self.sidebar_listbox.curselection()
+        if not selection:
+            return
+
+        text = self.sidebar_listbox.get(selection[0])
+
+        # TOC navigation
