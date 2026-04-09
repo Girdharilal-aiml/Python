@@ -296,3 +296,6 @@ class EBookReader:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
 
+            self.file_type = 'txt'
+            self.current_page = 0
+            self.total_pages = 1
