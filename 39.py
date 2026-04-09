@@ -449,3 +449,26 @@ class EBookReader:
             if self.current_file in self.bookmarks:
                 bookmark_name = text.split("📖 ")[1].split(" (Page")[0]
                 for bookmark in self.bookmarks[self.current_file]:
+                    if bookmark['name'] == bookmark_name:
+                        if self.file_type == 'pdf':
+                            self.current_page = bookmark['page']
+                            self.display_pdf_page()
+                        break
+
+def main():
+    root = tk.Tk()
+    
+    if not PDF_AVAILABLE:
+        messagebox.showwarning(
+            "Optional Library",
+            "PyPDF2 is not installed.\n"
+            "TXT files will work fine.\n\n"
+            "For PDF support, install:\n"
+            "pip install PyPDF2"
+        )
+    
+    reader = EBookReader(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
