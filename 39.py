@@ -391,3 +391,7 @@ class EBookReader:
             }
 
             self.bookmarks[self.current_file].append(bookmark)
+            self.save_bookmarks()
+            messagebox.showinfo("Saved", "Bookmark added!")
+
+    def show_toc(self):
