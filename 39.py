@@ -314,3 +314,7 @@ class EBookReader:
     def load_pdf(self, filepath):
         try:
             with open(filepath, 'rb') as f:
+                self.pdf_reader = PyPDF2.PdfReader(f)
+                self.total_pages = len(self.pdf_reader.pages)
+                self.file_type = 'pdf'
+                self.current_page = 0
