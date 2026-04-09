@@ -350,3 +350,6 @@ class EBookReader:
             return
 
         if self.current_page > 0:
+            self.current_page -= 1
+            self.display_pdf_page()
+
