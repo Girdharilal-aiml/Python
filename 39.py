@@ -357,3 +357,7 @@ class EBookReader:
         if self.file_type != 'pdf':
             return
 
+        if self.current_page < self.total_pages - 1:
+            self.current_page += 1
+            self.display_pdf_page()
+
