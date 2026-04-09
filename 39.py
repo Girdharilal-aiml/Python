@@ -339,3 +339,7 @@ class EBookReader:
             self.text_widget.delete('1.0', tk.END)
             self.text_widget.insert('1.0', text)
             self.text_widget.config(state='disabled')
+
+            self.page_label.config(text=f"Page {self.current_page + 1} / {self.total_pages}")
+
+        except Exception as e:
