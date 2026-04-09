@@ -331,3 +331,7 @@ class EBookReader:
 
         try:
             with open(self.current_file, 'rb') as f:
+                pdf = PyPDF2.PdfReader(f)
+                page = pdf.pages[self.current_page]
+                text = page.extract_text()
+
