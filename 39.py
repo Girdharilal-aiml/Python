@@ -375,3 +375,7 @@ class EBookReader:
 
     def add_bookmark(self):
         if not self.current_file:
+            messagebox.showwarning("No Book", "Open a book first!")
+            return
+
+        from tkinter import simpledialog
