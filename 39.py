@@ -371,3 +371,7 @@ class EBookReader:
         if self.font_size > 8:
             self.font_size -= 2
             self.text_widget.config(font=('Georgia', self.font_size))
+            self.font_size_label.config(text=str(self.font_size))
+
+    def add_bookmark(self):
+        if not self.current_file:
