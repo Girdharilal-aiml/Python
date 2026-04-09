@@ -383,3 +383,7 @@ class EBookReader:
 
         if name and name.strip():
             if self.current_file not in self.bookmarks:
+                self.bookmarks[self.current_file] = []
+
+            bookmark = {
+                'name': name.strip(),
