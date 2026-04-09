@@ -318,3 +318,12 @@ class EBookReader:
                 self.total_pages = len(self.pdf_reader.pages)
                 self.file_type = 'pdf'
                 self.current_page = 0
+
+            self.display_pdf_page()
+            self.show_toc()
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to load PDF:\n{str(e)}")
+
+    def display_pdf_page(self):
+        if not self.pdf_reader or self.current_page >= self.total_pages:
