@@ -347,3 +347,6 @@ class EBookReader:
 
     def prev_page(self):
         if self.file_type != 'pdf':
+            return
+
+        if self.current_page > 0:
