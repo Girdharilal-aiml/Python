@@ -414,3 +414,14 @@ class EBookReader:
         self.toc_btn.config(bg='#d4c5a9', fg='#333')
         self.bookmarks_btn.config(bg='#a0826d', fg='white')
 
+        self.sidebar_listbox.delete(0, tk.END)
+
+        if self.current_file and self.current_file in self.bookmarks:
+            for bookmark in self.bookmarks[self.current_file]:
+                page_info = f" (Page {bookmark['page'] + 1})" if self.file_type == 'pdf' else ""
+                self.sidebar_listbox.insert(tk.END, f"📖 {bookmark['name']}{page_info}")
+        else:
+            self.sidebar_listbox.insert(tk.END, "No bookmarks")
+            self.sidebar_listbox.insert(tk.END, "")
+            self.sidebar_listbox.insert(tk.END, "Press Ctrl+B to add")
+
