@@ -343,3 +343,7 @@ class EBookReader:
             self.page_label.config(text=f"Page {self.current_page + 1} / {self.total_pages}")
 
         except Exception as e:
+            messagebox.showerror("Error", f"Failed to display page:\n{str(e)}")
+
+    def prev_page(self):
+        if self.file_type != 'pdf':
