@@ -291,3 +291,8 @@ class EBookReader:
                 return
             self.load_pdf(filepath)
 
+    def load_txt(self, filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+
