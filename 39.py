@@ -327,3 +327,7 @@ class EBookReader:
 
     def display_pdf_page(self):
         if not self.pdf_reader or self.current_page >= self.total_pages:
+            return
+
+        try:
+            with open(self.current_file, 'rb') as f:
