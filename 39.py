@@ -361,3 +361,6 @@ class EBookReader:
             self.current_page += 1
             self.display_pdf_page()
 
+    def increase_font(self):
+        if self.font_size < 24:
+            self.font_size += 2
