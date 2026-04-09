@@ -299,3 +299,7 @@ class EBookReader:
             self.file_type = 'txt'
             self.current_page = 0
             self.total_pages = 1
+
+            self.text_widget.config(state='normal')
+            self.text_widget.delete('1.0', tk.END)
+            self.text_widget.insert('1.0', content)
