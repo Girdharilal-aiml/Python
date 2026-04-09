@@ -364,3 +364,7 @@ class EBookReader:
     def increase_font(self):
         if self.font_size < 24:
             self.font_size += 2
+            self.text_widget.config(font=('Georgia', self.font_size))
+            self.font_size_label.config(text=str(self.font_size))
+
+    def decrease_font(self):
