@@ -335,3 +335,7 @@ class EBookReader:
                 page = pdf.pages[self.current_page]
                 text = page.extract_text()
 
+            self.text_widget.config(state='normal')
+            self.text_widget.delete('1.0', tk.END)
+            self.text_widget.insert('1.0', text)
+            self.text_widget.config(state='disabled')
