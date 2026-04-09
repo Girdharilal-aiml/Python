@@ -379,3 +379,7 @@ class EBookReader:
             return
 
         from tkinter import simpledialog
+        name = simpledialog.askstring("Bookmark", "Enter bookmark name:")
+
+        if name and name.strip():
+            if self.current_file not in self.bookmarks:
