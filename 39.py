@@ -307,3 +307,10 @@ class EBookReader:
 
             self.page_label.config(text="TXT File")
             self.show_toc()
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to load file:\n{str(e)}")
+
+    def load_pdf(self, filepath):
+        try:
+            with open(filepath, 'rb') as f:
