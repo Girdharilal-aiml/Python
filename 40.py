@@ -619,4 +619,5 @@ class ReceiptScanner:
                 total += float(str(r.get('amount', 0)).strip() or 0)
             except (ValueError, TypeError):
                 continue
+        self.status_label.config(text=f"{len(self.receipts)} receipts | Total: ${total:.2f}")
 
