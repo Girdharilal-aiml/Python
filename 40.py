@@ -610,5 +610,6 @@ class ReceiptScanner:
             self.save_receipts_data()
             self.display_receipts()
             self.update_stats()
+            self.current_receipt = None
 
 
