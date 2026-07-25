@@ -586,6 +586,7 @@ class ReceiptScanner:
         if os.path.exists(receipt.get('image_path', '')):
             try:
                 image = Image.open(receipt['image_path'])
+                display_size = (400, 500)
 
 
 
