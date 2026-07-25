@@ -588,6 +588,7 @@ class ReceiptScanner:
                 image = Image.open(receipt['image_path'])
                 display_size = (400, 500)
                 image.thumbnail(display_size, Image.Resampling.LANCZOS)
+                photo = ImageTk.PhotoImage(image)
 
 
 
