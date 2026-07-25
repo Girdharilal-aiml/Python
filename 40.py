@@ -612,4 +612,6 @@ class ReceiptScanner:
             self.update_stats()
             self.current_receipt = None
 
+    def update_stats(self):
+        total = 0.0
 
