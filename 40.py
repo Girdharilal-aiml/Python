@@ -617,4 +617,6 @@ class ReceiptScanner:
         for r in self.receipts:
             try:
                 total += float(str(r.get('amount', 0)).strip() or 0)
+            except (ValueError, TypeError):
+                continue
 
