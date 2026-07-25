@@ -621,3 +621,5 @@ class ReceiptScanner:
                 continue
         self.status_label.config(text=f"{len(self.receipts)} receipts | Total: ${total:.2f}")
 
+def main():
+    root = tk.Tk()
