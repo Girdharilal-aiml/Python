@@ -601,6 +601,8 @@ class ReceiptScanner:
                 pass
 
     def delete_receipt(self):
+        if not self.current_receipt:
+            return
 
 
 
