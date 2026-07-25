@@ -614,4 +614,6 @@ class ReceiptScanner:
 
     def update_stats(self):
         total = 0.0
+        for r in self.receipts:
+            try:
 
