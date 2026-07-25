@@ -605,5 +605,6 @@ class ReceiptScanner:
             messagebox.showwarning("No Selection", "Select a receipt to delete!")
             return
 
+        if messagebox.askyesno("Delete", "Delete this receipt?"):
 
 
