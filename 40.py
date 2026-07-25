@@ -608,5 +608,6 @@ class ReceiptScanner:
         if messagebox.askyesno("Delete", "Delete this receipt?"):
             self.receipts.remove(self.current_receipt)
             self.save_receipts_data()
+            self.display_receipts()
 
 
