@@ -623,3 +623,4 @@ class ReceiptScanner:
 
 def main():
     root = tk.Tk()
+    app = ReceiptScanner(root)
