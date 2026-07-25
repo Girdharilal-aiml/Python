@@ -602,6 +602,7 @@ class ReceiptScanner:
 
     def delete_receipt(self):
         if not self.current_receipt:
+            messagebox.showwarning("No Selection", "Select a receipt to delete!")
             return
 
 
