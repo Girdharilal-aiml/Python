@@ -600,6 +600,7 @@ class ReceiptScanner:
             except:
                 pass
 
+    def delete_receipt(self):
 
 
 
