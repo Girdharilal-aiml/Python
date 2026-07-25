@@ -582,4 +582,10 @@ class ReceiptScanner:
         self.ocr_text.insert('1.0', receipt.get('ocr_text', ''))
         self.ocr_text.config(state='disabled')
 
- 
+        # Load image
+        if os.path.exists(receipt.get('image_path', '')):
+            try:
+
+
+
+
