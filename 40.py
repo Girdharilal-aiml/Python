@@ -616,4 +616,5 @@ class ReceiptScanner:
         total = 0.0
         for r in self.receipts:
             try:
+                total += float(str(r.get('amount', 0)).strip() or 0)
 
