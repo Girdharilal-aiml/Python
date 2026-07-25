@@ -592,6 +592,8 @@ class ReceiptScanner:
                 self.image_canvas.delete('all')
                 self.image_canvas.create_image(
                 )
+            except:
+                pass
 
 
 
